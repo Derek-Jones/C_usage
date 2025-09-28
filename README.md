@@ -1,5 +1,7 @@
 Data used to generate the graphs/tables in my book [The New C Standard: An Economic and Cultural Commentary](http://www.knosof.co.uk/cbook/cbook.html), along with the scripts and source code used to create the data.
 
+[Blog post](https://shape-of-code.com/2025/09/28/datacode-for-book-the-new-c-standard/) discussing the background.
+
 The original data is contained in the _diagrams_ directory.  The mapping from a graph/table in the book to the corresponding data filename is somewhat involved (these generated files were automatically inserted into the text of the book, which was then processed using various tools to generate a pdf file).
 
 So you've seen a plot and you want the numbers used to create the plot.  The process to locate the appropriate data file is as follows:

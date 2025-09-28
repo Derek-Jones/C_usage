@@ -22,8 +22,8 @@ The process of extracting data from a collection of C projects is as follows:
 
 Some of the figures and tables use data generated using commercially available tools which are not included in this package.
 
-The graphs are created using _grap_.  This tool is part of the groff/pic/tbl family, but is not packaged with many Linux distributions.  You can download it from:
-https://www.lunabase.org/~faber/Vault/software/grap
+The graphs are created using _grap_.  This tool is part of the groff/pic/tbl family, but is not packaged with many Linux distributions.  You can download it from: 
+https://www.lunabase.org/~faber/Vault/software/grap or
 https://github.com/snorerot13/grap
 
 The file _config.files_ sets various shell variables.  The variable _USE_HOME_ needs to be set to the directory that contains this file

@@ -1,0 +1,7 @@
+ LONG_MAX ,, 47 ,, 28 ,, CHAR_MAX ,, 15 ,, 8 ,, CHAR_BIT ,, 36 ,, 3
+ INT_MAX ,, 106 ,, 17 ,, INT_MIN ,, 17 ,, 7 ,, SCHAR_MIN ,, 12 ,, 2
+ UINT_MAX ,, 30 ,, 14 ,, UCHAR_MAX ,, 16 ,, 5 ,, LLONG_MAX ,, 0 ,, 1
+ SHRT_MAX ,, 20 ,, 13 ,, CHAR_MIN ,, 9 ,, 5 ,, ULLONG_MAX ,, 0 ,, 0
+ SHRT_MIN ,, 19 ,, 12 ,, SCHAR_MAX ,, 13 ,, 4 ,, LLONG_MIN ,, 0 ,, 0
+ USHRT_MAX ,, 12 ,, 11 ,, MB_LEN_MAX ,, 15 ,, 4 ,,   ,,  ,, 
+ ULONG_MAX ,, 85 ,, 10 ,, LONG_MIN ,, 23 ,, 3 ,,   ,,  ,, 

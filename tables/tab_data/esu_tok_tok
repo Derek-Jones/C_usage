@@ -1,0 +1,6 @@
+  ENUM { ,, 456 (1591) ,,  STRUCT id ; ,, 76 (13384)
+  ENUM id ; ,, 0 (0) ,,  STRUCT id id ,, 122974 (27589)
+  ENUM id { ,, 474 (1059) ,,  UNION { ,, 297 (725)
+  ENUM id id ,, 2922 (633) ,,  UNION id ; ,, 0 (11)
+  STRUCT { ,, 1567 (6503) ,,  UNION id { ,, 105 (2624)
+  STRUCT id { ,, 4407 (1311) ,,  UNION id id ,, 330 (231)

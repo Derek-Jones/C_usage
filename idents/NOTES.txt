@@ -1,0 +1,14 @@
+
+The .cnt files list the number of occurrences of different
+identifiers in various open source projects, either in the
+.c or the .h files.
+
+idwordseq.awk attempts to break an identifier into subcomponents.
+Underscore is treated as a separator and various patterns
+are used to extract subcomponents based on likely camelcase
+usage.
+
+Example usage (assuming a Unix like command line):
+
+awk -f idwordseq.awk < gcc-2.95.c.cnt
+

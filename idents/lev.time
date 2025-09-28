@@ -1,0 +1,25 @@
+keylev 14 Dec 03
+
+Keyboard distance of immediately adjacent and the rest.
+
+gcc-2.95.c.uniq
+
+real    1669m28.225s
+user    1031m1.720s
+sys     0m41.020s
+idsoftware.c.uniq
+
+real    445m22.105s
+user    305m1.740s
+sys     0m14.850s
+mozilla.c.uniq
+
+real    806m44.869s
+user    501m44.910s
+sys     0m19.320s
+openafs-1.2.2a.c.uniq
+
+real    804m35.209s
+user    522m23.450s
+sys     0m23.490s
+

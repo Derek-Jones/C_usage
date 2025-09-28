@@ -1,0 +1,7 @@
+
+12 Mar 2005  BUG.  A suitabl eidentifier as the first token on a line
+             following a preprocessing directive would be tokenised
+	     as a proprocessing directive 'keyword'
+26 Feb 2005  Split off utility support functions from ngram to ngutil
+19 Feb 2005  1.0 Initial release
+

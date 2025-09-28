@@ -1,0 +1,43 @@
+These files contain counts for dynamic variable access in MediaBench.
+Data was collected by Eylon Caspi <eylon@cs.berkeley.edu>, January 1999.
+Data was extracted from raw profile output using script "CMD2".
+For more info, see master's thesis:
+<http://www.cs.berkeley.edu/~eylon/masters/>
+
+
+Each file contains 1 line per variable,
+with lines sorted by number of reads per variable.
+Format for each line is:
+
+  <funcname>:<varname> <bitwidth> <numreads> <numwrites>
+
+where:
+
+  <funcname>  = name of C function containing the variable,
+                  or empty if variable is a global
+  <varname>   = name of variable
+  <bitwidth>  = number of bits in variable
+                  (>32 denotes variable is an array or struct)
+                  (0   denotes variable is never initialized or accessed)
+  <numreads>  = number of times variable was read    during execution
+  <numwrites> = number of times variable was written during execution
+
+
+The following table denotes which app generated which data file:
+
+--------------------------------------------
+Data file	MediaBench App
+--------------------------------------------
+cjpeg		JPEG  encode:  "cjpeg"
+djpeg		JPEG  decode:  "djpeg"   
+epic		Epic  encode:  "epic"
+unepic		Epic  decode:  "unepic"
+g721_encode	g721  encode:  "encode"
+g721_decode	g721  decode:  "decode"
+gsm_toast	GSM   encode:  "toast"
+gsm_untoast	GSM   decode:  "untoast"
+mpeg2encode	MPEG2 encode:  "mpeg2encode"
+mpeg2decode	MPEG2 decode:  "mpeg2decode"
+rawcaudio	ADPCM encode:  "rawcaudio"
+rawdaudio	ADPCM decode:  "rawdaudio"
+--------------------------------------------

@@ -1,0 +1,25 @@
+assert.h 26
+complex.h 0
+ctype.h 35
+errno.h 82
+fenv.h 0
+float.h 1
+inttypes.h 1
+iso646.h 0
+limits.h 32
+locale.h 7
+math.h 21
+setjmp.h 80
+signal.h 10
+stdarg.h 54
+stdbool.h 0
+stddef.h 90
+stdint.h 3
+stdio.h 175
+stdlib.h 100
+string.h 83
+tgmath.h 0
+time.h 47
+wchar.h 0
+wctype.h 0
+END_DOT_H

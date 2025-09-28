@@ -1,0 +1,3 @@
+ UNION IDENT ,, 65.5 ,, 0.0
+ STRUCT IDENT ,, 99.0 ,, 1.9
+ ENUM IDENT ,, 86.6 ,, 0.0

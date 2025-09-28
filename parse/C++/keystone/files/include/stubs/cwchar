@@ -1,0 +1,6 @@
+#ifndef _CWCHAR_
+#define _CWCHAR_
+namespace std {
+#include <wchar.h>
+}
+#endif

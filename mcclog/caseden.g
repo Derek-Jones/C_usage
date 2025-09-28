@@ -1,0 +1,105 @@
+
+__PRELUDE
+
+.G1
+
+# caseden.g, 10 Sep 03
+# built on: __DATE
+
+graph Q_1
+
+frame invis ht __HT wid __WID left solid bot solid
+
+coord x 0,25 y 0.9,__MAXY log y
+
+label bot "\fBcase\fR value density"
+label left "\fBswitch\fR statements" ""
+
+ticks bot out at 0, 5 "20", 10 "40", 15 "60", 20 "80", 25 "100"
+#ticks left out at 1, 10, 100, 1000, 10000
+__LEFT_TICK_NUM
+
+num_switch = 0
+num_default = 0
+copy "case_density.d" thru {
+   num_switch = num_switch + $3
+   if $1 == 1 then {
+      num_default = num_default + $3
+      }
+}
+
+bullet at 10, __MAXY
+"no \fBdefault\fR" size -1 ljust at 11, __MAXY
+times at 10, __MAXY/2
+"with \fBdefault\fR" size -1 ljust at 11, __MAXY/2
+delta size -1 at 10, __MAXY/4
+"embedded" size -1 ljust at 11, __MAXY/4
+
+copy "case_density.d" thru {
+   if $1 == 0 then {
+      bullet size -1 at $2, $3*num_default/(num_switch-num_default)
+   } else {
+      times size -1 at $2, $3
+      }
+}
+
+# Engblom 98/05 Fig 13 data
+copy thru {
+   delta size -2 at $1/4,$2*(num_switch/1122)/2
+} until "XXX"
+0      0 
+5      114
+10     65
+15     35
+20     35
+25     17
+30     10
+35     14
+40     25
+45     15
+50     27
+55     2
+60     12
+65     3
+70     50
+75     23
+80     12
+85     9
+90     8
+95     4
+100    642
+XXX
+
+graph Q_2 with .Frame.w at Q_1.e + (0.1, 0)
+
+frame invis ht __HT wid __WID left solid bot solid
+
+coord x 0.9,2000 y 0.9,__MAXY log log
+
+
+label bot "\fBcase\fR value span"
+#label left "\fBswitch\fR statements" ""
+
+#ticks bot out at 0, 5 "20", 10 "40", 15 "60", 20 "80", 25 "100"
+#ticks left out at 1, 10, 100, 1000, 10000
+__LEFT_TICK
+
+num_switch = 0
+num_default = 0
+copy "case_span.d" thru {
+   num_switch = num_switch + $3
+   if $1 == 1 then {
+      num_default = num_default + $3
+      }
+}
+
+copy "case_span.d" thru {
+   if $1 == 0 then {
+      bullet size -2 at $2, $3*num_default/(num_switch-num_default)
+   } else {
+      times size -2 at $2, $3
+      }
+}
+
+.G2
+

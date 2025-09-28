@@ -1,0 +1,77 @@
+
+#ifndef __STD_STDEXCEPT
+#define __STD_STDEXCEPT
+
+#include <exception>
+#include <string>
+
+namespace std
+{
+   class logic_error;
+   class domain_error;
+   class invalid_argument;
+   class length_error;
+   class out_of_range;
+   class runtime_error;
+   class range_error;
+   class overflow_error;
+   class underflow_error;
+
+   class logic_error : public exception 
+   {
+   public:
+      explicit logic_error(const string&);
+   };
+
+   class domain_error : public logic_error 
+   {
+   public:
+      explicit domain_error(const string&);
+   };
+
+   class invalid_argument : public logic_error 
+   {
+   public:
+      explicit invalid_argument(const string&);
+   };
+
+   class length_error : public logic_error 
+   {
+   public:
+      explicit length_error(const string&);
+   };
+
+   class out_of_range : public logic_error
+   {
+   public:
+      explicit out_of_range(const string&);
+   };
+
+   class runtime_error : public exception
+   {
+   public:
+      explicit runtime_error(const string&);
+   };
+
+   class range_error : public runtime_error
+   {
+   public:
+      explicit range_error(const string&);
+   };
+
+   class overflow_error : public runtime_error
+   {
+   public:
+      explicit overflow_error(const string&);
+   };
+
+   class underflow_error : public runtime_error
+   {
+   public:
+      explicit underflow_error(const string&);
+   };
+
+}
+
+#endif
+

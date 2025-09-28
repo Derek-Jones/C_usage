@@ -1,0 +1,1429 @@
+cmpd_hdr_nest 1
+821608
+1 : IF
+cmpd_hdr_nest 1
+976359
+1 : DO
+cmpd_hdr_nest 1
+1019870
+1 : FOR
+cmpd_hdr_nest 3
+1041697
+3 : WHILE
+2 : IF
+1 : SWITCH
+cmpd_hdr_nest 1
+1043580
+1 : DO
+cmpd_hdr_nest 1
+1044317
+1 : IF
+cmpd_hdr_nest 1
+1062937
+1 : DO
+cmpd_hdr_nest 1
+1063670
+1 : IF
+cmpd_hdr_nest 1
+1085655
+1 : FOR
+cmpd_hdr_nest 1
+1088427
+1 : FOR
+cmpd_hdr_nest 1
+1088496
+1 : IF
+cmpd_hdr_nest 1
+1088748
+1 : IF
+cmpd_hdr_nest 1
+1088854
+1 : IF
+cmpd_hdr_nest 1
+1116299
+1 : ELSE
+cmpd_hdr_nest 1
+1116461
+1 : IF
+cmpd_hdr_nest 2
+1116626
+2 : IF
+1 : ELSE
+cmpd_hdr_nest 1
+1116722
+1 : IF
+cmpd_hdr_nest 1
+1120246
+1 : IF
+cmpd_hdr_nest 1
+1123625
+1 : IF
+cmpd_hdr_nest 1
+1125443
+1 : FOR
+cmpd_hdr_nest 1
+1216483
+1 : ELSE
+cmpd_hdr_nest 1
+1216541
+1 : IF
+cmpd_hdr_nest 2
+1216664
+2 : IF
+1 : ELSE
+cmpd_hdr_nest 1
+1218864
+1 : IF
+cmpd_hdr_nest 1
+1219023
+1 : IF
+cmpd_hdr_nest 1
+1251416
+1 : FOR
+cmpd_hdr_nest 6
+1281097
+6 : WHILE
+5 : IF
+4 : WHILE
+3 : IF
+2 : IF
+1 : SWITCH
+cmpd_hdr_nest 1
+1301128
+1 : IF
+cmpd_hdr_nest 1
+1313400
+1 : FOR
+cmpd_hdr_nest 1
+1365988
+1 : FOR
+cmpd_hdr_nest 1
+1405023
+1 : ELSE
+cmpd_hdr_nest 1
+1434953
+1 : FOR
+cmpd_hdr_nest 1
+1450883
+1 : IF
+cmpd_hdr_nest 1
+1481584
+1 : FOR
+cmpd_hdr_nest 6
+1536200
+6 : WHILE
+5 : IF
+4 : WHILE
+3 : IF
+2 : IF
+1 : SWITCH
+cmpd_hdr_nest 4
+1540195
+4 : ELSE
+3 : IF
+2 : IF_ELSE
+1 : FOR
+cmpd_hdr_nest 1
+1568159
+1 : FOR
+cmpd_hdr_nest 1
+1568873
+1 : WHILE
+cmpd_hdr_nest 3
+1604365
+3 : IF
+2 : IF
+1 : ELSE
+cmpd_hdr_nest 1
+1613606
+1 : IF
+cmpd_hdr_nest 1
+1625720
+1 : FOR
+cmpd_hdr_nest 1
+1670175
+1 : WHILE
+cmpd_hdr_nest 1
+1701850
+1 : FOR
+cmpd_hdr_nest 2
+1703003
+2 : IF
+1 : FOR
+cmpd_hdr_nest 1
+1703130
+1 : IF
+cmpd_hdr_nest 1
+1703643
+1 : WHILE
+cmpd_hdr_nest 1
+1706948
+1 : FOR
+cmpd_hdr_nest 1
+1716992
+1 : WHILE
+cmpd_hdr_nest 1
+1717093
+1 : IF
+cmpd_hdr_nest 2
+1727165
+2 : IF
+1 : IF
+cmpd_hdr_nest 1
+1763815
+1 : IF
+cmpd_hdr_nest 1
+1796823
+1 : IF_ELSE
+cmpd_hdr_nest 1
+1796829
+1 : ELSE
+cmpd_hdr_nest 1
+1923573
+1 : IF
+cmpd_hdr_nest 1
+1964052
+1 : IF
+cmpd_hdr_nest 1
+2023264
+1 : IF
+cmpd_hdr_nest 1
+2135345
+1 : SWITCH
+cmpd_hdr_nest 1
+2198057
+1 : IF
+cmpd_hdr_nest 1
+2200936
+1 : IF
+cmpd_hdr_nest 1
+2587457
+1 : SWITCH
+cmpd_hdr_nest 1
+2619148
+1 : FOR
+cmpd_hdr_nest 3
+2619180
+3 : IF
+2 : FOR
+1 : IF
+cmpd_hdr_nest 1
+2619338
+1 : IF
+cmpd_hdr_nest 4
+2619975
+4 : FOR
+3 : IF
+2 : IF_ELSE
+1 : ELSE
+cmpd_hdr_nest 1
+2620135
+1 : IF
+cmpd_hdr_nest 2
+2620395
+2 : IF
+1 : IF
+cmpd_hdr_nest 1
+2621151
+1 : IF
+cmpd_hdr_nest 1
+2621162
+1 : IF
+cmpd_hdr_nest 1
+2621171
+1 : IF
+cmpd_hdr_nest 1
+2621202
+1 : IF
+cmpd_hdr_nest 1
+2621290
+1 : IF
+cmpd_hdr_nest 4
+2643039
+4 : IF
+3 : IF
+2 : IF
+1 : WHILE
+cmpd_hdr_nest 1
+2649736
+1 : IF
+cmpd_hdr_nest 1
+2650461
+1 : ELSE
+cmpd_hdr_nest 1
+2650465
+1 : IF
+cmpd_hdr_nest 1
+2650778
+1 : ELSE
+cmpd_hdr_nest 1
+2650782
+1 : IF
+cmpd_hdr_nest 2
+2651982
+2 : FOR
+1 : IF
+cmpd_hdr_nest 1
+2654466
+1 : IF
+cmpd_hdr_nest 2
+2654516
+2 : FOR
+1 : IF
+cmpd_hdr_nest 1
+2685442
+1 : IF
+cmpd_hdr_nest 4
+2692740
+4 : ELSE
+3 : ELSE
+2 : ELSE
+1 : ELSE
+cmpd_hdr_nest 1
+2707175
+1 : IF_ELSE
+cmpd_hdr_nest 1
+2707182
+1 : ELSE
+cmpd_hdr_nest 4
+2836776
+4 : ELSE
+3 : ELSE
+2 : ELSE
+1 : ELSE
+cmpd_hdr_nest 1
+2859516
+1 : IF
+cmpd_hdr_nest 1
+2862632
+1 : IF
+cmpd_hdr_nest 2
+2898723
+2 : IF
+1 : IF
+cmpd_hdr_nest 2
+2901735
+2 : IF_ELSE
+1 : IF
+cmpd_hdr_nest 1
+2902126
+1 : IF
+cmpd_hdr_nest 1
+2902728
+1 : ELSE
+cmpd_hdr_nest 5
+2903109
+5 : IF
+4 : IF_ELSE
+3 : IF
+2 : IF
+1 : IF
+cmpd_hdr_nest 1
+2905768
+1 : IF
+cmpd_hdr_nest 1
+2908580
+1 : IF
+cmpd_hdr_nest 2
+2910230
+2 : ELSE
+1 : IF
+cmpd_hdr_nest 1
+2915049
+1 : FOR
+cmpd_hdr_nest 1
+2919270
+1 : IF
+cmpd_hdr_nest 2
+2920614
+2 : IF
+1 : ELSE
+cmpd_hdr_nest 2
+2922064
+2 : FOR
+1 : FOR
+cmpd_hdr_nest 1
+2922759
+1 : WHILE
+cmpd_hdr_nest 1
+2923058
+1 : DO
+cmpd_hdr_nest 1
+3188059
+1 : IF
+cmpd_hdr_nest 1
+3188124
+1 : IF
+cmpd_hdr_nest 1
+3189388
+1 : ELSE
+cmpd_hdr_nest 1
+3189599
+1 : IF
+cmpd_hdr_nest 1
+3189675
+1 : SWITCH
+cmpd_hdr_nest 1
+3348222
+1 : IF_ELSE
+cmpd_hdr_nest 1
+3349645
+1 : FOR
+cmpd_hdr_nest 1
+3439832
+1 : SWITCH
+cmpd_hdr_nest 2
+3441231
+2 : IF_ELSE
+1 : ELSE
+cmpd_hdr_nest 1
+3478591
+1 : WHILE
+cmpd_hdr_nest 1
+3592767
+1 : IF_ELSE
+cmpd_hdr_nest 1
+3684079
+1 : IF
+cmpd_hdr_nest 1
+3686725
+1 : DO
+cmpd_hdr_nest 6
+3806191
+6 : WHILE
+5 : IF
+4 : WHILE
+3 : IF
+2 : IF
+1 : SWITCH
+cmpd_hdr_nest 1
+3808193
+1 : IF
+cmpd_hdr_nest 1
+3808947
+1 : DO
+cmpd_hdr_nest 1
+3852531
+1 : WHILE
+cmpd_hdr_nest 1
+3852629
+1 : WHILE
+cmpd_hdr_nest 1
+3930656
+1 : FOR
+cmpd_hdr_nest 1
+3931592
+1 : IF
+cmpd_hdr_nest 1
+3947792
+1 : FOR
+cmpd_hdr_nest 13
+3951070
+13 : IF
+12 : IF
+11 : IF
+10 : IF
+9 : IF
+8 : IF
+7 : IF
+6 : IF
+5 : IF
+4 : IF
+3 : IF
+2 : IF
+1 : IF
+cmpd_hdr_nest 4
+3951399
+4 : IF
+3 : IF
+2 : IF
+1 : IF
+cmpd_hdr_nest 1
+3952694
+1 : IF
+cmpd_hdr_nest 1
+3952929
+1 : IF
+cmpd_hdr_nest 1
+3962639
+1 : IF
+cmpd_hdr_nest 1
+4011820
+1 : FOR
+cmpd_hdr_nest 3
+4012147
+3 : IF_ELSE
+2 : IF
+1 : IF
+cmpd_hdr_nest 2
+4012983
+2 : WHILE
+1 : FOR
+cmpd_hdr_nest 6
+4014014
+6 : IF
+5 : IF
+4 : FOR
+3 : IF
+2 : IF
+1 : IF
+cmpd_hdr_nest 8
+4028297
+8 : IF
+7 : IF
+6 : IF
+5 : IF
+4 : IF
+3 : IF
+2 : IF
+1 : IF
+cmpd_hdr_nest 3
+4030082
+3 : IF
+2 : IF
+1 : IF
+cmpd_hdr_nest 3
+4033034
+3 : IF
+2 : ELSE
+1 : ELSE
+cmpd_hdr_nest 2
+4056689
+2 : IF
+1 : WHILE
+cmpd_hdr_nest 1
+4056853
+1 : IF
+cmpd_hdr_nest 4
+4060216
+4 : IF
+3 : IF
+2 : WHILE
+1 : IF
+cmpd_hdr_nest 2
+4121849
+2 : WHILE
+1 : WHILE
+cmpd_hdr_nest 1
+4130203
+1 : IF
+cmpd_hdr_nest 1
+4141756
+1 : FOR
+cmpd_hdr_nest 3
+4144633
+3 : IF
+2 : IF
+1 : IF
+cmpd_hdr_nest 1
+4145839
+1 : ELSE
+cmpd_hdr_nest 1
+4147099
+1 : IF
+cmpd_hdr_nest 1
+4147174
+1 : IF
+cmpd_hdr_nest 1
+4172910
+1 : IF
+cmpd_hdr_nest 1
+4251653
+1 : IF
+cmpd_hdr_nest 1
+4301414
+1 : FOR
+cmpd_hdr_nest 1
+4304780
+1 : IF
+cmpd_hdr_nest 1
+4304881
+1 : IF
+cmpd_hdr_nest 1
+4304895
+1 : IF
+cmpd_hdr_nest 1
+4304915
+1 : IF
+cmpd_hdr_nest 1
+4324270
+1 : IF
+cmpd_hdr_nest 1
+4327740
+1 : IF
+cmpd_hdr_nest 1
+4358106
+1 : WHILE
+cmpd_hdr_nest 3
+4415342
+3 : IF
+2 : IF
+1 : IF_ELSE
+cmpd_hdr_nest 1
+4415420
+1 : IF
+cmpd_hdr_nest 1
+4415671
+1 : IF
+cmpd_hdr_nest 1
+4422015
+1 : IF
+cmpd_hdr_nest 1
+4504690
+1 : IF
+cmpd_hdr_nest 1
+4524902
+1 : ELSE
+cmpd_hdr_nest 4
+4530394
+4 : IF
+3 : FOR
+2 : FOR
+1 : FOR
+cmpd_hdr_nest 1
+4582975
+1 : IF
+cmpd_hdr_nest 2
+4583007
+2 : IF
+1 : IF_ELSE
+cmpd_hdr_nest 1
+4583016
+1 : ELSE
+cmpd_hdr_nest 1
+4586677
+1 : WHILE
+cmpd_hdr_nest 1
+4590845
+1 : SWITCH
+cmpd_hdr_nest 1
+4592744
+1 : SWITCH
+cmpd_hdr_nest 1
+4592960
+1 : IF
+cmpd_hdr_nest 1
+4606885
+1 : IF_ELSE
+cmpd_hdr_nest 2
+4621663
+2 : IF
+1 : IF
+cmpd_hdr_nest 1
+4640550
+1 : IF
+cmpd_hdr_nest 2
+4642077
+2 : IF
+1 : IF
+cmpd_hdr_nest 1
+4642670
+1 : IF
+cmpd_hdr_nest 1
+4644824
+1 : IF_ELSE
+cmpd_hdr_nest 2
+4645187
+2 : IF
+1 : IF
+cmpd_hdr_nest 2
+4648509
+2 : ELSE
+1 : WHILE
+cmpd_hdr_nest 2
+4648547
+2 : ELSE
+1 : WHILE
+cmpd_hdr_nest 2
+4648567
+2 : IF
+1 : IF_ELSE
+cmpd_hdr_nest 1
+4648592
+1 : ELSE
+cmpd_hdr_nest 1
+4648621
+1 : IF_ELSE
+cmpd_hdr_nest 2
+4648825
+2 : IF
+1 : IF
+cmpd_hdr_nest 1
+4649146
+1 : WHILE
+cmpd_hdr_nest 2
+4659595
+2 : IF
+1 : IF
+cmpd_hdr_nest 1
+4659612
+1 : WHILE
+cmpd_hdr_nest 1
+4659697
+1 : FOR
+cmpd_hdr_nest 1
+4660197
+1 : IF
+cmpd_hdr_nest 1
+4662853
+1 : ELSE
+cmpd_hdr_nest 1
+4663172
+1 : IF_ELSE
+cmpd_hdr_nest 2
+4664178
+2 : IF
+1 : ELSE
+cmpd_hdr_nest 1
+4664360
+1 : IF
+cmpd_hdr_nest 1
+4664613
+1 : DO
+cmpd_hdr_nest 1
+4664646
+1 : DO
+cmpd_hdr_nest 1
+4664789
+1 : IF_ELSE
+cmpd_hdr_nest 2
+4664819
+2 : IF_ELSE
+1 : ELSE
+cmpd_hdr_nest 2
+4664829
+2 : IF_ELSE
+1 : ELSE
+cmpd_hdr_nest 2
+4664848
+2 : IF_ELSE
+1 : ELSE
+cmpd_hdr_nest 2
+4664858
+2 : IF_ELSE
+1 : ELSE
+cmpd_hdr_nest 1
+4665178
+1 : WHILE
+cmpd_hdr_nest 2
+4665289
+2 : IF
+1 : ELSE
+cmpd_hdr_nest 1
+4665531
+1 : IF
+cmpd_hdr_nest 1
+4666114
+1 : IF
+cmpd_hdr_nest 1
+4667010
+1 : IF
+cmpd_hdr_nest 4
+4669372
+4 : IF
+3 : ELSE
+2 : ELSE
+1 : ELSE
+cmpd_hdr_nest 1
+4669800
+1 : IF
+cmpd_hdr_nest 1
+4670348
+1 : IF
+cmpd_hdr_nest 1
+4670475
+1 : IF_ELSE
+cmpd_hdr_nest 1
+4670487
+1 : ELSE
+cmpd_hdr_nest 3
+4670822
+3 : IF_ELSE
+2 : ELSE
+1 : ELSE
+cmpd_hdr_nest 1
+4671169
+1 : IF
+cmpd_hdr_nest 1
+4671760
+1 : IF
+cmpd_hdr_nest 1
+4671814
+1 : IF
+cmpd_hdr_nest 1
+4672080
+1 : FOR
+cmpd_hdr_nest 1
+4672123
+1 : IF
+cmpd_hdr_nest 1
+4672199
+1 : IF
+cmpd_hdr_nest 1
+4673046
+1 : IF
+cmpd_hdr_nest 1
+4674064
+1 : IF
+cmpd_hdr_nest 2
+4676585
+2 : ELSE
+1 : WHILE
+cmpd_hdr_nest 1
+4677462
+1 : IF
+cmpd_hdr_nest 1
+4678535
+1 : IF
+cmpd_hdr_nest 1
+4679228
+1 : ELSE
+cmpd_hdr_nest 1
+4679250
+1 : IF_ELSE
+cmpd_hdr_nest 1
+4679271
+1 : ELSE
+cmpd_hdr_nest 1
+4679722
+1 : IF
+total files 10123
+total functions 136628
+total { 348528
+total if 453117
+total else 97752
+total do 3327
+total for 46814
+total while 25068
+total switch 15795
+total break 79822
+total continue 10294
+nested case 27658
+File: break_p_switch.d
+0 2840
+1 1878
+2 2793
+3 2879
+4 1942
+5 1027
+6 634
+7 393
+8 272
+9 243
+10 166
+11 128
+12 103
+13 70
+14 64
+15 44
+16 50
+17 31
+18 22
+19 27
+20 18
+21 15
+22 13
+23 10
+24 8
+25 11
+26 9
+27 8
+28 5
+29 6
+30 7
+31 3
+32 6
+33 3
+34 2
+35 2
+36 5
+38 3
+39 5
+40 2
+42 2
+44 1
+45 2
+46 4
+50 2
+51 1
+54 1
+55 2
+56 6
+57 1
+58 1
+61 1
+62 1
+64 1
+65 2
+67 2
+69 2
+72 1
+79 1
+88 1
+92 1
+104 1
+106 1
+End File
+File: break_p_loop.d
+0 63793
+1 9373
+2 1312
+3 386
+4 151
+5 49
+6 24
+7 12
+8 11
+9 5
+10 7
+11 3
+12 1
+13 1
+14 1
+15 2
+18 1
+19 2
+27 1
+35 1
+End File
+File: contin_p_loop.d
+0 69347
+1 3930
+2 963
+3 460
+4 184
+5 83
+6 50
+7 31
+8 17
+9 33
+10 10
+11 4
+12 5
+13 4
+14 3
+15 1
+16 2
+17 1
+19 2
+21 1
+22 1
+24 1
+25 1
+33 1
+49 1
+End File
+File: loop_max_nesting.d
+0 97373
+1 32392
+2 5921
+3 810
+4 115
+5 11
+6 6
+End File
+File: select_max_nesting.d
+0 43508
+1 53693
+2 23303
+3 9277
+4 3680
+5 1566
+6 752
+7 294
+8 219
+9 115
+10 68
+11 32
+12 20
+13 16
+14 15
+15 6
+16 9
+17 6
+18 6
+19 8
+20 5
+21 3
+22 3
+23 2
+24 2
+25 1
+26 1
+27 2
+28 1
+29 1
+30 2
+31 1
+34 2
+36 1
+37 1
+43 1
+50 2
+55 1
+88 1
+124 1
+139 1
+End File
+File: ifelse_max_nesting.d
+0 55602
+1 62029
+2 15620
+3 2863
+4 427
+5 74
+6 7
+7 3
+8 2
+15 1
+End File
+File: cmpd_max_nesting.d
+0 62043
+1 39350
+2 20731
+3 8995
+4 3486
+5 1325
+6 465
+7 151
+8 38
+9 17
+10 9
+11 1
+12 4
+13 2
+14 5
+17 1
+18 1
+21 1
+41 1
+44 1
+61 1
+End File
+File: block_max_nesting.d
+0 39204
+1 11522
+2 16804
+3 11818
+4 10230
+5 7592
+6 6304
+7 4875
+8 4049
+9 3445
+10 2638
+11 2209
+12 1846
+13 1613
+14 1336
+15 1166
+16 1004
+17 860
+18 751
+19 703
+20 563
+21 488
+22 427
+23 412
+24 390
+25 350
+26 294
+27 281
+28 237
+29 234
+30 210
+31 165
+32 181
+33 147
+34 146
+35 120
+36 128
+37 115
+38 95
+39 75
+40 76
+41 77
+42 67
+43 82
+44 65
+45 54
+46 63
+47 55
+48 55
+49 34
+50 46
+51 35
+52 33
+53 47
+54 34
+55 24
+56 28
+57 33
+58 26
+59 16
+60 32
+61 28
+62 30
+63 22
+64 14
+65 16
+66 16
+67 18
+68 20
+69 16
+70 10
+71 5
+72 20
+73 13
+74 8
+75 13
+76 11
+77 7
+78 10
+79 3
+80 10
+81 10
+82 16
+83 8
+84 10
+85 7
+86 8
+87 9
+88 1
+89 5
+90 8
+91 8
+92 6
+93 11
+94 2
+95 8
+96 7
+97 6
+98 2
+99 5
+100 4
+101 6
+102 4
+103 11
+104 6
+106 5
+107 3
+108 3
+109 4
+110 1
+111 3
+112 3
+113 8
+114 3
+115 1
+116 2
+117 2
+118 7
+119 2
+120 1
+121 2
+122 5
+124 4
+125 2
+126 3
+127 5
+128 1
+129 1
+130 2
+132 2
+133 1
+134 9
+135 1
+137 1
+138 1
+140 1
+141 1
+142 1
+143 1
+144 1
+146 2
+148 1
+149 3
+152 1
+153 1
+154 2
+158 4
+165 1
+167 1
+168 1
+169 1
+172 1
+174 1
+176 2
+177 1
+178 1
+179 1
+181 1
+182 1
+184 2
+185 1
+186 1
+188 2
+191 1
+198 1
+199 1
+200 1
+203 1
+210 1
+214 1
+216 1
+221 1
+224 1
+229 1
+234 1
+235 1
+239 1
+246 1
+262 1
+264 1
+284 1
+302 1
+304 1
+313 4
+322 2
+326 1
+334 1
+335 1
+338 1
+365 1
+430 1
+459 1
+515 1
+1038 1
+End File
+File: exits_per_loop.d
+0 55290
+1 14962
+2 2981
+3 1041
+4 371
+5 196
+6 102
+7 69
+8 28
+9 27
+10 15
+11 9
+12 8
+13 10
+14 4
+15 1
+16 2
+17 1
+18 3
+19 2
+20 2
+21 3
+22 2
+24 1
+26 1
+28 1
+30 1
+38 1
+42 1
+176 1
+End File
+File: stmt_per_case.d
+1 28434
+2 27018
+3 11872
+4 5384
+5 4050
+6 2818
+7 2013
+8 1582
+9 1282
+10 1024
+11 919
+12 774
+13 622
+14 543
+15 474
+16 476
+17 426
+18 344
+19 330
+20 298
+21 251
+22 227
+23 204
+24 179
+25 130
+26 120
+27 120
+28 121
+29 105
+30 94
+31 72
+32 79
+33 77
+34 71
+35 71
+36 67
+37 66
+38 51
+39 55
+40 36
+41 36
+42 53
+43 43
+44 43
+45 46
+46 46
+47 37
+48 25
+49 30
+50 36
+51 17
+52 21
+53 26
+54 37
+55 24
+56 22
+57 15
+58 15
+59 23
+60 17
+61 10
+62 15
+63 15
+64 10
+65 12
+66 12
+67 9
+68 10
+69 3
+70 10
+71 9
+72 11
+73 2
+74 8
+75 10
+76 7
+77 9
+78 4
+79 2
+80 11
+81 6
+82 10
+83 7
+84 3
+85 1
+86 10
+87 7
+88 6
+89 3
+90 3
+91 10
+92 3
+93 5
+94 4
+95 7
+96 3
+97 8
+98 4
+99 4
+100 9
+101 2
+102 5
+103 4
+104 2
+105 3
+106 2
+107 5
+108 7
+109 3
+110 3
+112 3
+113 5
+114 4
+115 2
+116 4
+117 3
+119 2
+121 2
+122 3
+123 4
+124 4
+126 3
+127 1
+128 6
+129 1
+130 1
+131 4
+132 2
+133 1
+134 1
+135 6
+136 1
+138 4
+140 1
+141 2
+145 1
+147 9
+148 1
+149 4
+150 2
+151 1
+153 2
+154 2
+158 1
+160 1
+161 1
+165 1
+166 2
+168 3
+169 1
+176 1
+179 1
+180 1
+181 1
+186 1
+188 1
+190 1
+194 1
+195 1
+199 2
+202 1
+209 1
+217 1
+219 1
+224 2
+230 1
+231 1
+234 1
+236 3
+238 1
+240 1
+245 1
+246 1
+249 1
+250 1
+257 1
+262 1
+269 1
+276 1
+294 1
+345 1
+351 1
+371 1
+376 1
+399 1
+403 1
+408 1
+432 1
+436 1
+445 1
+448 1
+458 1
+504 1
+1047 1
+1518 1
+1898 1
+2020 1
+End File

@@ -1,0 +1,3280 @@
+ 1     369   indication    a  0.5  b 99.5 L  0.0 e  0.0
+ 3     180      confirm    a  0.0  b 99.4 L  0.6 e  0.0
+ 1     169          dcd    a  0.6  b 99.4 L  0.0 e  0.0
+ 1     119      claimed    a  0.8  b 99.2 L  0.0 e  0.0
+ 2     748          ppc    a  0.3  b 99.1 L  0.0 e  0.7
+ 3     252        ifreg    a  0.4  b 98.8 L  0.0 e  0.8
+ 2      82           rf    a  0.0  b 98.8 L  0.0 e  1.2
+ 2      79        16bit    a  0.0  b 98.7 L  0.0 e  1.3
+ 1      75    advertise    a  0.0  b 98.7 L  0.0 e  1.3
+ 2      73          cs8    a  0.0  b 98.6 L  0.0 e  1.4
+ 1     140     sab82532    a  1.4  b 98.6 L  0.0 e  0.0
+ 2      65      cwwidth    a  0.0  b 98.5 L  0.0 e  1.5
+ 1      64          bsy    a  1.6  b 98.4 L  0.0 e  0.0
+ 2     175   inprogress    a  1.1  b 98.3 L  0.0 e  0.6
+ 1      45       txx927    a  2.2  b 97.8 L  0.0 e  0.0
+ 3     172        clone    a  0.0  b 97.7 L  0.0 e  2.3
+ 2      42         door    a  2.4  b 97.6 L  0.0 e  0.0
+ 2      42          ast    a  0.0  b 97.6 L  0.0 e  2.4
+ 1      42      suggest    a  2.4  b 97.6 L  0.0 e  0.0
+ 1      42         bvd1    a  2.4  b 97.6 L  0.0 e  0.0
+ 1      41        dstat    a  0.0  b 97.6 L  0.0 e  2.4
+ 2      76         cvar    a  0.0  b 97.4 L  0.0 e  2.6
+ 1      76          db9    a  2.6  b 97.4 L  0.0 e  0.0
+ 1      39         tint    a  0.0  b 97.4 L  0.0 e  2.6
+ 2      37        mtime    a  0.0  b 97.3 L  2.7 e  0.0
+ 1      73          csc    a  0.0  b 97.3 L  0.0 e  2.7
+ 1      37          sr0    a  0.0  b 97.3 L  0.0 e  2.7
+ 1      37          pwr    a  0.0  b 97.3 L  0.0 e  2.7
+ 1     110        cbaud    a  0.0  b 97.3 L  2.7 e  0.0
+ 4      71     nonblock    a  0.0  b 97.2 L  0.0 e  2.8
+ 3     178     cwheight    a  2.2  b 97.2 L  0.0 e  0.6
+ 2      33    getstatus    a  3.0  b 97.0 L  0.0 e  0.0
+ 2      32          mst    a  0.0  b 96.9 L  0.0 e  3.1
+ 1      32        exval    a  0.0  b 96.9 L  0.0 e  3.1
+ 1      31   autodetect    a  0.0  b 96.8 L  0.0 e  3.2
+ 2     245          cts    a  0.0  b 96.7 L  0.0 e  3.3
+ 1      91          drq    a  2.2  b 96.7 L  0.0 e  1.1
+ 3      58          cwy    a  3.4  b 96.6 L  0.0 e  0.0
+ 1      29          pcf    a  0.0  b 96.6 L  0.0 e  3.4
+ 1      29          mdm    a  0.0  b 96.6 L  0.0 e  3.4
+ 1      86   ioresource    a  0.0  b 96.5 L  0.0 e  3.5
+ 1      28       rxstat    a  0.0  b 96.4 L  0.0 e  3.6
+ 1      28          psw    a  0.0  b 96.4 L  0.0 e  3.6
+ 1      28          lnk    a  0.0  b 96.4 L  0.0 e  3.6
+ 2     301        cflag    a  0.7  b 96.3 L  3.0 e  0.0
+ 1     403          gfp    a  0.7  b 96.3 L  0.0 e  3.0
+ 1      27        iflnk    a  3.7  b 96.3 L  0.0 e  0.0
+ 1      27       10full    a  0.0  b 96.3 L  0.0 e  3.7
+ 2      52          chg    a  0.0  b 96.2 L  0.0 e  3.8
+ 1      52        netif    a  0.0  b 96.2 L  3.8 e  0.0
+ 1      77          ena    a  3.9  b 96.1 L  0.0 e  0.0
+ 1     181       assert    a  0.0  b 96.1 L  0.0 e  3.9
+ 3     193        fmode    a  1.0  b 95.9 L  0.0 e  3.1
+ 1      48      100full    a  0.0  b 95.8 L  0.0 e  4.2
+ 6     184        creat    a  3.3  b 95.7 L  0.0 e  1.1
+ 3      93        ifdir    a  1.1  b 95.7 L  0.0 e  3.2
+ 2      46          dfs    a  0.0  b 95.7 L  0.0 e  4.3
+ 2      68       stereo    a  2.9  b 95.6 L  0.0 e  1.5
+ 1      44         hfcd    a  0.0  b 95.5 L  0.0 e  4.5
+ 1      44  cwstackmode    a  4.5  b 95.5 L  0.0 e  0.0
+ 1     701          did    a  0.9  b 95.4 L  0.0 e  3.7
+ 2      64    pixelsize    a  1.6  b 95.3 L  0.0 e  3.1
+ 2     107        ifchr    a  0.9  b 95.3 L  0.0 e  3.7
+ 1     125         bmcr    a  0.0  b 95.2 L  0.0 e  4.8
+ 3      41         peek    a  0.0  b 95.1 L  0.0 e  4.9
+ 1     103          mbx    a  4.9  b 95.1 L  0.0 e  0.0
+ 2     202           vm    a  1.0  b 95.0 L  0.0 e  4.0
+ 2     202           mf    a  0.5  b 95.0 L  0.0 e  4.5
+ 2     160       upload    a  3.8  b 95.0 L  0.0 e  1.2
+ 1      40         fprs    a  5.0  b 95.0 L  0.0 e  0.0
+ 4      39       except    a  2.6  b 94.9 L  0.0 e  2.6
+ 2      98      feature    a  4.1  b 94.9 L  0.0 e  1.0
+ 1      78          atn    a  3.8  b 94.9 L  0.0 e  1.3
+ 1      39        sstat    a  5.1  b 94.9 L  0.0 e  0.0
+ 1      39          sip    a  0.0  b 94.9 L  0.0 e  5.1
+ 6     132         rdwr    a  2.3  b 94.7 L  0.0 e  3.0
+ 2      57          cen    a  1.8  b 94.7 L  0.0 e  3.5
+ 1      38        eflag    a  5.3  b 94.7 L  0.0 e  0.0
+ 1      93       atomic    a  0.0  b 94.6 L  0.0 e  5.4
+ 1      37          brg    a  5.4  b 94.6 L  0.0 e  0.0
+ 1      72      arights    a  0.0  b 94.4 L  0.0 e  5.6
+ 1     376          dtr    a  5.3  b 94.4 L  0.0 e  0.3
+ 1      36     sab82538    a  5.6  b 94.4 L  0.0 e  0.0
+ 3     421          rts    a  5.5  b 94.3 L  0.0 e  0.2
+ 1      35       intsrc    a  0.0  b 94.3 L  0.0 e  5.7
+ 2     155          mwm    a  1.3  b 94.2 L  0.0 e  4.5
+ 1      51           qe    a  0.0  b 94.1 L  0.0 e  5.9
+ 4      67    anonymous    a  1.5  b 94.0 L  4.5 e  0.0
+ 1      33      status0    a  3.0  b 93.9 L  0.0 e  3.0
+ 1      32       decode    a  6.2  b 93.8 L  0.0 e  0.0
+ 1      89        istat    a  5.6  b 93.3 L  0.0 e  1.1
+ 1      30          cce    a  6.7  b 93.3 L  0.0 e  0.0
+ 3      29     recorded    a  3.4  b 93.1 L  3.4 e  0.0
+ 2      28 initializing    a  0.0  b 92.9 L  7.1 e  0.0
+ 1      28      irqmask    a  0.0  b 92.9 L  0.0 e  7.1
+ 1      28       busmon    a  0.0  b 92.9 L  0.0 e  7.1
+ 1      41      afscall    a  0.0  b 92.7 L  0.0 e  7.3
+ 1      68          sdc    a  7.4  b 92.6 L  0.0 e  0.0
+ 1      27       xmdrop    a  0.0  b 92.6 L  0.0 e  7.4
+ 1     251           en    a  7.2  b 92.4 L  0.0 e  0.4
+ 6     104       wronly    a  1.9  b 92.3 L  0.0 e  5.8
+ 2      52      effects    a  5.8  b 92.3 L  0.0 e  1.9
+ 2      39    permanent    a  7.7  b 92.3 L  0.0 e  0.0
+ 2      26     negative    a  7.7  b 92.3 L  0.0 e  0.0
+ 1      26          bug    a  3.8  b 92.3 L  0.0 e  3.8
+ 5      51           ws    a  5.9  b 92.2 L  0.0 e  2.0
+ 2      77          own    a  3.9  b 92.2 L  0.0 e  3.9
+ 3      38          inv    a  7.9  b 92.1 L  0.0 e  0.0
+ 2      38      codeset    a  0.0  b 92.1 L  0.0 e  7.9
+ 1      76         bmsr    a  0.0  b 92.1 L  0.0 e  7.9
+ 2     150        pause    a  2.0  b 92.0 L  0.0 e  6.0
+ 2      84          opc    a  6.0  b 91.7 L  0.0 e  2.4
+ 2      36           mr    a  2.8  b 91.7 L  0.0 e  5.6
+ 1      58          u16    a  0.0  b 91.4 L  0.0 e  8.6
+ 1      35         abrt    a  0.0  b 91.4 L  0.0 e  8.6
+ 1     162       radeon    a  8.6  b 91.4 L  0.0 e  0.0
+ 2     102          ser    a  5.9  b 91.2 L  0.0 e  2.9
+ 3      56     activate    a  1.8  b 91.1 L  0.0 e  7.1
+ 1      78          asr    a  7.7  b 91.0 L  0.0 e  1.3
+ 6      98       rdonly    a  1.0  b 90.8 L  0.0 e  8.2
+ 2     346          msr    a  6.6  b 90.8 L  0.0 e  2.6
+ 1      65          msk    a  9.2  b 90.8 L  0.0 e  0.0
+ 3      32          pcs    a  0.0  b 90.6 L  0.0 e  9.4
+ 1      32          sir    a  3.1  b 90.6 L  0.0 e  6.2
+ 2      42         pull    a  7.1  b 90.5 L  0.0 e  2.4
+ 1      84         wake    a  7.1  b 90.5 L  0.0 e  2.4
+ 1      83          flg    a  8.4  b 90.4 L  0.0 e  1.2
+ 1      62          pfm    a  0.0  b 90.3 L  0.0 e  9.7
+ 7    1820        flags    a  4.0  b 90.2 L  0.3 e  5.5
+ 4      91       hidden    a  0.0  b 90.1 L  0.0 e  9.9
+ 2      40      powerpc    a 10.0  b 90.0 L  0.0 e  0.0
+ 4      89           df    a  5.6  b 89.9 L  0.0 e  4.5
+ 2     168          iff    a  8.9  b 89.9 L  0.0 e  1.2
+ 1      49         treq    a  4.1  b 89.8 L  0.0 e  6.1
+ 1      87          vac    a  9.2  b 89.7 L  0.0 e  1.1
+ 1      39          dip    a  0.0  b 89.7 L  0.0 e 10.3
+ 2     134           dm    a  6.0  b 89.6 L  0.0 e  4.5
+ 1      67         nego    a  1.5  b 89.6 L  0.0 e  9.0
+ 1      57          his    a 10.5  b 89.5 L  0.0 e  0.0
+ 1     103         enet    a 10.7  b 89.3 L  0.0 e  0.0
+ 1      37      removal    a  5.4  b 89.2 L  0.0 e  5.4
+ 1      55         slab    a  5.5  b 89.1 L  0.0 e  5.5
+ 2     164           fm    a  1.2  b 89.0 L  0.0 e  9.8
+ 7     117       binary    a  5.1  b 88.9 L  0.0 e  6.0
+ 2      81           ef    a  2.5  b 88.9 L  0.0 e  8.6
+ 2      36        stat1    a  0.0  b 88.9 L  2.8 e  8.3
+ 2      36          eom    a  2.8  b 88.9 L  0.0 e  8.3
+ 1      27        modrm    a 11.1  b 88.9 L  0.0 e  0.0
+ 1      27     maximize    a  3.7  b 88.9 L  0.0 e  7.4
+ 1     268         csr0    a  9.7  b 88.8 L  0.0 e  1.5
+ 1     206          icr    a 10.2  b 88.8 L  0.0 e  1.0
+ 5      35    exclusive    a  2.9  b 88.6 L  0.0 e  8.6
+ 2      35           ov    a  8.6  b 88.6 L  0.0 e  2.9
+ 1      26    clipflags    a  0.0  b 88.5 L  0.0 e 11.5
+ 1      43         tiny    a  0.0  b 88.4 L 11.6 e  0.0
+ 1     128        bt848    a  7.8  b 88.3 L  0.0 e  3.9
+ 1      34        entsr    a 11.8  b 88.2 L  0.0 e  0.0
+ 1     229      parport    a  7.4  b 88.2 L  0.4 e  3.9
+ 4     341           sr    a  5.6  b 88.0 L  0.0 e  6.5
+ 1     209         r128    a 12.0  b 88.0 L  0.0 e  0.0
+ 4      58       follow    a  6.9  b 87.9 L  0.0 e  5.2
+ 1      33      ramdisk    a 12.1  b 87.9 L  0.0 e  0.0
+ 7    3542         mask    a  8.1  b 87.5 L  0.2 e  4.2
+ 1      32      managew    a  0.0  b 87.5 L  0.0 e 12.5
+ 1     191           rh    a 12.6  b 87.4 L  0.0 e  0.0
+ 3     709        power    a  7.3  b 87.3 L  0.1 e  5.2
+ 1      78         surf    a  6.4  b 87.2 L  0.0 e  6.4
+ 1      31       replay    a  6.5  b 87.1 L  0.0 e  6.5
+ 2      92          rst    a  8.7  b 87.0 L  0.0 e  4.3
+ 1      53        temp8    a 13.2  b 86.8 L  0.0 e  0.0
+ 1     380    ffesymbol    a  0.5  b 86.8 L  0.0 e 12.6
+ 3      30          inp    a 13.3  b 86.7 L  0.0 e  0.0
+ 2      30          ev5    a  0.0  b 86.7 L  0.0 e 13.3
+ 4      29       prefer    a  6.9  b 86.2 L  0.0 e  6.9
+ 3      29          edi    a 13.8  b 86.2 L  0.0 e  0.0
+ 1      80          lpa    a  0.0  b 86.2 L  0.0 e 13.8
+ 3      36           hf    a  2.8  b 86.1 L  0.0 e 11.1
+ 1      72        fault    a  6.9  b 86.1 L  0.0 e  6.9
+ 3     107           cw    a  9.3  b 86.0 L  0.0 e  4.7
+ 1     344          ahc    a  8.1  b 86.0 L  0.6 e  5.2
+ 1     113          psr    a  5.3  b 85.8 L  0.0 e  8.8
+ 5      63       append    a  6.3  b 85.7 L  0.0 e  7.9
+ 2      91           re    a 13.2  b 85.7 L  0.0 e  1.1
+ 2     112        solid    a  0.9  b 85.7 L  0.0 e 13.4
+ 2     105           ri    a 13.3  b 85.7 L  0.0 e  1.0
+ 1      42          nud    a  0.0  b 85.7 L  0.0 e 14.3
+ 1      28      tmpword    a 14.3  b 85.7 L  0.0 e  0.0
+ 1      28          isi    a  3.6  b 85.7 L  0.0 e 10.7
+ 1      28         frs0    a 10.7  b 85.7 L  0.0 e  3.6
+ 1      28     doorbell    a 10.7  b 85.7 L  0.0 e  3.6
+ 4     572       enable    a  7.2  b 85.3 L  0.5 e  7.0
+ 3     272          crc    a  7.7  b 85.3 L  0.0 e  7.0
+ 3      27       subdir    a 11.1  b 85.2 L  0.0 e  3.7
+ 2      27        ifblk    a  3.7  b 85.2 L  0.0 e 11.1
+ 1      54           vb    a 14.8  b 85.2 L  0.0 e  0.0
+ 5      87         show    a  5.7  b 85.1 L  8.0 e  1.1
+ 1     101        sabre    a 14.9  b 85.1 L  0.0 e  0.0
+ 1     210         i365    a  8.6  b 84.8 L  0.0 e  6.7
+ 1      26          tbd    a 15.4  b 84.6 L  0.0 e  0.0
+ 1      26         enbl    a  0.0  b 84.6 L  7.7 e  7.7
+ 4     219       lookup    a  7.8  b 84.5 L  0.0 e  7.8
+ 1     116         dcmd    a 13.8  b 84.5 L  0.0 e  1.7
+ 4     423           sa    a 10.2  b 84.4 L  0.2 e  5.2
+ 2      32        byte1    a  3.1  b 84.4 L  0.0 e 12.5
+ 2      51   deactivate    a  7.8  b 84.3 L  0.0 e  7.8
+ 1     165        hp100    a  8.5  b 84.2 L  0.0 e  7.3
+ 1      63          rng    a 14.3  b 84.1 L  0.0 e  1.6
+ 1      50          xpg    a  0.0  b 84.0 L  0.0 e 16.0
+ 1      62       detect    a 14.5  b 83.9 L  0.0 e  1.6
+ 2     104           64    a  0.0  b 83.7 L  0.0 e 16.3
+ 1      49          sdp    a  0.0  b 83.7 L  0.0 e 16.3
+ 1      49     polarity    a  2.0  b 83.7 L  0.0 e 14.3
+ 7     856            o    a 11.8  b 83.2 L  0.4 e  4.7
+ 2     143          fpu    a  4.9  b 83.2 L  2.1 e  9.8
+ 1      59        atari    a 13.6  b 83.1 L  3.4 e  0.0
+ 5     358           fl    a  9.8  b 83.0 L  0.0 e  7.3
+ 2      47         opts    a 14.9  b 83.0 L  2.1 e  0.0
+ 1     117       hermes    a 16.2  b 82.9 L  0.0 e  0.9
+ 1      80          clr    a 13.8  b 82.5 L  2.5 e  1.2
+ 2      34       online    a  5.9  b 82.4 L  0.0 e 11.8
+ 1      74       tempcx    a 17.6  b 82.4 L  0.0 e  0.0
+ 1      68    supported    a 14.7  b 82.4 L  0.0 e  2.9
+ 4     197     readonly    a  0.5  b 82.2 L  4.1 e 13.2
+ 3     338         busy    a  6.8  b 82.2 L  0.3 e 10.7
+ 3      67        masks    a 17.9  b 82.1 L  0.0 e  0.0
+ 1      39         hpee    a 17.9  b 82.1 L  0.0 e  0.0
+ 1      39          avm    a 15.4  b 82.1 L  0.0 e  2.6
+ 7    1525         stat    a 10.4  b 82.0 L  0.1 e  7.5
+ 2     185          sts    a  6.5  b 81.6 L  0.0 e 11.9
+ 1      49         afsr    a 16.3  b 81.6 L  0.0 e  2.0
+ 1      38      lstatus    a  0.0  b 81.6 L  0.0 e 18.4
+ 1      27          800    a 18.5  b 81.5 L  0.0 e  0.0
+ 1     353         gpio    a 17.6  b 81.3 L  0.0 e  1.1
+ 1     150       psycho    a 18.7  b 81.3 L  0.0 e  0.0
+ 5     149         prot    a  2.0  b 81.2 L  0.7 e 16.1
+ 1     184          dsr    a 19.0  b 81.0 L  0.0 e  0.0
+ 1      47      config1    a 19.1  b 80.9 L  0.0 e  0.0
+ 1     333          led    a 10.2  b 80.8 L  0.0 e  9.0
+ 1      26     features    a 19.2  b 80.8 L  0.0 e  0.0
+ 2      31        rstat    a  0.0  b 80.6 L  0.0 e 19.4
+ 2     237          lsr    a 18.6  b 80.6 L  0.0 e  0.8
+ 3      41    insertion    a  9.8  b 80.5 L  0.0 e  9.8
+ 1     231          rtc    a 15.6  b 80.5 L  0.0 e  3.9
+ 2      76           u8    a  0.0  b 80.3 L  0.0 e 19.7
+ 1      40          kml    a  0.0  b 80.0 L  0.0 e 20.0
+ 1      30         cmdr    a 20.0  b 80.0 L  0.0 e  0.0
+ 1     175       tempbx    a 13.7  b 80.0 L  0.0 e  6.3
+ 1      69        sysio    a 20.3  b 79.7 L  0.0 e  0.0
+ 2      44     prefetch    a  9.1  b 79.5 L  0.0 e 11.4
+ 1      29      ali1535    a  6.9  b 79.3 L  0.0 e 13.8
+ 6     170          acc    a  4.7  b 78.8 L  0.6 e 15.9
+ 1      66         sun3    a 18.2  b 78.8 L  0.0 e  3.0
+ 2      47         csum    a  4.3  b 78.7 L  0.0 e 17.0
+ 4     187       parity    a  5.9  b 78.6 L  0.0 e 15.5
+ 1      28         eisr    a 21.4  b 78.6 L  0.0 e  0.0
+ 3      65      release    a 15.4  b 78.5 L  0.0 e  6.2
+ 2      46       syntax    a  0.0  b 78.3 L  6.5 e 15.2
+ 1      69         ohci    a  8.7  b 78.3 L  0.0 e 13.0
+ 1      46         isac    a 21.7  b 78.3 L  0.0 e  0.0
+ 2      87          fcr    a 21.8  b 78.2 L  0.0 e  0.0
+ 1     105          uni    a  1.9  b 78.1 L  0.0 e 20.0
+ 5     127           dl    a 15.0  b 78.0 L  1.6 e  5.5
+ 1      27         ebus    a  0.0  b 77.8 L  0.0 e 22.2
+ 1     856         uart    a 19.6  b 77.6 L  0.2 e  2.6
+ 3      53      trigger    a 11.3  b 77.4 L  0.0 e 11.3
+ 1      31         misr    a 22.6  b 77.4 L  0.0 e  0.0
+ 1      35          mib    a 22.9  b 77.1 L  0.0 e  0.0
+ 5      78       shared    a 11.5  b 76.9 L  1.3 e 10.3
+ 1      39          mif    a 23.1  b 76.9 L  0.0 e  0.0
+ 1      26      speaker    a  0.0  b 76.9 L  0.0 e 23.1
+ 1      26       portid    a  0.0  b 76.9 L  0.0 e 23.1
+ 7      86        share    a  8.1  b 76.7 L  4.7 e 10.5
+ 3     133        csize    a 17.3  b 76.7 L  0.0 e  6.0
+ 2      30         para    a 23.3  b 76.7 L  0.0 e  0.0
+ 1      90          vcc    a  0.0  b 76.7 L  0.0 e 23.3
+ 1      43      overrun    a 20.9  b 76.7 L  0.0 e  2.3
+ 2      51          stp    a 17.6  b 76.5 L  0.0 e  5.9
+ 1      34         sbcl    a  0.0  b 76.5 L  0.0 e 23.5
+ 1      34      ieee754    a  0.0  b 76.5 L  0.0 e 23.5
+ 1      38       weapon    a 10.5  b 76.3 L  0.0 e 13.2
+ 1      38        dbdma    a 15.8  b 76.3 L  0.0 e  7.9
+ 3      46           bk    a 17.4  b 76.1 L  0.0 e  6.5
+ 1      62           h8    a  4.8  b 75.8 L  0.0 e 19.4
+ 1     385          mii    a 11.2  b 75.8 L  0.3 e 12.7
+ 1     379          dbg    a  4.2  b 75.7 L 20.1 e  0.0
+ 1     107          sta    a  1.9  b 75.7 L  0.0 e 22.4
+ 5     385           le    a  2.3  b 75.6 L  0.0 e 22.1
+ 3      49        fatal    a 10.2  b 75.5 L  2.0 e 12.2
+ 4      28           ar    a  3.6  b 75.0 L  0.0 e 21.4
+ 2      32       bitcnt    a  6.2  b 75.0 L  0.0 e 18.8
+ 1      72         greg    a 25.0  b 75.0 L  0.0 e  0.0
+ 1      44      suspend    a  4.5  b 75.0 L  0.0 e 20.5
+ 1      32        m1064    a 25.0  b 75.0 L  0.0 e  0.0
+ 1      28         scam    a 25.0  b 75.0 L  0.0 e  0.0
+ 5      90       events    a 16.7  b 74.4 L  0.0 e  8.9
+ 2     270          mcr    a 22.2  b 74.4 L  0.0 e  3.3
+ 1      43          ppr    a  7.0  b 74.4 L  0.0 e 18.6
+ 1      43         amba    a 25.6  b 74.4 L  0.0 e  0.0
+ 3      35           t3    a  5.7  b 74.3 L  0.0 e 20.0
+ 1      74         oboe    a 25.7  b 74.3 L  0.0 e  0.0
+ 1      35          fcp    a 17.1  b 74.3 L  0.0 e  8.6
+ 1      35         cfg1    a 11.4  b 74.3 L  0.0 e 14.3
+ 1     101           gm    a 25.7  b 74.3 L  0.0 e  0.0
+ 1     213       schizo    a 25.8  b 74.2 L  0.0 e  0.0
+ 1      58       tempax    a 22.4  b 74.1 L  0.0 e  3.4
+ 1      54     upd98401    a 22.2  b 74.1 L  0.0 e  3.7
+ 1      27         pop3    a  0.0  b 74.1 L  7.4 e 18.5
+ 1     100         ista    a 26.0  b 74.0 L  0.0 e  0.0
+ 1     134          i2o    a 17.9  b 73.9 L  0.0 e  8.2
+ 3      99          ipc    a  2.0  b 73.7 L  0.0 e 24.2
+ 1      95      network    a 11.6  b 73.7 L  0.0 e 14.7
+ 5     161          act    a  8.1  b 73.3 L  0.0 e 18.6
+ 3      82           cf    a  4.9  b 73.2 L  0.0 e 22.0
+ 1     142          sar    a 24.6  b 73.2 L  0.0 e  2.1
+ 7      96      private    a 10.4  b 72.9 L  1.0 e 15.6
+ 4      59         term    a  1.7  b 72.9 L 13.6 e 11.9
+ 1     446          phy    a 19.5  b 72.9 L  0.0 e  7.6
+ 4     342        ready    a 11.7  b 72.8 L  0.0 e 15.5
+ 4      88      operand    a 12.5  b 72.7 L  0.0 e 14.8
+ 3      77      waiting    a 10.4  b 72.7 L  0.0 e 16.9
+ 1      33          irr    a 27.3  b 72.7 L  0.0 e  0.0
+ 1      33          enb    a 27.3  b 72.7 L  0.0 e  0.0
+ 4     204           c0    a 25.0  b 72.5 L  0.5 e  2.0
+ 2     109         risc    a 25.7  b 72.5 L  0.0 e  1.8
+ 1      51      zr36057    a 27.5  b 72.5 L  0.0 e  0.0
+ 1      40          bcr    a 27.5  b 72.5 L  0.0 e  0.0
+ 3      87        async    a  6.9  b 72.4 L  0.0 e 20.7
+ 1     127      aic7xxx    a 17.3  b 72.4 L  0.0 e 10.2
+ 2      65          pal    a  6.2  b 72.3 L  0.0 e 21.5
+ 3     241          cap    a 12.4  b 72.2 L  0.0 e 15.4
+ 2      36            7    a 11.1  b 72.2 L  0.0 e 16.7
+ 1      61         mace    a 24.6  b 72.1 L  0.0 e  3.3
+ 1     104          hil    a 27.9  b 72.1 L  0.0 e  0.0
+ 5     714      request    a  8.0  b 72.0 L  0.7 e 19.3
+ 1     193          pcm    a 20.7  b 72.0 L  2.1 e  5.2
+ 2      32  instruction    a 25.0  b 71.9 L  0.0 e  3.1
+ 3      56           co    a 28.6  b 71.4 L  0.0 e  0.0
+ 3      28     optional    a  0.0  b 71.4 L  0.0 e 28.6
+ 2      35         axis    a 28.6  b 71.4 L  0.0 e  0.0
+ 1      35           mi    a 25.7  b 71.4 L  0.0 e  2.9
+ 1      28          ccw    a 14.3  b 71.4 L  0.0 e 14.3
+ 4     198           sw    a 22.2  b 71.2 L  0.0 e  6.6
+ 1     191          ahd    a 21.5  b 71.2 L  0.0 e  7.3
+ 1      31         rlmt    a 12.9  b 71.0 L  0.0 e 16.1
+ 2      48          100    a 12.5  b 70.8 L  0.0 e 16.7
+ 5     109      enabled    a 17.4  b 70.6 L  2.8 e  9.2
+ 3      34           lk    a  0.0  b 70.6 L 23.5 e  5.9
+ 1      51          biu    a 29.4  b 70.6 L  0.0 e  0.0
+ 6     261        abort    a  7.3  b 70.5 L  0.8 e 21.5
+ 2      81        latch    a 27.2  b 70.4 L  0.0 e  2.5
+ 2     111         priv    a  0.9  b 70.3 L  0.0 e 28.8
+ 1     541          usb    a 12.9  b 70.2 L  0.2 e 16.6
+ 1      47          syn    a 12.8  b 70.2 L  0.0 e 17.0
+ 4     164           bd    a 26.2  b 70.1 L  0.0 e  3.7
+ 6     180          has    a 11.7  b 70.0 L  6.7 e 11.7
+ 4     285        where    a 19.3  b 69.8 L  0.0 e 10.9
+ 2      53           ia    a 20.8  b 69.8 L  0.0 e  9.4
+ 1      33         mgmt    a 12.1  b 69.7 L  0.0 e 18.2
+ 5     376      verbose    a 20.7  b 69.4 L  2.4 e  7.4
+ 5     144         exec    a 25.0  b 69.4 L  0.0 e  5.6
+ 6     387        valid    a  8.0  b 69.3 L  1.0 e 21.7
+ 1      29         sdtr    a 24.1  b 69.0 L  0.0 e  6.9
+ 4      32     messages    a 28.1  b 68.8 L  0.0 e  3.1
+ 3      32          ten    a 31.2  b 68.8 L  0.0 e  0.0
+ 3      32           et    a 18.8  b 68.8 L  0.0 e 12.5
+ 5     182      present    a  5.5  b 68.7 L  3.3 e 22.5
+ 4      92        trunc    a 27.2  b 68.5 L  0.0 e  4.3
+ 4     200        green    a 30.5  b 68.5 L  0.0 e  1.0
+ 3      41           tf    a  7.3  b 68.3 L  0.0 e 24.4
+ 2      60          dis    a 20.0  b 68.3 L  0.0 e 11.7
+ 1     104         midi    a 18.3  b 68.3 L  0.0 e 13.5
+ 4     107           pe    a 29.9  b 68.2 L  0.0 e  1.9
+ 2     157           ie    a  3.2  b 68.2 L  0.0 e 28.7
+ 3      94         qual    a  6.4  b 68.1 L  0.0 e 25.5
+ 3      87           wm    a 17.2  b 67.8 L  0.0 e 14.9
+ 4      62           xx    a 27.4  b 67.7 L  0.0 e  4.8
+ 2      37     positive    a  0.0  b 67.6 L  0.0 e 32.4
+ 2      37        fpscr    a 27.0  b 67.6 L  0.0 e  5.4
+ 2      34          mmr    a  0.0  b 67.6 L  0.0 e 32.4
+ 3      40           am    a  7.5  b 67.5 L  0.0 e 25.0
+ 2      40         diag    a 12.5  b 67.5 L  0.0 e 20.0
+ 5     208           sm    a 16.8  b 67.3 L  0.0 e 15.9
+ 4      58           fr    a 27.6  b 67.2 L  0.0 e  5.2
+ 1      58        devfs    a  6.9  b 67.2 L  0.0 e 25.9
+ 3     212        trans    a 22.2  b 67.0 L  0.5 e 10.4
+ 6      45        allow    a 15.6  b 66.7 L  2.2 e 15.6
+ 4      48       writes    a 18.8  b 66.7 L 14.6 e  0.0
+ 3      36         attn    a  0.0  b 66.7 L  0.0 e 33.3
+ 2      45    exception    a 22.2  b 66.7 L  4.4 e  6.7
+ 2      42     endpoint    a  0.0  b 66.7 L  0.0 e 33.3
+ 2     201          clk    a 31.8  b 66.7 L  0.0 e  1.5
+ 1      72 serialsignal    a 33.3  b 66.7 L  0.0 e  0.0
+ 3     158           ir    a 17.7  b 66.5 L  0.0 e 15.8
+ 4     271          ack    a  6.6  b 66.4 L  0.4 e 26.6
+ 2      86      disable    a 12.8  b 66.3 L  2.3 e 18.6
+ 1     145         tcic    a 33.8  b 66.2 L  0.0 e  0.0
+ 1      62     txstatus    a 27.4  b 66.1 L  3.2 e  3.2
+ 4     150           xm    a 18.7  b 66.0 L  0.0 e 15.3
+ 3      79         soft    a 13.9  b 65.8 L  1.3 e 19.0
+ 1     542         intr    a 18.6  b 65.7 L  0.2 e 15.5
+ 1      35       ultra2    a 22.9  b 65.7 L  0.0 e 11.4
+ 4     195          red    a 29.7  b 65.6 L  0.0 e  4.6
+ 4     125       create    a 17.6  b 65.6 L  0.8 e 16.0
+ 2      32        focus    a  0.0  b 65.6 L  0.0 e 34.4
+ 1      61        arlan    a 32.8  b 65.6 L  0.0 e  1.6
+ 3      29          acl    a 13.8  b 65.5 L  0.0 e 20.7
+ 1     119          qic    a  0.8  b 65.5 L  0.8 e 32.8
+ 5     156        dirty    a 25.0  b 65.4 L  1.3 e  8.3
+ 5     153         full    a 12.4  b 65.4 L  1.3 e 20.9
+ 3      26           wp    a  7.7  b 65.4 L  3.8 e 23.1
+ 3     136           td    a 27.2  b 65.4 L  0.0 e  7.4
+ 2      26          usr    a 15.4  b 65.4 L  0.0 e 19.2
+ 2      26        data2    a  7.7  b 65.4 L  3.8 e 23.1
+ 1      26       keyval    a 11.5  b 65.4 L  0.0 e 23.1
+ 2     320         afmt    a  0.0  b 65.3 L  0.0 e 34.7
+ 3      69        shell    a  2.9  b 65.2 L  1.4 e 30.4
+ 3      69       policy    a  1.4  b 65.2 L  0.0 e 33.3
+ 2     115           rs    a 33.0  b 65.2 L  0.0 e  1.7
+ 1      46         recv    a 26.1  b 65.2 L  0.0 e  8.7
+ 4     195        clear    a 20.0  b 65.1 L  0.0 e 14.9
+ 1      37          tmr    a 32.4  b 64.9 L  0.0 e  2.7
+ 6     105          may    a 25.7  b 64.8 L  0.0 e  9.5
+ 4     145           si    a 24.8  b 64.8 L  0.0 e 10.3
+ 3      54           bf    a 25.9  b 64.8 L  0.0 e  9.3
+ 3      68         want    a 25.0  b 64.7 L  4.4 e  5.9
+ 4     182       master    a 15.9  b 64.3 L  0.5 e 19.2
+ 1      28          mfm    a 25.0  b 64.3 L  3.6 e  7.1
+ 1      28        iopte    a 14.3  b 64.3 L  0.0 e 21.4
+ 2      95           im    a 20.0  b 64.2 L  0.0 e 15.8
+ 1      67          isp    a 26.9  b 64.2 L  0.0 e  9.0
+ 1     120         misc    a 30.8  b 64.2 L  0.0 e  5.0
+ 5     376           cc    a 14.6  b 64.1 L  0.8 e 20.5
+ 2      39          cds    a  0.0  b 64.1 L  0.0 e 35.9
+ 2     108          s16    a  0.0  b 63.9 L  0.0 e 36.1
+ 1     169        e1000    a 17.2  b 63.9 L  0.0 e 18.9
+ 6      47           bx    a 29.8  b 63.8 L  0.0 e  6.4
+ 1      47         prim    a 23.4  b 63.8 L  0.0 e 12.8
+ 5     551      control    a 29.6  b 63.7 L  0.0 e  6.7
+ 5     171           ss    a 21.1  b 63.7 L  0.0 e 15.2
+ 5      33         lost    a 30.3  b 63.6 L  0.0 e  6.1
+ 2      44         mono    a  4.5  b 63.6 L  0.0 e 31.8
+ 4      52         conv    a 15.4  b 63.5 L  0.0 e 21.2
+ 1      63          adc    a 34.9  b 63.5 L  0.0 e  1.6
+ 6     185        fixed    a 30.8  b 63.2 L  1.1 e  4.9
+ 5      73          alt    a 30.1  b 63.0 L  0.0 e  6.8
+ 2     246           hw    a 21.5  b 63.0 L  0.0 e 15.4
+ 1      27         i596    a 11.1  b 63.0 L  0.0 e 25.9
+ 4      35        front    a 22.9  b 62.9 L  0.0 e 14.3
+ 5     936        reset    a 24.9  b 62.8 L  1.3 e 11.0
+ 4      86           br    a 22.1  b 62.8 L  0.0 e 15.1
+ 2      59          mic    a  5.1  b 62.7 L  0.0 e 32.2
+ 3     104      connect    a  4.8  b 62.5 L  1.9 e 30.8
+ 2      72         goal    a 29.2  b 62.5 L  0.0 e  8.3
+ 1      32          ccr    a 31.2  b 62.5 L  0.0 e  6.2
+ 3     415         sync    a 30.1  b 62.4 L  0.0 e  7.5
+ 2     109          sis    a  4.6  b 62.4 L  0.0 e 33.0
+ 4     203         auto    a 16.7  b 62.1 L  8.9 e 12.3
+ 1     132          ess    a 34.8  b 62.1 L  0.0 e  3.0
+ 6     321         attr    a 15.3  b 61.7 L  0.0 e 23.1
+ 5     109         fast    a 19.3  b 61.5 L  5.5 e 13.8
+ 1      26          pag    a  0.0  b 61.5 L  0.0 e 38.5
+ 1      26         hpc3    a 38.5  b 61.5 L  0.0 e  0.0
+ 1      26      dataout    a 15.4  b 61.5 L 11.5 e 11.5
+ 1      26        32bit    a 38.5  b 61.5 L  0.0 e  0.0
+ 4     171           fb    a 29.8  b 61.4 L  1.8 e  7.0
+ 3     147           iw    a 36.1  b 61.2 L  0.0 e  2.7
+ 3     121          via    a 23.1  b 61.2 L  2.5 e 13.2
+ 4     108          nop    a 12.0  b 61.1 L  0.0 e 26.9
+ 3      36           ta    a  0.0  b 61.1 L  0.0 e 38.9
+ 1      36          r4k    a 33.3  b 61.1 L  0.0 e  5.6
+ 6     261       option    a 23.8  b 60.9 L  0.0 e 15.3
+ 2     128         cntl    a 39.1  b 60.9 L  0.0 e  0.0
+ 4      56      buttons    a 30.4  b 60.7 L  0.0 e  8.9
+ 1      56     document    a  7.1  b 60.7 L  0.0 e 32.1
+ 1      28           s8    a  0.0  b 60.7 L  0.0 e 39.3
+ 1      28        burst    a 28.6  b 60.7 L  0.0 e 10.7
+ 3     197           ph    a 38.6  b 60.4 L  0.0 e  1.0
+ 2     199       kernel    a 34.2  b 60.3 L  0.0 e  5.5
+ 5     108            4    a 28.7  b 60.2 L  0.0 e 11.1
+ 4      88        alias    a 15.9  b 60.2 L  1.1 e 22.7
+ 4      50           ys    a  4.0  b 60.0 L  0.0 e 36.0
+ 3      30          gid    a  0.0  b 60.0 L  0.0 e 40.0
+ 1      60         ia64    a 38.3  b 60.0 L  0.0 e  1.7
+ 2     119         ipv6    a  8.4  b 59.7 L  0.0 e 31.9
+ 7    1019         flag    a  7.9  b 59.6 L  9.7 e 22.9
+ 3      99    multicast    a 11.1  b 59.6 L  0.0 e 29.3
+ 1      52       ircomm    a 36.5  b 59.6 L  0.0 e  3.8
+ 2      32         hreg    a 28.1  b 59.4 L  0.0 e 12.5
+ 5     140           rd    a 18.6  b 59.3 L  1.4 e 20.7
+ 4      27           n0    a 33.3  b 59.3 L  0.0 e  7.4
+ 2      59           hd    a 20.3  b 59.3 L  0.0 e 20.3
+ 1      27           g0    a 40.7  b 59.3 L  0.0 e  0.0
+ 6      76          run    a 22.4  b 59.2 L  2.6 e 15.8
+ 3      49         quot    a 34.7  b 59.2 L  0.0 e  6.1
+ 1      44          ecc    a 31.8  b 59.1 L  0.0 e  9.1
+ 4     244    interrupt    a 33.6  b 59.0 L  0.0 e  7.4
+ 1      39       strobe    a 41.0  b 59.0 L  0.0 e  0.0
+ 3     265        phase    a  4.9  b 58.9 L  0.0 e 36.2
+ 1      80          mmu    a 32.5  b 58.8 L  5.0 e  3.8
+ 1      34         i830    a 23.5  b 58.8 L  0.0 e 17.6
+ 2      70            6    a 17.1  b 58.6 L  0.0 e 24.3
+ 1      29          cia    a 37.9  b 58.6 L  0.0 e  3.4
+ 5      82         clip    a 30.5  b 58.5 L  3.7 e  7.3
+ 4      36       commit    a  5.6  b 58.3 L  5.6 e 30.6
+ 7      74      changed    a  9.5  b 58.1 L 14.9 e 17.6
+ 3      31      generic    a 41.9  b 58.1 L  0.0 e  0.0
+ 4     138           ev    a 11.6  b 58.0 L  0.0 e 30.4
+ 3     281        mouse    a 31.7  b 58.0 L  0.7 e  9.6
+ 1      38        zoran    a 36.8  b 57.9 L  0.0 e  5.3
+ 1      26        sides    a  0.0  b 57.7 L  0.0 e 42.3
+ 1      26        hfcsx    a 42.3  b 57.7 L  0.0 e  0.0
+ 1      26          brk    a 34.6  b 57.7 L  0.0 e  7.7
+ 1     104        iommu    a 41.3  b 57.7 L  0.0 e  1.0
+ 1     104         hdlc    a 20.2  b 57.7 L  0.0 e 22.1
+ 3      99           sv    a 29.3  b 57.6 L  1.0 e 12.1
+ 2      33          fec    a 30.3  b 57.6 L  0.0 e 12.1
+ 1      66          pll    a 30.3  b 57.6 L  0.0 e 12.1
+ 2      40     loopback    a 27.5  b 57.5 L  0.0 e 15.0
+ 2     392         fifo    a 38.5  b 57.4 L  0.3 e  3.8
+ 1      35          jfs    a 17.1  b 57.1 L  0.0 e 25.7
+ 1      28         cntr    a 42.9  b 57.1 L  0.0 e  0.0
+ 2      30         norm    a 16.7  b 56.7 L  0.0 e 26.7
+ 1      30          llc    a 40.0  b 56.7 L  0.0 e  3.3
+ 1      30    attention    a  0.0  b 56.7 L  0.0 e 43.3
+ 2     122           mc    a 36.9  b 56.6 L  0.0 e  6.6
+ 3      62           dt    a 24.2  b 56.5 L  0.0 e 19.4
+ 3      46           lv    a 23.9  b 56.5 L  0.0 e 19.6
+ 1      46       tstate    a  0.0  b 56.5 L  0.0 e 43.5
+ 2      55    condition    a  1.8  b 56.4 L  0.0 e 41.8
+ 1      55          st1    a  3.6  b 56.4 L  0.0 e 40.0
+ 5     158           ps    a 14.6  b 56.3 L  3.8 e 25.3
+ 3      48    secondary    a 12.5  b 56.2 L  6.2 e 25.0
+ 2      32     shutdown    a  3.1  b 56.2 L  0.0 e 40.6
+ 1      32         freg    a 43.8  b 56.2 L  0.0 e  0.0
+ 4     155         blue    a 42.6  b 56.1 L  0.0 e  1.3
+ 4     123           ic    a 28.5  b 56.1 L  0.0 e 15.4
+ 3      50       random    a 24.0  b 56.0 L  0.0 e 20.0
+ 3     109           wr    a 18.3  b 56.0 L  0.9 e 24.8
+ 1      50     rxstatus    a 36.0  b 56.0 L  0.0 e  8.0
+ 1     100         sisr    a 43.0  b 56.0 L  0.0 e  1.0
+ 2      43          iir    a 41.9  b 55.8 L  0.0 e  2.3
+ 1      43          joy    a 37.2  b 55.8 L  0.0 e  7.0
+ 1     267       vendor    a  6.4  b 55.8 L  0.0 e 37.8
+ 2      45          fcs    a 31.1  b 55.6 L  0.0 e 13.3
+ 1      36          rfd    a 33.3  b 55.6 L  0.0 e 11.1
+ 1      27          ldn    a 40.7  b 55.6 L  0.0 e  3.7
+ 1     137          mpi    a  5.8  b 55.5 L  0.0 e 38.7
+ 5      65         dont    a  4.6  b 55.4 L  0.0 e 40.0
+ 2      29          frm    a 17.2  b 55.2 L  0.0 e 27.6
+ 1      29          cpm    a 44.8  b 55.2 L  0.0 e  0.0
+ 1      60          txd    a 45.0  b 55.0 L  0.0 e  0.0
+ 4     683           cm    a 21.7  b 54.9 L  1.2 e 22.3
+ 7     310         open    a 26.5  b 54.8 L  1.0 e 17.7
+ 1      31        socal    a 45.2  b 54.8 L  0.0 e  0.0
+ 1      33        nport    a 45.5  b 54.5 L  0.0 e  0.0
+ 6      57           th    a 33.3  b 54.4 L  0.0 e 12.3
+ 5     195          dsp    a 31.3  b 54.4 L  0.0 e 14.4
+ 6     457            u    a 36.1  b 54.3 L  2.0 e  7.7
+ 1      96      openpic    a 37.5  b 54.2 L  0.0 e  8.3
+ 5     124           ex    a 25.0  b 54.0 L  0.0 e 21.0
+ 2     211         poll    a 29.4  b 54.0 L  0.0 e 16.6
+ 1     191          csr    a 42.4  b 53.9 L  0.0 e  3.7
+ 1     102         tlan    a 43.1  b 53.9 L  0.0 e  2.9
+ 3      52       signed    a  5.8  b 53.8 L  3.8 e 36.5
+ 5     149     complete    a  4.0  b 53.7 L  3.4 e 38.9
+ 1      41    intstatus    a 43.9  b 53.7 L  0.0 e  2.4
+ 5     263          fmt    a  8.0  b 53.6 L  0.0 e 38.4
+ 4      56          lsb    a 42.9  b 53.6 L  1.8 e  1.8
+ 2      56        instr    a 28.6  b 53.6 L  0.0 e 17.9
+ 7    5162       status    a 22.5  b 53.4 L  0.2 e 24.0
+ 5     122           pp    a 27.9  b 53.3 L  2.5 e 16.4
+ 4      90         frac    a 46.7  b 53.3 L  0.0 e  0.0
+ 2      90           16    a 24.4  b 53.3 L  0.0 e 22.2
+ 1      30           qs    a 43.3  b 53.3 L  0.0 e  3.3
+ 1      30         lpar    a  0.0  b 53.3 L  0.0 e 46.7
+ 1      30          inq    a 26.7  b 53.3 L  0.0 e 20.0
+ 1     182         apic    a 14.3  b 53.3 L  0.0 e 32.4
+ 7    2895            s    a 30.9  b 53.2 L  0.2 e 15.6
+ 1      96         cfmt    a 46.9  b 53.1 L  0.0 e  0.0
+ 1      32          tsc    a 31.2  b 53.1 L 15.6 e  0.0
+ 1      32          awc    a 43.8  b 53.1 L  0.0 e  3.1
+ 2    1466          dma    a 32.4  b 53.0 L  0.1 e 14.5
+ 3      51           gs    a  5.9  b 52.9 L  0.0 e 41.2
+ 5     108       always    a 44.4  b 52.8 L  1.9 e  0.9
+ 5      99           an    a 38.4  b 52.5 L  0.0 e  9.1
+ 1     145          sgl    a 44.8  b 52.4 L  0.0 e  2.8
+ 2      92          dac    a 44.6  b 52.2 L  0.0 e  3.3
+ 4      54          dup    a 25.9  b 51.9 L  0.0 e 22.2
+ 2      27          xid    a 29.6  b 51.9 L  0.0 e 18.5
+ 1      27          soc    a 44.4  b 51.9 L  0.0 e  3.7
+ 4     122     overflow    a 17.2  b 51.6 L  0.8 e 30.3
+ 1      31         cdsn    a 48.4  b 51.6 L  0.0 e  0.0
+ 3      33     override    a 36.4  b 51.5 L  0.0 e 12.1
+ 2      33          rsp    a 18.2  b 51.5 L  3.0 e 27.3
+ 2      37         ctor    a 13.5  b 51.4 L  5.4 e 29.7
+ 1      35          xmt    a 48.6  b 51.4 L  0.0 e  0.0
+ 3      39    broadcast    a 12.8  b 51.3 L  0.0 e 35.9
+ 1     119          lan    a 44.5  b 51.3 L  0.0 e  4.2
+ 6     172           r1    a 36.6  b 51.2 L  0.0 e 12.2
+ 6     127           at    a 41.7  b 51.2 L  3.1 e  3.9
+ 3     127        probe    a 28.3  b 51.2 L  5.5 e 15.0
+ 1      47           hs    a 40.4  b 51.1 L  0.0 e  8.5
+ 6     243       active    a 20.6  b 51.0 L  0.8 e 27.6
+ 7     311           it    a 40.2  b 50.8 L  0.3 e  8.7
+ 1     238        pciio    a 12.6  b 50.8 L  0.0 e 36.6
+ 1     201        pcibr    a 39.3  b 50.7 L  0.0 e 10.0
+ 2      91          lcr    a 49.5  b 50.5 L  0.0 e  0.0
+ 5     335       memory    a 33.4  b 50.4 L  0.3 e 15.8
+ 4     262          esp    a 24.4  b 50.4 L  0.0 e 25.2
+ 1     167          st0    a  0.6  b 50.3 L  0.0 e 49.1
+ 1     403          i2c    a 17.9  b 50.1 L  0.0 e 32.0
+ 5      54     relative    a 42.6  b 50.0 L  1.9 e  5.6
+ 4      44          neg    a 18.2  b 50.0 L  0.0 e 31.8
+ 4      26           w1    a 46.2  b 50.0 L  0.0 e  3.8
+ 3      38       loaded    a 44.7  b 50.0 L  0.0 e  5.3
+ 3      28          rgb    a  7.1  b 50.0 L  0.0 e 42.9
+ 3      28       assign    a 14.3  b 50.0 L  3.6 e 32.1
+ 2      36           oc    a 50.0  b 50.0 L  0.0 e  0.0
+ 2      28     switches    a 46.4  b 50.0 L  0.0 e  3.6
+ 2      26   background    a  7.7  b 50.0 L  0.0 e 42.3
+ 1      36      hishift    a 50.0  b 50.0 L  0.0 e  0.0
+ 1      28          rxf    a 46.4  b 50.0 L  0.0 e  3.6
+ 1      28      descram    a 50.0  b 50.0 L  0.0 e  0.0
+ 1      26       hfcpci    a 50.0  b 50.0 L  0.0 e  0.0
+ 4     345        color    a 22.9  b 49.9 L  0.6 e 26.7
+ 3     349          ctl    a 34.1  b 49.6 L  0.3 e 16.0
+ 4      91       border    a 48.4  b 49.5 L  2.2 e  0.0
+ 7     879      command    a 24.7  b 49.4 L  1.1 e 24.8
+ 4      83       reason    a 13.3  b 49.4 L  2.4 e 34.9
+ 3      81         reg1    a 12.3  b 49.4 L  0.0 e 38.3
+ 2      67      scratch    a 19.4  b 49.3 L  9.0 e 22.4
+ 5      59         inst    a 20.3  b 49.2 L  0.0 e 30.5
+ 3      65           dr    a 50.8  b 49.2 L  0.0 e  0.0
+ 2      65         reg0    a 24.6  b 49.2 L  0.0 e 26.2
+ 1      61        qic02    a 14.8  b 49.2 L  0.0 e 36.1
+ 1      57     physaddr    a 45.6  b 49.1 L  5.3 e  0.0
+ 2     255           fe    a 21.2  b 49.0 L  0.8 e 29.0
+ 2      45        ahead    a 51.1  b 48.9 L  0.0 e  0.0
+ 1    1901          pci    a 27.1  b 48.9 L  0.4 e 23.7
+ 3      43         val1    a 11.6  b 48.8 L  0.0 e 39.5
+ 3      41           nv    a 51.2  b 48.8 L  0.0 e  0.0
+ 6      70         dead    a 15.7  b 48.6 L  5.7 e 30.0
+ 3      37       common    a 21.6  b 48.6 L  5.4 e 24.3
+ 1      37          ovw    a 51.4  b 48.6 L  0.0 e  0.0
+ 1      31         ntsc    a 16.1  b 48.4 L  0.0 e 35.5
+ 6    1066          bit    a 42.1  b 48.3 L  0.7 e  8.9
+ 4      58      restart    a 20.7  b 48.3 L  0.0 e 31.0
+ 3      29        light    a 48.3  b 48.3 L  3.4 e  0.0
+ 1      29       rwctrl    a 51.7  b 48.3 L  0.0 e  0.0
+ 1      29         ansi    a 24.1  b 48.3 L  0.0 e 27.6
+ 6     106       update    a 38.7  b 48.1 L  2.8 e 10.4
+ 3     302           cd    a 34.8  b 48.0 L  4.6 e 12.6
+ 1     102     repshift    a 52.0  b 48.0 L  0.0 e  0.0
+ 6     184           tp    a 22.8  b 47.8 L  0.0 e 29.3
+ 4      63         fail    a 17.5  b 47.6 L  0.0 e 34.9
+ 2      42           dz    a 42.9  b 47.6 L  0.0 e  9.5
+ 1      42      adapter    a 28.6  b 47.6 L  0.0 e 23.8
+ 1      40        cntrl    a 47.5  b 47.5 L  0.0 e  5.0
+ 1     118          mga    a 50.0  b 47.5 L  0.0 e  2.5
+ 3      38         pref    a  2.6  b 47.4 L  0.0 e 50.0
+ 2      38         walk    a 23.7  b 47.4 L  0.0 e 28.9
+ 2     114          ier    a 52.6  b 47.4 L  0.0 e  0.0
+ 5     165          sel    a 32.1  b 47.3 L  0.0 e 20.6
+ 3      91        media    a 45.1  b 47.3 L  1.1 e  6.6
+ 1      55       pcmcia    a 50.9  b 47.3 L  0.0 e  1.8
+ 3      36         perm    a 44.4  b 47.2 L  0.0 e  8.3
+ 3     108       driver    a 25.9  b 47.2 L  0.0 e 26.9
+ 1      53          ali    a 50.9  b 47.2 L  0.0 e  1.9
+ 4      34        carry    a 23.5  b 47.1 L  0.0 e 29.4
+ 3      85        pitch    a 48.2  b 47.1 L  0.0 e  4.7
+ 5     128    interface    a 28.9  b 46.9 L  3.1 e 21.1
+ 3      32           ls    a 46.9  b 46.9 L  3.1 e  3.1
+ 1      64         vlan    a 32.8  b 46.9 L  0.0 e 20.3
+ 3      45           sf    a 48.9  b 46.7 L  0.0 e  4.4
+ 1      92          xfe    a  3.3  b 46.7 L  0.0 e 50.0
+ 1     107         budb    a  1.9  b 46.7 L  0.0 e 51.4
+ 5      28      support    a 39.3  b 46.4 L  0.0 e 14.3
+ 3      97          scc    a 33.0  b 46.4 L  2.1 e 18.6
+ 2      84          ufs    a 28.6  b 46.4 L  0.0 e 25.0
+ 2      84           ec    a 10.7  b 46.4 L  0.0 e 42.9
+ 2      28   framecount    a 50.0  b 46.4 L  0.0 e  3.6
+ 1      28         regr    a 46.4  b 46.4 L  0.0 e  7.1
+ 1      28          adb    a 10.7  b 46.4 L  0.0 e 42.9
+ 4      65            8    a 35.4  b 46.2 L  0.0 e 18.5
+ 7     675          msg    a 33.6  b 46.1 L  0.7 e 19.6
+ 4      37          ind    a 21.6  b 45.9 L  0.0 e 32.4
+ 1      37          pvr    a 43.2  b 45.9 L  0.0 e 10.8
+ 4      70         prop    a 22.9  b 45.7 L  4.3 e 27.1
+ 4      33         draw    a  6.1  b 45.5 L  0.0 e 48.5
+ 3      55        water    a 45.5  b 45.5 L  0.0 e  9.1
+ 3      33           cx    a 27.3  b 45.5 L  0.0 e 27.3
+ 2      33           pv    a 15.2  b 45.5 L  0.0 e 39.4
+ 4      53           d0    a 39.6  b 45.3 L  0.0 e 15.1
+ 4      93           gc    a 35.5  b 45.2 L  1.1 e 18.3
+ 3      31       public    a 25.8  b 45.2 L  0.0 e 29.0
+ 3      31           nm    a 38.7  b 45.2 L  0.0 e 16.1
+ 1      31   subcontext    a  0.0  b 45.2 L  0.0 e 54.8
+ 1     135          rcv    a 49.6  b 45.2 L  0.0 e  5.2
+ 1     184         ac97    a 52.7  b 45.1 L  0.0 e  2.2
+ 5     331           sc    a 32.0  b 45.0 L  0.9 e 22.1
+ 3     302           mt    a 11.6  b 45.0 L  0.0 e 43.4
+ 3      69       errors    a 37.7  b 44.9 L  0.0 e 17.4
+ 2     227        audio    a 26.0  b 44.9 L  0.0 e 29.1
+ 1      78        sonic    a 55.1  b 44.9 L  0.0 e  0.0
+ 1     693         scsi    a 28.1  b 44.9 L  0.1 e 26.8
+ 2    1484           tx    a 51.1  b 44.8 L  0.3 e  3.8
+ 1      29         dram    a 55.2  b 44.8 L  0.0 e  0.0
+ 4     527         init    a 22.8  b 44.6 L  1.3 e 31.3
+ 4     304       opcode    a 15.8  b 44.4 L  0.0 e 39.8
+ 1      27         sbus    a 22.2  b 44.4 L  3.7 e 29.6
+ 4      70           10    a 34.3  b 44.3 L  0.0 e 21.4
+ 6     104        owner    a 16.3  b 44.2 L  1.0 e 38.5
+ 5     104           pf    a 31.7  b 44.2 L  0.0 e 24.0
+ 7     338           on    a 33.7  b 44.1 L  1.5 e 20.7
+ 4      59      primary    a 13.6  b 44.1 L 15.3 e 27.1
+ 4     102         ints    a 53.9  b 44.1 L  0.0 e  2.0
+ 1      68          tcr    a 51.5  b 44.1 L  0.0 e  4.4
+ 1      34          ssi    a 47.1  b 44.1 L  0.0 e  8.8
+ 1      34       resume    a 11.8  b 44.1 L  0.0 e 44.1
+ 1      34          nsp    a  5.9  b 44.1 L  0.0 e 50.0
+ 7     725           is    a 22.8  b 44.0 L 18.6 e 14.6
+ 6      84        other    a 29.8  b 44.0 L  0.0 e 26.2
+ 3      50           va    a 34.0  b 44.0 L  0.0 e 22.0
+ 1     116        csr12    a 56.0  b 44.0 L  0.0 e  0.0
+ 2     497        sound    a 18.3  b 43.9 L  0.0 e 37.8
+ 4     128     contents    a 41.4  b 43.8 L  0.8 e 14.1
+ 3     906         ctrl    a 50.2  b 43.8 L  0.2 e  5.7
+ 2     137          ioc    a 32.8  b 43.8 L  0.0 e 23.4
+ 1      32         bass    a 18.8  b 43.8 L  0.0 e 37.5
+ 6     110         only    a 37.3  b 43.6 L  4.5 e 14.5
+ 5     264         link    a 24.6  b 43.6 L  0.0 e 31.8
+ 5      46           lh    a 43.5  b 43.5 L  0.0 e 13.0
+ 6     327          ext    a 44.0  b 43.4 L  1.8 e 10.7
+ 4      30        login    a 36.7  b 43.3 L  0.0 e 20.0
+ 3      30          des    a 16.7  b 43.3 L  0.0 e 40.0
+ 2      30        haddr    a 56.7  b 43.3 L  0.0 e  0.0
+ 1      60         ubik    a 40.0  b 43.3 L  0.0 e 16.7
+ 5      88         bind    a 48.9  b 43.2 L  0.0 e  8.0
+ 1      74         csr5    a 44.6  b 43.2 L  0.0 e 12.2
+ 2      72         flow    a 43.1  b 43.1 L  0.0 e 13.9
+ 1      65      vrc5477    a 56.9  b 43.1 L  0.0 e  0.0
+ 1      93        cause    a 15.1  b 43.0 L  0.0 e 41.9
+ 1      79         asig    a 34.2  b 43.0 L  6.3 e 16.5
+ 1     107         hscx    a 56.1  b 43.0 L  0.0 e  0.9
+ 4      28      pattern    a 17.9  b 42.9 L  0.0 e 39.3
+ 1      63        sun4c    a 52.4  b 42.9 L  0.0 e  4.8
+ 1      35         disc    a 28.6  b 42.9 L  0.0 e 28.6
+ 1     196          ide    a 44.4  b 42.9 L  0.0 e 12.8
+ 4     164      pending    a 27.4  b 42.7 L  1.8 e 28.0
+ 1      89          lmc    a 22.5  b 42.7 L  0.0 e 34.8
+ 7     387          all    a 16.5  b 42.6 L  2.3 e 38.5
+ 7     155           mb    a 49.7  b 42.6 L  0.0 e  7.7
+ 1      54          rxd    a 51.9  b 42.6 L  0.0 e  5.6
+ 1      47        msgin    a 17.0  b 42.6 L  0.0 e 40.4
+ 7     750          map    a 46.4  b 42.5 L  0.8 e 10.3
+ 2      73       duplex    a 19.2  b 42.5 L  0.0 e 38.4
+ 1      80         halt    a  0.0  b 42.5 L  0.0 e 57.5
+ 3      66          non    a 16.7  b 42.4 L  6.1 e 34.8
+ 2      33          sem    a  6.1  b 42.4 L  0.0 e 51.5
+ 1      59         i810    a 23.7  b 42.4 L  0.0 e 33.9
+ 1      33        cable    a  6.1  b 42.4 L  0.0 e 51.5
+ 7     267           fs    a 47.6  b 42.3 L  0.7 e  9.4
+ 7     196        empty    a  8.7  b 42.3 L  2.6 e 46.4
+ 1      78          rio    a 43.6  b 42.3 L  0.0 e 14.1
+ 1      52       msgout    a 25.0  b 42.3 L  0.0 e 32.7
+ 1      26         chnl    a 57.7  b 42.3 L  0.0 e  0.0
+ 7      90        close    a 33.3  b 42.2 L  0.0 e 24.4
+ 5      83        split    a 15.7  b 42.2 L  0.0 e 42.2
+ 7    2263          val    a 35.4  b 42.1 L  0.2 e 22.2
+ 4      57     sequence    a 40.4  b 42.1 L  0.0 e 17.5
+ 2      76         frag    a 26.3  b 42.1 L  0.0 e 31.6
+ 7     704        event    a 15.2  b 42.0 L  0.7 e 42.0
+ 6     176       server    a 13.1  b 42.0 L  4.0 e 40.9
+ 7     991         temp    a 28.9  b 41.9 L  0.6 e 28.7
+ 7    1589        write    a 16.3  b 41.9 L  0.6 e 41.2
+ 5      43      visible    a 51.2  b 41.9 L  4.7 e  2.3
+ 3      43       modify    a 11.6  b 41.9 L  2.3 e 44.2
+ 1      93          bsr    a 58.1  b 41.9 L  0.0 e  0.0
+ 1      43   interrupts    a 37.2  b 41.9 L  4.7 e 16.3
+ 6     182           l2    a 29.7  b 41.8 L  0.5 e 28.0
+ 5     153            3    a 51.0  b 41.8 L  0.0 e  7.2
+ 4     180           rw    a 17.8  b 41.7 L  1.1 e 39.4
+ 6     212         part    a 24.5  b 41.5 L  0.0 e 34.0
+ 1      53      hd64465    a 54.7  b 41.5 L  0.0 e  3.8
+ 3      87          epp    a 49.4  b 41.4 L  0.0 e  9.2
+ 3      29       opaque    a 10.3  b 41.4 L  0.0 e 48.3
+ 1      29       busnum    a 55.2  b 41.4 L  0.0 e  3.4
+ 4      34         vert    a 58.8  b 41.2 L  0.0 e  0.0
+ 3     600           sk    a 17.8  b 41.2 L  0.7 e 40.3
+ 1      34       vchan1    a 58.8  b 41.2 L  0.0 e  0.0
+ 1      34         glob    a 52.9  b 41.2 L  5.9 e  0.0
+ 1      34       cimcmd    a 58.8  b 41.2 L  0.0 e  0.0
+ 3      39          fid    a 12.8  b 41.0 L  0.0 e 46.2
+ 5      93          def    a 22.6  b 40.9 L  0.0 e 36.6
+ 3      66           f2    a 39.4  b 40.9 L  3.0 e 16.7
+ 4      49          eol    a 26.5  b 40.8 L  0.0 e 32.7
+ 4      27   attributes    a 48.1  b 40.7 L  7.4 e  3.7
+ 3      27       reject    a 25.9  b 40.7 L  0.0 e 33.3
+ 1      91         bios    a 47.3  b 40.7 L  0.0 e 12.1
+ 4      84         jump    a 15.5  b 40.5 L  6.0 e 38.1
+ 6      94           i2    a 43.6  b 40.4 L  4.3 e 11.7
+ 4    1885           rx    a 55.5  b 40.4 L  0.2 e  4.0
+ 6     367          not    a 14.4  b 40.3 L  1.4 e 43.9
+ 4     293           cr    a 56.3  b 40.3 L  0.0 e  3.4
+ 6      97           lb    a 47.4  b 40.2 L  0.0 e 12.4
+ 6     281          get    a 37.0  b 40.2 L  2.8 e 19.9
+ 5      40         enum    a 57.5  b 40.0 L  0.0 e  2.5
+ 4      40         tags    a 42.5  b 40.0 L  2.5 e 15.0
+ 3      55         ival    a 38.2  b 40.0 L  0.0 e 21.8
+ 3      45           z1    a 57.8  b 40.0 L  0.0 e  2.2
+ 3      30         view    a  0.0  b 40.0 L  0.0 e 60.0
+ 2      60         swap    a 46.7  b 40.0 L  0.0 e 13.3
+ 2     110       sample    a 57.3  b 40.0 L  0.0 e  2.7
+ 1      35       report    a 42.9  b 40.0 L  5.7 e 11.4
+ 4      88        multi    a 26.1  b 39.8 L  3.4 e 30.7
+ 5      73        place    a 28.8  b 39.7 L  2.7 e 28.8
+ 3     388          mac    a 46.1  b 39.7 L  0.5 e 13.7
+ 1      76          icl    a 30.3  b 39.5 L  0.0 e 30.3
+ 5     104       notify    a 27.9  b 39.4 L  2.9 e 29.8
+ 3      66        title    a 19.7  b 39.4 L  0.0 e 40.9
+ 3      66        resid    a 54.5  b 39.4 L  0.0 e  6.1
+ 2      28        namei    a 57.1  b 39.3 L  0.0 e  3.6
+ 6     143      options    a 42.0  b 39.2 L  0.0 e 18.9
+ 7      92        files    a 37.0  b 39.1 L  7.6 e 16.3
+ 2      64          imm    a 25.0  b 39.1 L  0.0 e 35.9
+ 1      41          ate    a 51.2  b 39.0 L  0.0 e  9.8
+ 7    1293         read    a 20.5  b 38.9 L  0.8 e 39.8
+ 4      36          see    a 61.1  b 38.9 L  0.0 e  0.0
+ 4     203           gp    a 58.1  b 38.9 L  0.0 e  3.0
+ 2      72           mm    a 47.2  b 38.9 L  0.0 e 13.9
+ 2      54     fracbits    a 61.1  b 38.9 L  0.0 e  0.0
+ 2     411          cfg    a 53.8  b 38.9 L  0.5 e  6.8
+ 3      67           zs    a 40.3  b 38.8 L  0.0 e 20.9
+ 1      98      tvp3026    a 61.2  b 38.8 L  0.0 e  0.0
+ 7     137       system    a 33.6  b 38.7 L  1.5 e 26.3
+ 2      31          rsa    a 61.3  b 38.7 L  0.0 e  0.0
+ 2      31        imask    a 54.8  b 38.7 L  3.2 e  3.2
+ 4     145          raw    a 28.3  b 38.6 L  0.0 e 33.1
+ 1      44          ibm    a  4.5  b 38.6 L  0.0 e 56.8
+ 1     101          shf    a 61.4  b 38.6 L  0.0 e  0.0
+ 4      26         pos2    a 42.3  b 38.5 L  0.0 e 19.2
+ 3      39    timestamp    a 59.0  b 38.5 L  0.0 e  2.6
+ 2      39           v3    a 48.7  b 38.5 L  5.1 e  7.7
+ 1      26   partitions    a 61.5  b 38.5 L  0.0 e  0.0
+ 7     269           up    a 23.0  b 38.3 L  1.9 e 36.8
+ 3      60           ea    a 20.0  b 38.3 L  0.0 e 41.7
+ 3     149       volume    a 43.0  b 38.3 L  0.7 e 18.1
+ 6     361       window    a 28.8  b 38.2 L  0.3 e 32.7
+ 1      34     userauth    a 61.8  b 38.2 L  0.0 e  0.0
+ 6     507         byte    a 46.0  b 38.1 L  0.0 e 16.0
+ 6     105        force    a 10.5  b 38.1 L 10.5 e 41.0
+ 3      42        tcode    a  4.8  b 38.1 L  0.0 e 57.1
+ 4      79         conn    a 24.1  b 38.0 L  0.0 e 38.0
+ 4     100          dot    a 57.0  b 38.0 L  1.0 e  4.0
+ 2      29        modem    a 31.0  b 37.9 L  0.0 e 31.0
+ 5     111         load    a 29.7  b 37.8 L  3.6 e 28.8
+ 2      45         m68k    a 55.6  b 37.8 L  0.0 e  6.7
+ 1      53         udma    a 58.5  b 37.7 L  0.0 e  3.8
+ 1     672          bus    a 32.3  b 37.6 L  0.3 e 29.8
+ 3     879         insn    a 14.8  b 37.4 L  0.9 e 46.9
+ 7     241         test    a 40.2  b 37.3 L  1.2 e 21.2
+ 4     102          can    a 31.4  b 37.3 L  2.9 e 28.4
+ 1     169        smbus    a  2.4  b 37.3 L  0.0 e 60.4
+ 4      43           xs    a  2.3  b 37.2 L  0.0 e 60.5
+ 2     331         card    a 42.3  b 37.2 L  0.3 e 20.2
+ 4      68           ti    a 16.2  b 36.8 L  0.0 e 47.1
+ 4     234          tid    a 52.6  b 36.8 L  0.0 e 10.7
+ 3      76         date    a 57.9  b 36.8 L  0.0 e  5.3
+ 6     939          mem    a 44.0  b 36.7 L  0.9 e 18.4
+ 3      98           tr    a 56.1  b 36.7 L  0.0 e  7.1
+ 5      41    component    a  7.3  b 36.6 L  0.0 e 56.1
+ 2      41          chk    a  9.8  b 36.6 L  0.0 e 53.7
+ 5      52         over    a 61.5  b 36.5 L  0.0 e  1.9
+ 6     327         wait    a 35.5  b 36.4 L  0.6 e 27.5
+ 4      77          uid    a 37.7  b 36.4 L  0.0 e 26.0
+ 3      44          bar    a 56.8  b 36.4 L  0.0 e  6.8
+ 2     187         icon    a 50.3  b 36.4 L  0.0 e 13.4
+ 1      44     keylargo    a 45.5  b 36.4 L  0.0 e 18.2
+ 7     567           op    a 16.0  b 36.3 L  0.9 e 46.7
+ 5      69        lower    a 46.4  b 36.2 L  5.8 e 11.6
+ 2      47     capacity    a 59.6  b 36.2 L  0.0 e  4.3
+ 1      80       damage    a 63.8  b 36.2 L  0.0 e  0.0
+ 3      36         spin    a 55.6  b 36.1 L  0.0 e  8.3
+ 4     125      special    a  7.2  b 36.0 L  1.6 e 55.2
+ 1     125         creg    a 64.0  b 36.0 L  0.0 e  0.0
+ 7     936           cs    a 15.7  b 35.8 L  0.0 e 48.5
+ 2      28           wf    a 50.0  b 35.7 L  0.0 e 14.3
+ 1      42         ia32    a 57.1  b 35.7 L  0.0 e  7.1
+ 1      28        asign    a  0.0  b 35.7 L  0.0 e 64.3
+ 6     250           sx    a 51.6  b 35.6 L  0.0 e 12.8
+ 4     135          par    a 57.8  b 35.6 L  0.0 e  6.7
+ 1      45         dsps    a 44.4  b 35.6 L  0.0 e 20.0
+ 6     276         lock    a 25.0  b 35.5 L  2.5 e 37.0
+ 2      31        reloc    a  6.5  b 35.5 L 32.3 e 25.8
+ 2      31           ad    a 51.6  b 35.5 L  0.0 e 12.9
+ 5     192       select    a 33.9  b 35.4 L  1.6 e 29.2
+ 2      99          smb    a 56.6  b 35.4 L  0.0 e  8.1
+ 6     139           as    a 28.1  b 35.3 L  1.4 e 35.3
+ 1      34         digi    a 20.6  b 35.3 L  0.0 e 44.1
+ 5     196          mid    a 53.6  b 35.2 L  6.1 e  5.1
+ 5    1606           io    a 52.6  b 35.2 L  0.3 e 11.9
+ 5     111     disabled    a  5.4  b 35.1 L 38.7 e 20.7
+ 3      94          ctx    a 43.6  b 35.1 L  0.0 e 21.3
+ 5      40    directory    a 17.5  b 35.0 L  0.0 e 47.5
+ 3      40      cluster    a 57.5  b 35.0 L  0.0 e  7.5
+ 6     421          req    a 34.7  b 34.9 L  3.3 e 27.1
+ 1      86         boot    a 30.2  b 34.9 L  2.3 e 32.6
+ 1      43          gbl    a 34.9  b 34.9 L  0.0 e 30.2
+ 1     436          isr    a 61.5  b 34.9 L  0.0 e  3.7
+ 2    2814          irq    a 52.9  b 34.8 L  1.1 e 11.2
+ 1      46          pcr    a 63.0  b 34.8 L  0.0 e  2.2
+ 6      95    allocated    a 30.5  b 34.7 L  0.0 e 34.7
+ 5     551       config    a 57.2  b 34.7 L  0.0 e  8.2
+ 6      81         back    a 53.1  b 34.6 L  0.0 e 12.3
+ 3     188          vol    a 54.3  b 34.6 L  0.5 e 10.6
+ 2      26         acmd    a  0.0  b 34.6 L  0.0 e 65.4
+ 7    1157        state    a 15.3  b 34.5 L  0.3 e 50.0
+ 3      29           m1    a 41.4  b 34.5 L  0.0 e 24.1
+ 1      55         bsig    a 49.1  b 34.5 L  0.0 e 16.4
+ 1      29        txcfg    a 65.5  b 34.5 L  0.0 e  0.0
+ 5      32      warning    a 46.9  b 34.4 L  9.4 e  9.4
+ 5     215         call    a 20.0  b 34.4 L  4.2 e 41.4
+ 4      61      blksize    a 44.3  b 34.4 L  0.0 e 21.3
+ 3      32    immediate    a 37.5  b 34.4 L  0.0 e 28.1
+ 2      64        codec    a 48.4  b 34.4 L  6.2 e 10.9
+ 1      32       rfcomm    a 53.1  b 34.4 L  0.0 e 12.5
+ 2      35       queued    a 45.7  b 34.3 L  0.0 e 20.0
+ 1      35       presto    a 40.0  b 34.3 L  0.0 e 25.7
+ 6     185           cl    a 33.0  b 34.1 L  3.8 e 29.2
+ 5      91           or    a 42.9  b 34.1 L  1.1 e 22.0
+ 4     208           bm    a 55.8  b 34.1 L  0.0 e 10.1
+ 3      41          asm    a 19.5  b 34.1 L  2.4 e 43.9
+ 1      44          lcd    a 18.2  b 34.1 L  0.0 e 47.7
+ 7    1542            d    a 54.8  b 34.0 L  0.0 e 11.2
+ 2     491      channel    a 39.7  b 34.0 L  0.0 e 26.3
+ 1      53         disp    a 30.2  b 34.0 L  0.0 e 35.8
+ 1      47          plx    a 66.0  b 34.0 L  0.0 e  0.0
+ 4      56           ts    a 42.9  b 33.9 L  0.0 e 23.2
+ 4      56           e1    a 46.4  b 33.9 L  1.8 e 17.9
+ 3      62           ca    a 56.5  b 33.9 L  0.0 e  9.7
+ 2      56        xmtab    a  3.6  b 33.9 L  0.0 e 62.5
+ 1     316         acpi    a 34.8  b 33.9 L  0.0 e 31.3
+ 6     933           ok    a  1.9  b 33.7 L  1.4 e 63.0
+ 4     230        flush    a 17.0  b 33.5 L  0.4 e 49.1
+ 7    2662         data    a 46.3  b 33.3 L  1.0 e 19.3
+ 4      84      charset    a 16.7  b 33.3 L  1.2 e 48.8
+ 4      66           bc    a 31.8  b 33.3 L  0.0 e 34.8
+ 4      45           a1    a 44.4  b 33.3 L  4.4 e 17.8
+ 4      39           ai    a 66.7  b 33.3 L  0.0 e  0.0
+ 4     162         conf    a 51.9  b 33.3 L  1.2 e 13.6
+ 2      36     recovery    a 52.8  b 33.3 L  0.0 e 13.9
+ 1      54        srmmu    a 64.8  b 33.3 L  0.0 e  1.9
+ 1      42          pte    a 57.1  b 33.3 L  0.0 e  9.5
+ 1      42         pins    a 66.7  b 33.3 L  0.0 e  0.0
+ 1      27          mss    a 63.0  b 33.3 L  0.0 e  3.7
+ 1      27        de4x5    a 66.7  b 33.3 L  0.0 e  0.0
+ 7     437         high    a 46.9  b 33.2 L  0.9 e 19.0
+ 6    2611          cmd    a 30.8  b 33.2 L  0.0 e 35.9
+ 4     151          com    a 51.7  b 33.1 L  0.0 e 15.2
+ 7     235            2    a 43.0  b 32.8 L  1.3 e 23.0
+ 1     332        video    a 40.1  b 32.8 L  0.3 e 26.8
+ 5      98        temp1    a 39.8  b 32.7 L  0.0 e 27.6
+ 4      55           nt    a  9.1  b 32.7 L  5.5 e 52.7
+ 4     272        timer    a 55.5  b 32.7 L  0.7 e 11.0
+ 3     156     transfer    a 38.5  b 32.7 L  0.0 e 28.8
+ 1      95          lba    a 54.7  b 32.6 L  0.0 e 12.6
+ 1     138          ram    a 63.8  b 32.6 L  0.0 e  3.6
+ 5     314       output    a 37.9  b 32.5 L  6.4 e 23.2
+ 3      80           rl    a 57.5  b 32.5 L  2.5 e  7.5
+ 4      34       simple    a 35.3  b 32.4 L 11.8 e 20.6
+ 3      37        panel    a 62.2  b 32.4 L  0.0 e  5.4
+ 3      34         vers    a 14.7  b 32.4 L  0.0 e 52.9
+ 2      34     implicit    a 47.1  b 32.4 L 11.8 e  8.8
+ 2      34          drv    a 20.6  b 32.4 L  0.0 e 47.1
+ 1     333          pkt    a 59.2  b 32.4 L  0.0 e  8.4
+ 4      31       stored    a 64.5  b 32.3 L  0.0 e  3.2
+ 1      31         twin    a 54.8  b 32.3 L  0.0 e 12.9
+ 1     133          ips    a 38.3  b 32.3 L  0.0 e 29.3
+ 5     292           pt    a 57.2  b 32.2 L  0.0 e 10.6
+ 6     106           pm    a 47.2  b 32.1 L  0.0 e 20.8
+ 4     131           fn    a 18.3  b 32.1 L  0.8 e 48.9
+ 3      28       newval    a 17.9  b 32.1 L 35.7 e 14.3
+ 1     390          scb    a 27.9  b 32.1 L  0.0 e 40.0
+ 6      69           bl    a 65.2  b 31.9 L  0.0 e  2.9
+ 2      91          cam    a 12.1  b 31.9 L  0.0 e 56.0
+ 2      47           lm    a 19.1  b 31.9 L  2.1 e 46.8
+ 2     144         prom    a 45.1  b 31.9 L  0.0 e 22.9
+ 7     592        cache    a 47.6  b 31.8 L  0.3 e 20.3
+ 5      85           p2    a 38.8  b 31.8 L  4.7 e 24.7
+ 7    1332          tmp    a 39.5  b 31.7 L  0.3 e 28.5
+ 2      82           fx    a 59.8  b 31.7 L  0.0 e  8.5
+ 4     136       button    a 11.0  b 31.6 L  0.7 e 56.6
+ 3      57         mmap    a 10.5  b 31.6 L  0.0 e 57.9
+ 2      38      nocache    a 60.5  b 31.6 L  0.0 e  7.9
+ 1      57           vc    a 47.4  b 31.6 L  0.0 e 21.1
+ 1      38      logical    a 42.1  b 31.6 L  0.0 e 26.3
+ 1      38      illegal    a 34.2  b 31.6 L  0.0 e 34.2
+ 7    1769            b    a 51.4  b 31.5 L  0.2 e 16.8
+ 7    1168            m    a 53.4  b 31.4 L  0.6 e 14.6
+ 4      35       dialog    a  0.0  b 31.4 L  0.0 e 68.6
+ 4     175           ms    a 17.7  b 31.4 L  0.0 e 50.9
+ 2     309       bridge    a 39.8  b 31.4 L  0.0 e 28.8
+ 1      51       dcache    a 60.8  b 31.4 L  0.0 e  7.8
+ 6     265       access    a 38.5  b 31.3 L  0.4 e 29.8
+ 6     321         done    a 19.3  b 31.2 L  2.5 e 47.0
+ 4      80         comp    a 13.8  b 31.2 L  2.5 e 52.5
+ 3      48           z2    a 60.4  b 31.2 L  0.0 e  8.3
+ 2      32       custom    a 56.2  b 31.2 L  0.0 e 12.5
+ 5      45   connection    a 31.1  b 31.1 L  0.0 e 37.8
+ 5     293          bad    a  4.4  b 31.1 L  1.7 e 62.8
+ 3      74   disconnect    a 50.0  b 31.1 L  0.0 e 18.9
+ 1     132         eisa    a 53.0  b 31.1 L  1.5 e 14.4
+ 7     126      message    a 26.2  b 31.0 L  2.4 e 40.5
+ 3      42           ka    a 61.9  b 31.0 L  0.0 e  7.1
+ 2      29       cookie    a  6.9  b 31.0 L  0.0 e 62.1
+ 1      84          pmu    a  9.5  b 31.0 L  0.0 e 59.5
+ 1      42         skcs    a 33.3  b 31.0 L  0.0 e 35.7
+ 7    1442            f    a 39.9  b 30.9 L  1.6 e 27.6
+ 4     139           pa    a 23.0  b 30.9 L  0.0 e 46.0
+ 1     136        nvram    a 52.9  b 30.9 L  0.0 e 16.2
+ 7    1711          err    a 25.5  b 30.8 L  0.4 e 43.2
+ 5      39      comment    a 20.5  b 30.8 L  0.0 e 48.7
+ 4      52           g1    a 65.4  b 30.8 L  0.0 e  3.8
+ 3      52           h2    a 44.2  b 30.8 L  0.0 e 25.0
+ 3      39          tbl    a 46.2  b 30.8 L  0.0 e 23.1
+ 1      98         strt    a 69.4  b 30.6 L  0.0 e  0.0
+ 7     315        check    a 45.1  b 30.5 L  1.9 e 22.5
+ 6     348           lo    a 40.2  b 30.5 L  0.3 e 29.0
+ 7     545            v    a 53.9  b 30.3 L  1.5 e 14.3
+ 4     165         idle    a 24.8  b 30.3 L  0.0 e 44.8
+ 3      66     extended    a 43.9  b 30.3 L  0.0 e 25.8
+ 5      96       filter    a 36.5  b 30.2 L  0.0 e 33.3
+ 4      43         push    a 34.9  b 30.2 L  4.7 e 30.2
+ 4     103        magic    a 26.2  b 30.1 L  1.0 e 42.7
+ 6     120       change    a 12.5  b 30.0 L 26.7 e 30.8
+ 6    1081      address    a 61.1  b 29.9 L  0.0 e  9.0
+ 5      97       delete    a 13.4  b 29.9 L  2.1 e 54.6
+ 5     201          win    a 48.3  b 29.9 L  1.5 e 20.4
+ 7     557          dir    a 28.2  b 29.8 L  0.4 e 41.7
+ 2      57  constructor    a  0.0  b 29.8 L  7.0 e 63.2
+ 7    1285           no    a 25.8  b 29.7 L  1.0 e 43.5
+ 6    2720         addr    a 55.7  b 29.7 L  0.4 e 14.3
+ 4      37           mw    a 62.2  b 29.7 L  0.0 e  8.1
+ 3     182          scr    a 59.9  b 29.7 L  1.1 e  9.3
+ 2      37       timing    a 54.1  b 29.7 L  0.0 e 16.2
+ 6     142           l1    a 37.3  b 29.6 L  0.7 e 32.4
+ 5     213          sum    a 52.6  b 29.6 L  0.0 e 17.8
+ 4     287           hi    a 47.0  b 29.6 L  1.4 e 22.0
+ 4      27     datasize    a 63.0  b 29.6 L  0.0 e  7.4
+ 4      27    attribute    a 55.6  b 29.6 L  0.0 e 14.8
+ 3     115     response    a 38.3  b 29.6 L  0.0 e 32.2
+ 2      27          tcl    a  0.0  b 29.6 L  0.0 e 70.4
+ 2      27         tang    a 70.4  b 29.6 L  0.0 e  0.0
+ 1      27      nodenum    a 70.4  b 29.6 L  0.0 e  0.0
+ 2      78      divisor    a 62.8  b 29.5 L  0.0 e  7.7
+ 2      51          tgt    a 56.9  b 29.4 L  0.0 e 13.7
+ 2      34         resp    a 41.2  b 29.4 L  5.9 e 23.5
+ 2     109           dn    a 52.3  b 29.4 L  0.0 e 18.3
+ 5     666            0    a 62.5  b 29.3 L  0.0 e  8.3
+ 6     487            1    a 59.5  b 29.2 L  0.2 e 11.1
+ 5    1125           pr    a 20.9  b 29.2 L  0.4 e 49.4
+ 4      72         both    a  2.8  b 29.2 L 59.7 e  8.3
+ 4      48         auth    a 14.6  b 29.2 L  0.0 e 56.2
+ 4     185           ns    a 40.0  b 29.2 L  0.0 e 30.8
+ 3     185       packet    a 43.8  b 29.2 L  6.5 e 20.5
+ 2     172           ee    a 67.4  b 29.1 L  0.0 e  3.5
+ 3      31          fin    a 32.3  b 29.0 L  0.0 e 38.7
+ 1     221          png    a 40.3  b 29.0 L  0.0 e 30.8
+ 1     162          kbd    a 46.9  b 29.0 L  0.0 e 24.1
+ 7    1243           st    a 28.7  b 28.9 L  0.2 e 42.2
+ 5     114      partial    a 42.1  b 28.9 L  0.9 e 28.1
+ 3      38        quick    a 13.2  b 28.9 L  0.0 e 57.9
+ 5     104     location    a 43.3  b 28.8 L  0.0 e 27.9
+ 2      80          snd    a 40.0  b 28.8 L 15.0 e 16.2
+ 6     889         word    a 63.7  b 28.7 L  0.0 e  7.6
+ 5      77         sent    a 54.5  b 28.6 L  0.0 e 16.9
+ 3      35         cont    a 42.9  b 28.6 L  0.0 e 28.6
+ 3      28         just    a 71.4  b 28.6 L  0.0 e  0.0
+ 2      63          pcd    a 27.0  b 28.6 L  3.2 e 41.3
+ 2      35          sof    a 62.9  b 28.6 L  0.0 e  8.6
+ 1      35          hcr    a 71.4  b 28.6 L  0.0 e  0.0
+ 5     186         more    a 36.6  b 28.5 L  0.5 e 34.4
+ 4     144        pixel    a 39.6  b 28.5 L  0.0 e 31.9
+ 5      74     reserved    a 55.4  b 28.4 L  1.4 e 14.9
+ 4      67           al    a 62.7  b 28.4 L  3.0 e  6.0
+ 2     219          bpp    a 47.9  b 28.3 L  0.0 e 23.7
+ 4      78     external    a 46.2  b 28.2 L  2.6 e 23.1
+ 1      39          mtd    a 53.8  b 28.2 L  5.1 e 12.8
+ 4     153       locked    a 45.1  b 28.1 L  7.8 e 19.0
+ 3      32      running    a  9.4  b 28.1 L  3.1 e 59.4
+ 1      96          drm    a 70.8  b 28.1 L  0.0 e  1.0
+ 1      32          exc    a 12.5  b 28.1 L  0.0 e 59.4
+ 6     150     internal    a 37.3  b 28.0 L  0.0 e 34.7
+ 4      82    precision    a 53.7  b 28.0 L  0.0 e 18.3
+ 1     193        sense    a 45.1  b 28.0 L  1.0 e 25.9
+ 6    2659          reg    a 55.1  b 27.9 L  0.4 e 16.6
+ 5      86         half    a 62.8  b 27.9 L  0.0 e  9.3
+ 7     356          use    a 41.9  b 27.8 L  2.0 e 28.4
+ 5      54         seek    a 29.6  b 27.8 L  0.0 e 42.6
+ 2      36       thresh    a 69.4  b 27.8 L  0.0 e  2.8
+ 7     976          arg    a 37.4  b 27.7 L  1.5 e 33.4
+ 3      47       script    a 27.7  b 27.7 L  0.0 e 44.7
+ 2      47           il    a 38.3  b 27.7 L  2.1 e 31.9
+ 1      47          hub    a 57.4  b 27.7 L  0.0 e 14.9
+ 4      76         work    a 57.9  b 27.6 L  0.0 e 14.5
+ 4     142       stream    a  2.1  b 27.5 L  0.0 e 70.4
+ 2      51     transmit    a 60.8  b 27.5 L  3.9 e  7.8
+ 2      40            5    a 42.5  b 27.5 L  0.0 e 30.0
+ 1      51          osi    a 49.0  b 27.5 L  0.0 e 23.5
+ 2      62           rr    a 45.2  b 27.4 L  1.6 e 25.8
+ 4      33     variable    a 60.6  b 27.3 L  0.0 e 12.1
+ 4      33     lifetime    a 51.5  b 27.3 L  3.0 e 18.2
+ 1      44        rxcfg    a 72.7  b 27.3 L  0.0 e  0.0
+ 5     136           tb    a 47.8  b 27.2 L  0.0 e 25.0
+ 1     158         phys    a 63.9  b 27.2 L  0.0 e  8.9
+ 1     147          atm    a 36.7  b 27.2 L  0.0 e 36.1
+ 2     188          tcp    a 48.9  b 27.1 L  0.0 e 23.9
+ 7      74       ignore    a 17.6  b 27.0 L  8.1 e 47.3
+ 1      26         pcic    a 73.1  b 26.9 L  0.0 e  0.0
+ 1      26          pam    a  3.8  b 26.9 L  0.0 e 69.2
+ 6      30           da    a 40.0  b 26.7 L  0.0 e 33.3
+ 4      30       remote    a 33.3  b 26.7 L  0.0 e 40.0
+ 4      30          bot    a 60.0  b 26.7 L  0.0 e 13.3
+ 2      30        sgptr    a 60.0  b 26.7 L  0.0 e 13.3
+ 1      60         sony    a 45.0  b 26.7 L  0.0 e 28.3
+ 1      45          nlm    a 40.0  b 26.7 L  0.0 e 33.3
+ 7    1583            t    a 48.1  b 26.6 L  0.2 e 25.1
+ 5      79           ds    a 54.4  b 26.6 L  0.0 e 19.0
+ 5     207          div    a 63.3  b 26.6 L  0.0 e 10.1
+ 5     158      process    a 24.7  b 26.6 L  0.0 e 48.7
+ 3      64           gl    a 10.9  b 26.6 L  0.0 e 62.5
+ 2     274          rev    a 32.8  b 26.6 L  0.7 e 39.8
+ 1      64         shft    a 73.4  b 26.6 L  0.0 e  0.0
+ 7    1726           id    a 32.5  b 26.4 L  0.7 e 40.4
+ 6     212        alloc    a 63.2  b 26.4 L  0.9 e  9.4
+ 3     220         mips    a 22.3  b 26.4 L  1.4 e 50.0
+ 2      53      decoder    a  0.0  b 26.4 L  0.0 e 73.6
+ 4     778          cpu    a 41.5  b 26.3 L  1.0 e 31.1
+ 7     240        match    a 45.4  b 26.2 L  0.8 e 27.5
+ 6     229       client    a 26.6  b 26.2 L  1.3 e 45.9
+ 5      61          fix    a 67.2  b 26.2 L  1.6 e  4.9
+ 3     149           fc    a 46.3  b 26.2 L  0.0 e 27.5
+ 1      65         sdla    a 60.0  b 26.2 L  0.0 e 13.8
+ 7    1822        value    a 32.7  b 26.1 L  1.0 e 40.1
+ 5      46           ib    a 54.3  b 26.1 L  0.0 e 19.6
+ 5     119           pl    a 11.8  b 26.1 L  0.0 e 62.2
+ 7     482         hash    a 58.5  b 25.9 L  0.6 e 14.9
+ 4      54           bg    a 44.4  b 25.9 L  1.9 e 27.8
+ 3     116       vector    a 39.7  b 25.9 L  0.9 e 33.6
+ 2     324        minor    a 63.3  b 25.9 L  0.0 e 10.8
+ 2      27       efault    a 59.3  b 25.9 L  0.0 e 14.8
+ 1      54         cmos    a 57.4  b 25.9 L  0.0 e 16.7
+ 1      27          nwd    a 74.1  b 25.9 L  0.0 e  0.0
+ 7     333         stop    a 42.3  b 25.8 L  0.0 e 31.8
+ 4     194           cb    a 62.9  b 25.8 L  0.0 e 11.3
+ 2      31           j1    a 48.4  b 25.8 L  0.0 e 25.8
+ 1      31          msf    a 35.5  b 25.8 L  0.0 e 38.7
+ 7     210         skip    a 57.1  b 25.7 L  3.3 e 13.8
+ 7    2105        shift    a 68.0  b 25.7 L  0.1 e  6.2
+ 7     148          mod    a 29.7  b 25.7 L  3.4 e 41.2
+ 5     152           pi    a 63.2  b 25.7 L  0.0 e 11.2
+ 3      35         echo    a 22.9  b 25.7 L  0.0 e 51.4
+ 3     136          udp    a 27.2  b 25.7 L  0.0 e 47.1
+ 7      82           d1    a 59.8  b 25.6 L  0.0 e 14.6
+ 7    2065         bits    a 67.4  b 25.6 L  0.1 e  6.9
+ 5      39           m2    a 56.4  b 25.6 L  0.0 e 17.9
+ 3      82      service    a 14.6  b 25.6 L  0.0 e 59.8
+ 1      43          chn    a 39.5  b 25.6 L  0.0 e 34.9
+ 1      39         ipmi    a 48.7  b 25.6 L  0.0 e 25.6
+ 4     239        clock    a 64.0  b 25.5 L  0.4 e 10.0
+ 4     200          hdr    a 68.5  b 25.5 L  0.0 e  6.0
+ 2      47    dstoffset    a 74.5  b 25.5 L  0.0 e  0.0
+ 7    2522         mode    a 17.2  b 25.4 L  0.1 e 57.3
+ 7     403            e    a 53.8  b 25.3 L  0.7 e 20.1
+ 4      91           dc    a 58.2  b 25.3 L  0.0 e 16.5
+ 2     198        setup    a 51.5  b 25.3 L  0.0 e 23.2
+ 1      75        mregs    a 74.7  b 25.3 L  0.0 e  0.0
+ 4     191          blk    a 56.5  b 25.1 L  0.0 e 18.3
+ 6     124       second    a 52.4  b 25.0 L  0.8 e 21.8
+ 5      64           f1    a 45.3  b 25.0 L  3.1 e 26.6
+ 3      52        inode    a 34.6  b 25.0 L  0.0 e 40.4
+ 1      48        iomap    a 70.8  b 25.0 L  0.0 e  4.2
+ 1     184          mpt    a 42.4  b 25.0 L  0.0 e 32.6
+ 7     832         host    a 60.6  b 24.8 L  0.7 e 13.9
+ 7     125        param    a 36.0  b 24.8 L  1.6 e 37.6
+ 2     133          ino    a 56.4  b 24.8 L  0.0 e 18.8
+ 6      97         dump    a 13.4  b 24.7 L  4.1 e 57.7
+ 3      93           mk    a  0.0  b 24.7 L  1.1 e 74.2
+ 2      73          std    a 50.7  b 24.7 L  2.7 e 21.9
+ 1     162       eeprom    a 70.4  b 24.7 L  0.0 e  4.9
+ 7     427         func    a 49.6  b 24.6 L  1.6 e 24.1
+ 7     337      invalid    a  5.0  b 24.6 L  0.0 e 70.3
+ 7     199         move    a 51.3  b 24.6 L  0.0 e 24.1
+ 6     207        local    a 34.8  b 24.6 L  0.5 e 40.1
+ 6     195           ac    a 57.9  b 24.6 L  2.1 e 15.4
+ 6    1008          set    a 52.2  b 24.6 L  1.6 e 21.6
+ 3     118           mp    a 28.8  b 24.6 L  0.0 e 46.6
+ 6      49        large    a 40.8  b 24.5 L  0.0 e 34.7
+ 5      49           b2    a 59.2  b 24.5 L  0.0 e 16.3
+ 4      53           ap    a 13.2  b 24.5 L  0.0 e 62.3
+ 1      49       cistpl    a 65.3  b 24.5 L  0.0 e 10.2
+ 4     164           dx    a 58.5  b 24.4 L  0.6 e 16.5
+ 1      37       datain    a 27.0  b 24.3 L  2.7 e 45.9
+ 1      33          txb    a 75.8  b 24.2 L  0.0 e  0.0
+ 1      33         tagb    a  3.0  b 24.2 L  0.0 e 72.7
+ 1      29       usbcmd    a 75.9  b 24.1 L  0.0 e  0.0
+ 1     116          adv    a 69.0  b 24.1 L  0.0 e  6.9
+ 5     196        stats    a 65.3  b 24.0 L  0.0 e 10.7
+ 5     154         down    a 13.0  b 24.0 L  1.3 e 61.7
+ 5     104           v1    a 21.2  b 24.0 L  1.9 e 52.9
+ 2      50        descr    a 62.0  b 24.0 L  0.0 e 14.0
+ 7    1345           in    a 33.8  b 23.9 L  4.1 e 38.1
+ 6     101         send    a 56.4  b 23.8 L  3.0 e 16.8
+ 4      80       direct    a 57.5  b 23.8 L  1.2 e 17.5
+ 4     105           32    a 32.4  b 23.8 L  0.0 e 43.8
+ 4      38       accept    a 26.3  b 23.7 L  7.9 e 42.1
+ 3      38          id1    a  7.9  b 23.7 L  0.0 e 68.4
+ 5    2561        debug    a 66.3  b 23.5 L  0.5 e  9.6
+ 4      51        style    a  5.9  b 23.5 L  3.9 e 66.7
+ 3     366        speed    a 59.3  b 23.5 L  0.3 e 16.9
+ 1      34          si2    a 70.6  b 23.5 L  0.0 e  5.9
+ 1      34          ata    a 61.8  b 23.5 L  0.0 e 14.7
+ 5      47           w2    a 70.2  b 23.4 L  0.0 e  6.4
+ 4     158        retry    a 53.2  b 23.4 L  8.9 e 14.6
+ 3      77          arm    a  9.1  b 23.4 L 45.5 e 22.1
+ 3     192        proto    a 24.0  b 23.4 L  0.0 e 52.6
+ 2      64          ncr    a 40.6  b 23.4 L  0.0 e 35.9
+ 2     111        reply    a 37.8  b 23.4 L  0.9 e 37.8
+ 5     313      context    a 13.1  b 23.3 L  5.4 e 58.1
+ 4      30    connected    a 10.0  b 23.3 L  0.0 e 66.7
+ 1      43        nasid    a 18.6  b 23.3 L  0.0 e 58.1
+ 1      43          els    a  2.3  b 23.3 L  0.0 e 74.4
+ 7     354           c1    a 45.5  b 23.2 L  0.3 e 31.1
+ 6     306      version    a 31.0  b 23.2 L  0.7 e 45.1
+ 5      56      dynamic    a 46.4  b 23.2 L  0.0 e 30.4
+ 2      95         warn    a  9.5  b 23.2 L 48.4 e 18.9
+ 1      69         irda    a 71.0  b 23.2 L  0.0 e  5.8
+ 1      26        mk712    a 76.9  b 23.1 L  0.0 e  0.0
+ 1      26          ipx    a 11.5  b 23.1 L  0.0 e 65.4
+ 4      61         fill    a 52.5  b 23.0 L  1.6 e 23.0
+ 2      87         prio    a 58.6  b 23.0 L  0.0 e 18.4
+ 1     196         isdn    a 62.8  b 23.0 L  0.0 e 14.3
+ 2      83         peer    a 33.7  b 22.9 L  0.0 e 43.4
+ 2      83          op0    a  0.0  b 22.9 L  4.8 e 72.3
+ 1      48          apm    a  6.2  b 22.9 L  0.0 e 70.8
+ 1      35         tics    a 77.1  b 22.9 L  0.0 e  0.0
+ 1      35         pirq    a 74.3  b 22.9 L  0.0 e  2.9
+ 1      35          gnu    a  0.0  b 22.9 L 77.1 e  0.0
+ 1      35         cmnd    a  2.9  b 22.9 L  2.9 e 71.4
+ 3     536       device    a 41.0  b 22.8 L  0.4 e 35.8
+ 7    2401        error    a 12.8  b 22.7 L  0.3 e 64.2
+ 6     119         edge    a 27.7  b 22.7 L  0.0 e 49.6
+ 3      97     realtime    a 75.3  b 22.7 L  0.0 e  2.1
+ 3      44     received    a 61.4  b 22.7 L  0.0 e 15.9
+ 6     133      display    a 49.6  b 22.6 L  0.0 e 27.8
+ 1      62          rrb    a 77.4  b 22.6 L  0.0 e  0.0
+ 7     864          out    a 47.5  b 22.5 L  0.7 e 29.4
+ 5      98        print    a 32.7  b 22.4 L  9.2 e 35.7
+ 5      49       adjust    a 55.1  b 22.4 L  0.0 e 22.4
+ 7    1107            w    a 57.6  b 22.3 L  0.7 e 19.3
+ 4     121          rec    a 38.8  b 22.3 L  0.0 e 38.8
+ 5      27      newline    a 25.9  b 22.2 L 11.1 e 40.7
+ 4     135        image    a 24.4  b 22.2 L  7.4 e 45.9
+ 3      27           li    a 63.0  b 22.2 L  0.0 e 14.8
+ 1      81         csr6    a 76.5  b 22.2 L  0.0 e  1.2
+ 1      36         lisr    a 77.8  b 22.2 L  0.0 e  0.0
+ 1      27     cylinder    a 74.1  b 22.2 L  0.0 e  3.7
+ 1      27       aurora    a 74.1  b 22.2 L  0.0 e  3.7
+ 5     104           lp    a 41.3  b 22.1 L  0.0 e 36.5
+ 5     118           sh    a 61.0  b 22.0 L  0.8 e 16.1
+ 3      50        dummy    a 40.0  b 22.0 L  0.0 e 38.0
+ 3      41           vd    a 75.6  b 22.0 L  0.0 e  2.4
+ 2      50         ieee    a  8.0  b 22.0 L  4.0 e 66.0
+ 2      41       strict    a 39.0  b 22.0 L  4.9 e 34.1
+ 1      59           rm    a 13.6  b 22.0 L  0.0 e 64.4
+ 4      64     constant    a 18.8  b 21.9 L 15.6 e 43.8
+ 2      96           fo    a  1.0  b 21.9 L  0.0 e 77.1
+ 1      32          arb    a 59.4  b 21.9 L  0.0 e 18.8
+ 6     248         user    a 51.2  b 21.8 L  1.2 e 25.8
+ 4      87           fg    a 49.4  b 21.8 L  1.1 e 27.6
+ 1      87       mapped    a 64.4  b 21.8 L  0.0 e 13.8
+ 6      69        final    a 34.8  b 21.7 L  7.2 e 36.2
+ 5      46           go    a 50.0  b 21.7 L  0.0 e 28.3
+ 4      83           ld    a 65.1  b 21.7 L  0.0 e 13.3
+ 3      83         tmp2    a 71.1  b 21.7 L  0.0 e  7.2
+ 3      83         disk    a 44.6  b 21.7 L  0.0 e 33.7
+ 3      46      storage    a 19.6  b 21.7 L  8.7 e 50.0
+ 2    1341          dev    a 35.1  b 21.7 L  0.7 e 42.4
+ 7    3447         page    a 75.3  b 21.6 L  0.0 e  3.1
+ 3      51        inter    a 23.5  b 21.6 L  9.8 e 45.1
+ 2      51          iso    a 56.9  b 21.6 L  0.0 e 21.6
+ 1      37        rdata    a 75.7  b 21.6 L  0.0 e  2.7
+ 5      65       values    a 23.1  b 21.5 L  0.0 e 55.4
+ 5     130       normal    a 26.9  b 21.5 L  0.0 e 51.5
+ 4     121     protocol    a 29.8  b 21.5 L  0.0 e 48.8
+ 5      28       minute    a 71.4  b 21.4 L  0.0 e  7.1
+ 4      42         val2    a 23.8  b 21.4 L  0.0 e 54.8
+ 1      28          iif    a 78.6  b 21.4 L  0.0 e  0.0
+ 1     112          srb    a 74.1  b 21.4 L  0.0 e  4.5
+ 6     598        class    a  8.0  b 21.2 L  1.3 e 69.4
+ 3      33          xor    a  0.0  b 21.2 L  0.0 e 78.8
+ 2     283       sector    a 69.3  b 21.2 L  0.0 e  9.5
+ 1      80          iop    a 60.0  b 21.2 L  0.0 e 18.8
+ 7     554        right    a 50.5  b 21.1 L  2.2 e 26.2
+ 2      95        trace    a 53.7  b 21.1 L  2.1 e 23.2
+ 1      38         intf    a  7.9  b 21.1 L  0.0 e 71.1
+ 1      38        armor    a 10.5  b 21.1 L  0.0 e 68.4
+ 7    1513            r    a 54.9  b 21.0 L  0.4 e 23.8
+ 3     119          fdc    a 38.7  b 21.0 L  0.0 e 40.3
+ 7     201           c2    a 46.8  b 20.9 L  0.0 e 32.3
+ 5      86           se    a 58.1  b 20.9 L  0.0 e 20.9
+ 7     515        space    a 37.3  b 20.8 L  0.6 e 41.4
+ 5     125           ct    a 44.0  b 20.8 L  0.8 e 34.4
+ 2     514          afs    a 50.4  b 20.8 L  0.0 e 28.8
+ 2      29        batch    a 69.0  b 20.7 L  0.0 e 10.3
+ 7     676          src    a 47.6  b 20.6 L  1.3 e 30.5
+ 5      39           tl    a 64.1  b 20.5 L  0.0 e 15.4
+ 3      39      extract    a 43.6  b 20.5 L  0.0 e 35.9
+ 2      44        ultra    a 68.2  b 20.5 L  0.0 e 11.4
+ 1      39         mclk    a 64.1  b 20.5 L  0.0 e 15.4
+ 4      54      errcode    a 14.8  b 20.4 L  0.0 e 64.8
+ 7     133          any    a 21.1  b 20.3 L  0.8 e 57.9
+ 6      74         need    a 33.8  b 20.3 L 27.0 e 18.9
+ 4      59           sd    a 69.5  b 20.3 L  0.0 e 10.2
+ 5      99           b1    a 70.7  b 20.2 L  0.0 e  9.1
+ 5      94         hour    a 61.7  b 20.2 L  0.0 e 18.1
+ 2     119     revision    a 41.2  b 20.2 L  0.0 e 38.7
+ 1      89        paddr    a 70.8  b 20.2 L  0.0 e  9.0
+ 6     264          log    a 67.0  b 20.1 L  0.8 e 12.1
+ 5      60           te    a 16.7  b 20.0 L  0.0 e 63.3
+ 4      90        blank    a 47.8  b 20.0 L  0.0 e 32.2
+ 3      50         clen    a 78.0  b 20.0 L  0.0 e  2.0
+ 2      30           qd    a 63.3  b 20.0 L  0.0 e 16.7
+ 1      45       tstepx    a 80.0  b 20.0 L  0.0 e  0.0
+ 1      45       sstepx    a 80.0  b 20.0 L  0.0 e  0.0
+ 1      30  attenuation    a 56.7  b 20.0 L  0.0 e 23.3
+ 1     240         chip    a 36.7  b 20.0 L  0.0 e 43.3
+ 1     110        spdif    a 59.1  b 20.0 L  7.3 e 13.6
+ 5     111           v2    a 32.4  b 19.8 L  1.8 e 45.9
+ 1      66          ifa    a 50.0  b 19.7 L  0.0 e 30.3
+ 5      51           me    a  3.9  b 19.6 L  0.0 e 76.5
+ 2      56           dv    a 80.4  b 19.6 L  0.0 e  0.0
+ 2     143           fw    a 37.1  b 19.6 L  2.1 e 41.3
+ 3      87         tick    a 69.0  b 19.5 L  0.0 e 11.5
+ 1     133          tlb    a 24.8  b 19.5 L  0.0 e 55.6
+ 7     201          sec    a 69.7  b 19.4 L  0.5 e 10.4
+ 4      31           b0    a 61.3  b 19.4 L  0.0 e 19.4
+ 3      31        known    a 41.9  b 19.4 L  3.2 e 35.5
+ 1      36        nsect    a 80.6  b 19.4 L  0.0 e  0.0
+ 6     535           ip    a 31.8  b 19.3 L  0.4 e 48.6
+ 5     140          one    a 57.9  b 19.3 L  0.7 e 22.1
+ 4      57       branch    a 56.1  b 19.3 L 12.3 e 12.3
+ 5    1349         port    a 68.9  b 19.2 L  1.0 e 10.9
+ 3      78        layer    a 17.9  b 19.2 L  1.3 e 61.5
+ 3      26       wcount    a 80.8  b 19.2 L  0.0 e  0.0
+ 3      26           tq    a 38.5  b 19.2 L  3.8 e 38.5
+ 2     437           sg    a 71.6  b 19.2 L  0.2 e  8.9
+ 1      26          vpp    a  7.7  b 19.2 L  0.0 e 73.1
+ 7    2867            x    a 67.2  b 19.1 L  0.4 e 13.3
+ 3     209         task    a 35.9  b 19.1 L  0.5 e 44.5
+ 4     226           rt    a 35.0  b 19.0 L  0.0 e 46.0
+ 3      42      ndigits    a 71.4  b 19.0 L  0.0 e  9.5
+ 2      42          ele    a  9.5  b 19.0 L  0.0 e 71.4
+ 1     126          rom    a 50.0  b 19.0 L  0.0 e 31.0
+ 3     111        track    a 56.8  b 18.9 L  0.9 e 23.4
+ 6     436        input    a 45.6  b 18.8 L  0.2 e 35.3
+ 5     719        frame    a 54.8  b 18.8 L  1.5 e 24.9
+ 4      64       symbol    a 15.6  b 18.8 L  0.0 e 65.6
+ 3      32       clause    a  9.4  b 18.8 L  0.0 e 71.9
+ 2      32          wav    a 75.0  b 18.8 L  0.0 e  6.2
+ 7     619         file    a 26.7  b 18.7 L  3.4 e 51.2
+ 7    1365            a    a 60.0  b 18.7 L  0.4 e 21.0
+ 7    1265            l    a 67.5  b 18.7 L  0.3 e 13.5
+ 6     209          pid    a 35.9  b 18.7 L  1.4 e 44.0
+ 3      59           ll    a 59.3  b 18.6 L  3.4 e 18.6
+ 2      86          uio    a 19.8  b 18.6 L  0.0 e 61.6
+ 5      54        parse    a 72.2  b 18.5 L  0.0 e  9.3
+ 4      27       visual    a 14.8  b 18.5 L  7.4 e 59.3
+ 4      27         hold    a 44.4  b 18.5 L  3.7 e 33.3
+ 2      27         reps    a 81.5  b 18.5 L  0.0 e  0.0
+ 1      54          zft    a 27.8  b 18.5 L 20.4 e 33.3
+ 1      27         perf    a 37.0  b 18.5 L  0.0 e 44.4
+ 7      49           s1    a 51.0  b 18.4 L  0.0 e 30.6
+ 2      38          bid    a 73.7  b 18.4 L  0.0 e  7.9
+ 2     114          hfs    a 36.0  b 18.4 L  0.0 e 45.6
+ 6      82       remove    a 47.6  b 18.3 L  1.2 e 32.9
+ 6     328        queue    a 54.0  b 18.3 L  0.9 e 26.8
+ 6     278         diff    a 61.2  b 18.3 L  0.0 e 20.5
+ 3     104        scope    a 21.2  b 18.3 L  1.0 e 59.6
+ 5      33           px    a 63.6  b 18.2 L  0.0 e 18.2
+ 4      44        parts    a 65.9  b 18.2 L  0.0 e 15.9
+ 4      33       unused    a 42.4  b 18.2 L 27.3 e 12.1
+ 3      44         atom    a 22.7  b 18.2 L  0.0 e 59.1
+ 3     198          ofs    a 70.7  b 18.2 L  0.5 e 10.6
+ 1      66          x25    a 53.0  b 18.2 L  0.0 e 28.8
+ 1      44          rcr    a 81.8  b 18.2 L  0.0 e  0.0
+ 1      33         lasi    a 81.8  b 18.2 L  0.0 e  0.0
+ 1      33        fibre    a 69.7  b 18.2 L  0.0 e 12.1
+ 6     309        range    a 46.0  b 18.1 L  0.0 e 35.9
+ 4     166       period    a 70.5  b 18.1 L  0.0 e 11.4
+ 7     596          low    a 71.6  b 18.0 L  0.7 e  9.7
+ 7     529          cur    a 56.0  b 18.0 L  0.6 e 25.5
+ 7    4420          int    a 77.0  b 18.0 L  0.3 e  4.8
+ 7     798            h    a 70.9  b 17.9 L  1.1 e 10.0
+ 3     117           bb    a 55.6  b 17.9 L  0.0 e 26.5
+ 2      28      proceed    a  0.0  b 17.9 L  0.0 e 82.1
+ 1      84          vci    a 38.1  b 17.9 L  2.4 e 41.7
+ 1      28         objc    a 28.6  b 17.9 L  0.0 e 53.6
+ 1     223         xmit    a 75.8  b 17.9 L  0.0 e  6.3
+ 5     118           be    a 78.8  b 17.8 L  0.0 e  3.4
+ 5     101         menu    a 43.6  b 17.8 L  0.0 e 38.6
+ 3      73      receive    a 50.7  b 17.8 L  4.1 e 27.4
+ 4      96          ops    a 62.5  b 17.7 L  0.0 e 19.8
+ 3     265         chan    a 74.3  b 17.7 L  0.0 e  7.9
+ 2      96           ce    a 36.5  b 17.7 L  0.0 e 45.8
+ 6     227       global    a 19.4  b 17.6 L  0.0 e 63.0
+ 3      85         font    a 34.1  b 17.6 L  0.0 e 48.2
+ 3      34         cred    a 64.7  b 17.6 L  0.0 e 17.6
+ 2      40    frametype    a  0.0  b 17.5 L  0.0 e 82.5
+ 1      97        vmode    a 61.9  b 17.5 L  4.1 e 16.5
+ 1      97          awe    a 64.9  b 17.5 L  0.0 e 17.5
+ 4      69           na    a 44.9  b 17.4 L  0.0 e 37.7
+ 2     313          asc    a 62.6  b 17.3 L  0.0 e 20.1
+ 2     127       pixmap    a  2.4  b 17.3 L  3.9 e 76.4
+ 7      70           d2    a 64.3  b 17.1 L  0.0 e 18.6
+ 7     596       number    a 68.0  b 17.1 L  0.7 e 14.3
+ 4      41         heap    a 48.8  b 17.1 L  0.0 e 34.1
+ 1      41      jmr3927    a 75.6  b 17.1 L  0.0 e  7.3
+ 1      35         pci0    a 82.9  b 17.1 L  0.0 e  0.0
+ 7     324          sys    a 48.8  b 17.0 L  0.6 e 33.6
+ 5      47          got    a 63.8  b 17.0 L  6.4 e 12.8
+ 3     112     checksum    a 42.9  b 17.0 L  0.0 e 40.2
+ 1      47         ext3    a 80.9  b 17.0 L  0.0 e  2.1
+ 1     247        board    a 63.2  b 17.0 L  0.0 e 19.8
+ 6      89        upper    a 69.7  b 16.9 L  0.0 e 13.5
+ 3      65        erase    a 32.3  b 16.9 L  0.0 e 50.8
+ 2      59          sol    a  6.8  b 16.9 L  0.0 e 76.3
+ 6     174         copy    a 61.5  b 16.7 L  0.6 e 21.3
+ 5      66       single    a 45.5  b 16.7 L 10.6 e 27.3
+ 5     144         side    a 57.6  b 16.7 L  0.0 e 25.7
+ 4      42      solaris    a 14.3  b 16.7 L  0.0 e 69.0
+ 2      36           xd    a 80.6  b 16.7 L  2.8 e  0.0
+ 2      36          phs    a 66.7  b 16.7 L  0.0 e 16.7
+ 2      30       bullet    a  3.3  b 16.7 L  0.0 e 80.0
+ 7     361            g    a 72.9  b 16.6 L  0.3 e 10.2
+ 1     175          tg3    a 83.4  b 16.6 L  0.0 e  0.0
+ 7     553          res    a 53.0  b 16.5 L  0.4 e 30.2
+ 7     243          col    a 72.0  b 16.5 L  0.0 e 11.5
+ 6     170         sign    a 37.6  b 16.5 L  8.8 e 37.1
+ 1      79         sram    a 74.7  b 16.5 L  0.0 e  8.9
+ 7     390         loop    a 63.8  b 16.4 L  0.3 e 19.5
+ 5     195          sig    a 43.6  b 16.4 L  0.0 e 40.0
+ 2      73           wd    a 80.8  b 16.4 L  0.0 e  2.7
+ 6      43      refresh    a 65.1  b 16.3 L 14.0 e  4.7
+ 5      98    remaining    a 62.2  b 16.3 L  0.0 e 21.4
+ 5     166        extra    a 58.4  b 16.3 L  4.2 e 21.1
+ 3      49       endian    a  8.2  b 16.3 L  6.1 e 69.4
+ 2     147         good    a  4.8  b 16.3 L  2.7 e 76.2
+ 1      49         gain    a 67.3  b 16.3 L  0.0 e 16.3
+ 7    1327         info    a 31.7  b 16.2 L  1.4 e 50.8
+ 5      37          ins    a 29.7  b 16.2 L  0.0 e 54.1
+ 5     105         post    a 32.4  b 16.2 L  5.7 e 45.7
+ 4     130          box    a 75.4  b 16.2 L  0.0 e  8.5
+ 2      37         uuid    a 75.7  b 16.2 L  0.0 e  8.1
+ 2      37      syscall    a 13.5  b 16.2 L  0.0 e 70.3
+ 2      37         anim    a 75.7  b 16.2 L  0.0 e  8.1
+ 1      37         sest    a 83.8  b 16.2 L  0.0 e  0.0
+ 3      31           di    a 35.5  b 16.1 L  0.0 e 48.4
+ 1      31         sjcd    a 32.3  b 16.1 L  6.5 e 45.2
+ 1      31      payload    a 80.6  b 16.1 L  0.0 e  3.2
+ 4      50    requested    a 58.0  b 16.0 L  2.0 e 24.0
+ 5     113        cycle    a 77.9  b 15.9 L  0.0 e  6.2
+ 3      88          doc    a 28.4  b 15.9 L  2.3 e 53.4
+ 3     339         freq    a 74.9  b 15.9 L  0.0 e  9.1
+ 1      63          imr    a 84.1  b 15.9 L  0.0 e  0.0
+ 5     304           dp    a 64.1  b 15.8 L  0.0 e 20.1
+ 4      38           nc    a 73.7  b 15.8 L  0.0 e 10.5
+ 4     101        month    a 40.6  b 15.8 L  0.0 e 43.6
+ 3      38           pb    a 44.7  b 15.8 L  0.0 e 39.5
+ 2      38          aid    a 21.1  b 15.8 L  0.0 e 63.2
+ 1      57        iscsi    a 42.1  b 15.8 L  3.5 e 38.6
+ 1      38           rq    a 42.1  b 15.8 L  0.0 e 42.1
+ 4     198          seg    a 64.6  b 15.7 L  0.5 e 19.2
+ 1      51          scd    a 82.4  b 15.7 L  0.0 e  2.0
+ 5      96           so    a 58.3  b 15.6 L  0.0 e 26.0
+ 5      32     callback    a  6.2  b 15.6 L  0.0 e 78.1
+ 3     135           ii    a 74.8  b 15.6 L  0.0 e  9.6
+ 2      32        arith    a 25.0  b 15.6 L 59.4 e  0.0
+ 2     211         xfer    a 80.1  b 15.6 L  0.0 e  4.3
+ 3     110           xe    a 81.8  b 15.5 L  0.0 e  2.7
+ 5      65          ver    a 40.0  b 15.4 L  0.0 e 44.6
+ 4      52           bt    a  7.7  b 15.4 L  0.0 e 76.9
+ 3      52          nfs    a 71.2  b 15.4 L  0.0 e 13.5
+ 3      52          gen    a 63.5  b 15.4 L  0.0 e 21.2
+ 2      26       secure    a 11.5  b 15.4 L  0.0 e 73.1
+ 2      26           el    a 65.4  b 15.4 L  0.0 e 19.2
+ 1      26          mda    a 38.5  b 15.4 L  0.0 e 46.2
+ 1      26     irenable    a 84.6  b 15.4 L  0.0 e  0.0
+ 7     490           fd    a 63.9  b 15.3 L  0.0 e 20.8
+ 6     157       handle    a 19.7  b 15.3 L  0.6 e 64.3
+ 5      85        saved    a 37.6  b 15.3 L  2.4 e 44.7
+ 4      72         pipe    a 34.7  b 15.3 L  0.0 e 50.0
+ 1     144          fir    a 84.0  b 15.3 L  0.0 e  0.7
+ 7     446         from    a 51.8  b 15.2 L  0.7 e 32.3
+ 7     244       action    a 24.2  b 15.2 L  2.9 e 57.8
+ 5      99         pend    a 61.6  b 15.2 L  0.0 e 23.2
+ 5      46       levels    a 73.9  b 15.2 L  0.0 e 10.9
+ 5     244          dst    a 67.6  b 15.2 L  0.8 e 16.4
+ 2      46           du    a 84.8  b 15.2 L  0.0 e  0.0
+ 1     224          lun    a 66.5  b 15.2 L  0.0 e 18.3
+ 6      53       params    a 22.6  b 15.1 L  3.8 e 58.5
+ 6     307           pc    a 55.0  b 15.0 L  0.7 e 29.3
+ 4     113      failure    a  2.7  b 15.0 L  0.9 e 81.4
+ 3      60        temp2    a 35.0  b 15.0 L  0.0 e 50.0
+ 1      60      routing    a 21.7  b 15.0 L  0.0 e 63.3
+ 5     168     priority    a 63.1  b 14.9 L  0.0 e 22.0
+ 3      87         hard    a 32.2  b 14.9 L  1.1 e 51.7
+ 2      94          isa    a 58.5  b 14.9 L  1.1 e 25.5
+ 6      81           db    a 40.7  b 14.8 L  1.2 e 43.2
+ 4      27         sptr    a 22.2  b 14.8 L  0.0 e 63.0
+ 2      27      mailbox    a 44.4  b 14.8 L  0.0 e 40.7
+ 2      27          imp    a 44.4  b 14.8 L  3.7 e 37.0
+ 4     102      compare    a 22.5  b 14.7 L  2.0 e 60.8
+ 3      34           bu    a 79.4  b 14.7 L  0.0 e  5.9
+ 3      34           av    a 23.5  b 14.7 L  0.0 e 61.8
+ 3     116      palette    a 36.2  b 14.7 L  0.0 e 49.1
+ 1      34          udf    a 85.3  b 14.7 L  0.0 e  0.0
+ 1      34          ipi    a 70.6  b 14.7 L  0.0 e 14.7
+ 6      96       prefix    a 58.3  b 14.6 L  2.1 e 25.0
+ 3      41    remainder    a 58.5  b 14.6 L  0.0 e 26.8
+ 1      41          mcd    a 56.1  b 14.6 L  0.0 e 29.3
+ 7    1077        block    a 54.2  b 14.5 L  2.0 e 29.2
+ 2      55        sleep    a 41.8  b 14.5 L  0.0 e 43.6
+ 1     187          pio    a 79.1  b 14.4 L  0.5 e  5.9
+ 6     126        types    a 43.7  b 14.3 L  7.9 e 34.1
+ 5      91         indx    a 78.0  b 14.3 L  1.1 e  6.6
+ 5     140         year    a 84.3  b 14.3 L  0.0 e  1.4
+ 3      77        parms    a 61.0  b 14.3 L  3.9 e 20.8
+ 3      35       extent    a 85.7  b 14.3 L  0.0 e  0.0
+ 2      42      rstatus    a 85.7  b 14.3 L  0.0 e  0.0
+ 2     189         crtc    a 85.7  b 14.3 L  0.0 e  0.0
+ 1      56      hiwater    a 85.7  b 14.3 L  0.0 e  0.0
+ 1      42        ether    a 83.3  b 14.3 L  2.4 e  0.0
+ 1      35       devnum    a 82.9  b 14.3 L  0.0 e  2.9
+ 1      28         gdth    a 75.0  b 14.3 L  0.0 e 10.7
+ 7     896       target    a 24.0  b 14.2 L 14.4 e 47.4
+ 7     424        order    a 76.9  b 14.2 L  0.0 e  9.0
+ 7     415        delta    a 82.4  b 14.0 L  1.0 e  2.7
+ 7     322         free    a 69.3  b 14.0 L  0.6 e 16.1
+ 6      57      forward    a 33.3  b 14.0 L  8.8 e 43.9
+ 5     100           n1    a 58.0  b 14.0 L  0.0 e 28.0
+ 1      93         ircc    a 83.9  b 14.0 L  0.0 e  2.2
+ 6      72        after    a 37.5  b 13.9 L  5.6 e 43.1
+ 4      36           nd    a 75.0  b 13.9 L  0.0 e 11.1
+ 3      36         impl    a 13.9  b 13.9 L  0.0 e 72.2
+ 3      36       domain    a 22.2  b 13.9 L  0.0 e 63.9
+ 6     160          loc    a 57.5  b 13.8 L  1.9 e 26.9
+ 6     130           sb    a 60.8  b 13.8 L  6.2 e 19.2
+ 4     159        chain    a 35.8  b 13.8 L  1.3 e 49.1
+ 3      29          how    a 24.1  b 13.8 L  0.0 e 62.1
+ 3     203          vid    a 64.0  b 13.8 L  3.0 e 19.2
+ 2      29    semaphore    a 82.8  b 13.8 L  0.0 e  3.4
+ 2      29       dwords    a 86.2  b 13.8 L  0.0 e  0.0
+ 1      87      pcnet32    a 86.2  b 13.8 L  0.0 e  0.0
+ 1      58        sgint    a 86.2  b 13.8 L  0.0 e  0.0
+ 1      29      clkctrl    a 86.2  b 13.8 L  0.0 e  0.0
+ 7     204         save    a 41.7  b 13.7 L  0.0 e 44.6
+ 7    5350         type    a  8.4  b 13.6 L  0.5 e 77.5
+ 7     374           fp    a 31.8  b 13.6 L  0.3 e 54.3
+ 6     184       insert    a 62.5  b 13.6 L  0.0 e 23.9
+ 3      44           qp    a 36.4  b 13.6 L  0.0 e 50.0
+ 2      44        jumbo    a 84.1  b 13.6 L  0.0 e  2.3
+ 6     743          tag    a 12.1  b 13.5 L  0.4 e 74.0
+ 3      37           la    a 83.8  b 13.5 L  0.0 e  2.7
+ 2      37           ra    a 54.1  b 13.5 L  0.0 e 32.4
+ 1      52          vpi    a 25.0  b 13.5 L  0.0 e 61.5
+ 1      52          tux    a 67.3  b 13.5 L  5.8 e 13.5
+ 5      60     progress    a 11.7  b 13.3 L 53.3 e 21.7
+ 4      30        white    a 70.0  b 13.3 L  0.0 e 16.7
+ 3      30      expires    a 83.3  b 13.3 L  0.0 e  3.3
+ 2      30        type2    a  6.7  b 13.3 L  0.0 e 80.0
+ 1      30          epc    a 86.7  b 13.3 L  0.0 e  0.0
+ 4      38          id2    a 18.4  b 13.2 L  0.0 e 68.4
+ 3      38        links    a 78.9  b 13.2 L  0.0 e  7.9
+ 2      53        tmode    a 15.1  b 13.2 L  0.0 e 71.7
+ 1      53          ssr    a 81.1  b 13.2 L  0.0 e  5.7
+ 1      61         blks    a 85.2  b 13.1 L  0.0 e  1.6
+ 7     692         time    a 74.6  b 13.0 L  1.2 e 11.3
+ 7    3435         base    a 76.5  b 13.0 L  0.3 e 10.2
+ 6     531         dest    a 54.0  b 13.0 L  0.2 e 32.8
+ 4      46          tot    a 69.6  b 13.0 L  2.2 e 15.2
+ 2      46         virt    a 54.3  b 13.0 L  0.0 e 32.6
+ 2     177           vl    a 53.1  b 13.0 L  0.0 e 33.9
+ 1      46         pdev    a  0.0  b 13.0 L  0.0 e 87.0
+ 1      46       fshift    a 87.0  b 13.0 L  0.0 e  0.0
+ 1     154        pgdir    a 86.4  b 13.0 L  0.0 e  0.6
+ 1     131       ptrace    a  0.0  b 13.0 L  0.0 e 87.0
+ 6     240       bottom    a 65.8  b 12.9 L  0.0 e 21.2
+ 4     225         cell    a 36.0  b 12.9 L  0.4 e 50.7
+ 1      31          smt    a 54.8  b 12.9 L  0.0 e 32.3
+ 1      31         qnx4    a 87.1  b 12.9 L  0.0 e  0.0
+ 5      47       attach    a 12.8  b 12.8 L  0.0 e 74.5
+ 4     327         rate    a 70.3  b 12.8 L  0.6 e 16.2
+ 3      47         smax    a 70.2  b 12.8 L  0.0 e 17.0
+ 1      47          ldt    a 87.2  b 12.8 L  0.0 e  0.0
+ 7     204        avail    a 77.0  b 12.7 L  0.5 e  9.8
+ 4     332         wide    a 74.4  b 12.7 L  0.6 e 12.3
+ 2      95    thickness    a 85.3  b 12.6 L  0.0 e  2.1
+ 6      48         exit    a 35.4  b 12.5 L 12.5 e 39.6
+ 2      48    frequency    a 77.1  b 12.5 L  0.0 e 10.4
+ 2      32        gamma    a 28.1  b 12.5 L  0.0 e 59.4
+ 2     104          rpc    a 39.4  b 12.5 L  0.0 e 48.1
+ 1      32   shiftcount    a 87.5  b 12.5 L  0.0 e  0.0
+ 1     128          rta    a 84.4  b 12.5 L  0.0 e  3.1
+ 7     558       retval    a 41.9  b 12.4 L  0.2 e 45.5
+ 6     878         slot    a 62.2  b 12.4 L  0.8 e 24.6
+ 1     113       sysctl    a 63.7  b 12.4 L  0.0 e 23.9
+ 5     293       switch    a 78.8  b 12.3 L  0.3 e  8.5
+ 3     195        drive    a 57.4  b 12.3 L  0.0 e 30.3
+ 1      73       bigsur    a 87.7  b 12.3 L  0.0 e  0.0
+ 1      57     softback    a 64.9  b 12.3 L  0.0 e 22.8
+ 1     162          pmd    a 86.4  b 12.3 L  0.0 e  1.2
+ 7     565     function    a 35.4  b 12.2 L  9.4 e 43.0
+ 6     147         have    a 53.1  b 12.2 L 17.7 e 17.0
+ 5      90           gt    a 41.1  b 12.2 L  2.2 e 44.4
+ 5     139         pool    a 59.0  b 12.2 L  7.2 e 21.6
+ 4     181        major    a 66.9  b 12.2 L  0.0 e 21.0
+ 2      49     modifier    a  2.0  b 12.2 L  0.0 e 85.7
+ 1      49      iosapic    a 83.7  b 12.2 L  0.0 e  4.1
+ 4     117        model    a 31.6  b 12.0 L  0.0 e 56.4
+ 2      50          vpd    a 46.0  b 12.0 L  0.0 e 42.0
+ 2      50      nowtime    a 88.0  b 12.0 L  0.0 e  0.0
+ 7     946          old    a 46.5  b 11.9 L  1.2 e 40.4
+ 7     402          top    a 59.0  b 11.9 L  1.0 e 28.1
+ 2      42         role    a  9.5  b 11.9 L  0.0 e 78.6
+ 7     755            z    a 39.3  b 11.8 L  0.0 e 48.9
+ 6     416          sym    a 38.9  b 11.8 L  0.0 e 49.3
+ 3     110          wid    a 37.3  b 11.8 L  0.0 e 50.9
+ 7    1006          off    a 75.5  b 11.7 L  0.2 e 12.5
+ 5      60       family    a 45.0  b 11.7 L  0.0 e 43.3
+ 7     834         left    a 62.4  b 11.6 L  1.6 e 24.5
+ 6     396       header    a 73.7  b 11.6 L  1.0 e 13.6
+ 6      52       bucket    a 76.9  b 11.5 L  0.0 e 11.5
+ 5     218          ent    a 65.6  b 11.5 L  0.9 e 22.0
+ 3      87          mon    a 32.2  b 11.5 L  0.0 e 56.3
+ 3      26       rotate    a  3.8  b 11.5 L  0.0 e 84.6
+ 3      26          lev    a 61.5  b 11.5 L  0.0 e 26.9
+ 2      26          ccp    a 15.4  b 11.5 L  0.0 e 73.1
+ 1      52          wdt    a 75.0  b 11.5 L  3.8 e  9.6
+ 1      52         sect    a 82.7  b 11.5 L  0.0 e  5.8
+ 6     158          inc    a 65.2  b 11.4 L  0.0 e 23.4
+ 5      79          adj    a 82.3  b 11.4 L  0.0 e  6.3
+ 4      44       screen    a 50.0  b 11.4 L  4.5 e 34.1
+ 4      44         rand    a 54.5  b 11.4 L  0.0 e 34.1
+ 2      35           js    a 28.6  b 11.4 L  0.0 e 60.0
+ 1      35          nec    a  2.9  b 11.4 L  0.0 e 85.7
+ 5      62           r2    a 43.5  b 11.3 L  0.0 e 45.2
+ 2      71         bulk    a 25.4  b 11.3 L  1.4 e 62.0
+ 1     151           ha    a 82.1  b 11.3 L  0.0 e  6.6
+ 4     304          exp    a 66.8  b 11.2 L  0.3 e 21.7
+ 5      36          pop    a 27.8  b 11.1 L  5.6 e 55.6
+ 5     216          now    a 80.6  b 11.1 L  0.5 e  7.9
+ 4      72        modes    a 79.2  b 11.1 L  0.0 e  9.7
+ 3      36        bound    a 61.1  b 11.1 L  5.6 e 22.2
+ 2      36         tile    a 80.6  b 11.1 L  0.0 e  8.3
+ 2     144     scancode    a 32.6  b 11.1 L  0.0 e 56.2
+ 1      54         mtrr    a  9.3  b 11.1 L  0.0 e 79.6
+ 1      36     counters    a 69.4  b 11.1 L  0.0 e 19.4
+ 1      27         adap    a 44.4  b 11.1 L  0.0 e 44.4
+ 2     708         ring    a 86.0  b 11.0 L  0.0 e  3.0
+ 5      55         seen    a 32.7  b 10.9 L 14.5 e 41.8
+ 4      92    completed    a 10.9  b 10.9 L 41.3 e 37.0
+ 3      55     password    a 23.6  b 10.9 L 16.4 e 49.1
+ 7    3976       offset    a 80.7  b 10.8 L  0.5 e  8.0
+ 6      37       called    a 70.3  b 10.8 L  0.0 e 18.9
+ 5      83      replace    a 81.9  b 10.8 L  2.4 e  4.8
+ 4      65       escape    a  4.6  b 10.8 L  0.0 e 84.6
+ 3      37    highlight    a 45.9  b 10.8 L  0.0 e 43.2
+ 7     168         orig    a 59.5  b 10.7 L  0.0 e 29.8
+ 4     206          seq    a 53.4  b 10.7 L  0.0 e 35.9
+ 3      84         tmp1    a 81.0  b 10.7 L  0.0 e  8.3
+ 3      28      xoffset    a 89.3  b 10.7 L  0.0 e  0.0
+ 3      28    selection    a 25.0  b 10.7 L  0.0 e 64.3
+ 2      56          lex    a 57.1  b 10.7 L  0.0 e 32.1
+ 6     265           t1    a 51.7  b 10.6 L  1.5 e 36.2
+ 1      47        slave    a 17.0  b 10.6 L  4.3 e 68.1
+ 6     958           rc    a 37.0  b 10.5 L  0.5 e 52.0
+ 5      38        ascii    a 76.3  b 10.5 L  0.0 e 13.2
+ 4      86       module    a 64.0  b 10.5 L  0.0 e 25.6
+ 4     408          net    a 67.4  b 10.5 L  3.4 e 18.6
+ 4      38          are    a 81.6  b 10.5 L  0.0 e  7.9
+ 4     133       socket    a 45.1  b 10.5 L  0.0 e 44.4
+ 1      95          mca    a 31.6  b 10.5 L  0.0 e 57.9
+ 1      38          nat    a 10.5  b 10.5 L  0.0 e 78.9
+ 1      38        ftape    a 60.5  b 10.5 L 13.2 e 15.8
+ 7    2749        index    a 77.0  b 10.4 L  0.2 e 12.3
+ 6      77           lc    a 46.8  b 10.4 L  0.0 e 42.9
+ 2      48         msk1    a 89.6  b 10.4 L  0.0 e  0.0
+ 7     944          key    a 37.5  b 10.3 L  0.2 e 52.0
+ 7    1422        level    a 65.9  b 10.3 L  0.4 e 23.4
+ 6    1419       result    a 29.7  b 10.3 L  1.1 e 59.0
+ 6     117       parent    a 12.0  b 10.3 L  0.0 e 77.8
+ 5     126         area    a 33.3  b 10.3 L  0.8 e 55.6
+ 4      68          del    a 64.7  b 10.3 L  0.0 e 25.0
+ 3      29       rename    a  0.0  b 10.3 L  0.0 e 89.7
+ 2      58      packets    a 87.9  b 10.3 L  0.0 e  1.7
+ 1      78        ubsec    a 37.2  b 10.3 L  0.0 e 52.6
+ 1      78        disks    a 78.2  b 10.3 L  0.0 e 11.5
+ 1      39   viewheight    a 82.1  b 10.3 L  0.0 e  7.7
+ 1      39       attnum    a 71.8  b 10.3 L  0.0 e 17.9
+ 1      29        daddr    a 41.4  b 10.3 L  0.0 e 48.3
+ 1      29         arg0    a  3.4  b 10.3 L  0.0 e 86.2
+ 7    4361            c    a 33.0  b 10.2 L  0.2 e 56.6
+ 6      59           ep    a 49.2  b 10.2 L  0.0 e 40.7
+ 6     284        group    a 27.5  b 10.2 L  4.9 e 57.4
+ 4     157           md    a 79.0  b 10.2 L  0.0 e 10.8
+ 2      49       ashift    a 18.4  b 10.2 L  0.0 e 71.4
+ 1      49       floppy    a 44.9  b 10.2 L  4.1 e 40.8
+ 6      79        alpha    a 25.3  b 10.1 L 11.4 e 53.2
+ 6     138          big    a 37.7  b 10.1 L  2.2 e 50.0
+ 4     138         self    a 15.2  b 10.1 L  0.7 e 73.9
+ 3      50    signature    a 14.0  b 10.0 L  2.0 e 74.0
+ 2      40       dither    a 72.5  b 10.0 L  0.0 e 17.5
+ 1      80         rose    a 26.2  b 10.0 L  0.0 e 63.8
+ 1      30       scache    a 90.0  b 10.0 L  0.0 e  0.0
+ 5     192       search    a 47.9  b  9.9 L  0.0 e 42.2
+ 4     171       thread    a 31.6  b  9.9 L  0.6 e 57.9
+ 4     131      buffers    a 82.4  b  9.9 L  0.0 e  7.6
+ 7     997           to    a 55.2  b  9.8 L  0.6 e 34.4
+ 7     235        field    a 34.9  b  9.8 L  0.0 e 55.3
+ 4     408         desc    a 76.0  b  9.8 L  0.7 e 13.5
+ 1      41         iovp    a 90.2  b  9.8 L  0.0 e  0.0
+ 7     186           yy    a 70.4  b  9.7 L  0.0 e 19.9
+ 4      62  screenwidth    a 85.5  b  9.7 L  1.6 e  3.2
+ 3      31        sdata    a 45.2  b  9.7 L  3.2 e 41.9
+ 7    1337          pos    a 79.7  b  9.6 L  0.0 e 10.8
+ 5      94        store    a 45.7  b  9.6 L  1.1 e 43.6
+ 7     493        total    a 80.1  b  9.5 L  0.0 e 10.3
+ 7    1181         line    a 66.5  b  9.5 L  0.5 e 23.5
+ 6      42           by    a 85.7  b  9.5 L  4.8 e  0.0
+ 4     148           ht    a 69.6  b  9.5 L  0.0 e 20.9
+ 1      74          gus    a 63.5  b  9.5 L  0.0 e 27.0
+ 1      63         brl1    a 22.2  b  9.5 L  0.0 e 68.3
+ 5     382          opt    a 60.7  b  9.4 L  1.0 e 28.8
+ 5      32           tm    a 50.0  b  9.4 L  0.0 e 40.6
+ 3      32         here    a 68.8  b  9.4 L  6.2 e 15.6
+ 3     223           pg    a 85.2  b  9.4 L  0.0 e  5.4
+ 3     139           kw    a  0.7  b  9.4 L  0.0 e 89.9
+ 2     960        regno    a 74.3  b  9.4 L  0.0 e 16.4
+ 2      32          foo    a 65.6  b  9.4 L  0.0 e 25.0
+ 1      32        z2ram    a 59.4  b  9.4 L  0.0 e 31.2
+ 7     562           sp    a 70.3  b  9.3 L  0.4 e 20.1
+ 5     332           do    a 74.7  b  9.3 L  4.8 e 11.1
+ 5     150           np    a 51.3  b  9.3 L  0.0 e 39.3
+ 4      86      threads    a 80.2  b  9.3 L  0.0 e 10.5
+ 4      43           pw    a 27.9  b  9.3 L  0.0 e 62.8
+ 4     375           tw    a 16.0  b  9.3 L  0.0 e 74.7
+ 3      43          elf    a 69.8  b  9.3 L  2.3 e 18.6
+ 3     313          tty    a 76.4  b  9.3 L  0.6 e 13.7
+ 2      43    partition    a 58.1  b  9.3 L  2.3 e 30.2
+ 2     172          adr    a 90.7  b  9.3 L  0.0 e  0.0
+ 1      43   successful    a  2.3  b  9.3 L  0.0 e 88.4
+ 1     161        tulip    a 87.0  b  9.3 L  0.0 e  3.7
+ 6     120           x1    a 85.0  b  9.2 L  0.0 e  5.8
+ 2      76           ae    a  6.6  b  9.2 L  0.0 e 84.2
+ 1      76         csid    a  0.0  b  9.2 L  0.0 e 90.8
+ 7     340         path    a 59.7  b  9.1 L  0.6 e 30.6
+ 7     208       source    a 48.6  b  9.1 L  0.0 e 42.3
+ 7    1510         last    a 56.8  b  9.1 L  1.6 e 32.5
+ 5      55         must    a 78.2  b  9.1 L  1.8 e 10.9
+ 5     396           tc    a 32.1  b  9.1 L  1.0 e 57.8
+ 4      33   iterations    a 69.7  b  9.1 L  0.0 e 21.2
+ 1     242      intstat    a 90.1  b  9.1 L  0.0 e  0.8
+ 5      67     distance    a 83.6  b  9.0 L  0.0 e  7.5
+ 1      67          arp    a 64.2  b  9.0 L  0.0 e 26.9
+ 6      90          dec    a 65.6  b  8.9 L  0.0 e 25.6
+ 5      56         drop    a 25.0  b  8.9 L 16.1 e 50.0
+ 3     157           nb    a 79.6  b  8.9 L  0.0 e 11.5
+ 1      45          eep    a 71.1  b  8.9 L  0.0 e 20.0
+ 4     170      counter    a 73.5  b  8.8 L  0.0 e 17.6
+ 2      68          eio    a 55.9  b  8.8 L  0.0 e 35.3
+ 5      46       scroll    a 58.7  b  8.7 L  2.2 e 30.4
+ 4     149    blocksize    a 85.2  b  8.7 L  0.0 e  6.0
+ 7    1362          new    a 52.6  b  8.6 L  2.1 e 36.8
+ 6     116        names    a 25.9  b  8.6 L  2.6 e 62.9
+ 4      35      noerror    a  0.0  b  8.6 L  0.0 e 91.4
+ 3      35   operations    a 91.4  b  8.6 L  0.0 e  0.0
+ 3      35           eh    a 42.9  b  8.6 L  2.9 e 45.7
+ 1      70         turb    a 91.4  b  8.6 L  0.0 e  0.0
+ 1      35   maxjsample    a 91.4  b  8.6 L  0.0 e  0.0
+ 6     153         scan    a 54.9  b  8.5 L  0.0 e 36.6
+ 3      59       bitmap    a 83.1  b  8.5 L  0.0 e  8.5
+ 2      47          aux    a 61.7  b  8.5 L  2.1 e 27.7
+ 2     106        64bit    a 79.2  b  8.5 L  5.7 e  6.6
+ 1      47        awacs    a 19.1  b  8.5 L  0.0 e 72.3
+ 5     675         unit    a 80.7  b  8.4 L  0.1 e 10.7
+ 6     530        table    a 64.5  b  8.3 L  0.8 e 26.4
+ 4      84         targ    a 60.7  b  8.3 L  0.0 e 31.0
+ 4      60       nwords    a 88.3  b  8.3 L  0.0 e  3.3
+ 3      72       expand    a 23.6  b  8.3 L  0.0 e 68.1
+ 3      36      latency    a 77.8  b  8.3 L  2.8 e 11.1
+ 2      96        voice    a 85.4  b  8.3 L  0.0 e  6.2
+ 1      72          ppp    a 30.6  b  8.3 L  0.0 e 61.1
+ 1      72      pcibios    a 27.8  b  8.3 L  0.0 e 63.9
+ 7     572          eof    a  2.4  b  8.2 L  0.3 e 89.0
+ 6     292          and    a 53.1  b  8.2 L  1.4 e 37.3
+ 4      73  initialized    a 76.7  b  8.2 L  1.4 e 13.7
+ 2      49    processor    a 20.4  b  8.2 L  0.0 e 71.4
+ 6     408           sz    a 79.4  b  8.1 L  0.5 e 12.0
+ 5      37      convert    a 32.4  b  8.1 L  0.0 e 59.5
+ 5     198          tab    a 30.8  b  8.1 L  0.0 e 61.1
+ 3     124           xp    a 66.1  b  8.1 L  3.2 e 22.6
+ 7    1834            k    a 68.2  b  8.0 L  0.1 e 23.8
+ 5     100          day    a 74.0  b  8.0 L  0.0 e 18.0
+ 4     138         plus    a  0.7  b  8.0 L  0.0 e 91.3
+ 2     112          vga    a 20.5  b  8.0 L  1.8 e 69.6
+ 6     315         item    a 50.8  b  7.9 L  1.9 e 39.4
+ 6      51           my    a 35.3  b  7.8 L 11.8 e 45.1
+ 4     103       method    a  1.9  b  7.8 L  1.0 e 89.3
+ 2      51          rtn    a  5.9  b  7.8 L  0.0 e 86.3
+ 1     193         bmac    a 87.0  b  7.8 L  0.0 e  5.2
+ 6     117           y1    a 88.9  b  7.7 L  0.0 e  3.4
+ 5     104           us    a 54.8  b  7.7 L  0.0 e 37.5
+ 3      26         kern    a 38.5  b  7.7 L  0.0 e 53.8
+ 3     196       shadow    a 87.2  b  7.7 L  0.0 e  5.1
+ 2      39       wanted    a 12.8  b  7.7 L  0.0 e 79.5
+ 2      26      soffset    a 88.5  b  7.7 L  0.0 e  3.8
+ 1      78          oss    a 16.7  b  7.7 L  0.0 e 75.6
+ 1      39      memsize    a 56.4  b  7.7 L  2.6 e 33.3
+ 1     338          sql    a  0.6  b  7.7 L  0.0 e 91.7
+ 1      26         vclk    a 88.5  b  7.7 L  0.0 e  3.8
+ 1      26          sce    a 92.3  b  7.7 L  0.0 e  0.0
+ 1      26        cpuid    a 38.5  b  7.7 L  0.0 e 53.8
+ 1      26 commandopcode    a  0.0  b  7.7 L  0.0 e 92.3
+ 6     225        child    a 31.1  b  7.6 L  2.2 e 59.1
+ 6     157         root    a 38.2  b  7.6 L  1.3 e 52.9
+ 4      66       region    a 43.9  b  7.6 L  3.0 e 45.5
+ 2     263          pfn    a 91.6  b  7.6 L  0.0 e  0.8
+ 7    2831       length    a 81.2  b  7.5 L  0.1 e 11.2
+ 5      93       digits    a 87.1  b  7.5 L  0.0 e  5.4
+ 4     134       widget    a 30.6  b  7.5 L  0.7 e 61.2
+ 1      53     residual    a 88.7  b  7.5 L  0.0 e  3.8
+ 1      40        partn    a 90.0  b  7.5 L  0.0 e  2.5
+ 7     432          row    a 66.9  b  7.4 L  3.2 e 22.5
+ 7    2918        start    a 81.2  b  7.4 L  0.3 e 11.1
+ 5     960      timeout    a 64.7  b  7.4 L  0.3 e 27.6
+ 4      27     original    a 22.2  b  7.4 L  0.0 e 70.4
+ 2     202         baud    a 68.3  b  7.4 L  0.0 e 24.3
+ 1      27           vg    a 25.9  b  7.4 L  0.0 e 66.7
+ 1     269          nic    a 91.4  b  7.4 L  0.0 e  1.1
+ 7     247        pages    a 88.3  b  7.3 L  0.0 e  4.5
+ 5      41         kill    a 19.5  b  7.3 L  0.0 e 73.2
+ 5     179       double    a 68.7  b  7.3 L  0.6 e 23.5
+ 4     151           de    a 57.6  b  7.3 L  0.7 e 34.4
+ 4     109          dig    a 82.6  b  7.3 L  0.0 e 10.1
+ 3     109          pin    a 86.2  b  7.3 L  0.0 e  6.4
+ 2     441         regs    a 63.5  b  7.3 L  0.9 e 28.3
+ 7    1757            y    a 85.0  b  7.2 L  0.4 e  7.4
+ 6     292        label    a 23.3  b  7.2 L  3.4 e 66.1
+ 6     153           p1    a 66.7  b  7.2 L  0.7 e 25.5
+ 3     389     volatile    a 91.5  b  7.2 L  0.5 e  0.8
+ 3     166           sy    a 74.7  b  7.2 L  0.0 e 18.1
+ 7    2935            p    a 59.5  b  7.1 L  4.7 e 28.7
+ 4      56         msec    a 92.9  b  7.1 L  0.0 e  0.0
+ 3      99      nblocks    a 86.9  b  7.1 L  0.0 e  6.1
+ 3      42           dw    a  9.5  b  7.1 L  0.0 e 83.3
+ 3      28         rect    a 39.3  b  7.1 L  0.0 e 53.6
+ 2     238       serial    a 80.3  b  7.1 L  0.8 e 11.8
+ 1      98         bank    a 74.5  b  7.1 L  0.0 e 18.4
+ 1      28        swptr    a 89.3  b  7.1 L  0.0 e  3.6
+ 1      28          khz    a 85.7  b  7.1 L  0.0 e  7.1
+ 1      28          bos    a  3.6  b  7.1 L  0.0 e 89.3
+ 6     115          var    a 45.2  b  7.0 L  4.3 e 43.5
+ 3      57           cy    a 71.9  b  7.0 L  0.0 e 21.1
+ 2     214        flash    a 66.4  b  7.0 L  0.0 e 26.6
+ 1      43           r4    a 76.7  b  7.0 L  2.3 e 14.0
+ 6     101        items    a 67.3  b  6.9 L  2.0 e 23.8
+ 5      87          pre    a 29.9  b  6.9 L  4.6 e 58.6
+ 5     403        align    a 81.1  b  6.9 L  1.0 e 10.9
+ 5      29         what    a 41.4  b  6.9 L  0.0 e 51.7
+ 5      29          rep    a 41.4  b  6.9 L 10.3 e 41.4
+ 4      29           lr    a 55.2  b  6.9 L  3.4 e 34.5
+ 3      58           t0    a 93.1  b  6.9 L  0.0 e  0.0
+ 1      87        csr14    a 93.1  b  6.9 L  0.0 e  0.0
+ 1      58         pmac    a 17.2  b  6.9 L  1.7 e 74.1
+ 1      29       angles    a 93.1  b  6.9 L  0.0 e  0.0
+ 7     542            q    a 44.3  b  6.8 L  0.2 e 48.7
+ 7     541        depth    a 56.4  b  6.8 L  0.0 e 36.8
+ 6     665         proc    a  8.6  b  6.8 L  0.2 e 84.5
+ 6     646        entry    a 49.4  b  6.8 L  0.5 e 43.3
+ 6     103       needed    a 68.9  b  6.8 L  8.7 e 15.5
+ 5      44      initial    a 40.9  b  6.8 L  9.1 e 43.2
+ 2      73      keycode    a 43.8  b  6.8 L  0.0 e 49.3
+ 7    3751         code    a 13.2  b  6.7 L  0.9 e 79.2
+ 5      30       bufsiz    a 90.0  b  6.7 L  0.0 e  3.3
+ 5     149         rval    a 16.1  b  6.7 L  2.0 e 75.2
+ 4      75           es    a 70.7  b  6.7 L  0.0 e 22.7
+ 3      90        vaddr    a 87.8  b  6.7 L  0.0 e  5.6
+ 3      30         uses    a 40.0  b  6.7 L 40.0 e 13.3
+ 3      30      session    a 26.7  b  6.7 L  3.3 e 63.3
+ 2      30         pnum    a 93.3  b  6.7 L  0.0 e  0.0
+ 1      60         dasd    a 81.7  b  6.7 L  0.0 e 11.7
+ 1      30       isapnp    a 40.0  b  6.7 L 23.3 e 30.0
+ 7     820         list    a 26.5  b  6.6 L  1.3 e 65.6
+ 4     231         parm    a 45.9  b  6.5 L  1.3 e 46.3
+ 4     217         zero    a 24.4  b  6.5 L  1.4 e 67.7
+ 3      31     notfound    a  0.0  b  6.5 L  0.0 e 93.5
+ 3     217       reload    a 16.1  b  6.5 L 32.7 e 44.7
+ 1      62          xio    a 45.2  b  6.5 L  0.0 e 48.4
+ 1      31       tracks    a 74.2  b  6.5 L  0.0 e 19.4
+ 1      31   comparison    a 32.3  b  6.5 L 19.4 e 41.9
+ 1      31    backlight    a 93.5  b  6.5 L  0.0 e  0.0
+ 7     360       format    a  5.0  b  6.4 L  1.4 e 87.2
+ 2     218        words    a 87.2  b  6.4 L  0.9 e  5.5
+ 2      63       verify    a  7.9  b  6.3 L  0.0 e 85.7
+ 7     995         name    a 41.4  b  6.2 L  1.1 e 51.3
+ 7   10444         size    a 86.6  b  6.2 L  0.2 e  7.0
+ 5      80        query    a 41.2  b  6.2 L  1.2 e 51.2
+ 5      48         plen    a 79.2  b  6.2 L  0.0 e 14.6
+ 4      65         trap    a 55.4  b  6.2 L  3.1 e 35.4
+ 4     162         mult    a 67.9  b  6.2 L  0.0 e 25.9
+ 3      64          oid    a 15.6  b  6.2 L  0.0 e 78.1
+ 3      48          ctr    a 85.4  b  6.2 L  0.0 e  8.3
+ 3      32          op2    a  3.1  b  6.2 L  0.0 e 90.6
+ 3      32          lib    a  3.1  b  6.2 L  0.0 e 90.6
+ 2      32      spacing    a 93.8  b  6.2 L  0.0 e  0.0
+ 2      32          scs    a 93.8  b  6.2 L  0.0 e  0.0
+ 2      32          ids    a 62.5  b  6.2 L  0.0 e 31.2
+ 7     611          for    a 72.7  b  6.1 L  0.3 e 20.9
+ 7     527         none    a  7.0  b  6.1 L  0.4 e 86.5
+ 4      49        digit    a 51.0  b  6.1 L  0.0 e 42.9
+ 1      49       ioport    a 93.9  b  6.1 L  0.0 e  0.0
+ 7    1215           ch    a 37.0  b  6.0 L  0.2 e 56.8
+ 5     333        float    a 16.5  b  6.0 L  4.5 e 73.0
+ 5     117          obj    a  7.7  b  6.0 L  2.6 e 83.8
+ 3      83          nan    a  2.4  b  6.0 L  0.0 e 91.6
+ 3      50        blkno    a 76.0  b  6.0 L  0.0 e 18.0
+ 2      50        addrs    a 74.0  b  6.0 L  0.0 e 20.0
+ 7      85           s2    a 69.4  b  5.9 L  0.0 e 24.7
+ 7     373     position    a 76.4  b  5.9 L  0.8 e 16.9
+ 7     186        lines    a 91.4  b  5.9 L  0.5 e  2.2
+ 3      34          att    a 44.1  b  5.9 L  0.0 e 50.0
+ 3    1434           hp    a 90.8  b  5.9 L  1.7 e  1.7
+ 2     136         tape    a 28.7  b  5.9 L  2.9 e 62.5
+ 2     118         xres    a 87.3  b  5.9 L  0.0 e  6.8
+ 1      34       vertex    a  0.0  b  5.9 L  0.0 e 94.1
+ 1      34  cacheblocks    a 94.1  b  5.9 L  0.0 e  0.0
+ 7     415           cp    a 72.0  b  5.8 L  0.5 e 21.7
+ 5     274    direction    a 21.9  b  5.8 L  0.0 e 72.3
+ 3      86       drives    a 87.2  b  5.8 L  0.0 e  7.0
+ 2     274      sectors    a 89.8  b  5.8 L  1.1 e  3.3
+ 1      52         wall    a 94.2  b  5.8 L  0.0 e  0.0
+ 7    2717          end    a 74.6  b  5.7 L  0.5 e 19.2
+ 6     158        scale    a 77.2  b  5.7 L  0.0 e 17.1
+ 4      87           xa    a 54.0  b  5.7 L  0.0 e 40.2
+ 4    2038           nr    a 84.7  b  5.7 L  0.0 e  9.6
+ 4     122      clients    a 86.1  b  5.7 L  0.0 e  8.2
+ 3      87       failed    a 23.0  b  5.7 L  1.1 e 70.1
+ 3      53        nkeys    a 94.3  b  5.7 L  0.0 e  0.0
+ 3      35           xc    a 14.3  b  5.7 L  0.0 e 80.0
+ 3     209     resource    a 42.1  b  5.7 L  0.0 e 52.2
+ 2     106           ei    a 88.7  b  5.7 L  1.9 e  3.8
+ 1      53         zlen    a 94.3  b  5.7 L  0.0 e  0.0
+ 1     418        e8390    a 94.3  b  5.7 L  0.0 e  0.0
+ 1     105        page0    a 94.3  b  5.7 L  0.0 e  0.0
+ 5      72       malloc    a 66.7  b  5.6 L  1.4 e 26.4
+ 3      36          scp    a  0.0  b  5.6 L  0.0 e 94.4
+ 3      36           ax    a 55.6  b  5.6 L  0.0 e 38.9
+ 1      36         bttv    a 88.9  b  5.6 L  0.0 e  5.6
+ 7     456         head    a 45.8  b  5.5 L  0.4 e 48.2
+ 7     419         buff    a 30.5  b  5.5 L  0.0 e 64.0
+ 7    1463          cnt    a 83.0  b  5.5 L  0.1 e 11.4
+ 6     458           of    a 79.9  b  5.5 L  0.4 e 14.2
+ 5      37      destroy    a 32.4  b  5.4 L  0.0 e 62.2
+ 3      56         xoff    a 89.3  b  5.4 L  0.0 e  5.4
+ 2      37     watchdog    a 43.2  b  5.4 L  0.0 e 51.4
+ 1      37      saa9730    a 94.6  b  5.4 L  0.0 e  0.0
+ 1      37          rap    a 94.6  b  5.4 L  0.0 e  0.0
+ 1      37       icmpv6    a 21.6  b  5.4 L  0.0 e 73.0
+ 1      37         bctl    a 94.6  b  5.4 L  0.0 e  0.0
+ 7    4081            j    a 86.4  b  5.3 L  0.1 e  8.3
+ 4      38           yh    a 89.5  b  5.3 L  0.0 e  5.3
+ 2      38          iva    a 94.7  b  5.3 L  0.0 e  0.0
+ 1      38          tct    a 94.7  b  5.3 L  0.0 e  0.0
+ 1      38       bdinfo    a 94.7  b  5.3 L  0.0 e  0.0
+ 7     621         next    a 48.5  b  5.2 L  1.8 e 44.6
+ 7     210        which    a 57.1  b  5.2 L  0.0 e 37.6
+ 3      97       frames    a 90.7  b  5.2 L  0.0 e  4.1
+ 2      58      sigchld    a 53.4  b  5.2 L  0.0 e 41.4
+ 1      58          tul    a 93.1  b  5.2 L  0.0 e  1.7
+ 7     275        token    a 41.5  b  5.1 L  2.2 e 51.3
+ 4      79     encoding    a 17.7  b  5.1 L 10.1 e 67.1
+ 4     294          pad    a 81.0  b  5.1 L  0.0 e 13.9
+ 3     118           pd    a 80.5  b  5.1 L  0.0 e 14.4
+ 7     818          idx    a 81.4  b  5.0 L  0.0 e 13.6
+ 6     121         step    a 66.9  b  5.0 L  0.0 e 28.1
+ 4      80     expected    a 27.5  b  5.0 L  0.0 e 67.5
+ 4      40        plane    a 92.5  b  5.0 L  0.0 e  2.5
+ 1      60       bits16    a 91.7  b  5.0 L  0.0 e  3.3
+ 1      40          pdc    a 25.0  b  5.0 L  0.0 e 70.0
+ 6     550        const    a 64.0  b  4.9 L  2.4 e 28.7
+ 5     309        delay    a 56.3  b  4.9 L 23.0 e 15.9
+ 3      61           ge    a  0.0  b  4.9 L  0.0 e 95.1
+ 3      41       tindex    a 95.1  b  4.9 L  0.0 e  0.0
+ 2      82        ioctl    a 50.0  b  4.9 L  0.0 e 45.1
+ 2      41     vertical    a 51.2  b  4.9 L  0.0 e 43.9
+ 2      41          lwp    a 56.1  b  4.9 L  0.0 e 39.0
+ 2      41         java    a 17.1  b  4.9 L  7.3 e 70.7
+ 1      41         http    a  2.4  b  4.9 L  0.0 e 92.7
+ 7    5976        count    a 82.9  b  4.8 L  0.3 e 12.0
+ 7    2218        width    a 87.0  b  4.8 L  0.8 e  7.5
+ 7    1733          ret    a 52.7  b  4.8 L  0.2 e 42.2
+ 5      83      handler    a 30.1  b  4.8 L  0.0 e 65.1
+ 5      62        tsize    a 79.0  b  4.8 L  0.0 e 16.1
+ 5     165      segment    a 69.1  b  4.8 L  0.0 e 26.1
+ 4      63         cond    a 11.1  b  4.8 L  1.6 e 82.5
+ 3      42   horizontal    a 52.4  b  4.8 L  0.0 e 42.9
+ 2      42           ed    a 11.9  b  4.8 L  0.0 e 83.3
+ 1      83         pnmi    a 30.1  b  4.8 L  0.0 e 65.1
+ 1      42         even    a 69.0  b  4.8 L  0.0 e 26.2
+ 7     980        bytes    a 82.0  b  4.7 L  0.4 e 12.9
+ 4      86       signal    a 65.1  b  4.7 L  0.0 e 30.2
+ 4     106          inf    a 36.8  b  4.7 L  0.0 e 58.5
+ 1      43         play    a 16.3  b  4.7 L  0.0 e 79.1
+ 1     258         irqs    a 93.8  b  4.7 L  0.0 e  1.6
+ 7    1141      default    a 76.2  b  4.6 L  0.4 e 18.8
+ 3      65      history    a 53.8  b  4.6 L  0.0 e 41.5
+ 1      87          pgd    a 95.4  b  4.6 L  0.0 e  0.0
+ 4      44           a2    a 86.4  b  4.5 L  4.5 e  4.5
+ 4     134           dy    a 90.3  b  4.5 L  0.7 e  4.5
+ 3      66         secs    a 95.5  b  4.5 L  0.0 e  0.0
+ 3      44        clean    a 70.5  b  4.5 L  0.0 e 25.0
+ 3     156      element    a 32.1  b  4.5 L  0.6 e 62.8
+ 2      44          odd    a 65.9  b  4.5 L 20.5 e  9.1
+ 1      88        mbits    a 95.5  b  4.5 L  0.0 e  0.0
+ 1      44         dlci    a 68.2  b  4.5 L  0.0 e 27.3
+ 5      45      seconds    a 91.1  b  4.4 L  0.0 e  4.4
+ 4      90          gap    a 95.6  b  4.4 L  0.0 e  0.0
+ 4      68        nbits    a 82.4  b  4.4 L  0.0 e 13.2
+ 1     136        lance    a 90.4  b  4.4 L  0.0 e  5.1
+ 1     135         ax25    a 48.9  b  4.4 L  0.0 e 46.7
+ 6     719         this    a 73.0  b  4.3 L  1.4 e 21.3
+ 5     210           tt    a  6.2  b  4.3 L  1.0 e 88.6
+ 4      46     required    a 34.8  b  4.3 L  0.0 e 60.9
+ 4     302        short    a 84.1  b  4.3 L  0.3 e 11.3
+ 4     117     pagesize    a 86.3  b  4.3 L  0.0 e  9.4
+ 2      94          tem    a 21.3  b  4.3 L  3.2 e 71.3
+ 2      47        usage    a 17.0  b  4.3 L  0.0 e 78.7
+ 2      46           nn    a 84.8  b  4.3 L  0.0 e 10.9
+ 2      46          die    a 34.8  b  4.3 L  0.0 e 60.9
+ 5     142          cmp    a 35.9  b  4.2 L  0.0 e 59.9
+ 2      95        sparc    a 43.2  b  4.2 L  0.0 e 52.6
+ 2     144      virtual    a 77.8  b  4.2 L  1.4 e 16.7
+ 1      48      rambase    a 95.8  b  4.2 L  0.0 e  0.0
+ 7    4121            n    a 83.4  b  4.1 L  0.3 e 12.3
+ 6     222       cursor    a 58.6  b  4.1 L  0.0 e 37.4
+ 6     147         arg1    a 44.2  b  4.1 L  0.0 e 51.7
+ 5      98       record    a 27.6  b  4.1 L  0.0 e 68.4
+ 2      49          tmo    a 91.8  b  4.1 L  0.0 e  4.1
+ 1      73          dsa    a 95.9  b  4.1 L  0.0 e  0.0
+ 7     707         mark    a  6.1  b  4.0 L  0.1 e 89.8
+ 6     618      pointer    a 22.2  b  4.0 L  4.5 e 69.3
+ 5      75           n2    a 85.3  b  4.0 L  0.0 e 10.7
+ 5      50           wc    a 72.0  b  4.0 L  2.0 e 22.0
+ 3     126       wakeup    a 92.9  b  4.0 L  0.0 e  3.2
+ 2     124        basic    a 79.0  b  4.0 L  0.0 e 16.9
+ 1     100          nmi    a 48.0  b  4.0 L  0.0 e 48.0
+ 5      51        rsize    a 84.3  b  3.9 L  0.0 e 11.8
+ 5     102           ix    a 92.2  b  3.9 L  0.0 e  3.9
+ 3     127        fsize    a 83.5  b  3.9 L  1.6 e 11.0
+ 2      51      balance    a 96.1  b  3.9 L  0.0 e  0.0
+ 2     102         zone    a 30.4  b  3.9 L  0.0 e 65.7
+ 1     519       iobase    a 94.2  b  3.9 L  0.2 e  1.7
+ 1     203     streamer    a 93.6  b  3.9 L  0.0 e  2.5
+ 7     157       object    a 39.5  b  3.8 L  1.3 e 55.4
+ 6     966           rv    a 20.5  b  3.8 L  0.0 e 75.7
+ 6     159        bsize    a 92.5  b  3.8 L  0.0 e  3.8
+ 5      53       center    a 73.6  b  3.8 L  0.0 e 22.6
+ 5      26       inline    a 42.3  b  3.8 L  0.0 e 53.8
+ 5     131         sock    a 33.6  b  3.8 L  0.0 e 62.6
+ 4      26           fh    a 65.4  b  3.8 L  7.7 e 23.1
+ 4     158        ticks    a 88.0  b  3.8 L  0.0 e  8.2
+ 3      78         hlen    a 96.2  b  3.8 L  0.0 e  0.0
+ 3      53    chunksize    a 81.1  b  3.8 L  0.0 e 15.1
+ 3      26       srclen    a 76.9  b  3.8 L  0.0 e 19.2
+ 2      80  transferred    a 91.2  b  3.8 L  0.0 e  5.0
+ 2      78           ql    a  2.6  b  3.8 L  0.0 e 93.6
+ 2      26           ln    a 42.3  b  3.8 L  0.0 e 53.8
+ 2      26          gpr    a 96.2  b  3.8 L  0.0 e  0.0
+ 1      26      intpend    a 92.3  b  3.8 L  0.0 e  3.8
+ 1      26         asic    a 23.1  b  3.8 L  0.0 e 73.1
+ 7     383         prev    a 34.2  b  3.7 L  1.3 e 60.8
+ 7   29555            i    a 89.9  b  3.7 L  0.0 e  6.4
+ 6     219       buflen    a 90.4  b  3.7 L  0.0 e  5.9
+ 4      54        cells    a 79.6  b  3.7 L  0.0 e 16.7
+ 4     107           os    a 20.6  b  3.7 L  0.9 e 74.8
+ 2      27     mappings    a 92.6  b  3.7 L  0.0 e  3.7
+ 2     136         ptrs    a 96.3  b  3.7 L  0.0 e  0.0
+ 1      27          rdp    a 96.3  b  3.7 L  0.0 e  0.0
+ 1     241          smp    a 83.0  b  3.7 L  0.4 e 12.9
+ 7    3368          buf    a 87.0  b  3.6 L  0.3 e  9.1
+ 7     138           x2    a 89.1  b  3.6 L  0.0 e  7.2
+ 6     909     register    a 94.3  b  3.6 L  0.1 e  2.0
+ 6    1291          ptr    a 61.3  b  3.6 L  0.5 e 34.5
+ 4      28     duration    a 89.3  b  3.6 L  0.0 e  7.1
+ 4      28    candidate    a 32.1  b  3.6 L  0.0 e 64.3
+ 3      56       lcount    a 80.4  b  3.6 L  0.0 e 16.1
+ 3      28           ml    a 78.6  b  3.6 L  0.0 e 17.9
+ 3     197           eq    a  7.1  b  3.6 L  0.0 e 89.3
+ 2      28         intl    a 96.4  b  3.6 L  0.0 e  0.0
+ 2      28          btn    a 78.6  b  3.6 L  0.0 e 17.9
+ 2     137         eptr    a  6.6  b  3.6 L  0.0 e 89.8
+ 1     165      devices    a 87.3  b  3.6 L  0.0 e  9.1
+ 7     457          str    a 59.7  b  3.5 L  0.0 e 36.8
+ 6      57     selected    a  7.0  b  3.5 L  0.0 e 89.5
+ 6      57          rel    a 57.9  b  3.5 L  0.0 e 38.6
+ 6     347           bp    a 85.6  b  3.5 L  0.0 e 11.0
+ 2     113          abs    a 87.6  b  3.5 L  0.0 e  8.8
+ 6     175         cols    a 90.9  b  3.4 L  0.0 e  5.7
+ 1      29       ne3210    a 93.1  b  3.4 L  0.0 e  3.4
+ 1      29       lne390    a 82.8  b  3.4 L  0.0 e 13.8
+ 7     754          min    a 89.4  b  3.3 L  0.7 e  6.6
+ 5      60         elem    a 46.7  b  3.3 L  0.0 e 50.0
+ 4     184         dist    a 81.5  b  3.3 L  0.0 e 15.2
+ 3      90          pri    a 70.0  b  3.3 L  0.0 e 26.7
+ 3      90          lim    a 82.2  b  3.3 L  0.0 e 14.4
+ 2      30      product    a 63.3  b  3.3 L  3.3 e 30.0
+ 1      30         prof    a 96.7  b  3.3 L  0.0 e  0.0
+ 1      30          htb    a 83.3  b  3.3 L  0.0 e 13.3
+ 1     120         aexp    a 32.5  b  3.3 L  5.0 e 59.2
+ 6     283         tail    a 62.2  b  3.2 L  0.0 e 34.6
+ 5      63        small    a 47.6  b  3.2 L  3.2 e 46.0
+ 5      63       middle    a 96.8  b  3.2 L  0.0 e  0.0
+ 5      31         vlen    a 83.9  b  3.2 L  0.0 e 12.9
+ 5     158      bufsize    a 92.4  b  3.2 L  0.0 e  4.4
+ 4      95       npages    a 85.3  b  3.2 L  0.0 e 11.6
+ 4      31        temp3    a 61.3  b  3.2 L  0.0 e 35.5
+ 4      31         nfds    a 71.0  b  3.2 L  0.0 e 25.8
+ 2      31        shmem    a 93.5  b  3.2 L  0.0 e  3.2
+ 2      31       ranges    a 71.0  b  3.2 L  0.0 e 25.8
+ 7   10121          len    a 90.6  b  3.1 L  0.2 e  6.1
+ 6     193     continue    a 89.6  b  3.1 L  0.0 e  7.3
+ 4      65        union    a 55.4  b  3.1 L  0.0 e 41.5
+ 3     260       margin    a 93.8  b  3.1 L  1.5 e  1.5
+ 2      64        cmode    a 51.6  b  3.1 L  0.0 e 45.3
+ 1      65         mpal    a 96.9  b  3.1 L  0.0 e  0.0
+ 7     334         used    a 74.9  b  3.0 L  1.2 e 21.0
+ 7     133        array    a 59.4  b  3.0 L  0.0 e 37.6
+ 6     167           t2    a 44.3  b  3.0 L  3.6 e 49.1
+ 5      99          pix    a 80.8  b  3.0 L  0.0 e 16.2
+ 5      67       origin    a 34.3  b  3.0 L  0.0 e 62.7
+ 2     298        mixer    a 35.2  b  3.0 L  0.0 e 61.7
+ 7     487        stack    a 52.4  b  2.9 L  2.7 e 42.1
+ 7    1600        first    a 70.4  b  2.9 L  0.8 e 25.9
+ 6    1431       height    a 90.7  b  2.9 L  1.0 e  5.4
+ 5     722         real    a 16.9  b  2.9 L  0.0 e 80.2
+ 3      68        pass1    a 92.6  b  2.9 L  0.0 e  4.4
+ 3      35       tables    a 71.4  b  2.9 L 20.0 e  5.7
+ 3      34      include    a 44.1  b  2.9 L  0.0 e 52.9
+ 2      34      classes    a 94.1  b  2.9 L  2.9 e  0.0
+ 1      35         xlen    a 82.9  b  2.9 L  0.0 e 14.3
+ 1     137          cls    a  0.7  b  2.9 L  0.0 e 96.4
+ 7    4754          num    a 85.6  b  2.8 L  0.4 e 11.2
+ 7     214      unknown    a  3.3  b  2.8 L  0.9 e 93.0
+ 7     214          add    a 62.6  b  2.8 L  1.9 e 32.7
+ 6     142         best    a 80.3  b  2.8 L  0.0 e 16.9
+ 5      36      newsize    a 94.4  b  2.8 L  0.0 e  2.8
+ 5     106           y2    a 86.8  b  2.8 L  0.0 e 10.4
+ 3      36       repeat    a 69.4  b  2.8 L  0.0 e 27.8
+ 3      36          fwd    a 80.6  b  2.8 L  0.0 e 16.7
+ 2      72        sched    a 77.8  b  2.8 L  4.2 e 15.3
+ 2     320       regnum    a 23.4  b  2.8 L  0.0 e 73.8
+ 7    1773       buffer    a 85.2  b  2.7 L  0.5 e 11.7
+ 4      74       colors    a 90.5  b  2.7 L  0.0 e  6.8
+ 4      74        codes    a 97.3  b  2.7 L  0.0 e  0.0
+ 3      37       optlen    a 94.6  b  2.7 L  0.0 e  2.7
+ 2      73        patch    a 71.2  b  2.7 L  1.4 e 24.7
+ 1      74    ffetarget    a 18.9  b  2.7 L  2.7 e 75.7
+ 6     855         long    a 85.7  b  2.6 L  0.1 e 11.6
+ 3      38      restore    a 81.6  b  2.6 L  0.0 e 15.8
+ 2      38       unspec    a  0.0  b  2.6 L  0.0 e 97.4
+ 1      39        dcval    a 97.4  b  2.6 L  0.0 e  0.0
+ 1      38          hba    a 76.3  b  2.6 L  0.0 e 21.1
+ 1     270          eth    a 88.9  b  2.6 L  0.0 e  8.5
+ 6     119         len2    a 79.8  b  2.5 L  0.8 e 16.8
+ 5      40        quote    a  7.5  b  2.5 L  7.5 e 82.5
+ 4     157           nf    a 52.2  b  2.5 L  0.0 e 45.2
+ 4     120          dbl    a 88.3  b  2.5 L  0.0 e  9.2
+ 2      40           yl    a 92.5  b  2.5 L  0.0 e  5.0
+ 1      79        amiga    a 87.3  b  2.5 L  0.0 e 10.1
+ 1     511          en0    a 97.5  b  2.5 L  0.0 e  0.0
+ 1      40     nservers    a 80.0  b  2.5 L  0.0 e 17.5
+ 1     122       modeno    a 68.9  b  2.5 L  0.0 e 28.7
+ 6     368        units    a 88.6  b  2.4 L  0.0 e  9.0
+ 3      82      ngroups    a 97.6  b  2.4 L  0.0 e  0.0
+ 1      42         xbsa    a  9.5  b  2.4 L  0.0 e 88.1
+ 1      41      journal    a 87.8  b  2.4 L  4.9 e  4.9
+ 7     703        limit    a 85.1  b  2.3 L  0.4 e 12.2
+ 4      86       scaled    a 76.7  b  2.3 L  0.0 e 20.9
+ 4      44        asize    a 88.6  b  2.3 L  0.0 e  9.1
+ 3      86           rp    a 70.9  b  2.3 L  0.0 e 26.7
+ 3     133          pic    a 47.4  b  2.3 L  7.5 e 42.9
+ 2      44         midy    a 97.7  b  2.3 L  0.0 e  0.0
+ 2      44         bufs    a 95.5  b  2.3 L  0.0 e  2.3
+ 2     343          tst    a  6.4  b  2.3 L  0.9 e 90.4
+ 1      43        scsiq    a 97.7  b  2.3 L  0.0 e  0.0
+ 1     176     denormal    a  6.8  b  2.3 L  0.0 e 90.9
+ 5      93         lang    a 14.0  b  2.2 L  0.0 e 83.9
+ 4      45       lowest    a 68.9  b  2.2 L  0.0 e 28.9
+ 3      93      retries    a 76.3  b  2.2 L  2.2 e 19.4
+ 3      46           sn    a 60.9  b  2.2 L  0.0 e 37.0
+ 3      45    character    a 22.2  b  2.2 L  0.0 e 75.6
+ 2      89    resources    a 92.1  b  2.2 L  0.0 e  5.6
+ 1      46        neigh    a 19.6  b  2.2 L  0.0 e 78.3
+ 1      46    framesize    a 89.1  b  2.2 L  0.0 e  8.7
+ 1      46      ffedata    a 69.6  b  2.2 L  0.0 e 28.3
+ 6     756        begin    a 94.4  b  2.1 L  0.5 e  2.9
+ 5     338         pass    a 22.5  b  2.1 L  2.7 e 72.8
+ 3      96          sub    a 67.7  b  2.1 L  0.0 e 30.2
+ 1      47        cdrom    a  0.0  b  2.1 L  0.0 e 97.9
+ 7    2331        break    a 96.6  b  2.0 L  0.0 e  1.4
+ 7    1884         char    a 88.4  b  2.0 L  0.1 e  9.6
+ 7    1138      current    a 33.4  b  2.0 L  5.2 e 59.4
+ 5     402          con    a 60.4  b  2.0 L  0.0 e 37.6
+ 4     147      console    a 48.3  b  2.0 L  2.0 e 47.6
+ 2      50         logo    a 90.0  b  2.0 L  0.0 e  8.0
+ 1      51          urb    a 11.8  b  2.0 L  2.0 e 84.3
+ 1     102         devs    a 86.3  b  2.0 L  0.0 e 11.8
+ 1     101        signr    a 23.8  b  2.0 L  0.0 e 74.3
+ 5     105       factor    a 88.6  b  1.9 L  0.0 e  9.5
+ 7     340        found    a 27.1  b  1.8 L 10.9 e 60.3
+ 6      56           i1    a 58.9  b  1.8 L  3.6 e 35.7
+ 6     168           we    a 97.0  b  1.8 L  0.0 e  1.2
+ 5     109       maxlen    a 94.5  b  1.8 L  0.0 e  3.7
+ 7    7585          max    a 92.4  b  1.7 L  0.1 e  5.8
+ 7      60         main    a 33.3  b  1.7 L  1.7 e 63.3
+ 5     117         rest    a 70.9  b  1.7 L  0.0 e 27.4
+ 2      59      sockets    a 83.1  b  1.7 L  0.0 e 15.3
+ 2      58        linux    a 43.1  b  1.7 L  3.4 e 51.7
+ 2     121        type1    a  7.4  b  1.7 L  0.0 e 90.9
+ 1     119       logged    a  1.7  b  1.7 L  0.0 e 96.6
+ 7     315         args    a 57.8  b  1.6 L  3.5 e 37.1
+ 5     125        inner    a 63.2  b  1.6 L  0.0 e 35.2
+ 5     123          ref    a 14.6  b  1.6 L  3.3 e 80.5
+ 3      63        stage    a 27.0  b  1.6 L  0.0 e 71.4
+ 3      61        tries    a 85.2  b  1.6 L  0.0 e 13.1
+ 2      61          spi    a 32.8  b  1.6 L  0.0 e 65.6
+ 2      61   debuglevel    a 98.4  b  1.6 L  0.0 e  0.0
+ 1      61       ffelex    a 29.5  b  1.6 L  0.0 e 68.9
+ 1     450          skb    a  7.3  b  1.6 L  0.2 e 90.9
+ 5      67         spec    a 61.2  b  1.5 L  0.0 e 37.3
+ 4      65          try    a 64.6  b  1.5 L  9.2 e 24.6
+ 7     511         text    a 58.3  b  1.4 L  5.1 e 35.2
+ 7    1250      success    a  0.2  b  1.4 L  0.6 e 97.8
+ 6    1930          per    a 93.4  b  1.4 L  0.1 e  5.1
+ 5      70        ratio    a 91.4  b  1.4 L  0.0 e  7.1
+ 4     295      integer    a 15.3  b  1.4 L  0.0 e 83.4
+ 4     289           ft    a 56.7  b  1.4 L  3.1 e 38.8
+ 3      69         usec    a 95.7  b  1.4 L  0.0 e  2.9
+ 3     146        slots    a 78.1  b  1.4 L  0.0 e 20.5
+ 1     353          url    a 17.6  b  1.4 L  3.4 e 77.6
+ 4      79           ni    a 96.2  b  1.3 L  0.0 e  2.5
+ 4     153    alignment    a 58.8  b  1.3 L  1.3 e 38.6
+ 3      78           bw    a 92.3  b  1.3 L  0.0 e  6.4
+ 1      75         luns    a 89.3  b  1.3 L  0.0 e  9.3
+ 7    6288       static    a 98.4  b  1.2 L  0.0 e  0.4
+ 7   13125           if    a 98.2  b  1.2 L  0.1 e  0.5
+ 6     254     interval    a 55.5  b  1.2 L  0.0 e 43.3
+ 5      86        nodes    a 77.9  b  1.2 L  0.0 e 20.9
+ 5      84         prec    a 73.8  b  1.2 L  1.2 e 23.8
+ 5     164         with    a 22.6  b  1.2 L  1.2 e 75.0
+ 4     320          abi    a  2.8  b  1.2 L  0.9 e 95.0
+ 3      85         iter    a 41.2  b  1.2 L  0.0 e 57.6
+ 3      82          vec    a 56.1  b  1.2 L  0.0 e 42.7
+ 2      80        thick    a 91.2  b  1.2 L  0.0 e  7.5
+ 1    2613       ioaddr    a 98.2  b  1.2 L  0.0 e  0.7
+ 6      92      columns    a 78.3  b  1.1 L  0.0 e 20.7
+ 3      91     children    a 80.2  b  1.1 L  4.4 e 14.3
+ 3      89         tlen    a 65.2  b  1.1 L  0.0 e 33.7
+ 3     182           s3    a 96.7  b  1.1 L  0.0 e  2.2
+ 2      94       bitpos    a 89.4  b  1.1 L  0.0 e  9.6
+ 2      92        round    a 25.0  b  1.1 L  4.3 e 69.6
+ 2      87        nregs    a 79.3  b  1.1 L  2.3 e 17.2
+ 1     185        cards    a 87.6  b  1.1 L  0.0 e 11.4
+ 7     295        while    a 98.3  b  1.0 L  0.0 e  0.7
+ 7     195        chunk    a 93.3  b  1.0 L  0.0 e  5.6
+ 7    1767         node    a  6.2  b  1.0 L  0.2 e 92.5
+ 4     308       blocks    a 91.6  b  1.0 L  0.6 e  6.8
+ 3     517    operation    a  3.1  b  1.0 L  0.0 e 95.9
+ 3     498       pseudo    a 95.6  b  1.0 L  0.6 e  2.8
+ 1     104   controller    a 51.9  b  1.0 L  3.8 e 43.3
+ 7    4851       return    a 96.5  b  0.9 L  0.4 e  2.2
+ 5     218         kind    a 41.7  b  0.9 L  0.0 e 57.3
+ 4     106       slider    a 97.2  b  0.9 L  0.0 e  1.9
+ 1    1025      jiffies    a 94.6  b  0.9 L  0.0 e  4.5
+ 5     371         curr    a 56.3  b  0.8 L  0.3 e 42.6
+ 4     119          hex    a 93.3  b  0.8 L  0.0 e  5.9
+ 2     238     exponent    a 73.9  b  0.8 L  0.0 e 25.2
+ 7     413        errno    a  4.6  b  0.7 L  0.0 e 94.7
+ 7    2825         else    a 98.3  b  0.7 L  0.1 e  0.9
+ 5     146         rows    a 91.1  b  0.7 L  0.0 e  8.2
+ 7     163       amount    a 91.4  b  0.6 L  0.0 e  8.0
+ 5     485       actual    a 93.0  b  0.6 L  0.4 e  6.0
+ 2     180          mtu    a 98.3  b  0.6 L  0.0 e  1.1
+ 4     209         alen    a 96.2  b  0.5 L  0.0 e  3.3
+ 4     201         form    a 21.4  b  0.5 L  0.0 e 78.1
+ 3     210           xl    a 98.1  b  0.5 L  0.0 e  1.4
+ 1     199           bh    a 64.3  b  0.5 L  1.0 e 34.2
+ 7     236       column    a 78.0  b  0.4 L  0.0 e 21.6
+ 3    2767           hz    a 99.4  b  0.4 L  0.0 e  0.2
+ 3     246     channels    a 82.9  b  0.4 L  0.0 e 16.7
+ 6     747          the    a 93.3  b  0.3 L  0.4 e  6.0
+ 4    1624         tree    a  1.8  b  0.3 L  0.2 e 97.7
+ 2     295        ports    a 93.6  b  0.3 L  0.0 e  6.1
+ 1     376     fracunit    a 99.5  b  0.3 L  0.0 e  0.3
+ 7    4356       string    a 94.9  b  0.2 L  0.1 e  4.8
+ 7    4715         void    a 96.7  b  0.1 L  0.0 e  3.2
+ 7    4500       struct    a 99.0  b  0.1 L  0.1 e  0.8
+ 7    2537         case    a 99.6  b  0.1 L  0.0 e  0.3
+ 7   22844         null    a  0.2  b  0.1 L  0.0 e 99.7
+ 7    1033         argc    a 74.3  b  0.1 L  0.0 e 25.6
+ 6    1220     unsigned    a 94.9  b  0.1 L  0.2 e  4.8
+ 1     726         mmio    a 99.2  b  0.1 L  0.0 e  0.7
+ 7   99381        ident    a 99.9  b  0.0 L  0.0 e  0.1
+ 7      76       before    a 64.5  b  0.0 L  2.6 e 32.9
+ 7      63         argv    a 66.7  b  0.0 L  0.0 e 33.3
+ 7     549        false    a  2.7  b  0.0 L  0.2 e 97.1
+ 7     428         true    a  9.6  b  0.0 L  0.0 e 90.4
+ 7     335      entries    a 91.9  b  0.0 L  0.0 e  8.1
+ 7     224       sizeof    a 97.8  b  0.0 L  0.0 e  2.2
+ 7     174        chars    a 84.5  b  0.0 L  0.0 e 15.5
+ 6      98    threshold    a 94.9  b  0.0 L  0.0 e  5.1
+ 6      92         keys    a 98.9  b  0.0 L  0.0 e  1.1
+ 6      81           lt    a 14.8  b  0.0 L  2.5 e 82.7
+ 6      68         slen    a 95.6  b  0.0 L  0.0 e  4.4
+ 6     685         goto    a 98.7  b  0.0 L  0.1 e  1.2
+ 6      59      maxsize    a 98.3  b  0.0 L  0.0 e  1.7
+ 6      58      section    a 50.0  b  0.0 L  5.2 e 44.8
+ 6      46      returns    a 89.1  b  0.0 L 10.9 e  0.0
+ 6      41        enter    a  0.0  b  0.0 L  0.0 e100.0
+ 6      40         find    a 70.0  b  0.0 L  2.5 e 27.5
+ 6      39      strings    a 64.1  b  0.0 L  2.6 e 33.3
+ 6      39    functions    a 92.3  b  0.0 L  0.0 e  7.7
+ 6      38       points    a 73.7  b  0.0 L  0.0 e 26.3
+ 6      36      oldsize    a 91.7  b  0.0 L  2.8 e  5.6
+ 6      35          sep    a 48.6  b  0.0 L  2.9 e 48.6
+ 6      29       strlen    a 75.9  b  0.0 L  0.0 e 24.1
+ 6     218       nbytes    a 83.9  b  0.0 L  0.9 e 15.1
+ 6     192       extern    a 97.9  b  0.0 L  2.1 e  0.0
+ 6     154        nargs    a 87.7  b  0.0 L  0.0 e 12.3
+ 6     121      namelen    a 89.3  b  0.0 L  1.7 e  9.1
+ 6     118         len1    a 89.0  b  0.0 L  0.8 e 10.2
+ 6     114     filename    a 52.6  b  0.0 L  4.4 e 43.0
+ 6     106       enoent    a  0.0  b  0.0 L  0.0 e100.0
+ 5      89          tok    a 25.8  b  0.0 L  0.0 e 74.2
+ 5      84      maximum    a 85.7  b  0.0 L  0.0 e 14.3
+ 5      79      written    a 78.5  b  0.0 L  0.0 e 21.5
+ 5      71         that    a 98.6  b  0.0 L  0.0 e  1.4
+ 5      71        rcode    a  8.5  b  0.0 L 26.8 e 64.8
+ 5      66       nitems    a 86.4  b  0.0 L  0.0 e 13.6
+ 5      62       eagain    a  0.0  b  0.0 L  0.0 e100.0
+ 5      55      nothing    a 36.4  b  0.0 L  0.0 e 63.6
+ 5      50       fields    a 34.0  b  0.0 L  4.0 e 62.0
+ 5      49       eacces    a 20.4  b  0.0 L  0.0 e 79.6
+ 5      49         body    a 63.3  b  0.0 L  2.0 e 34.7
+ 5      44      desired    a 86.4  b  0.0 L  0.0 e 13.6
+ 5      43           nl    a 62.8  b  0.0 L  0.0 e 37.2
+ 5      42       stdout    a  9.5  b  0.0 L  4.8 e 85.7
+ 5      42       eexist    a  0.0  b  0.0 L  0.0 e100.0
+ 5      41         flen    a 73.2  b  0.0 L  0.0 e 26.8
+ 5      40     elements    a 60.0  b  0.0 L 10.0 e 30.0
+ 5      39        fname    a 59.0  b  0.0 L  2.6 e 38.5
+ 5      36    terminate    a 63.9  b  0.0 L  5.6 e 30.6
+ 5      36      datalen    a 91.7  b  0.0 L  0.0 e  8.3
+ 5      35         make    a 88.6  b  0.0 L  2.9 e  8.6
+ 5      34          saw    a 17.6  b  0.0 L  8.8 e 73.5
+ 5      33        stdin    a 12.1  b  0.0 L  0.0 e 87.9
+ 5      31         keep    a 41.9  b  0.0 L 16.1 e 41.9
+ 5      31        delim    a 38.7  b  0.0 L  0.0 e 61.3
+ 5      30          env    a 53.3  b  0.0 L  0.0 e 46.7
+ 5      28       suffix    a 85.7  b  0.0 L  3.6 e 10.7
+ 5      27         incr    a 70.4  b  0.0 L  0.0 e 29.6
+ 5     239          nil    a 13.4  b  0.0 L  0.0 e 86.6
+ 5     219       indent    a 96.3  b  0.0 L  0.5 e  3.2
+ 5     107        colon    a 96.3  b  0.0 L  0.0 e  3.7
+ 5     105        point    a 63.8  b  0.0 L  0.0 e 36.2
+ 5     105         note    a 47.6  b  0.0 L  0.0 e 52.4
+ 5     101          ndx    a 99.0  b  0.0 L  0.0 e  1.0
+ 4      96       yychar    a 13.5  b  0.0 L  0.0 e 86.5
+ 4      91      typedef    a 96.7  b  0.0 L  0.0 e  3.3
+ 4      90        eintr    a  0.0  b  0.0 L  0.0 e100.0
+ 4      82       finish    a 22.0  b  0.0 L  0.0 e 78.0
+ 4      80         yyss    a 87.5  b  0.0 L  0.0 e 12.5
+ 4      75          rem    a 86.7  b  0.0 L  4.0 e  9.3
+ 4      71        time1    a 94.4  b  0.0 L  0.0 e  5.6
+ 4      70        yylen    a 85.7  b  0.0 L  0.0 e 14.3
+ 4      69        loops    a 84.1  b  0.0 L  0.0 e 15.9
+ 4      66     boundary    a 92.4  b  0.0 L  0.0 e  7.6
+ 4      65  ewouldblock    a  0.0  b  0.0 L  0.0 e100.0
+ 4      64       startp    a 81.2  b  0.0 L  0.0 e 18.8
+ 4      59         bptr    a 81.4  b  0.0 L  0.0 e 18.6
+ 4      57         endp    a 71.9  b  0.0 L  0.0 e 28.1
+ 4      55      methods    a 61.8  b  0.0 L  0.0 e 38.2
+ 4      51    increment    a 64.7  b  0.0 L  2.0 e 33.3
+ 4      50       yyflag    a 20.0  b  0.0 L  0.0 e 80.0
+ 4      46    reference    a 19.6  b  0.0 L  2.2 e 78.3
+ 4      45       nchars    a 77.8  b  0.0 L  0.0 e 22.2
+ 4      44          yes    a  0.0  b  0.0 L  0.0 e100.0
+ 4      42    separator    a 23.8  b  0.0 L  0.0 e 76.2
+ 4      42         cmds    a 76.2  b  0.0 L  0.0 e 23.8
+ 4      41        ctype    a  2.4  b  0.0 L  2.4 e 95.1
+ 4      40        yyssp    a 25.0  b  0.0 L  0.0 e 75.0
+ 4      40       images    a 75.0  b  0.0 L  0.0 e 25.0
+ 4      37        nread    a 51.4  b  0.0 L  0.0 e 48.6
+ 4      36           py    a 55.6  b  0.0 L  0.0 e 44.4
+ 4      35     template    a 31.4  b  0.0 L  2.9 e 65.7
+ 4      35       spaces    a 94.3  b  0.0 L  0.0 e  5.7
+ 4      35          cp2    a 82.9  b  0.0 L  2.9 e 14.3
+ 4      34       rounds    a 61.8  b  0.0 L  0.0 e 38.2
+ 4      34      mapsize    a 94.1  b  0.0 L  0.0 e  5.9
+ 4      34          but    a 67.6  b  0.0 L  0.0 e 32.4
+ 4      34      already    a 94.1  b  0.0 L  0.0 e  5.9
+ 4      33       nslots    a 81.8  b  0.0 L  0.0 e 18.2
+ 4      32         some    a 96.9  b  0.0 L  0.0 e  3.1
+ 4      32       erange    a  0.0  b  0.0 L  0.0 e100.0
+ 4      29      yyempty    a  0.0  b  0.0 L  0.0 e100.0
+ 4      29          siz    a 93.1  b  0.0 L  3.4 e  3.4
+ 4      28         when    a 85.7  b  0.0 L  0.0 e 14.3
+ 4      28        signo    a 46.4  b  0.0 L  0.0 e 53.6
+ 4      28         rlen    a 92.9  b  0.0 L  0.0 e  7.1
+ 4      28      defined    a 39.3  b  0.0 L 14.3 e 46.4
+ 4      27          typ    a 33.3  b  0.0 L  0.0 e 66.7
+ 4      27 screenheight    a 96.3  b  0.0 L  3.7 e  0.0
+ 4      27          esc    a 11.1  b  0.0 L  0.0 e 88.9
+ 4      26       should    a 92.3  b  0.0 L  0.0 e  7.7
+ 4      26        outer    a 11.5  b  0.0 L  0.0 e 88.5
+ 4     230          yyn    a 60.9  b  0.0 L  0.0 e 39.1
+ 4     171        bitno    a 92.4  b  0.0 L  0.0 e  7.6
+ 4     135       optind    a 52.6  b  0.0 L  0.0 e 47.4
+ 4     124     instance    a 35.5  b  0.0 L  0.0 e 64.5
+ 4     122        minus    a 59.0  b  0.0 L  0.0 e 41.0
+ 4     110         arg2    a 47.3  b  0.0 L  0.9 e 51.8
+ 4     106          cpp    a 47.2  b  0.0 L  0.0 e 52.8
+ 3      98         tptr    a 41.8  b  0.0 L  0.0 e 58.2
+ 3      94           xk    a 92.6  b  0.0 L  0.0 e  7.4
+ 3      87   buffersize    a 92.0  b  0.0 L  0.0 e  8.0
+ 3      85          beg    a 72.9  b  0.0 L  0.0 e 27.1
+ 3      83      highest    a 86.7  b  0.0 L  0.0 e 13.3
+ 3      81     infinity    a 24.7  b  0.0 L  0.0 e 75.3
+ 3      77         nsig    a 97.4  b  0.0 L  0.0 e  2.6
+ 3     729         expr    a  2.5  b  0.0 L  1.0 e 96.6
+ 3      71          iov    a 56.3  b  0.0 L  0.0 e 43.7
+ 3      71       einval    a 11.3  b  0.0 L  0.0 e 88.7
+ 3      69     nbuffers    a 97.1  b  0.0 L  0.0 e  2.9
+ 3      68         segs    a 95.6  b  0.0 L  0.0 e  4.4
+ 3      67       maxoff    a 92.5  b  0.0 L  0.0 e  7.5
+ 3      58      percent    a 51.7  b  0.0 L  0.0 e 48.3
+ 3      56        usecs    a 96.4  b  0.0 L  0.0 e  3.6
+ 3      56          cst    a 76.8  b  0.0 L  0.0 e 23.2
+ 3      55       parsed    a 85.5  b  0.0 L  3.6 e 10.9
+ 3      55     commands    a 81.8  b  0.0 L  0.0 e 18.2
+ 3      46     nentries    a 95.7  b  0.0 L  0.0 e  4.3
+ 3      45         inet    a 42.2  b  0.0 L  0.0 e 57.8
+ 3      45         emin    a 82.2  b  0.0 L  0.0 e 17.8
+ 3      44         todo    a 72.7  b  0.0 L  0.0 e 27.3
+ 3      44        size1    a 81.8  b  0.0 L  0.0 e 18.2
+ 3     449           ne    a 65.7  b  0.0 L  0.0 e 34.3
+ 3      43          oct    a 97.7  b  0.0 L  0.0 e  2.3
+ 3      42     nextchar    a 64.3  b  0.0 L  0.0 e 35.7
+ 3      41        lsize    a 80.5  b  0.0 L  0.0 e 19.5
+ 3      41         ilen    a 85.4  b  0.0 L  0.0 e 14.6
+ 3      40         hook    a 37.5  b  0.0 L  0.0 e 62.5
+ 3      39     strategy    a 89.7  b  0.0 L  0.0 e 10.3
+ 3      39        slash    a 76.9  b  0.0 L  0.0 e 23.1
+ 3      37    stacksize    a 94.6  b  0.0 L  0.0 e  5.4
+ 3      37        radix    a 32.4  b  0.0 L  0.0 e 67.6
+ 3      35         sets    a 68.6  b  0.0 L  5.7 e 25.7
+ 3      35     attempts    a 82.9  b  0.0 L  0.0 e 17.1
+ 3      35          arr    a 77.1  b  0.0 L  0.0 e 22.9
+ 3      35       anchor    a 45.7  b  0.0 L  2.9 e 51.4
+ 3      34      samples    a 85.3  b  0.0 L  0.0 e 14.7
+ 3      34      elapsed    a 97.1  b  0.0 L  0.0 e  2.9
+ 3      33      sigsegv    a  6.1  b  0.0 L  0.0 e 93.9
+ 3      33   blockindex    a 27.3  b  0.0 L  0.0 e 72.7
+ 3      32      oldtime    a 90.6  b  0.0 L  0.0 e  9.4
+ 3      31         xref    a  9.7  b  0.0 L 35.5 e 54.8
+ 3      31  compression    a 35.5  b  0.0 L  0.0 e 64.5
+ 3      31        below    a 77.4  b  0.0 L  0.0 e 22.6
+ 3      30         unix    a 63.3  b  0.0 L  0.0 e 36.7
+ 3      30         hist    a 66.7  b  0.0 L  0.0 e 33.3
+ 3      30          dep    a  0.0  b  0.0 L  3.3 e 96.7
+ 3      29         edit    a 27.6  b  0.0 L  0.0 e 72.4
+ 3      29    bytesread    a 86.2  b  0.0 L  0.0 e 13.8
+ 3      28      routine    a 92.9  b  0.0 L  0.0 e  7.1
+ 3      28       nfiles    a 78.6  b  0.0 L  0.0 e 21.4
+ 3      28       newlen    a 53.6  b  0.0 L 35.7 e 10.7
+ 3      27         maxi    a 63.0  b  0.0 L  0.0 e 37.0
+ 3      27         fptr    a 37.0  b  0.0 L  0.0 e 63.0
+ 3      27        above    a 55.6  b  0.0 L  0.0 e 44.4
+ 3      26    starttime    a 73.1  b  0.0 L  7.7 e 19.2
+ 3      26   registered    a 42.3  b  0.0 L  3.8 e 53.8
+ 3      26        paste    a 46.2  b  0.0 L  0.0 e 53.8
+ 3      26       insize    a 76.9  b  0.0 L  0.0 e 23.1
+ 3      26         anum    a 96.2  b  0.0 L  0.0 e  3.8
+ 3     223         cost    a 96.0  b  0.0 L  0.0 e  4.0
+ 3     169        graph    a  0.6  b  0.0 L  0.0 e 99.4
+ 3     148      symbols    a  4.1  b  0.0 L  0.0 e 95.9
+ 3     105        unset    a  1.9  b  0.0 L  0.0 e 98.1
+ 2      93    numframes    a 98.9  b  0.0 L  0.0 e  1.1
+ 2      91        noerr    a  0.0  b  0.0 L  0.0 e100.0
+ 2      90       msglen    a 91.1  b  0.0 L  0.0 e  8.9
+ 2      88      complex    a  0.0  b  0.0 L  2.3 e 97.7
+ 2      87     baseaddr    a 96.6  b  0.0 L  0.0 e  3.4
+ 2      86      machine    a 52.3  b  0.0 L  0.0 e 47.7
+ 2      81     numnodes    a 95.1  b  0.0 L  0.0 e  4.9
+ 2      80        wchar    a 81.2  b  0.0 L  0.0 e 18.8
+ 2      80     nummodes    a 83.8  b  0.0 L  0.0 e 16.2
+ 2      80        code2    a  0.0  b  0.0 L  1.2 e 98.8
+ 2      79    verbosity    a 97.5  b  0.0 L  0.0 e  2.5
+ 2      79      bitsize    a 92.4  b  0.0 L  0.0 e  7.6
+ 2      76    autostart    a 98.7  b  0.0 L  1.3 e  0.0
+ 2      71     xmstring    a  0.0  b  0.0 L  1.4 e 98.6
+ 2      67         tmp0    a 98.5  b  0.0 L  0.0 e  1.5
+ 2      65      ipproto    a  0.0  b  0.0 L  0.0 e100.0
+ 2      63     windowed    a 12.7  b  0.0 L  0.0 e 87.3
+ 2      62      optname    a  8.1  b  0.0 L  0.0 e 91.9
+ 2      61        noent    a  0.0  b  0.0 L  0.0 e100.0
+ 2      60       letter    a  3.3  b  0.0 L  0.0 e 96.7
+ 2      60         ilim    a 73.3  b  0.0 L  0.0 e 26.7
+ 2      55    errorcode    a  5.5  b  0.0 L  0.0 e 94.5
+ 2      53    infolevel    a 20.8  b  0.0 L  0.0 e 79.2
+ 2      52         math    a 30.8  b  0.0 L  1.9 e 67.3
+ 2      51       models    a 84.3  b  0.0 L  0.0 e 15.7
+ 2      51         dlen    a 96.1  b  0.0 L  0.0 e  3.9
+ 2      51           az    a 17.6  b  0.0 L  0.0 e 82.4
+ 2      50       voices    a 96.0  b  0.0 L  0.0 e  4.0
+ 2      50        pmode    a  0.0  b  0.0 L  0.0 e100.0
+ 2      50          fdp    a  0.0  b  0.0 L  0.0 e100.0
+ 2      49      profile    a 10.2  b  0.0 L 63.3 e 26.5
+ 2      49      ncolors    a 81.6  b  0.0 L  0.0 e 18.4
+ 2      46     xmdialog    a  0.0  b  0.0 L  0.0 e100.0
+ 2      46          sdb    a 47.8  b  0.0 L  0.0 e 52.2
+ 2      46         icmp    a 37.0  b  0.0 L  0.0 e 63.0
+ 2      44        decpt    a 86.4  b  0.0 L  0.0 e 13.6
+ 2      43          elt    a 11.6  b  0.0 L 11.6 e 76.7
+ 2      42 xmunspecified    a  0.0  b  0.0 L  0.0 e100.0
+ 2      41    namespace    a 14.6  b  0.0 L  2.4 e 82.9
+ 2      41       enodev    a 14.6  b  0.0 L  0.0 e 85.4
+ 2      41          arc    a 41.5  b  0.0 L  4.9 e 53.7
+ 2      40         nops    a 97.5  b  0.0 L  0.0 e  2.5
+ 2     405         cpus    a 90.9  b  0.0 L  0.0 e  9.1
+ 2      39           v4    a  5.1  b  0.0 L  0.0 e 94.9
+ 2      39   identifier    a  5.1  b  0.0 L  2.6 e 92.3
+ 2      39    construct    a  5.1  b  0.0 L  0.0 e 94.9
+ 2      38      managed    a 60.5  b  0.0 L  0.0 e 39.5
+ 2      38        hosts    a 76.3  b  0.0 L  0.0 e 23.7
+ 2      38       enospc    a 10.5  b  0.0 L  0.0 e 89.5
+ 2      38      boolean    a  0.0  b  0.0 L  0.0 e100.0
+ 2      37 xtgeometryyes    a  0.0  b  0.0 L  0.0 e100.0
+ 2      36      sigkill    a  0.0  b  0.0 L  0.0 e100.0
+ 2      36  completions    a 55.6  b  0.0 L  0.0 e 44.4
+ 2      35  xmexclusive    a  0.0  b  0.0 L  0.0 e100.0
+ 2      35      xmarrow    a  0.0  b  0.0 L  0.0 e100.0
+ 2      35        would    a 11.4  b  0.0 L  0.0 e 88.6
+ 2      35         rlim    a 77.1  b  0.0 L  0.0 e 22.9
+ 2      35         nlen    a 94.3  b  0.0 L  0.0 e  5.7
+ 2      35    nchildren    a 94.3  b  0.0 L  0.0 e  5.7
+ 2      35       lineno    a 62.9  b  0.0 L  0.0 e 37.1
+ 2      34          rtl    a 52.9  b  0.0 L  2.9 e 44.1
+ 2      34         pane    a  5.9  b  0.0 L  0.0 e 94.1
+ 2      34           kt    a  5.9  b  0.0 L  0.0 e 94.1
+ 2      34       curlen    a  5.9  b  0.0 L  0.0 e 94.1
+ 2      33          spc    a 81.8  b  0.0 L  0.0 e 18.2
+ 2      33           ih    a 97.0  b  0.0 L  0.0 e  3.0
+ 2      33   fontheight    a 97.0  b  0.0 L  0.0 e  3.0
+ 2      33       filled    a 48.5  b  0.0 L  0.0 e 51.5
+ 2      32      outputs    a 90.6  b  0.0 L  3.1 e  6.2
+ 2      32      nextlen    a  0.0  b  0.0 L  0.0 e100.0
+ 2      32       locale    a 18.8  b  0.0 L  3.1 e 78.1
+ 2      31         tdir    a 41.9  b  0.0 L  0.0 e 58.1
+ 2      31     quotient    a 58.1  b  0.0 L  0.0 e 41.9
+ 2      31    paragraph    a 67.7  b  0.0 L  0.0 e 32.3
+ 2      31         ndim    a 90.3  b  0.0 L  0.0 e  9.7
+ 2      31    linewidth    a 87.1  b  0.0 L  0.0 e 12.9
+ 2      31          ics    a 77.4  b  0.0 L  0.0 e 22.6
+ 2      31      combine    a 12.9  b  0.0 L  0.0 e 87.1
+ 2      31         argi    a 90.3  b  0.0 L  0.0 e  9.7
+ 2      30     xmsticky    a  0.0  b  0.0 L  0.0 e100.0
+ 2      30        frags    a 96.7  b  0.0 L  0.0 e  3.3
+ 2      29         html    a 20.7  b  0.0 L  3.4 e 75.9
+ 2      29        hertz    a 96.6  b  0.0 L  0.0 e  3.4
+ 2      28 xtgeometryalmost    a  0.0  b  0.0 L  0.0 e100.0
+ 2      28  orientation    a  0.0  b  0.0 L  0.0 e100.0
+ 2      28         mptr    a 28.6  b  0.0 L  0.0 e 71.4
+ 2      28          bss    a 96.4  b  0.0 L  0.0 e  3.6
+ 2      27       tuples    a 74.1  b  0.0 L  0.0 e 25.9
+ 2      27          srv    a 96.3  b  0.0 L  0.0 e  3.7
+ 2      26          our    a 69.2  b  0.0 L  0.0 e 30.8
+ 2      26       labels    a 42.3  b  0.0 L  3.8 e 53.8
+ 2      26          ist    a 92.3  b  0.0 L  0.0 e  7.7
+ 2      26   interfaces    a 92.3  b  0.0 L  0.0 e  7.7
+ 2      26        acode    a 23.1  b  0.0 L  0.0 e 76.9
+ 2     204        code1    a  0.0  b  0.0 L  0.5 e 99.5
+ 2     125     operands    a 84.8  b  0.0 L  0.0 e 15.2
+ 2     120      targets    a 90.0  b  0.0 L  0.0 e 10.0
+ 2     117      binding    a  0.9  b  0.0 L  0.0 e 99.1
+ 2     113        code0    a  1.8  b  0.0 L  0.0 e 98.2
+ 2     111         mach    a  1.8  b  0.0 L 18.0 e 80.2
+ 2     110         yres    a 89.1  b  0.0 L  0.0 e 10.9
+ 2     104       choice    a 91.3  b  0.0 L  0.0 e  8.7
+ 2     102          op1    a  0.0  b  0.0 L  5.9 e 94.1
+ 1      99          rdf    a  3.0  b  0.0 L  0.0 e 97.0
+ 1      97   menustrait    a  0.0  b  0.0 L  0.0 e100.0
+ 1      97       boards    a 92.8  b  0.0 L  0.0 e  7.2
+ 1      96         shad    a 95.8  b  0.0 L  0.0 e  4.2
+ 1      94      optype1    a  0.0  b  0.0 L  0.0 e100.0
+ 1      88       dimode    a  0.0  b  0.0 L  0.0 e100.0
+ 1      86        optab    a  0.0  b  0.0 L  0.0 e100.0
+ 1      85         stor    a 29.4  b  0.0 L  0.0 e 70.6
+ 1      84      itemlen    a 81.0  b  0.0 L  0.0 e 19.0
+ 1      83          azt    a 42.2  b  0.0 L  0.0 e 57.8
+ 1      83        afsop    a 14.5  b  0.0 L  0.0 e 85.5
+ 1      82      resinfo    a 19.5  b  0.0 L  0.0 e 80.5
+ 1      82      optype0    a  0.0  b  0.0 L  0.0 e100.0
+ 1      81      drivers    a 92.6  b  0.0 L  0.0 e  7.4
+ 1      79        qbase    a 98.7  b  0.0 L  0.0 e  1.3
+ 1      76 basictypeinteger    a  0.0  b  0.0 L  0.0 e100.0
+ 1      75        dinfo    a 46.7  b  0.0 L  0.0 e 53.3
+ 1      74        jiffy    a 97.3  b  0.0 L  0.0 e  2.7
+ 1      73          uil    a 75.3  b  0.0 L  0.0 e 24.7
+ 1      72 basictypecharacter    a  0.0  b  0.0 L  0.0 e100.0
+ 1      72 basictypeany    a  0.0  b  0.0 L  0.0 e100.0
+ 1      71    prsuccess    a  0.0  b  0.0 L  0.0 e100.0
+ 1      70    transport    a  8.6  b  0.0 L  0.0 e 91.4
+ 1      70        recog    a 80.0  b  0.0 L  1.4 e 18.6
+ 1      69           tk    a  2.9  b  0.0 L  0.0 e 97.1
+ 1      69     optimize    a 66.7  b  0.0 L 21.7 e 11.6
+ 1      69        natts    a 91.3  b  0.0 L  0.0 e  8.7
+ 1      68         msgs    a 97.1  b  0.0 L  0.0 e  2.9
+ 1      68        hwifs    a 98.5  b  0.0 L  0.0 e  1.5
+ 1      67      reloads    a 83.6  b  0.0 L  1.5 e 14.9
+ 1      67    ffeintrin    a 29.9  b  0.0 L  0.0 e 70.1
+ 1     673      ffeinfo    a  2.4  b  0.0 L  0.0 e 97.6
+ 1      66        regop    a  0.0  b  0.0 L  0.0 e100.0
+ 1      65 basictypecomplex    a  0.0  b  0.0 L  0.0 e100.0
+ 1      64     segments    a 81.2  b  0.0 L  0.0 e 18.8
+ 1      63   kotnoerror    a  0.0  b  0.0 L  0.0 e100.0
+ 1      63 basictypereal    a  0.0  b  0.0 L  0.0 e100.0
+ 1      62       unroll    a 19.4  b  0.0 L  0.0 e 80.6
+ 1      61     ashiftrt    a  0.0  b  0.0 L  0.0 e100.0
+ 1      60          lbi    a 98.3  b  0.0 L  1.7 e  0.0
+ 1      60   commercial    a  0.0  b  0.0 L  0.0 e100.0
+ 1      60        cnode    a 80.0  b  0.0 L  0.0 e 20.0
+ 1      59 logportindex    a 49.2  b  0.0 L  0.0 e 50.8
+ 1      59  errorstatus    a 32.2  b  0.0 L  0.0 e 67.8
+ 1      59       copied    a 89.8  b  0.0 L  0.0 e 10.2
+ 1     595          rtx    a  4.2  b  0.0 L  1.3 e 94.5
+ 1      58       nonopt    a 24.1  b  0.0 L  0.0 e 75.9
+ 1      57          stl    a 94.7  b  0.0 L  3.5 e  1.8
+ 1      57   maxplayers    a 94.7  b  0.0 L  0.0 e  5.3
+ 1      57  independent    a 82.5  b  0.0 L  7.0 e 10.5
+ 1      57     buslogic    a 70.2  b  0.0 L  0.0 e 29.8
+ 1      56     outgoing    a 62.5  b  0.0 L  5.4 e 32.1
+ 1      56     boundlen    a 94.6  b  0.0 L  0.0 e  5.4
+ 1      55     resindex    a 90.9  b  0.0 L  0.0 e  9.1
+ 1      55         bexp    a 29.1  b  0.0 L  0.0 e 70.9
+ 1      54     lshiftrt    a  0.0  b  0.0 L  0.0 e100.0
+ 1      53        nile4    a 86.8  b  0.0 L  0.0 e 13.2
+ 1      53       ffecom    a 17.0  b  0.0 L  1.9 e 81.1
+ 1      53         asn1    a  0.0  b  0.0 L  0.0 e100.0
+ 1      52        truth    a  0.0  b  0.0 L  0.0 e100.0
+ 1      51   xpmsuccess    a  0.0  b  0.0 L  0.0 e100.0
+ 1      51  tiocgserial    a  0.0  b  0.0 L  0.0 e100.0
+ 1      51          kcs    a 19.6  b  0.0 L  7.8 e 72.5
+ 1      50       subreg    a  8.0  b  0.0 L  0.0 e 92.0
+ 1      50          sfx    a 36.0  b  0.0 L  0.0 e 64.0
+ 1      50       ffestv    a  0.0  b  0.0 L  0.0 e100.0
+ 1      50       ffestc    a  0.0  b  0.0 L  0.0 e100.0
+ 1      50     consoles    a 96.0  b  0.0 L  0.0 e  4.0
+ 1      49  tiocsserial    a  0.0  b  0.0 L  0.0 e100.0
+ 1      49       sfmode    a  0.0  b  0.0 L  0.0 e100.0
+ 1      49        dwarf    a 24.5  b  0.0 L  0.0 e 75.5
+ 1      49          cpy    a 85.7  b  0.0 L  0.0 e 14.3
+ 1     491      sensors    a  2.2  b  0.0 L  0.0 e 97.8
+ 1      48     gamemode    a  0.0  b  0.0 L  0.0 e100.0
+ 1      48         butm    a 41.7  b  0.0 L  0.0 e 58.3
+ 1      47       ffestp    a 76.6  b  0.0 L  0.0 e 23.4
+ 1      47     convcode    a  0.0  b  0.0 L  0.0 e100.0
+ 1      47         capi    a 57.4  b  0.0 L  0.0 e 42.6
+ 1      46          urm    a 10.9  b  0.0 L  0.0 e 89.1
+ 1      46     uncvtbuf    a 87.0  b  0.0 L  0.0 e 13.0
+ 1      45          ibp    a 95.6  b  0.0 L  0.0 e  4.4
+ 1      45         game    a  4.4  b  0.0 L  0.0 e 95.6
+ 1      45     entities    a 75.6  b  0.0 L  0.0 e 24.4
+ 1      44       simode    a  0.0  b  0.0 L  0.0 e100.0
+ 1      44          rxi    a 90.9  b  0.0 L  0.0 e  9.1
+ 1      44       qimode    a  0.0  b  0.0 L  0.0 e100.0
+ 1      44    numplanes    a 50.0  b  0.0 L  0.0 e 50.0
+ 1      44        nents    a 79.5  b  0.0 L  0.0 e 20.5
+ 1      44  namedatalen    a 95.5  b  0.0 L  0.0 e  4.5
+ 1      44   invalidoid    a  0.0  b  0.0 L  0.0 e100.0
+ 1      44       himode    a  0.0  b  0.0 L  0.0 e100.0
+ 1      44      clobber    a  0.0  b  0.0 L  0.0 e100.0
+ 1      43         xbow    a 67.4  b  0.0 L  2.3 e 30.2
+ 1      43        essid    a 97.7  b  0.0 L  0.0 e  2.3
+ 1      43       dfmode    a  0.0  b  0.0 L  0.0 e100.0
+ 1      43      cheetah    a  2.3  b  0.0 L  0.0 e 97.7
+ 1      43       au1000    a 86.0  b  0.0 L  0.0 e 14.0
+ 1      42          tlv    a 97.6  b  0.0 L  0.0 e  2.4
+ 1      42        rxgen    a  0.0  b  0.0 L  0.0 e100.0
+ 1      42         rend    a 42.9  b  0.0 L  0.0 e 57.1
+ 1      42         bond    a  0.0  b  0.0 L  0.0 e100.0
+ 1      41       umsdos    a 36.6  b  0.0 L  0.0 e 63.4
+ 1      40          rhs    a 12.5  b  0.0 L  0.0 e 87.5
+ 1      39   xmtraverse    a  0.0  b  0.0 L  0.0 e100.0
+ 1      39       shriek    a  0.0  b  0.0 L  0.0 e100.0
+ 1      39          mpc    a 20.5  b  0.0 L  0.0 e 79.5
+ 1      39  anonymousid    a  0.0  b  0.0 L  0.0 e100.0
+ 1      39       after1    a  0.0  b  0.0 L  0.0 e100.0
+ 1      39 admiteratordone    a  0.0  b  0.0 L  0.0 e100.0
+ 1     392         decl    a  7.4  b  0.0 L  1.5 e 91.1
+ 1      38 tiocsergstruct    a  0.0  b  0.0 L  0.0 e100.0
+ 1      38 tiocserconfig    a  0.0  b  0.0 L  0.0 e100.0
+ 1      38   tiocmiwait    a  0.0  b  0.0 L  0.0 e100.0
+ 1      38  tiocgicount    a  0.0  b  0.0 L  0.0 e100.0
+ 1      38     spitfire    a  2.6  b  0.0 L  0.0 e 97.4
+ 1      38          sal    a 18.4  b  0.0 L  0.0 e 81.6
+ 1      38     numknown    a 63.2  b  0.0 L  0.0 e 36.8
+ 1      38       nextas    a  0.0  b  0.0 L  0.0 e100.0
+ 1      38       hdrlen    a 94.7  b  0.0 L  0.0 e  5.3
+ 1      38       ffestd    a 31.6  b  0.0 L 15.8 e 52.6
+ 1      38    clustered    a  0.0  b  0.0 L  0.0 e100.0
+ 1      38 charactersizenone    a  0.0  b  0.0 L  0.0 e100.0
+ 1      37         wlen    a 83.8  b  0.0 L  0.0 e 16.2
+ 1      37          sds    a  0.0  b  0.0 L  0.0 e100.0
+ 1      37         s514    a 16.2  b  0.0 L  0.0 e 83.8
+ 1      37        mxser    a 62.2  b  0.0 L  0.0 e 37.8
+ 1      37      modenum    a 35.1  b  0.0 L  0.0 e 64.9
+ 1      37          ltu    a  0.0  b  0.0 L  0.0 e100.0
+ 1      37          imq    a 78.4  b  0.0 L  0.0 e 21.6
+ 1      36  xmalignment    a  0.0  b  0.0 L  0.0 e100.0
+ 1      36          sp1    a 66.7  b  0.0 L  0.0 e 33.3
+ 1      36 serialconfig    a 38.9  b  0.0 L  8.3 e 52.8
+ 1      36          rup    a 97.2  b  0.0 L  0.0 e  2.8
+ 1      36     pixbytes    a 11.1  b  0.0 L  0.0 e 88.9
+ 1      36        nxlen    a 94.4  b  0.0 L  0.0 e  5.6
+ 1      36        insns    a 63.9  b  0.0 L  8.3 e 27.8
+ 1      36          geu    a  0.0  b  0.0 L  0.0 e100.0
+ 1      36       entnum    a 88.9  b  0.0 L  0.0 e 11.1
+ 1      36  attrsetnone    a  0.0  b  0.0 L  0.0 e100.0
+ 1      35          uss    a 85.7  b  0.0 L  0.0 e 14.3
+ 1      35       pushop    a  0.0  b  0.0 L  0.0 e100.0
+ 1      35  programtype    a  0.0  b  0.0 L  0.0 e100.0
+ 1      35        opnum    a 71.4  b  0.0 L  2.9 e 25.7
+ 1      35     enumeral    a  0.0  b  0.0 L  0.0 e100.0
+ 1      35     adapters    a 88.6  b  0.0 L  0.0 e 11.4
+ 1      34         stli    a 70.6  b  0.0 L  0.0 e 29.4
+ 1      34    noperands    a 88.2  b  0.0 L  0.0 e 11.8
+ 1      34 maxlightmaps    a 97.1  b  0.0 L  0.0 e  2.9
+ 1      34  bootverbose    a 82.4  b  0.0 L  2.9 e 14.7
+ 1      34 basictypenone    a  0.0  b  0.0 L  0.0 e100.0
+ 1      33      reltime    a  0.0  b  0.0 L  0.0 e100.0
+ 1      33      qla2x00    a 18.2  b  0.0 L  0.0 e 81.8
+ 1      33       nfsctl    a  0.0  b  0.0 L  0.0 e100.0
+ 1      33       netdev    a 18.2  b  0.0 L  0.0 e 81.8
+ 1      33         mcnt    a 93.9  b  0.0 L  0.0 e  6.1
+ 1      33         ctlr    a 87.9  b  0.0 L  0.0 e 12.1
+ 1      33    corkscrew    a 87.9  b  0.0 L  0.0 e 12.1
+ 1      33         cams    a 39.4  b  0.0 L  0.0 e 60.6
+ 1      33     binoptab    a  0.0  b  0.0 L  0.0 e100.0
+ 1      32          yaw    a 93.8  b  0.0 L  0.0 e  6.2
+ 1      32         tst2    a  0.0  b  0.0 L  0.0 e100.0
+ 1      32          rpm    a 50.0  b  0.0 L  0.0 e 50.0
+ 1      32    modestate    a  0.0  b  0.0 L  0.0 e100.0
+ 1      32          leu    a  0.0  b  0.0 L  0.0 e100.0
+ 1      32        lchar    a 37.5  b  0.0 L  0.0 e 62.5
+ 1      32          ktc    a 21.9  b  0.0 L  0.0 e 78.1
+ 1      31          rex    a 77.4  b  0.0 L  0.0 e 22.6
+ 1      31       police    a 90.3  b  0.0 L  0.0 e  9.7
+ 1      31     pedantic    a  0.0  b  0.0 L100.0 e  0.0
+ 1      31         keyq    a 54.8  b  0.0 L  0.0 e 45.2
+ 1      31   fileserver    a  3.2  b  0.0 L  0.0 e 96.8
+ 1      31        dayna    a 83.9  b  0.0 L  0.0 e 16.1
+ 1      31    cursorpos    a 83.9  b  0.0 L  0.0 e 16.1
+ 1      31      cpqfcts    a 64.5  b  0.0 L  0.0 e 35.5
+ 1      31        binfo    a  0.0  b  0.0 L  3.2 e 96.8
+ 1      30       windex    a 46.7  b  0.0 L  0.0 e 53.3
+ 1      30        permh    a 96.7  b  0.0 L  0.0 e  3.3
+ 1      30         pagf    a  0.0  b  0.0 L  0.0 e100.0
+ 1      30       offnum    a 86.7  b  0.0 L  0.0 e 13.3
+ 1      30   maxipaddrs    a 96.7  b  0.0 L  0.0 e  3.3
+ 1      30      kindany    a  0.0  b  0.0 L  0.0 e100.0
+ 1      30          ior    a  3.3  b  0.0 L  0.0 e 96.7
+ 1      30         dall    a  0.0  b  0.0 L100.0 e  0.0
+ 1      30      cnodeid    a  6.7  b  0.0 L  0.0 e 93.3
+ 1      30          900    a 20.0  b  0.0 L  0.0 e 80.0
+ 1      29           ye    a 72.4  b  0.0 L  0.0 e 27.6
+ 1      29     vsalvage    a  6.9  b  0.0 L  0.0 e 93.1
+ 1      29       scandv    a  0.0  b  0.0 L  0.0 e100.0
+ 1      29       oldbrk    a 82.8  b  0.0 L  0.0 e 17.2
+ 1      29 normalcompletion    a  0.0  b  0.0 L  0.0 e100.0
+ 1      29        lname    a 96.6  b  0.0 L  0.0 e  3.4
+ 1      29        leafs    a 89.7  b  0.0 L  0.0 e 10.3
+ 1      29        hdrsz    a 86.2  b  0.0 L  0.0 e 13.8
+ 1      29          gtu    a  0.0  b  0.0 L  0.0 e100.0
+ 1      29      firmver    a 86.2  b  0.0 L  0.0 e 13.8
+ 1      29  defaultconv    a  0.0  b  0.0 L  0.0 e100.0
+ 1      29          cqr    a  3.4  b  0.0 L  0.0 e 96.6
+ 1      29     buswidth    a 89.7  b  0.0 L  0.0 e 10.3
+ 1      29          ami    a 72.4  b  0.0 L  0.0 e 27.6
+ 1      28         qlen    a 96.4  b  0.0 L  3.6 e  0.0
+ 1      28       qfmode    a  0.0  b  0.0 L  0.0 e100.0
+ 1      28          pdu    a 71.4  b  0.0 L  0.0 e 28.6
+ 1      28         opno    a 96.4  b  0.0 L  0.0 e  3.6
+ 1      28       offsop    a  0.0  b  0.0 L  0.0 e100.0
+ 1      28         npds    a 92.9  b  0.0 L  0.0 e  7.1
+ 1      28       minors    a 82.1  b  0.0 L  0.0 e 17.9
+ 1      28     lightmap    a 64.3  b  0.0 L  0.0 e 35.7
+ 1      28         imag    a 71.4  b  0.0 L  0.0 e 28.6
+ 1      28       engine    a 10.7  b  0.0 L  0.0 e 89.3
+ 1      28           cq    a 96.4  b  0.0 L  0.0 e  3.6
+ 1      28 comprehension    a  0.0  b  0.0 L  0.0 e100.0
+ 1     282     voidmode    a  0.0  b  0.0 L  0.0 e100.0
+ 1      27        tobuf    a 92.6  b  0.0 L  0.0 e  7.4
+ 1      27         rtas    a 44.4  b  0.0 L  0.0 e 55.6
+ 1      27 preincrement    a  0.0  b  0.0 L  0.0 e100.0
+ 1      27     parmtype    a  0.0  b  0.0 L  0.0 e100.0
+ 1      27      oldpred    a  0.0  b  0.0 L  0.0 e100.0
+ 1      27        mem64    a 77.8  b  0.0 L  0.0 e 22.2
+ 1      27        mem32    a 77.8  b  0.0 L  0.0 e 22.2
+ 1      27      mactype    a  0.0  b  0.0 L  0.0 e100.0
+ 1      27       hfmode    a  0.0  b  0.0 L  0.0 e100.0
+ 1      27         gfrt    a 14.8  b  0.0 L  0.0 e 85.2
+ 1      27          dlv    a  0.0  b  0.0 L  0.0 e100.0
+ 1      26        xpram    a 96.2  b  0.0 L  0.0 e  3.8
+ 1      26   xmfontlist    a  0.0  b  0.0 L  0.0 e100.0
+ 1      26     wildcard    a  0.0  b  0.0 L  0.0 e100.0
+ 1      26     tokennum    a 61.5  b  0.0 L  0.0 e 38.5
+ 1      26        terse    a 69.2  b  0.0 L  0.0 e 30.8
+ 1      26    termstate    a  0.0  b  0.0 L  0.0 e100.0
+ 1      26         skb2    a  0.0  b  0.0 L  0.0 e100.0
+ 1      26       runner    a  0.0  b  0.0 L  0.0 e100.0
+ 1      26       quoted    a  0.0  b  0.0 L  0.0 e100.0
+ 1      26        nopag    a  0.0  b  0.0 L  0.0 e100.0
+ 1      26         life    a 15.4  b  0.0 L  0.0 e 84.6
+ 1      26       ffebld    a 15.4  b  0.0 L  0.0 e 84.6
+ 1      26       divide    a 96.2  b  0.0 L  0.0 e  3.8
+ 1     252   mrmsuccess    a  2.4  b  0.0 L  0.0 e 97.6
+ 1     220    bitlength    a 94.5  b  0.0 L  0.0 e  5.5
+ 1     187       ffesta    a  1.6  b  0.0 L  3.2 e 95.2
+ 1     184       ffebad    a  7.6  b  0.0 L  0.0 e 92.4
+ 1     179       regerr    a  0.0  b  0.0 L  0.0 e100.0
+ 1     159       const0    a  0.0  b  0.0 L  0.0 e100.0
+ 1     153       ffestr    a  0.0  b  0.0 L  0.0 e100.0
+ 1     152         tcvr    a 97.4  b  0.0 L  0.0 e  2.6
+ 1     150       edicts    a 96.7  b  0.0 L  0.0 e  3.3
+ 1     145       dac960    a 33.1  b  0.0 L  0.0 e 66.9
+ 1     123   demangling    a  0.0  b  0.0 L100.0 e  0.0
+ 1     122       initrd    a 93.4  b  0.0 L  3.3 e  3.3
+ 1     122      abstime    a  3.3  b  0.0 L  0.0 e 96.7
+ 1     113 siocdevprivate    a 87.6  b  0.0 L  0.0 e 12.4
+ 1     113      blkmode    a  0.0  b  0.0 L  0.0 e100.0
+ 1     110      currcon    a  5.5  b  0.0 L  0.0 e 94.5
+ 1     106         offs    a 96.2  b  0.0 L  0.0 e  3.8
+ 7    3316                 a 44.3  b 32.5 L  1.1 e 22.0
+ 7   16642          lit    a100.0  b  0.0 L  0.0 e  0.0
+ 6      57   maxpathlen    a100.0  b  0.0 L  0.0 e  0.0
+ 5     114         bias    a100.0  b  0.0 L  0.0 e  0.0
+ 4      94      minutes    a100.0  b  0.0 L  0.0 e  0.0
+ 4      72        iwusr    a  0.0  b100.0 L  0.0 e  0.0
+ 4      47       nlines    a100.0  b  0.0 L  0.0 e  0.0
+ 4      40  yystacksize    a100.0  b  0.0 L  0.0 e  0.0
+ 4      40       yylast    a100.0  b  0.0 L  0.0 e  0.0
+ 4      39         excl    a  0.0  b100.0 L  0.0 e  0.0
+ 4      37     maxwidth    a100.0  b  0.0 L  0.0 e  0.0
+ 4      36       totlen    a100.0  b  0.0 L  0.0 e  0.0
+ 4      31         nerr    a100.0  b  0.0 L  0.0 e  0.0
+ 4      30         days    a100.0  b  0.0 L  0.0 e  0.0
+ 4      27        don't    a100.0  b  0.0 L  0.0 e  0.0
+ 4      26      maxargs    a100.0  b  0.0 L  0.0 e  0.0
+ 3      58       yytext    a100.0  b  0.0 L  0.0 e  0.0
+ 3      40     returns:    a100.0  b  0.0 L  0.0 e  0.0
+ 3      38     maxpages    a100.0  b  0.0 L  0.0 e  0.0
+ 3      37 buttonreleasemask    a  0.0  b100.0 L  0.0 e  0.0
+ 3      37      biggest    a100.0  b  0.0 L  0.0 e  0.0
+ 3      36     hashsize    a100.0  b  0.0 L  0.0 e  0.0
+ 3      34        stime    a100.0  b  0.0 L  0.0 e  0.0
+ 3      33         will    a100.0  b  0.0 L  0.0 e  0.0
+ 3      32         fmax    a100.0  b  0.0 L  0.0 e  0.0
+ 3      29           ry    a100.0  b  0.0 L  0.0 e  0.0
+ 3      29       bufptr    a100.0  b  0.0 L  0.0 e  0.0
+ 3      29      accmode    a  0.0  b100.0 L  0.0 e  0.0
+ 3      28         maps    a100.0  b  0.0 L  0.0 e  0.0
+ 3      28 keyreleasemask    a  0.0  b100.0 L  0.0 e  0.0
+ 3      26          bin    a100.0  b  0.0 L  0.0 e  0.0
+ 2      90      epsilon    a100.0  b  0.0 L  0.0 e  0.0
+ 2      71       parenb    a  0.0  b100.0 L  0.0 e  0.0
+ 2      71     linesize    a100.0  b  0.0 L  0.0 e  0.0
+ 2      55          cbq    a100.0  b  0.0 L  0.0 e  0.0
+ 2      51           zr    a100.0  b  0.0 L  0.0 e  0.0
+ 2      51  gcfillstyle    a  0.0  b100.0 L  0.0 e  0.0
+ 2      48        b9600    a  0.0  b100.0 L  0.0 e  0.0
+ 2      47        none.    a100.0  b  0.0 L  0.0 e  0.0
+ 2      45       input:    a100.0  b  0.0 L  0.0 e  0.0
+ 2      43      numbits    a100.0  b  0.0 L  0.0 e  0.0
+ 2      42         midx    a100.0  b  0.0 L  0.0 e  0.0
+ 2      39       dwtemp    a  0.0  b100.0 L  0.0 e  0.0
+ 2      39         bend    a100.0  b  0.0 L  0.0 e  0.0
+ 2      38       srcreg    a100.0  b  0.0 L  0.0 e  0.0
+ 2      35        tally    a100.0  b  0.0 L  0.0 e  0.0
+ 2      35         out2    a  0.0  b100.0 L  0.0 e  0.0
+ 2      35   gcfunction    a  0.0  b100.0 L  0.0 e  0.0
+ 2      34     maxtoken    a100.0  b  0.0 L  0.0 e  0.0
+ 2      33     numlines    a100.0  b  0.0 L  0.0 e  0.0
+ 2      33       lights    a100.0  b  0.0 L  0.0 e  0.0
+ 2      33         ixon    a  0.0  b100.0 L  0.0 e  0.0
+ 2      30 gcclipxorigin    a  0.0  b100.0 L  0.0 e  0.0
+ 2      30       aflags    a  0.0  b100.0 L  0.0 e  0.0
+ 2      29    gcstipple    a  0.0  b100.0 L  0.0 e  0.0
+ 2      29    bytewidth    a100.0  b  0.0 L  0.0 e  0.0
+ 2      28           zi    a100.0  b  0.0 L  0.0 e  0.0
+ 2      27       yyleng    a100.0  b  0.0 L  0.0 e  0.0
+ 2      26          sha    a100.0  b  0.0 L  0.0 e  0.0
+ 2      26  gclinewidth    a  0.0  b100.0 L  0.0 e  0.0
+ 2      26    fragments    a100.0  b  0.0 L  0.0 e  0.0
+ 2      26        elems    a100.0  b  0.0 L  0.0 e  0.0
+ 2      26       cwidth    a100.0  b  0.0 L  0.0 e  0.0
+ 2     177        decor    a  0.0  b100.0 L  0.0 e  0.0
+ 2     147        irusr    a  0.0  b100.0 L  0.0 e  0.0
+ 2     144   pollrdnorm    a  0.0  b100.0 L  0.0 e  0.0
+ 2     130       pollin    a  0.0  b100.0 L  0.0 e  0.0
+ 2     127 gcbackground    a  0.0  b100.0 L  0.0 e  0.0
+ 2     122 gcforeground    a  0.0  b100.0 L  0.0 e  0.0
+ 2     118      output:    a100.0  b  0.0 L  0.0 e  0.0
+ 2     112      pollout    a  0.0  b100.0 L  0.0 e  0.0
+ 2     110   pollwrnorm    a  0.0  b100.0 L  0.0 e  0.0
+ 2     102          let    a100.0  b  0.0 L  0.0 e  0.0
+ 1      98       stridx    a100.0  b  0.0 L  0.0 e  0.0
+ 1      98      macdata    a100.0  b  0.0 L  0.0 e  0.0
+ 1      98      crtscts    a  0.0  b100.0 L  0.0 e  0.0
+ 1      90    ubasestep    a100.0  b  0.0 L  0.0 e  0.0
+ 1      90          bpf    a  0.0  b100.0 L  0.0 e  0.0
+ 1      87      lapdinc    a100.0  b  0.0 L  0.0 e  0.0
+ 1      81       cstopb    a  0.0  b100.0 L  0.0 e  0.0
+ 1      80       mostek    a100.0  b  0.0 L  0.0 e  0.0
+ 1      79      olympic    a100.0  b  0.0 L  0.0 e  0.0
+ 1      79    frametime    a100.0  b  0.0 L  0.0 e  0.0
+ 1      79        afsid    a  0.0  b100.0 L  0.0 e  0.0
+ 1      78       corner    a100.0  b  0.0 L  0.0 e  0.0
+ 1      76     portctrl    a100.0  b  0.0 L  0.0 e  0.0
+ 1      76    nrdevices    a100.0  b  0.0 L  0.0 e  0.0
+ 1      76         hunk    a100.0  b  0.0 L  0.0 e  0.0
+ 1      76         amsg    a100.0  b  0.0 L  0.0 e  0.0
+ 1      75     varhdrsz    a100.0  b  0.0 L  0.0 e  0.0
+ 1      74          gmc    a  0.0  b100.0 L  0.0 e  0.0
+ 1      72        recip    a  0.0  b100.0 L  0.0 e  0.0
+ 1      72          ftr    a  0.0  b100.0 L  0.0 e  0.0
+ 1      72        csr13    a100.0  b  0.0 L  0.0 e  0.0
+ 1      71 description:    a100.0  b  0.0 L  0.0 e  0.0
+ 1      69       rsarhi    a100.0  b  0.0 L  0.0 e  0.0
+ 1      69          nbr    a100.0  b  0.0 L  0.0 e  0.0
+ 1     695        tiocm    a  0.0  b100.0 L  0.0 e  0.0
+ 1      68     tracesys    a  0.0  b100.0 L  0.0 e  0.0
+ 1      68         dcsr    a  0.0  b100.0 L  0.0 e  0.0
+ 1      68       ceafsr    a  0.0  b100.0 L  0.0 e  0.0
+ 1      67      saa7146    a  0.0  b100.0 L  0.0 e  0.0
+ 1      67         rrbs    a100.0  b  0.0 L  0.0 e  0.0
+ 1      67         enab    a  0.0  b100.0 L  0.0 e  0.0
+ 1      67        blist    a  0.0  b100.0 L  0.0 e  0.0
+ 1      67     attrsany    a  0.0  b100.0 L  0.0 e  0.0
+ 1      66      pciafsr    a  0.0  b100.0 L  0.0 e  0.0
+ 1      66         osfd    a100.0  b  0.0 L  0.0 e  0.0
+ 1      64       vortex    a100.0  b  0.0 L  0.0 e  0.0
+ 1      64      ofsaddr    a100.0  b  0.0 L  0.0 e  0.0
+ 1      62 xtcacherefcount    a  0.0  b100.0 L  0.0 e  0.0
+ 1      62 pm3videocontrol    a  0.0  b100.0 L  0.0 e  0.0
+ 1      62          hfc    a  0.0  b100.0 L  0.0 e  0.0
+ 1      62         basr    a  0.0  b100.0 L  0.0 e  0.0
+ 1      60         tmp7    a100.0  b  0.0 L  0.0 e  0.0
+ 1      60          fnm    a  0.0  b100.0 L  0.0 e  0.0
+ 1      60        csr15    a100.0  b  0.0 L  0.0 e  0.0
+ 1      58       wkport    a100.0  b  0.0 L  0.0 e  0.0
+ 1      58       putcmd    a  0.0  b100.0 L  0.0 e  0.0
+ 1      57     dontwait    a  0.0  b100.0 L  0.0 e  0.0
+ 1      57      dataval    a  0.0  b100.0 L  0.0 e  0.0
+ 1      56          bgx    a  0.0  b100.0 L  0.0 e  0.0
+ 1      56       autofd    a  0.0  b100.0 L  0.0 e  0.0
+ 1      55   kernelbase    a100.0  b  0.0 L  0.0 e  0.0
+ 1      55         gene    a100.0  b  0.0 L  0.0 e  0.0
+ 1      54         tmp6    a100.0  b  0.0 L  0.0 e  0.0
+ 1      54          rdy    a  0.0  b100.0 L  0.0 e  0.0
+ 1      52         vlsi    a100.0  b  0.0 L  0.0 e  0.0
+ 1      52       minval    a100.0  b  0.0 L  0.0 e  0.0
+ 1      52         doio    a  0.0  b100.0 L  0.0 e  0.0
+ 1      52        brush    a  0.0  b100.0 L  0.0 e  0.0
+ 1      51        tmp10    a100.0  b  0.0 L  0.0 e  0.0
+ 1      51         lapa    a100.0  b  0.0 L  0.0 e  0.0
+ 1      51        kseg1    a100.0  b  0.0 L  0.0 e  0.0
+ 1      51         isar    a  0.0  b100.0 L  0.0 e  0.0
+ 1      51          dcl    a100.0  b  0.0 L  0.0 e  0.0
+ 1      51       adbreq    a  0.0  b100.0 L  0.0 e  0.0
+ 1      50    viewwidth    a100.0  b  0.0 L  0.0 e  0.0
+ 1      50         tcpf    a  0.0  b100.0 L  0.0 e  0.0
+ 1      50     halfdclk    a  0.0  b100.0 L  0.0 e  0.0
+ 1      50        errcl    a  0.0  b100.0 L  0.0 e  0.0
+ 1      50   curramdata    a100.0  b  0.0 L  0.0 e  0.0
+ 1      49         tmp5    a100.0  b  0.0 L  0.0 e  0.0
+ 1      49       rsarlo    a100.0  b  0.0 L  0.0 e  0.0
+ 1      49          lsc    a  0.0  b100.0 L  0.0 e  0.0
+ 1      48          tci    a  0.0  b100.0 L  0.0 e  0.0
+ 1      48  rightbutton    a  0.0  b100.0 L  0.0 e  0.0
+ 1      48 middlebutton    a  0.0  b100.0 L  0.0 e  0.0
+ 1      48   leftbutton    a  0.0  b100.0 L  0.0 e  0.0
+ 1      47          yrs    a100.0  b  0.0 L  0.0 e  0.0
+ 1      47       s3trio    a100.0  b  0.0 L  0.0 e  0.0
+ 1      47     modeflag    a  0.0  b100.0 L  0.0 e  0.0
+ 1      47       it8172    a100.0  b  0.0 L  0.0 e  0.0
+ 1      47        bregs    a100.0  b  0.0 L  0.0 e  0.0
+ 1      46         tmp4    a100.0  b  0.0 L  0.0 e  0.0
+ 1      46         tach    a100.0  b  0.0 L  0.0 e  0.0
+ 1      46       chafsr    a  0.0  b100.0 L  0.0 e  0.0
+ 1      46   attrsdummy    a  0.0  b100.0 L  0.0 e  0.0
+ 1      46          art    a  0.0  b100.0 L  0.0 e  0.0
+ 1      45          rtf    a  0.0  b100.0 L  0.0 e  0.0
+ 1      45      perpage    a100.0  b  0.0 L  0.0 e  0.0
+ 1      45 needcallback    a  0.0  b100.0 L  0.0 e  0.0
+ 1      45 inexactexception    a  0.0  b100.0 L  0.0 e  0.0
+ 1      44         stay    a  0.0  b100.0 L  0.0 e  0.0
+ 1      44        kseg0    a100.0  b  0.0 L  0.0 e  0.0
+ 1      44        info2    a  0.0  b100.0 L  0.0 e  0.0
+ 1      44        cread    a  0.0  b100.0 L  0.0 e  0.0
+ 1      43         tmp3    a100.0  b  0.0 L  0.0 e  0.0
+ 1      43  paintedtime    a100.0  b  0.0 L  0.0 e  0.0
+ 1      43    irqstatus    a  0.0  b100.0 L  0.0 e  0.0
+ 1      43      10baset    a  0.0  b100.0 L  0.0 e  0.0
+ 1      42      zistepu    a100.0  b  0.0 L  0.0 e  0.0
+ 1      42        smctr    a100.0  b  0.0 L  0.0 e  0.0
+ 1      42       rcntlo    a100.0  b  0.0 L  0.0 e  0.0
+ 1      42         nway    a  0.0  b100.0 L  0.0 e  0.0
+ 1      42          mci    a  0.0  b100.0 L  0.0 e  0.0
+ 1      42         demi    a100.0  b  0.0 L  0.0 e  0.0
+ 1      42        daqds    a100.0  b  0.0 L  0.0 e  0.0
+ 1      42         coop    a  0.0  b100.0 L  0.0 e  0.0
+ 1      42          chp    a100.0  b  0.0 L  0.0 e  0.0
+ 1      41          wn4    a100.0  b  0.0 L  0.0 e  0.0
+ 1      41        ebias    a100.0  b  0.0 L  0.0 e  0.0
+ 1      40          wdc    a  0.0  b100.0 L  0.0 e  0.0
+ 1      40        tnext    a100.0  b  0.0 L  0.0 e  0.0
+ 1      40        tmp13    a100.0  b  0.0 L  0.0 e  0.0
+ 1      40        tmp12    a100.0  b  0.0 L  0.0 e  0.0
+ 1      40        snext    a100.0  b  0.0 L  0.0 e  0.0
+ 1      40       rcnthi    a100.0  b  0.0 L  0.0 e  0.0
+ 1      40    frameleft    a100.0  b  0.0 L  0.0 e  0.0
+ 1      39         nbox    a100.0  b  0.0 L  0.0 e  0.0
+ 1      39          elp    a100.0  b  0.0 L  0.0 e  0.0
+ 1      38        tmp11    a100.0  b  0.0 L  0.0 e  0.0
+ 1      38    spancount    a100.0  b  0.0 L  0.0 e  0.0
+ 1      38          sff    a  0.0  b100.0 L  0.0 e  0.0
+ 1      38 physportindex    a100.0  b  0.0 L  0.0 e  0.0
+ 1      38     pagetype    a  0.0  b100.0 L  0.0 e  0.0
+ 1      38       masked    a  0.0  b100.0 L  0.0 e  0.0
+ 1      38          lvt    a  0.0  b100.0 L  0.0 e  0.0
+ 1      38     gbuffers    a100.0  b  0.0 L  0.0 e  0.0
+ 1      38          fgx    a  0.0  b100.0 L  0.0 e  0.0
+ 1      38         csr7    a100.0  b  0.0 L  0.0 e  0.0
+ 1      38        astat    a  0.0  b100.0 L  0.0 e  0.0
+ 1      37          tdr    a  0.0  b100.0 L  0.0 e  0.0
+ 1      37     synctarg    a100.0  b  0.0 L  0.0 e  0.0
+ 1      37     scsidata    a100.0  b  0.0 L  0.0 e  0.0
+ 1      37     pagescbs    a  0.0  b100.0 L  0.0 e  0.0
+ 1      37     endregno    a100.0  b  0.0 L  0.0 e  0.0
+ 1     375          el3    a100.0  b  0.0 L  0.0 e  0.0
+ 1      36          wio    a100.0  b  0.0 L  0.0 e  0.0
+ 1      36   tdivzstepu    a100.0  b  0.0 L  0.0 e  0.0
+ 1      36        tdist    a100.0  b  0.0 L  0.0 e  0.0
+ 1      36        tcpcb    a  0.0  b100.0 L  0.0 e  0.0
+ 1      36          swp    a  0.0  b100.0 L  0.0 e  0.0
+ 1      36         src3    a100.0  b  0.0 L  0.0 e  0.0
+ 1      36   sdivzstepu    a100.0  b  0.0 L  0.0 e  0.0
+ 1      36     pexecute    a  0.0  b100.0 L  0.0 e  0.0
+ 1      36          p21    a100.0  b  0.0 L  0.0 e  0.0
+ 1      36          p20    a100.0  b  0.0 L  0.0 e  0.0
+ 1      36     mantdigs    a100.0  b  0.0 L  0.0 e  0.0
+ 1      36      irwxugo    a  0.0  b100.0 L  0.0 e  0.0
+ 1      36         hfcb    a  0.0  b100.0 L  0.0 e  0.0
+ 1      36          fly    a  0.0  b100.0 L  0.0 e  0.0
+ 1      36          fee    a  0.0  b100.0 L  0.0 e  0.0
+ 1      36         eorx    a  0.0  b100.0 L  0.0 e  0.0
+ 1      36 countextrastep    a100.0  b  0.0 L  0.0 e  0.0
+ 1      36       clocal    a  0.0  b100.0 L  0.0 e  0.0
+ 1      35   tileglobal    a100.0  b  0.0 L  0.0 e  0.0
+ 1      35    shootable    a  0.0  b100.0 L  0.0 e  0.0
+ 1      35      return:    a100.0  b  0.0 L  0.0 e  0.0
+ 1      35       probe2    a  0.0  b100.0 L  0.0 e  0.0
+ 1      35         out1    a  0.0  b100.0 L  0.0 e  0.0
+ 1      35       myargc    a100.0  b  0.0 L  0.0 e  0.0
+ 1      35   miscstatus    a  0.0  b100.0 L  0.0 e  0.0
+ 1      35     maxcalls    a100.0  b  0.0 L  0.0 e  0.0
+ 1      35        largs    a100.0  b  0.0 L  0.0 e  0.0
+ 1      35         bvd2    a  0.0  b100.0 L  0.0 e  0.0
+ 1      35      assabet    a  0.0  b100.0 L  0.0 e  0.0
+ 1      34       sstat0    a  0.0  b100.0 L  0.0 e  0.0
+ 1      34        sl11h    a  0.0  b100.0 L  0.0 e  0.0
+ 1      34      seeqcmd    a  0.0  b100.0 L  0.0 e  0.0
+ 1      34         msvr    a  0.0  b100.0 L  0.0 e  0.0
+ 1      34       mode26    a  0.0  b100.0 L  0.0 e  0.0
+ 1      34       kidcnt    a100.0  b  0.0 L  0.0 e  0.0
+ 1      34         inea    a  0.0  b100.0 L  0.0 e  0.0
+ 1      34          hpp    a100.0  b  0.0 L  0.0 e  0.0
+ 1      34          gre    a  0.0  b100.0 L  0.0 e  0.0
+ 1      34          e21    a100.0  b  0.0 L  0.0 e  0.0
+ 1      34      dlights    a100.0  b  0.0 L  0.0 e  0.0
+ 1      34       dbgcat    a  0.0  b100.0 L  0.0 e  0.0
+ 1      34        compl    a  0.0  b100.0 L  0.0 e  0.0
+ 1      34      cbaudex    a  0.0  b100.0 L  0.0 e  0.0
+ 1      34     acommand    a100.0  b  0.0 L  0.0 e  0.0
+ 1      33     xferstat    a100.0  b  0.0 L  0.0 e  0.0
+ 1      33          usd    a  0.0  b100.0 L  0.0 e  0.0
+ 1      33    tlckxtree    a  0.0  b100.0 L  0.0 e  0.0
+ 1      33         tbls    a100.0  b  0.0 L  0.0 e  0.0
+ 1      33       slinex    a100.0  b  0.0 L  0.0 e  0.0
+ 1      33       setclr    a  0.0  b100.0 L  0.0 e  0.0
+ 1      33        kaddr    a100.0  b  0.0 L  0.0 e  0.0
+ 1      33          hpa    a100.0  b  0.0 L  0.0 e  0.0
+ 1      33        cycts    a  0.0  b100.0 L  0.0 e  0.0
+ 1      33  clausewidth    a100.0  b  0.0 L  0.0 e  0.0
+ 1      33        buffs    a100.0  b  0.0 L  0.0 e  0.0
+ 1     333       jsprop    a  0.0  b100.0 L  0.0 e  0.0
+ 1      32      xmcolor    a100.0  b  0.0 L  0.0 e  0.0
+ 1      32       write1    a  0.0  b100.0 L  0.0 e  0.0
+ 1      32       wmodes    a100.0  b  0.0 L  0.0 e  0.0
+ 1      32 vtoutofservice    a  0.0  b100.0 L  0.0 e  0.0
+ 1      32       txenab    a  0.0  b100.0 L  0.0 e  0.0
+ 1      32      surface    a100.0  b  0.0 L  0.0 e  0.0
+ 1      32 spancountminus1    a100.0  b  0.0 L  0.0 e  0.0
+ 1      32         rtcf    a  0.0  b100.0 L  0.0 e  0.0
+ 1      32         rcsr    a  0.0  b100.0 L  0.0 e  0.0
+ 1      32  pm3render2d    a  0.0  b100.0 L  0.0 e  0.0
+ 1      32      osflags    a  0.0  b100.0 L  0.0 e  0.0
+ 1      32       ndigit    a100.0  b  0.0 L  0.0 e  0.0
+ 1      32     maxbytes    a100.0  b  0.0 L  0.0 e  0.0
+ 1      32    mandatory    a  0.0  b100.0 L  0.0 e  0.0
+ 1      32           kk    a100.0  b  0.0 L  0.0 e  0.0
+ 1      32       htable    a100.0  b  0.0 L  0.0 e  0.0
+ 1      32      expdiff    a100.0  b  0.0 L  0.0 e  0.0
+ 1      32         eecs    a  0.0  b100.0 L  0.0 e  0.0
+ 1      32       data80    a  0.0  b100.0 L  0.0 e  0.0
+ 1      32      cheight    a100.0  b  0.0 L  0.0 e  0.0
+ 1      32     casefold    a  0.0  b100.0 L  0.0 e  0.0
+ 1      32  bytestoxfer    a100.0  b  0.0 L  0.0 e  0.0
+ 1      32 attrsexternal    a  0.0  b100.0 L  0.0 e  0.0
+ 1      32           4c    a  0.0  b100.0 L  0.0 e  0.0
+ 1      31          v4l    a100.0  b  0.0 L  0.0 e  0.0
+ 1      31         urbs    a100.0  b  0.0 L  0.0 e  0.0
+ 1      31     targetid    a100.0  b  0.0 L  0.0 e  0.0
+ 1      31   subchannel    a100.0  b  0.0 L  0.0 e  0.0
+ 1      31         padr    a100.0  b  0.0 L  0.0 e  0.0
+ 1      31   maxservers    a100.0  b  0.0 L  0.0 e  0.0
+ 1      31       lapwwo    a100.0  b  0.0 L  0.0 e  0.0
+ 1      31        key55    a  0.0  b100.0 L  0.0 e  0.0
+ 1      31       intreg    a  0.0  b100.0 L  0.0 e  0.0
+ 1      31        exone    a100.0  b  0.0 L  0.0 e  0.0
+ 1      31     dctsize2    a100.0  b  0.0 L  0.0 e  0.0
+ 1      31     anenable    a  0.0  b100.0 L  0.0 e  0.0
+ 1      30          z13    a100.0  b  0.0 L  0.0 e  0.0
+ 1      30   serverinfo    a  0.0  b100.0 L  0.0 e  0.0
+ 1      30         regb    a100.0  b  0.0 L  0.0 e  0.0
+ 1      30         nump    a100.0  b  0.0 L  0.0 e  0.0
+ 1      30   negotiated    a  0.0  b100.0 L  0.0 e  0.0
+ 1      30          mie    a  0.0  b100.0 L  0.0 e  0.0
+ 1      30        hsize    a100.0  b  0.0 L  0.0 e  0.0
+ 1      30      descbuf    a100.0  b  0.0 L  0.0 e  0.0
+ 1      30          cip    a  0.0  b100.0 L  0.0 e  0.0
+ 1      30   attrsarray    a  0.0  b100.0 L  0.0 e  0.0
+ 1     306      dctsize    a100.0  b  0.0 L  0.0 e  0.0
+ 1      29         vnom    a100.0  b  0.0 L  0.0 e  0.0
+ 1      29       unsync    a  0.0  b100.0 L  0.0 e  0.0
+ 1      29         thre    a  0.0  b100.0 L  0.0 e  0.0
+ 1      29         rmd1    a  0.0  b100.0 L  0.0 e  0.0
+ 1      29   repetition    a100.0  b  0.0 L  0.0 e  0.0
+ 1      29           oe    a  0.0  b100.0 L  0.0 e  0.0
+ 1      29       nrbrds    a100.0  b  0.0 L  0.0 e  0.0
+ 1      29        noarp    a  0.0  b100.0 L  0.0 e  0.0
+ 1      29       narrow    a  0.0  b100.0 L  0.0 e  0.0
+ 1      29          mdl    a  0.0  b100.0 L  0.0 e  0.0
+ 1      29     maxtypes    a100.0  b  0.0 L  0.0 e  0.0
+ 1      29     ifnamsiz    a100.0  b  0.0 L  0.0 e  0.0
+ 1      29          enp    a  0.0  b100.0 L  0.0 e  0.0
+ 1      29         dwio    a100.0  b  0.0 L  0.0 e  0.0
+ 1      29       dmascr    a  0.0  b100.0 L  0.0 e  0.0
+ 1      29    bbextentt    a100.0  b  0.0 L  0.0 e  0.0
+ 1      29    bbextents    a100.0  b  0.0 L  0.0 e  0.0
+ 1      29     backface    a100.0  b  0.0 L  0.0 e  0.0
+ 1      29  attrsanylen    a  0.0  b100.0 L  0.0 e  0.0
+ 1      29       8bit}}    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28    ypositive    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28    usbportsc    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28        tregs    a100.0  b  0.0 L  0.0 e  0.0
+ 1      28      statreg    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28          ssw    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28     shiftclk    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28   seltimeout    a100.0  b  0.0 L  0.0 e  0.0
+ 1      28       scbcmd    a100.0  b  0.0 L  0.0 e  0.0
+ 1      28  pm3config2d    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28      pgtable    a100.0  b  0.0 L  0.0 e  0.0
+ 1      28         pdrd    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28       newpid    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28       nboard    a100.0  b  0.0 L  0.0 e  0.0
+ 1      28       mixflg    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28     memcache    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28  maxserverid    a100.0  b  0.0 L  0.0 e  0.0
+ 1      28    maxquotas    a100.0  b  0.0 L  0.0 e  0.0
+ 1      28        leptr    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28 foregroundropenable    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28         emax    a100.0  b  0.0 L  0.0 e  0.0
+ 1      28     edgeport    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28          deh    a100.0  b  0.0 L  0.0 e  0.0
+ 1      28         cr32    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28     context:    a100.0  b  0.0 L  0.0 e  0.0
+ 1      28       cisreg    a100.0  b  0.0 L  0.0 e  0.0
+ 1      28   cachefiles    a100.0  b  0.0 L  0.0 e  0.0
+ 1      28          bmi    a  0.0  b100.0 L  0.0 e  0.0
+ 1      28   advertised    a  0.0  b100.0 L  0.0 e  0.0
+ 1      27          wn3    a100.0  b  0.0 L  0.0 e  0.0
+ 1      27       tobufp    a100.0  b  0.0 L  0.0 e  0.0
+ 1      27      ticrate    a100.0  b  0.0 L  0.0 e  0.0
+ 1      27    startfont    a100.0  b  0.0 L  0.0 e  0.0
+ 1      27       scx200    a100.0  b  0.0 L  0.0 e  0.0
+ 1      27    rxstation    a  0.0  b100.0 L  0.0 e  0.0
+ 1      27     rxenable    a  0.0  b100.0 L  0.0 e  0.0
+ 1      27      rxearly    a  0.0  b100.0 L  0.0 e  0.0
+ 1      27         rsta    a  0.0  b100.0 L  0.0 e  0.0
+ 1      27         rint    a  0.0  b100.0 L  0.0 e  0.0
+ 1      27        reg4a    a  0.0  b100.0 L  0.0 e  0.0
+ 1      27      nfields    a100.0  b  0.0 L  0.0 e  0.0
+ 1      27 negotiation2    a  0.0  b100.0 L  0.0 e  0.0
+ 1      27        ixoff    a  0.0  b100.0 L  0.0 e  0.0
+ 1      27      iodelay    a100.0  b  0.0 L  0.0 e  0.0
+ 1      27 acceptbroadcast    a  0.0  b100.0 L  0.0 e  0.0
+ 1      27      8bit}},    a  0.0  b100.0 L  0.0 e  0.0
+ 1     275        irugo    a  0.0  b100.0 L  0.0 e  0.0
+ 1      26          z11    a100.0  b  0.0 L  0.0 e  0.0
+ 1      26          vic    a  0.0  b100.0 L  0.0 e  0.0
+ 1      26     uncvtlen    a100.0  b  0.0 L  0.0 e  0.0
+ 1      26          tx8    a  0.0  b100.0 L  0.0 e  0.0
+ 1      26    tlckdtree    a  0.0  b100.0 L  0.0 e  0.0
+ 1      26    stereoout    a  0.0  b100.0 L  0.0 e  0.0
+ 1      26       scntl3    a  0.0  b100.0 L  0.0 e  0.0
+ 1      26         rcnt    a100.0  b  0.0 L  0.0 e  0.0
+ 1      26          oob    a  0.0  b100.0 L  0.0 e  0.0
+ 1      26          npc    a  0.0  b100.0 L  0.0 e  0.0
+ 1      26   maxdatelen    a100.0  b  0.0 L  0.0 e  0.0
+ 1      26         isr0    a  0.0  b100.0 L  0.0 e  0.0
+ 1      26   intrenable    a100.0  b  0.0 L  0.0 e  0.0
+ 1      26        gsmrl    a  0.0  b100.0 L  0.0 e  0.0
+ 1      26          fsr    a  0.0  b100.0 L  0.0 e  0.0
+ 1      26         cmd0    a100.0  b  0.0 L  0.0 e  0.0
+ 1      26          apc    a  0.0  b100.0 L  0.0 e  0.0
+ 1      26       am2150    a100.0  b  0.0 L  0.0 e  0.0
+ 1      26       afsk24    a100.0  b  0.0 L  0.0 e  0.0
+ 1      26      act200l    a  0.0  b100.0 L  0.0 e  0.0
+ 1     236          b64    a  0.0  b100.0 L  0.0 e  0.0
+ 1     218          tca    a100.0  b  0.0 L  0.0 e  0.0
+ 1     209     dataport    a100.0  b  0.0 L  0.0 e  0.0
+ 1     189          ddb    a100.0  b  0.0 L  0.0 e  0.0
+ 1     169    enumerate    a  0.0  b100.0 L  0.0 e  0.0
+ 1     162         mdio    a  0.0  b100.0 L  0.0 e  0.0
+ 1     154         ereg    a100.0  b  0.0 L  0.0 e  0.0
+ 1     138         m601    a  0.0  b100.0 L  0.0 e  0.0
+ 1     134        prsfs    a  0.0  b100.0 L  0.0 e  0.0
+ 1     125      scsisig    a100.0  b  0.0 L  0.0 e  0.0
+ 1     124       recpos    a100.0  b  0.0 L  0.0 e  0.0
+ 1     122   scachesync    a  0.0  b100.0 L  0.0 e  0.0
+ 1     120       parodd    a  0.0  b100.0 L  0.0 e  0.0
+ 1     115      lockrel    a  0.0  b100.0 L  0.0 e  0.0
+ 1     114     ixjdebug    a  0.0  b100.0 L  0.0 e  0.0
+ 1     109      netwave    a100.0  b  0.0 L  0.0 e  0.0
+ 1     101       ueafsr    a  0.0  b100.0 L  0.0 e  0.0
+ 1     100        shirq    a  0.0  b100.0 L  0.0 e  0.0
+

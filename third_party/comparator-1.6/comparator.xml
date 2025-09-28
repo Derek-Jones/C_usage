@@ -1,0 +1,217 @@
+<!DOCTYPE refentry PUBLIC 
+   "-//OASIS//DTD DocBook XML V4.1.2//EN"
+   "docbook/docbookx.dtd">
+<refentry id='comparator.1'>
+<refmeta>
+<refentrytitle>comparator</refentrytitle>
+<manvolnum>1</manvolnum>
+<refmiscinfo class='date'>Sept 1 2003</refmiscinfo>
+</refmeta>
+<refnamediv id='name'>
+<refname>comparator</refname>
+<refname>filterator</refname>
+<refpurpose>fast location of common code in large source trees</refpurpose>
+</refnamediv>
+<refsynopsisdiv id='synopsis'>
+
+<cmdsynopsis>
+  <command>comparator</command>
+  <arg choice='opt'>-c</arg>
+  <arg choice='opt'>-C</arg>
+  <arg choice='opt'>-d <replaceable>dir</replaceable></arg>
+  <arg choice='opt'>-o <replaceable>file</replaceable></arg>
+  <arg choice='opt'>-r</arg>
+  <arg choice='opt'>-s <replaceable>shredsize</replaceable></arg>
+  <arg choice='opt'>-w</arg>
+  <arg choice='opt'>-v</arg>
+  <arg choice='opt'>-x</arg>
+  <arg choice='plain' rep='repeat'>path</arg>
+  <sbr/>
+  <command>filterator</command>
+  <arg choice='opt'>-d <replaceable>dir</replaceable></arg>
+  <arg choice='opt'>-n</arg>
+  <arg choice='opt'>-s <replaceable>minsize</replaceable></arg>
+  <arg choice='opt'>-x</arg>
+</cmdsynopsis>
+
+</refsynopsisdiv>
+
+<refsect1 id='description'><title>DESCRIPTION</title>
+
+<para><application>comparator</application> is a program for quickly
+finding common sections in two or more source-code trees.  It's named
+after a now-obsolete astronomical instrument called a blink comparator
+that was used to find moving objects in starfield photos.  These
+reports tend to be noisy; <application>filterator</application> is a
+postprocessor for <application>comparator</application> reports that
+can apply significance filtering.</para>
+
+<para><application>comparator</application> works by first chopping
+the specified trees into overlapping shreds (by default 3 lines long)
+and computing the MD5 hash of each shred.  The resulting list of
+shreds is examined and all unique hashes are thrown out.  Then
+<application>comparator</application> generates a report listing all
+cliques of lines with duplicate hashes, with overlapping ranges
+merged. The output format can (not by coincidence) be stepped through
+with the next-error function of Emacs.</para>
+
+<para>A consequence of the method is that
+<application>comparator</application> will find common code segments
+wherever they are.  It is insenstive to rearrangements of the source
+trees.  With appropriate options, code can be normalized at input to
+ignore differences in whitespace and (in C code) brace placenent.  An
+option to strip comments also exists</para>
+
+<para>The program is capable of generating a hash list for a source
+code tree which can be used in place of the tree itself.  Thus, it is
+possible to do comparisons with source trees without having access to
+the actual source code, providing someone who has access is willing to
+ship you a hash list.  These hash lists are called &lsquo;SCF
+files&rsquo; and made with the extension <filename>.scf</filename>;
+the name stands for Source Comparison Format.</para>
+
+<para>In its normal mode of operation,
+<application>comparator</application> expects two or more command-line
+arguments which are the root directories of the source-code trees to
+be compared, and generates a report to standard output.  Progress
+messages are emitted to standard error.  Some arguments may be the
+names of SCF files.</para>
+
+<para>When given a single path argument which is a tree, the program
+generates an SCF hash list to standard output.</para>
+
+<para>When the <option>-c</option> option is specified, the program
+generates a SCF file from each tree specified on the command
+line.  The name of the resulting file is the argument name with
+<filename>.scf</filename> appended.</para>
+
+<para>The <option>-o</option> directs output to a specified file. This
+may be used with <option>-c</option> to override the normal
+<filename>.scf</filename> convention, or simply as an alternative
+to ouput redirection when generating a final report.</para>
+
+<para>The <option>-d</option> option changes current directory to the
+specified tree before walking down each argument path to generate
+hashes.  This will be useful if you want to generate a report for
+trees in a directory other than your current, but want the filenames
+in the report to be relative.</para>
+
+<para>The <option>-s</option> option changes the shred size. Smaller
+shred sizes are more sensitive to small code duplications, but produce
+correspondingly noisier output.  Larger ones will suppress both noise
+and small similarities.</para>
+
+<para>The <option>-w</option> causes all whitespace in the file
+(including blank lines) to be ignored for comparison purposes (line
+numbers in the output report will nevertheless be correct).</para>
+
+<para>The <option>-C</option> implies <option>-w</option> and also
+applies C-language-specific normalization; { and } characters are
+removed.  This is recommended for comparing C code; it prevents the
+comparison from being fooled by differences in indent style.</para>
+
+<para>The <option>-r</option> option removes comments.  This is only
+effective in conjunction with <option>-C</option>. In C files, ll // comments,
+but only "winged" /* comments with the start and end of comment on the
+same line are ignored; also, block /* comments are retained, but the
+beginning /* and ending */ are ignored, In other files, all #
+comments are removed.</para>
+
+<para>The option <option>-v</option> enables progress and timing
+messages to standard error.</para>
+
+<para>The <option>-x</option> enables some debugging output.  It
+is for developers; if you need to understand it, read the code.</para>
+
+<para><application>comparator</application> uses a grotty heuristic
+for figuring out which files in a tree are eligible to be compared.
+Files with <filename>.c</filename> and <filename>.h</filename>
+extensions are always eligible. Files with <filename>.o</filename> or
+<filename>~</filename> extensions are always ignored.  CVS, RCS, and
+SCCS directories are ignored.  Other files are checked to see if the
+percentage of printable characters near the front of the file is above
+90%.</para>
+
+<para><application>filterator</application> is a postprocessor for the
+SCF-B output of <application>comparator</application> that produces an
+actual code listing.  By default, it throws away ranges that appear to
+be noise.  The noise test for C files is to throw away whitespace, C syntax,
+#include lines and a few common macros and see if anything is left.
+The noise test for shell files throws away Bourne-shell keywords</para>
+
+<para>The <option>-n</option> suppresses noise filtering.  The
+<option>-d</option> acts as it does for
+<application>comparator</application>.  The <option>-s</option> option
+sets the minimum size of overlap to be reported. Setting this to a
+slightly larger number than the <application>comparator</application>
+shred size is a useful way to filter out spurious matches; thus, while
+<application>comparator</application> defaults to a shred size of 3,
+<application>filterator</application> defaults to a minimum size of
+5. The <option>-x</option> enables some debugging output.  It is for
+developers; if you need to understand it, read the code.</para>
+
+<para>Each <application>filterator</application> line beginning with %
+is the filename from which the following common span of lines is displayed 
+<application>filterator</application> displays each span of lines,
+unnormalized, from the first file in the clique of matches that it can
+find and open.</para>
+
+<para>Occasionally the <application>filterator</application> output
+looks as through the code has failed to properly merge two or more
+overlapping line ranges, When this happens, the ranges have different
+match sets; they may overlap in one tree, but not in others.  A clue
+to this is the number of matches reported for each range.</para>
+
+</refsect1>
+
+<refsect1 id='author'><title>AUTHOR</title>
+<para>Eric S. Raymond <email>esr@snark.thyrsus.com</email>.  See ESR's home
+page at <ulink
+url='http://www.catb.org/~esr/'>http://www.catb.org/~esr/</ulink> for
+updates and other resources.</para>
+</refsect1>
+
+<refsect1 id='bugs'><title>LIMITATIONS</title>
+
+<para><application>comparator</application> does not attempt to do
+semantic analysis and catch relatively trivial changes like renaming
+of variables, etc.  This is because
+<application>comparator</application> is designed not as a tool to
+detect plagiarism of ideas (the subject of patent law), but as a tool
+to detect copying of the expression of ideas (the subject of copyright
+law). Normalizing the code in excessively clever ways would trespass
+into the territory of ideas and tend to produce false positives.</para>
+
+<para>The heuristic for eligible files can be fooled, though this
+is unlikely.</para>
+
+<para>The use of MD5 hashes means there is a very small probability of
+false-positive matches between shreds &mdash; 1 in
+18,446,744,073,709,551,616, to be precise. (You will probably be struck
+by a meteor or spontaneously combust before this happens.)  There
+is no possibility of false negatives.</para>
+
+<para>This program handles a maximum of 65536 lines per file.  A full
+integer line-number range would increase working-set size by
+20%.</para>
+
+<para>You will get spurious results if you mix
+<filename>.scf</filename> files with different shred sizes or
+normalizations, or with settings for these that conflict with the
+command-line options you have in effect for shredding source-code
+trees.  The program does some sanity checking but will not prevent you
+from shooting yourself in the foot.</para>
+
+<para>The implementation is O(<emphasis>n</emphasis> log
+<emphasis>n</emphasis>) in the size of the code trees and
+O(<emphasis>n</emphasis><superscript>2</superscript>) in the number of
+common segments.  The code for finding duplicate hashes uses a
+brute-force approach that relies on being able to allocate core for
+the entire hash list generated during processing.  The results are
+almost ridiculously fast on machines with enough core (the author has
+observed speeds of up to two million lines of code compared per minute
+on a 1.8GHz Intel box), but machines with small memories will thrash
+their guts out as the VM subsystem tries to cope.</para>
+</refsect1>
+</refentry>
+

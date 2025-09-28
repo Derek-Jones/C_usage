@@ -1,0 +1,10 @@
+ unsigned int  ,, 2.1
+ void  * ,, 6.3
+ char  ,, 1.6
+ union  * ,, 3.2
+ char  * ,, 3.1
+ unsigned long  ,, 3.1
+ int  ,, 30.5
+ void  ,, 35.8
+ struct  * ,, 9.1
+ other-types ,, 5.2

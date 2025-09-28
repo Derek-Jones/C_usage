@@ -1,0 +1,7 @@
+ ptr-to ,, ?: ,, ptr-to ,, 29.5 ,, int ,, ?: ,, _int ,, 5.7
+ other-types ,, ?: ,, other-types ,, 12.1 ,, _char ,, ?: ,, _char ,, 3.4
+ _int ,, ?: ,, _int ,, 10.4 ,, unsigned int ,, ?: ,, unsigned int ,, 2.2
+ int ,, ?: ,, int ,, 10.0 ,, unsigned short ,, ?: ,, unsigned short ,, 1.2
+ void ,, ?: ,, void ,, 9.4 ,, signed int ,, ?: ,, _int ,, 1.1
+ unsigned long ,, ?: ,, unsigned long ,, 7.9 ,, char ,, ?: ,, void ,, 1.1
+ _int ,, ?: ,, int ,, 6.0 ,,   ,,  ,,  ,, 

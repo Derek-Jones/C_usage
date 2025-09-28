@@ -1,0 +1,15 @@
+ IDENT ,, 26.5
+ INT_CONST ,, 20.3
+ DEFINED ( IDENT ) ,, 16.4
+ DEFINED ( IDENT ) || DEFINED ( IDENT ) ,, 6.0
+ IDENT == IDENT ,, 2.4
+ IDENT > INT_CONST ,, 2.4
+ IDENT >= FUNC ,, 2.1
+ DEFINED ( IDENT ) && DEFINED ( IDENT ) ,, 2.0
+ ! DEFINED ( IDENT ) ,, 2.0
+ DEFINED ( IDENT ) && ! DEFINED ( IDENT ) ,, 1.3
+ IDENT >= INT_CONST ,, 1.3
+ IDENT != INT_CONST ,, 1.1
+ IDENT < FUNC ,, 1.1
+ ! IDENT ,, 1.1
+others ,, 14.0

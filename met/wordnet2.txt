@@ -1,0 +1,9 @@
+POS  Unique  Synsets  Total  
+   Strings   Word-Sense Pairs  
+
+Noun  114648  79689  141690  
+Verb  11306  13508  24632  
+Adjective  21436  18563  31015  
+Adverb  4669  3664  5808  
+
+Totals  152059  115424  203145  

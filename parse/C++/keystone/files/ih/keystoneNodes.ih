@@ -1,0 +1,165 @@
+
+
+#
+# Interfaces
+#
+cTemplate
+cInstantiation
+cSpecialization : cTemplate, cInstantiation
+
+
+#
+# Nodes
+#
+cAsgNode
+
+cLinkage       : cAsgNode
+cUsing         : cAsgNode
+cAsmDefinition : cAsgNode
+
+cTemplateArgumentList : cAsgNode
+
+cIdentifier : cAsgNode
+
+cEnumerator : cIdentifier
+
+cObject     : cIdentifier
+cObjectList : cIdentifier
+
+
+#
+# Function (Formal) Parameters
+#
+cFunctionParameterBase : cIdentifier
+cFunctionParameter     : cFunctionParameterBase
+cFunctionParameterList : cFunctionParameterBase
+
+
+#
+# Types
+#
+cType : cIdentifier
+
+cBuiltInType             : cType
+cAliasType               : cType
+cFunctionType            : cType
+cEnumerationType         : cType
+
+cIndirectType : cType
+cArrayType     : cIndirectType
+cPointerType   : cIndirectType
+cReferenceType : cIndirectType
+
+cClassType : cType
+cTemplateClassType     : cTemplate, cClassType
+cSpecializedClassType  : cSpecialization, cClassType
+cInstantiatedClassType : cInstantiation, cClassType
+
+cForwardType : cType
+cTemplateForwardType     : cTemplate, cForwardType
+cSpecializedForwardType  : cSpecialization, cForwardType
+cInstantiatedForwardType : cInstantiation, cForwardType
+
+
+#
+# Labels
+#
+cLabel : cIdentifier
+cCaseLabel    : cLabel
+cDefaultLabel : cLabel
+
+
+#
+# Functions
+#
+cFunction : cIdentifier
+cTemplateFunction     : cTemplate, cFunction
+cSpecializedFunction  : cSpecialization, cFunction
+cInstantiatedFunction : cInstantiation, cFunction
+
+
+#
+# Scopes
+#
+cScope : cIdentifier
+cGlobalScope      : cScope
+cCompilationScope : cScope
+cNamespace        : cScope
+
+cBlock : cScope
+cCtorInitializerBlock : cBlock
+
+
+#
+# Template Parameters
+#
+cTemplateParameterBase : cIdentifier
+
+cTemplateParameter : cTemplateParameterBase
+cTypeTemplateParameter     : cTemplateParameter
+cTemplateTemplateParameter : cTemplateParameter
+cNonTypeTemplateParameter  : cTemplateParameter
+
+cTemplateParameterList : cTemplateParameterBase
+
+
+#
+# Expressions
+#
+cExpressionBase : cAsgNode
+
+cExpression : cExpressionBase
+cNameReference       : cExpression
+cLiteral             : cExpression
+cNewExpression       : cExpression
+cDeleteExpression    : cExpression
+cConditionDeclarator : cExpression
+cEmptyExpression     : cExpression
+
+cExpressionList : cExpressionBase
+cFunctionArgumentList : cExpressionList
+cInitializerList      : cExpressionList
+
+
+#
+# Operators
+#
+cOperator : cExpression
+cUnaryOperator   : cOperator
+cBinaryOperator  : cOperator
+cTernaryOperator : cOperator
+
+
+#
+# Control Statements
+#
+cControlStatement   : cAsgNode
+
+cSelectionStatement : cControlStatement
+cIfStatement     : cSelectionStatement
+cSwitchStatement : cSelectionStatement
+
+cIterationStatement : cControlStatement
+cWhileLoop   : cIterationStatement
+cDoWhileLoop : cIterationStatement
+cForLoop     : cIterationStatement
+
+cJumpStatement      : cControlStatement
+cBreak    : cJumpStatement
+cContinue : cJumpStatement
+cReturn   : cJumpStatement
+cGoto     : cJumpStatement
+
+
+#
+# Exceptions
+#
+cTryBlock : cBlock
+cFunctionTryBlock : cTryBlock
+cHandler : cAsgNode
+cExceptionDeclaration : cIdentifier
+cThrowExpression : cExpression
+cExceptionSpecification : cAsgNode
+
+
+

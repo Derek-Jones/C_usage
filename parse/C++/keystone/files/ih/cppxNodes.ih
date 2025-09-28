@@ -1,0 +1,92 @@
+
+
+cASGNode
+
+cIdentifier : cAsgNds
+
+cType : cIdentifier
+cBuiltInType   : cType
+cAggrType      : cType
+cEnumType      : cType
+cTemplParmType : cType
+cGenericType   : cType
+cGeneratedType : cType
+cAliasType     : cType
+cForwardType   : cType
+cArrayType     : cType
+cPtrType       : cType
+cRefType       : cType
+cFctType       : cType
+
+cSourceFile : cIdentifier
+
+cScope : cIdentifier
+cSystem            : cScope
+cScopeGlb          : cScope
+cScopeCompil       : cScope
+cScopeFile         : cScope
+cPackage           : cScope
+cNameSpace         : cScope
+cBlock             : cScope
+cStaticBlock       : cScope
+cTryBlock          : cScope
+cCatchBlock        : cScope
+cFinallyBlock      : cScope
+cSynchronizedBlock : cScope
+
+cObject : cIdentifier
+cFormalFctParam   : cObject
+cFormalCatchParam : cObject
+
+cFunction : cIdentifier
+
+cLabel : cIdentifier
+cCaseLabel    : cLabel
+cDefaultLabel : cLabel
+
+cEnumerator : cIdentifier
+
+cExpression : cAsgNds
+cEmptyExpr    : cExpression
+cLiteral      : cExpression
+cSyntaxError  : cExpression
+cNameRef      : cExpression
+cCreationExpr : cExpression
+cDestryExpr   : cExpression
+
+cOperator : cExpression
+cUnaryOperator    : cOperator
+cBinaryOperator   : cOperator
+cQuestionOperator : cOperator
+
+cInitList             : cExpression
+cActualFctParamList   : cExpression
+cActualTemplParamList : cExpression
+
+cCtrlStmt : cAsgNds
+
+cSelection : cCtrlStmt
+
+cIf     : cSelection
+cSwitch : cSelection
+
+cJump : cCtrlStmt
+cGoto     : cJump
+cReturn   : cJump
+cBreak    : cJump
+cContinue : cJump
+
+cLoop : cCtrlStmt
+cDoWhileLoop : cLoop
+cWhileDoLoop : cLoop
+cForLoop     : cLoop
+
+cSqlStmt : cAsgNds
+
+cComment : cAsgNds
+cJavaDocComment : cComment
+
+cThrowSpec : cAsgNds
+cAsmBlock  : cAsgNds
+
+

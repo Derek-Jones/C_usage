@@ -1,0 +1,31 @@
+.FILE t4.c
+.DATE Dec  9 2003
+.TIME 13:49:46
+.VERSION 1.4
+#
+.START t4.c
+.ERR     2   4 9504 6 0 "e_glob_1"
+.ERR     2   4 9523 6 0 "e_glob_1"
+.INIT e_glob_1 2
+.ERR     3  12 9504 6 0 "e_glob_2"
+.ERR     3  12 9523 6 0 "e_glob_2"
+.ERR     5  19 9504 6 0 "s_glob_1"
+.ERR     5  19 9520 6 0 "s_glob_1"
+.GLOBAL
+s_glob_1 INTERNAL defined 0 used 0 set 0 size 4 IDENT int
+e_glob_2 EXTERNAL defined 0 used 0 set 0 size 4 IDENT int
+e_glob_1 EXTERNAL defined 1 used 0 set 0 size 4 IDENT int
+.METRICS
+CHARS 57 B_CHARS 11 LINES 6 B_LINES 2 
+.PPTOKS
+SEMICOLON 3 ASSIGN 1 IDENTIFIER 7 EOLN 8 
+PP_NUMBER 1 
+.TOKS
+STATIC 1 INT 3 SEMICOLON 3 ASSIGN 1 
+LITERAL 1 IDENTIFIER 3 
+.END t4.c
+.ERR     6   0 1760 5 0 "s_glob_1"
+.ERR     6   0 1778 5 0 "e_glob_2"
+.ERR     6   0 1775 5 0 "e_glob_2"
+.ERR     6   0 1778 5 0 "e_glob_1"
+.ERR     6   0 1775 5 0 "e_glob_1"

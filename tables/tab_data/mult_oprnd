@@ -1,0 +1,25 @@
+ int ,, % ,, _int ,, 40.6 ,, _unsigned long ,, * ,, _int ,, 2.8
+ int ,, / ,, _int ,, 25.6 ,, int ,, / ,, float ,, 2.7
+ other-types ,, * ,, other-types ,, 18.1 ,, long ,, / ,, _int ,, 2.5
+ other-types ,, / ,, other-types ,, 16.2 ,, unsigned long ,, % ,, int ,, 2.3
+ _int ,, * ,, _int ,, 13.4 ,, _int ,, * ,, unsigned short ,, 2.2
+ unsigned int ,, % ,, _int ,, 12.6 ,, _int ,, * ,, _unsigned long ,, 2.2
+ int ,, % ,, int ,, 12.2 ,, _unsigned long ,, * ,, int ,, 2.1
+ int ,, * ,, _int ,, 12.1 ,, unsigned long ,, * ,, _unsigned long ,, 1.9
+ _int ,, / ,, _int ,, 11.0 ,, int ,, % ,, unsigned int ,, 1.8
+ _unsigned long ,, / ,, _unsigned long ,, 9.9 ,, float ,, / ,, float ,, 1.8
+ _unsigned long ,, * ,, unsigned char ,, 9.5 ,, _unsigned long ,, / ,, _int ,, 1.6
+ int ,, * ,, _unsigned long ,, 8.8 ,, unsigned int ,, % ,, int ,, 1.6
+ float ,, * ,, float ,, 8.8 ,, unsigned long ,, % ,, unsigned long ,, 1.5
+ other-types ,, % ,, other-types ,, 7.3 ,, unsigned short ,, / ,, _int ,, 1.3
+ unsigned long ,, / ,, _int ,, 6.6 ,, unsigned long ,, / ,, unsigned long ,, 1.3
+ _int ,, * ,, int ,, 6.5 ,, unsigned int ,, * ,, _int ,, 1.3
+ int ,, * ,, int ,, 5.9 ,, unsigned int ,, * ,, _unsigned long ,, 1.2
+ unsigned long ,, / ,, _unsigned long ,, 5.8 ,, int ,, / ,, _unsigned long ,, 1.2
+ unsigned int ,, / ,, _int ,, 5.3 ,, _double ,, / ,, _double ,, 1.2
+ int ,, / ,, int ,, 5.0 ,, float ,, * ,, _int ,, 1.1
+ unsigned int ,, % ,, unsigned int ,, 4.2 ,, unsigned long ,, * ,, _int ,, 1.0
+ int ,, % ,, unsigned long ,, 4.2 ,, unsigned int ,, % ,, unsigned long ,, 1.0
+ int ,, % ,, _unsigned long ,, 3.9 ,, int ,, / ,, unsigned long ,, 1.0
+ long ,, % ,, _int ,, 3.7 ,, _int ,, * ,, unsigned int ,, 1.0
+ unsigned long ,, % ,, _int ,, 3.1 ,,   ,,  ,,  ,, 

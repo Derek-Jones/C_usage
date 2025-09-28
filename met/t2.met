@@ -1,0 +1,136 @@
+.FILE t2.c
+.DATE Dec 16 2003
+.TIME 15:54:28
+.VERSION 1.4
+#
+.START t2.c
+.ERR     2  18 9504 6 0 "glob_c"
+.ERR     2  18 9523 6 0 "glob_c"
+.ERR     3  29 9504 6 0 "glob_us"
+.ERR     3  29 9523 6 0 "glob_us"
+.ERR     4  17 9504 6 0 "glob_i"
+.ERR     4  17 9523 6 0 "glob_i"
+.ERR     5  18 9504 6 0 "glob_l"
+.ERR     5  18 9523 6 0 "glob_l"
+.ERR     7  19 9504 6 0 "glob_pi"
+.ERR     7  19 9523 6 0 "glob_pi"
+.ERR     8  21 9504 6 0 "glob_ppi"
+.ERR     8  21 9523 6 0 "glob_ppi"
+.ERR     9  27 9504 6 0 "glob_aapi"
+.ERR     9  27 9523 6 0 "glob_aapi"
+.ERR    10   7 1502 6 1 "const"
+.ERR    10  24 9504 6 0 "glob_ci"
+.ERR    10  24 9523 6 0 "glob_ci"
+.ERR    11  17 1502 6 1 "volatile"
+.ERR    11  34 9504 6 0 "glob_civ"
+.ERR    11  34 9523 6 0 "glob_civ"
+.ERR    12  23 9504 6 0 "glob_ac"
+.ERR    12  23 9523 6 0 "glob_ac"
+.ERR    14  19 9504 6 0 "glob_f"
+.ERR    14  19 9523 6 0 "glob_f"
+.ERR    15  20 9504 6 0 "glob_d"
+.ERR    15  20 9523 6 0 "glob_d"
+.ERR    16  26 9504 6 0 "glob_ld"
+.ERR    16  26 9523 6 0 "glob_ld"
+.ERR    17  22 9504 6 0 "pf"
+.ERR    17  22 9523 6 0 "pf"
+.ERR    20   5 9506 6 0 "mem1"
+.STRUCT 4 0
+.MEMBER mem1 int 0
+.ERR    21  15 9504 6 0 "glob_s"
+.ERR    21  15 9523 6 0 "glob_s"
+.ERR    23   0 1502 6 1 "enum"
+.ERR    23   7 9512 6 0 "e1"
+.ERR    23  11 9512 6 0 "e2"
+.ERR    23  21 9504 6 0 "glob_e"
+.ERR    23  21 9523 6 0 "glob_e"
+.ERR    26   1 9508 6 0 "f"
+.ERR    26   1 9525 6 0 "f"
+#
+.FUNC f 26
+.ERR    27  13 9505 6 0 "si"
+.ERR    28   6 9505 6 0 "c"
+.ERR    29   0 1756 5 0 "c"
+.LOCAL c scope 2  used 0 set 0 size 1 IDENT char
+.ERR    29   0 1756 5 0 "si"
+.LOCAL si scope 2  used 0 set 1 size 4 IDENT int
+.METRICS
+UNIQ_LITS 1 UNIQ_PPIDS 5 LINES 3 CHARS 25 
+B_CHARS 6 EXPR_COMPLEX 1 E_LIT_COUNT 1 EDGES 1 
+NODES 2 
+.PPTOKS
+SEMICOLON 2 IDENTIFIER 5 EOLN 3 
+.TOKS
+STATIC 1 CHAR 1 INT 1 SEMICOLON 2 
+IDENTIFIER 2 
+.END 29
+.GLOBAL
+glob_civ EXTERNAL defined 0 used 0 set 0 size 4 IDENT volatileconstint
+glob_ci EXTERNAL defined 0 used 0 set 0 size 4 IDENT constint
+glob_c EXTERNAL defined 0 used 0 set 0 size 1 IDENT char
+glob_ac EXTERNAL defined 0 used 0 set 0 size 10 IDENT arraychar
+glob_aapi EXTERNAL defined 0 used 0 set 0 size 32 IDENT arrayarrayptr_toint
+glob_f EXTERNAL defined 0 used 0 set 0 size 4 IDENT float
+e2 INTERNAL defined 1 used 0 set 0 size 0 IDENT econst
+glob_ppi EXTERNAL defined 0 used 0 set 0 size 4 IDENT ptr_toptr_toint
+glob_pi EXTERNAL defined 0 used 0 set 0 size 4 IDENT ptr_toint
+glob_us EXTERNAL defined 0 used 0 set 0 size 2 IDENT unsignedshort
+glob_d EXTERNAL defined 0 used 0 set 0 size 8 IDENT double
+glob_i EXTERNAL defined 0 used 0 set 0 size 4 IDENT int
+f EXTERNAL defined 1 used 1 set 0 FUNC
+glob_s EXTERNAL defined 0 used 0 set 0 size 4 IDENT struct
+pf EXTERNAL defined 0 used 0 set 0 size 4 IDENT ptr_to_funcint
+glob_ld EXTERNAL defined 0 used 0 set 0 size 12 IDENT long_double
+glob_l EXTERNAL defined 0 used 0 set 0 size 4 IDENT long
+glob_e EXTERNAL defined 0 used 0 set 0 size 4 IDENT enum
+e1 INTERNAL defined 1 used 0 set 0 size 0 IDENT econst
+.METRICS
+CHARS 452 B_CHARS 83 LINES 30 B_LINES 6 
+.PPTOKS
+OPEN_RND 3 STAR 5 CLOSE_RND 3 COMMA 1 
+SEMICOLON 19 OPEN_CURL 3 CLOSE_CURL 3 OPEN_SQUARE 3 
+CLOSE_SQUARE 3 IDENTIFIER 64 EOLN 32 PP_NUMBER 3 
+.TOKS
+STATIC 1 EXTERN 14 CHAR 3 FLOAT 1 
+DOUBLE 2 INT 9 SHORT 1 LONG 2 
+UNSIGNED 1 VOID 3 CONST 2 VOLATILE 1 
+STRUCT 1 ENUM 1 OPEN_RND 3 STAR 5 
+CLOSE_RND 3 COMMA 1 SEMICOLON 19 OPEN_CURL 3 
+CLOSE_CURL 3 OPEN_SQUARE 3 CLOSE_SQUARE 3 LITERAL 3 
+IDENTIFIER 22 
+.END t2.c
+.ERR    30   0 1778 5 0 "glob_civ"
+.ERR    30   0 1774 5 0 "glob_civ"
+.ERR    30   0 1778 5 0 "glob_ci"
+.ERR    30   0 1774 5 0 "glob_ci"
+.ERR    30   0 1778 5 0 "glob_c"
+.ERR    30   0 1774 5 0 "glob_c"
+.ERR    30   0 1778 5 0 "glob_ac"
+.ERR    30   0 1774 5 0 "glob_ac"
+.ERR    30   0 1778 5 0 "glob_aapi"
+.ERR    30   0 1774 5 0 "glob_aapi"
+.ERR    30   0 1778 5 0 "glob_f"
+.ERR    30   0 1774 5 0 "glob_f"
+.ERR    30   0 1756 5 0 "e2"
+.ERR    30   0 1778 5 0 "glob_ppi"
+.ERR    30   0 1774 5 0 "glob_ppi"
+.ERR    30   0 1778 5 0 "glob_pi"
+.ERR    30   0 1774 5 0 "glob_pi"
+.ERR    30   0 1778 5 0 "glob_us"
+.ERR    30   0 1774 5 0 "glob_us"
+.ERR    30   0 1778 5 0 "glob_d"
+.ERR    30   0 1774 5 0 "glob_d"
+.ERR    30   0 1778 5 0 "glob_i"
+.ERR    30   0 1774 5 0 "glob_i"
+.ERR    30   0 1778 5 0 "f"
+.ERR    30   0 1778 5 0 "glob_s"
+.ERR    30   0 1775 5 0 "glob_s"
+.ERR    30   0 1778 5 0 "pf"
+.ERR    30   0 1774 5 0 "pf"
+.ERR    30   0 1778 5 0 "glob_ld"
+.ERR    30   0 1774 5 0 "glob_ld"
+.ERR    30   0 1778 5 0 "glob_l"
+.ERR    30   0 1774 5 0 "glob_l"
+.ERR    30   0 1778 5 0 "glob_e"
+.ERR    30   0 1775 5 0 "glob_e"
+.ERR    30   0 1756 5 0 "e1"

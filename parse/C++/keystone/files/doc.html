@@ -1,0 +1,2084 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>keystone: A Parser Front-End for the C++ Language</title>
+  </head>
+
+  <body>
+    <center>
+    <h1>Keystone: A Parser Front-End for the C++ Language</h1>
+    <h2>Table of Contents</h2>
+    </center>
+    <OL type="I"><li><a href="#usage">Usage</a>
+        <OL type="A"><li><a href="#making">Making the <em>keystone</em> system</a>
+            <OL type="1"><li><a href="#btyacc">Building BTYACC</a></li>
+                         <li><a href="#treecc">Building Treecc</a></li>
+                         <li><a href="#keystone">Building Keystone</a></li>
+            </OL> </li>
+                     <li><a href="#running">Running <em>keystone</em></a>
+            <OL type="1"><li><a href="#stdin">Reading from STDIN</a></li>
+                         <li><a href="#file">Reading from a file</a></li>
+                         <li><a href="#interp">Interpreting the output</a></li>
+                         <li><a href="#errors">Errors and bug reporting</a></li>
+                         <li><a href="#curiss">Known Issues</a></li>
+            </OL></li>
+                     <li><a href="#aux">Auxilliary scripts</a></li>
+            <OL type="1"><li><a href="#pstats">Gathering test statistics</a></li>
+                         <li><a href="#ptests">Gathering test information</a></li>
+                         <li><a href="#pproc">Preprocessing input</a></li>
+            </OL></li>
+        </OL> </li>
+                 <li><a href="#design">Design and implementation</a>
+        <OL type="A"><li><a href="#over">System level overview</a></li>
+                     <li><a href="#chor">Choreographed classes</a>
+            <OL type="1"><li><a href="#nameoccur">NameOccurrence</a></li>
+                         <li><a href="#tokbuf">TokenBuffer</a></li>
+                         <li><a href="#tokdec">TokenDecorator</a></li>
+                         <li><a href="#decl">NameDeclaration</a></li>
+                         <li><a href="#scope">The Scope Heirarchy</a></li>
+                         <li><a href="#type">The Type Heirarchy</a></li>
+            </OL></li>
+                     <li><a href="#chor2">Choreographing classes</a>
+            <OL type="1"><li><a href="#lookup">LookupController</a></li>
+                         <li><a href="#context">ContextManager</a></li>
+                         <li><a href="#action">ActionFacade</a></li>
+            </OL></li>
+                     <li><a href="#classes">Validation classes</a>
+            <OL type="1"><li><a href="#ifac">InvariantFacilitator</a></li>
+                         <li><a href="#ivis">InvariantVisitor</a></li>
+            </OL></li>
+                         <li><a href="#asg">The abstract syntax graph (ASG)</a>
+            <OL type="1"><li><a href="#list">A list of classes</a></li>
+                         <li><a href="#conn">Connections</a></li>
+                         <li><a href="#uml">UML Diagram</a></li>
+                         <li><a href="#oper">Operations</a></li>
+                         <li><a href="#visitor">ASGVisitor</a></li>
+            </OL></li>
+        </OL> </li>
+                 <li><a href="#impl">Implementation issues</a>
+        <OL type="A"><li><a href="#diff">Difficulites encountered</a>
+            <OL type="1"><li><a href="#prob">The fundamental problem</a></li>
+                         <li><a href="#remember">Remembering qualifed context</a></li>
+                         <li><a href="#id_template">ID_template_name issues</a></li>
+                         <li><a href="#prec">Precedence issues</a></li>
+                         <li><a href="#gram">Grammar issues</a></li>
+            </OL></li>
+                     <li><a href="#sol">Solutions</a>
+            <OL type="1"><li><a href="#curb">Curbing lookahead</a></li>
+                         <li><a href="#stack">A stack of NameDeclarations</a></li>
+            </OL></li>
+                     <li><a href="#validate">Validation</a>
+            <OL type="1"><li><a href="#assert">Assertions</a></li>
+                         <li><a href="#invar">Invariants</a></li>
+                         <li><a href="#valprob">Problems</a></li>
+            </OL></li>
+                     <li><a href="#asgissues">ASG</a>
+            <OL type="1"><li><a href="#tccversion">Treecc version</a></li>
+                         <li><a href="#create_visitor">Creating a visitor</a></li>
+            </OL></li>
+        </OL></li>
+                 <li><a href="#misc">Miscellaneous notes</a>
+        <OL type="A"><li><a href="#features">Upcoming features</a></li>
+        </OL></li>
+  </OL>
+  </OL>
+    <hr>
+    <center><h2><a name="usage">Usage</a></h2></center>
+    <br>
+    <h3><a name="making">A. Making the <em>keystone</em> system</a></h3>
+    <br>
+    <h4><a name="btyacc">1. Building BTYACC</a></h4>
+    <p>BTYACC is a backtracking, predicated parser designed to facilitate
+       the parsing of ambiguous languages such as C++.  It is available
+       from <a href="http://www.siber.org/btyacc/">Siber Systems</a>
+       and works on most *nix platforms (including CYGWIN) and WIN32.
+       <em>keystone</em> currently uses BTYACC version 3.0 which can
+       be built using the following steps.<br>
+       <code>make</code>
+    </p>
+    <h4><a name="treecc">2. Building Treecc</a></h4>
+    <p>Treecc is a syntax tree generator designed to allow safe
+      and easy manipulation of syntax trees.  It is available
+      from <a href="http://www.southern-storm.com.au/portable_net.html">
+      Souther Storm Software, Pty Ltd</a> and works on most any platform.
+      <em>keystone</em> currently uses Treecc version 0.1.4 which
+      can be built using the following steps.<br>
+      <pre>./configure
+           make all
+           make check
+           make install
+      </pre>
+    </p>
+    <h4><a name="keystone">3. Building <em>keystone</em></a></h4>
+    <p>The final product of the <em>keystone</em> build should
+       be a shared library which contains the necessary data
+       and functions to create an ASG and symbol table for
+       a program written in the ISO C++ standard.  Additionally,
+       a test program is also created which uses the routines
+       to generate output about an input file.  Both the test
+       program and the library will build during the make.</p>
+    <p><code>make home</code><br>
+       The first step in making <em>keystone</em> is to set up
+       <em>keystone</em>'s makeinclude file.  This is accomplished
+       by typing <code>make home</code> from within the build directory.
+    </p>
+    <p><code>make</code><br>
+       <em>keystone</em> can then be made by typing <code>make</code>
+       at the command line.  Optionally, an argument can be
+       given to make in the form of CONFIG=arg.  This argument
+       will be passed to all subsequent g++ calls.  Three common
+       arguments to config are -DYYDEBUG, which will turn
+       on BTYACC's internal debug statemtns; -D_PARSE_DEBUG,
+       which will print upon entry into each of the functions
+       corresponding to a grammar rule; and -D_THG_DEBUG,
+       which will print upon entry to a majority of the functions
+       that make up the <em>keystone</em> system.
+    </p>
+    <p><code>make test</code><br>
+       This command runs the perlscripts/gather_stats.pl perl
+       script on the testsuite directory.  A report file
+       is generated with the results.  A list of currently
+       failing tests will appear later in this section.
+    </p>
+    <p><code>make check</code><br>
+       This command will check each file in the directory against
+       those listed in the MANIFEST file.  If the file is not
+       listed in the MANIFEST file, it will print it out.
+       These files are extraneous and can be deleted.  It will
+       also issue an error if a file is listed in the MANIFEST
+       but does not appear in the distribution.  This is a problem
+       in the distribution and should be reported as a bug (see
+       section on reporting bugs below).
+    </p>
+    <p><code>make distclean</code><br>
+       This command will eliminate all extraneous files as
+       reported by make check.
+    </p>
+    <br>
+    <h3><a name="running">B. Running <em>keystone</em></a></h3>
+    <br>
+    <h4><a name="stdin">1. Reading from STDIN</a></h4>
+    <p> By default <em>keystone</em> reads from STDIN.  Simply type
+        <code>run</code> on the command line for a prompt.  After typing
+        in the code snippet you wish to run, type CTRL-D to have
+        <em>keystone</em> process it.  If the parse was successful,
+        you should get normal output; otherwise, you will get
+        an error message.
+    </p>
+    <h4><a name="file">2. Reading from a file</a></h4>
+    <p> If <code>run</code> is passed an argument, that argument is assumed
+        to be the name of a file to run.  The file is NOT preprocessed,
+        nor changed in any way before being analyzed by the <em>keystone</em>
+        system.  The output will be the same as if read from STDIN.
+    </p>
+    <h4><a name="interp">3. Interpreting the output</a></h4>
+    <p> If the parse was successful, then <em>keystone</em> will print
+        three output sections.  The first section will consist of all
+        the tokens that underwent name lookup and the results of that
+        lookup.  The second section is a listing of all of the scopes
+        in the system and their contents.  The third section contains
+        statistical information and the last section is a text
+        representation of the ASG.
+    </p>
+    <p><strong>3.1. Name Lookup Output</strong><br><br>
+      A typical statement that occurs from Name Lookup appears below.<br>
+      <pre>UNL: did not find decl: use of T (2,6) ElabClass</pre>
+      The first three letters detail what kind of lookup was performed.
+      The options are
+      <dl>
+      <dt>UNL</dt><dd>An unqualified name lookup. This occurs on
+                      all identifiers not covered by later items.</dd>
+      <dt>QNL</dt><dd>A qualilfied name lookup.  This occurs on
+                      identifiers of the form <code>X::Y</code>.  It forces
+                      <code>Y</code> to be looked up in <code>X</code>'s scope.</dd>
+      <dt>MNL</dt><dd>A member name lookup.  This occurs on identifiers
+                      of the form x->y.  It forces <code>y</code> to be looked
+                      up in the scope of <code>x</code>.  Currently not used.</dd>
+      <dt>DNL</dt><dd>A destructor name lookup.  This occurs on identifiers
+                      of the form x->~X() or x->X::~X().  If a destructor
+                      is not found, a trivial one is created for the class.</dd>
+      <dt>FCL</dt><dd>A function call lookup.  Currently not used.</dd>
+      <dt>BOP</dt><dd>A binary operator lookup.  Currently not used.</dd>
+      <dt>UOP</dt><dd>A unary operator lookup. Currently not used.</dd>
+      <dt>RQN</dt><dd>Performs a second lookup of a qualified name.
+                      The name may not have been seen at the time of the
+                      initial lookup; this signifies a retry. Currently not used.</dd>
+      <dt>RUN</dt><dd>Performs a second lookup of an unqualified name.
+                      The name may not have been seen at the time of the
+                      initial lookup; this signifies a retry. Currently not used.</dd>
+      </dl>
+      The second section of the Name Lookup Output tells whether or
+      not the lookup was successful.  In the previous example, the
+      lookup was not successful.  If the lookup were successful, it
+      would detail the declaration which was found.<br>
+      The final section of the Name Lookup Output describes what
+      was being searched for.  It is the output of a NameOccurrence
+      object.
+    </p>
+    <p><strong>3.2. Symbol Table Output</strong><br><br>
+      The symbol table output describes each one of the symbol tables
+      that were created during the program parse.  Each symbol table
+      describes its contained in scope as well as the members that
+      are declared inside it.  An example symbol table output is
+      shown below.
+      <pre>
+        NAMESPACE: _GlobalNamespace (0,0): namespace _GlobalNamespace (no refs)
+        	i (1,2) instance of: int (no refs)
+        	C (2,2): class C (no refs)
+        END OF NAMESPACE SCOPE: _GlobalNamespace
+        CLASS: C (2,2): class C (no refs) in _GlobalNamespace
+         	j (2,7) instance of: int Public (no refs)
+        END OF CLASS SCOPE: C
+      </pre>
+      _GlobalNamespace is the namespace that represents file scope.  The
+      (0,0) represents the starting line and token number, respectively.
+      After the second :, the NameDeclaration object is printed followed
+      by any obvious references to that declaration.  On the next line,
+      and indented is each NameDeclaration object that was declared inside
+      the scope.  In this case, i was an integer variable(instance) that
+      was never used (no refs) and C was a class type.  A similar scope
+      printout for C's class scope appears next.<br>
+    </p>
+    <p><strong>3.3 Statistics</strong><br><br>
+      The statistics printed consists of the following information.
+    <dl>
+      <dt>Decorated Identifiers</dt>
+      <dd>The number of tokens which were decorated to be ID_typedef_name,
+          ID_class_name, ID_enum_name, ID_original_namespace_name,
+          ID_namespace_alias, or ID_template_name.
+      </dd>
+      <dt>Non Decorated Identifiers</dt>
+      <dd>The number of tokens that were identifiers and were NOT decorated.</dd>
+      <dt>Non Identifier Tokens</dt>
+      <dd>The number of tokens that were not identifiers (example: +,::,--,.,if,else)</dd>
+      <dt>Specifiers set by buffer</dt>
+      <dd>The number of specifiers set by the token buffer.  Specifiers are
+          discussed in the section on the NameDeclaration class.</dd>
+      <dt>Qualifiers set by buffer</dt>
+      <dd>The number of qualifiers set by the token buffer.  A qualifier
+          in the case of A::B::C::D would be A, B, and C.  Qualifiers
+          are discussed in the section on the NameDeclaration class.</dd>
+      <dt>Type Invariants</dt>
+      <dd>The number of objects of the Type heirarchy that had their
+          invariants checked.  More on this in the section on
+          invariants.</dd>
+      <dt>Scope Invariants</dt>
+      <dd>The number of objects of the Scope heirarchy that had their
+          invariants checked.  More on this in the section on
+          invariants.</dd>
+      <dt>NameDeclaration Invariants</dt>
+      <dd>The number of NameDeclaration objects which had their
+          invariants checked.  More on this in the section on
+          invariants.</dd>
+    </dl>
+    </p>
+    <p><strong>3.4. The ASG output</strong><br><br>
+      The ASG is printed using the ASGPlainTextVisitor class
+      found in ASG/visitors/ASGPlainTextVisitor.{h,cpp}.  It
+      is described in detail in the section on the ASG implementation.
+    </p>
+    <h4><a name="errors">4. Errors and bug reporting</a></h4>
+    <p>
+    An error can take one of three separate forms.  It can be an internal
+    assertion error; an invariant validation error, or a parser error.
+    </p>
+    <p><strong>4.1. Internal assertion errors</strong><br>
+      Internal assertion errors are caused by invalid preconditions
+      or postconditions from various functions throughout the system.
+      For a complete list, please see the section on Assertions.
+      The error message will look like:
+      <pre>Failed assertion: cannot add NULL reference.
+              in file: NameDeclaration.cpp
+              on line: 140 </pre>
+    If you receive this error message, please submit a bug report.
+    </p>
+    <p><strong>4.2. Invariant validation errors</strong><br>
+      Invariant validation errors occur at the end of the parse, but
+      before the ASG is printed.  These errors indicate a breakage
+      of a class invariant.  These errors are implemented as C assertions
+      and as such have system dependent output.  Normally, they will
+      cause a core dump.  If one of these errors occurs, please submit
+      a bug report.
+    </p>
+    <p><strong>4.3. Parser errors</strong><br>
+      Parser errors are the least informational and simply say <code>Error parsing!</code>.
+      You should check your code against a separate compiler( such as GCC) to
+      ensure that it is standard conformant.  If it appears to be so, submit
+      a bug report.
+    </p>
+    <p><strong>4.4. Submitting a bug report</strong><br>
+      To submit a bug report, please send an email message to
+      <a href="mailto:thgibbs@cs.clemson.edu">Tanton Gibbs</a> or
+      <a href="mailto:malloy@cs.clemson.edu">Brian Malloy</a> consisting
+      of your environment and the smallest possible program which can
+      reproduce the undesired behavior.
+    </p>
+    <h4><a name="curiss">5. Known Issues</a></h4>
+    <p>
+      There are a number of outstanding issues.
+      <OL><LI><em>keystone</em>
+      cannot handle non-standard compliant code.  Unfortunately, the GCC
+      header files are full of non-compliant code.  This means that the
+      GCC header files cannot be used in conjunction with <em>keystone</em>.
+      In many cases, this is not an issue.  For those cases where it is an
+      issue, we are deriving a solution.  Those cases include programs which
+      use any type defined in a standard header (e.g. size_t, list, type_info).
+      </LI>
+      <LI><em>keystone</em> cannot handle template member functions of a
+        template class declared outside of the class.  This is being
+        researched and we anticipate a fix soon</LI>
+      <LI><em>keystone</em> cannot handle function arguments which
+        take a fully qualified type as the first argument and the
+        fully qualified type's first qualifer is a template_id.
+        This should be resolved by the next version.</LI>
+    </OL>
+    </p>
+    <h3><a name="aux">C. Auxillary scripts</a></h3><br>
+    <p>
+    There are four auxillary perl scripts which come bundled with
+    <em>keystone</em>.  While they do not directly affect <em>keystone</em>
+    they simplify some of the common tasks done when testing <em>keystone</em>.
+    Three of the scripts will be discussed here, the fourth will be discussed
+    in conjunction with the ASG.
+    </p>
+    <h4><a name="pstats">1. gather_stats.pl</a></h4>
+    <p>This script runs <em>keystone</em> on a directory of files and ensures
+       that the output of each file is error free.  It requires GCC and bash or tcsh.
+       It summarizes the results of its run in a file called report.out.<br>
+       Its usage is: perl gather_stats.pl <em>directory</em><br>
+       The report.out file looks like
+      <pre>
+CORED:
+
+FAILED:
+../testsuite/regression/ddjstuff/clause14/14.5.2-2.cpp
+../testsuite/regression/ddjstuff/clause14/14.8.2.4-14b.cpp
+../testsuite/regression/ddjstuff/clause14/14.8.2.4-18.cpp
+Total Succeeded: 428
+MIN Decorated: 0
+MAX Decorated: 25
+TOT Decorated: 1626
+AVG Decorated: 3.79906542056075
+MIN NonDecorated: 1
+MAX NonDecorated: 35
+TOT NonDecorated: 3683
+AVG NonDecorated: 8.60514018691589
+MIN Non Ident: 4
+MAX Non Ident: 131
+TOT Non Ident: 16451
+AVG Non Ident: 38.4369158878505
+MIN Specifiers set: 0
+MAX Specifiers set: 25
+TOT Specifiers set: 1765
+AVG Specifiers set: 4.12383177570093
+MIN Qualifiers set: 0
+MAX Qualifiers set: 9
+TOT Qualifiers set: 235
+AVG Qualifiers set: 0.549065420560748
+</pre>
+    The CORED section contains all programs that caused a core dump.<br>
+    The FAILED section contains all programs that caused an assertion error
+    or a parser error.
+    The rest of the file contains a summary of the statistics generated
+    by <em>keystone</em>.<br>
+    AVG -> average, MIN -> minimum, MAX -> maximum, TOT -> total<br>
+  </p>
+    <h4><a name="ptests">2. gather_info.pl</a></h4>
+    <p>
+    This script will analyze a C++ file and give a report on the number
+    of non-empty lines, POD classes, and classes with functions that
+    exist in the file.  It prints the report to STDOUT.<br>
+      Usage: gather_info.pl <em>filename</em>
+    </p>
+    <h4><a name="pproc">3. preproc.pl</a></h4>
+    <p>
+      This file is used by the gather_stats.pl file to eliminate any system
+      headers as well as any lines that contain cout or <<.  The later
+      is actually not necessary, but is in for historical reasons.  It
+      prints the preprocessed file to STDOUT.
+      Usage: preproc.pl <em>filename</em>
+    </p>
+    <hr>
+    <center><h2><a name="design">Design and implementation</a></h2></center>
+    <br>
+    <h3><a name="over">A. System level overview</a></h3>
+    <br>
+    <p>
+      The <em>keystone</em> system is comprised of two major subsystems:
+      the Program Processor and the Symbol Table.<br>
+    </p>
+      <h4>Program Processor</h4><br>
+    <p>
+      The Program Processor subsystem includes scanning and parsing and
+      is responsible for initiating and directing symbol table construction
+      and name lookup.  This responsibility includes two phases:
+      <OL type="1"><LI>assembling the necessary information for creation
+                       of a NameOccurrence object, and</LI>
+                   <LI>directing the search for a corresponding NameDeclaration
+                       object in the Symbol Table subsystem</LI>
+      </OL>
+      <br>
+      The Program Processor subsystem includes the following classes:
+      <dl><dt>NameOccurrence</dt><dd>An identifier found in the source code.</dd>
+          <dt>Type</dt><dd>The type of the NameDeclaration.  This really belongs in
+                           the Symbol Table subsystem, and will eventually be migrated.
+                      </dd>
+          <dt>ContextManager</dt><dd>A class to move in and out of scopes</dd>
+          <dt>LookupController</dt><dd>The class responsible for directing name lookup</dd>
+          <dt>TokenBuffer</dt><dd>The class which interfaces with lex and stores NameOccurrences</dd>
+          <dt>TokenDecorator</dt><dd>The class responsible for decorating a token depending on context and type</dd>
+          <dt>ActionFacade</td><dd>This class is an interface between the grammar actions and the other classes</dd>
+          <dt>KeywordManager</dt><dd>A class used to identify identifiers that are keywords</dd>
+      </dl>
+      While traditonal parsing looks like this:<br>
+      XXX<br>
+      Token Decorated parsing introduces an intermezzo oval and looks like this:<br>
+      XXX<br>
+      The interaction between the scanner (lex) and the parser (BTYACC) is handled
+      by the TokenDecorator and TokenBuffer classes.  The parser requests a token
+      from the TokenDecorator, who in turn requests one for the TokenBuffer.  The
+      TokenBuffer maintains an array of 5 tokens representing the current token, the
+      two previous tokens, and the two next tokens.  [Note: In the implementation section,
+      we will discuss all the situations in which the left/right contexts are used.]
+      If necessary, the TokenBuffer will request a token from the scanner.  If the token
+      is an identifier, the TokenBuffer will create a NameOccurrence object representing
+      the identifier.  It will also provide certain <em>specifiers</em> for the object
+      representing the context it was used in.  The currently used OccurSpecifiers are:
+      <dl><dt>Destructor</dt><dd>This identifier was used to declare a destructor</dd>
+          <dt>ElabEnum</dt><dd>This identifier was preceeded by the keyword <code>enum</code></dd>
+          <dt>ElabClass</dt><dd>This identifier was preceeded by the keyword <code>class</code></dd>
+          <dt>Member</dt><dd>This identifier was used in a member access expression such as <code>x.a</code></dd>
+          <dt>Namespace</dt><dd>This identifier was preceeded by the keyword <code>namespace</code></dd>
+          <dt>PseudoDestructor</dt><dd>This identifier was used to explicitly call a destructor ( i.e., <code>x.~X()</code> )</dd>
+          <dt>Qualifier</dt><dd>This identifier is a qualifier for some other identifier( i.e., A in <code>A::b</code> )</dd>
+          <dt>nothing</dt><dd>This identifier has no specifier</dd>
+      </dl>
+      Furthermore, the TokenBuffer will look for qualified members and will set the qualifier of an identifier
+      to the appropriate object.  For example, the expression <code>A::b</code> will produce two name occurence objects,
+      one for <code>A</code> and one for <code>b</code>.  The specifier for <code>A</code> will be <code>Qualifier</code>.  Furthermore,
+      <code>b</code>'s NameOccurrence object will have a pointer to <code>A</code>'s NameOccurrence object as its qualifier.<br>
+      <br>
+      The TokenDecorator receives the NameOccurrence object from the TokenBuffer and uses the ActionFacade to perform
+      name lookup.  The TokenDecorator will either receive a NameDeclaration object for the NameOccurrence representing
+      where it was first declared, or it will recieve a NULL pointer.  If a NULL pointer is received, then no further
+      processing is done and the undecorated token (IDENTIFEIR) is passed on to the parser.  However, if a NameDeclaration
+      object is found, a further series of tests is performed to see if the token should be decorated.
+      <br>
+      <br>
+      The LookupController is responsible for directing name lookup and interacts with the ContextManager.
+      If the lookup is for a qualified name, then the scope of the qualifier ONLY is examined.  If, instead,
+      the lookup is for an unqualified name, then the current scope is searched.  The LookupController is
+      also responsible for finding the current class scope (for looking up <code>this-&gt;x</code>).
+      <br>
+      <br>
+      The ContextManager is responsible for moving into and out of various Scopes.  The scopes that can
+      be entered and left in <em>keystone</em> are:
+      <UL><LI>NamespaceScope</LI><LI>PrototypeScope</LI><LI>FunctionScope</LI>
+      <LI>ClassScope</LI><LI>LocalScope</LI><LI>TemplateParameterScope</LI>
+      </UL>
+      The KeywordManager contains a list of keywords and the tokens they map to.  The scanner, upon
+      encountering an IDENTIFIER, passes it to the KeywordManager for modification.  If the KeywordManager
+      finds it in its list, then it returns the appropriate token; otherwise, it returns back IDENTIFIER.
+      <br><br>
+      The Type heirarchy will be defined with the Symbol Table.
+      <br>
+    </p>
+    <h4>2. Symbol Table</h4>
+    <p>
+      The Symbol Table subsystem is designed to allow name lookup in keystone as described
+      in Clause 3 of the ISO C++ standard.  It consists of the NameDeclaration class and
+      the Scope heirarchy, which consists of the scopes listed in the previous section.
+      Each Scope contains pointers to those NameDeclarations which were declared inside it as
+      well as a pointer to the containing scope.  Furhtermore, both ClassScope and PrototypeScope
+      contain a pointer to the TemplateParameterScope (if any).  NameDeclaration objects
+      represent the declaration of an identifier or type.  They contain a pointer to thier
+      enclosing scope as well as their corresponding scope.  For example, in the following
+      code snippet:
+      <pre>
+        int f() {
+          class C{};
+        }
+      </pre>
+      The NameDeclaration object for <code>C</code> would contain a pointer to the enclosing local scope as well
+      as the corresponding class scope.<br>
+      A NameDeclaration contains whether or not it has been put into the symbol table, whether it is an
+      alias for some other type, whether it is a template, and its qualifier, if any.
+      <br>
+      A NameDeclaration also contains a pointer to its type as well as a flag saying whether it is an instance
+      of that type or not.  In the previous snippet, <code>C</code> has class type and is not an instance.  Had there been
+      a variable of type <code>C</code> declared, then the variable would have had class type and would have been an instance.
+      The Type heirarchy represents the various types that a NameDeclaration can be declared as.  It consists of the
+      following classes:
+      <UL><LI>NamespaceType</LI><LI>EnumType</LI><LI>ClassType</LI><LI>BasicType</LI>
+          <LI>FunctionType</LI><LI>IndirectType</LI><LI>TemplateParameterType</LI>
+          <LI>TemplateTemplateParameterType</LI>
+      </UL>
+      Most types also contain a pointer back to their name declaration object.  Therefore, a circular structure
+      is formed between a NameDeclaration like <code>C</code> above, and its Type (ClassType in this case).  However,
+      Typedefs are represented in a slightly different way.  The NameDeclaration representing a typedef has
+      a pointer to a Type object, but the Type object it points to contains a different NameDeclaration object.
+      As an example, consider the following:
+      <pre>
+      class C {};
+      typedef C MyC;
+      </pre>
+      In this example, <code>C</code> will have a ClassType data member.  That member will also have a NameDeclaration that
+      points back to <code>C</code>.  <code>MyC</code> will also have a ClassType data member.  However, that ClassType
+      will point to the NameDeclaration for <code>C</code>, not <code>MyC</code>.
+      <br>
+      A BasicType does not contain NameDeclaration objects.  Therefore, if a NameDeclaration has type BasicType and
+      is not an instance, it must be a typedef.
+      <br>
+      A FunctionType also contains a Type for its ReturnType.  An IndirectType contains the type pointed to.
+      <br>
+      TemplateParameterType and TemplateTemplateParameterType are only used for template parameter types which
+      are declared like <code>class T</code> or <code>typename T</code>.  Template parameters with specified type are
+      represented by one of the previously mentioned types.<BR>
+    <h3><a name="chor">B. Choreographed classes</a></h3>
+    <br>
+    <p>
+      In this section, we will examine the classes responsible for the bulk of work in <em>keystone</em>.
+      It will be a low level overview with numerous code samples with explanations.
+    </p>
+    <h4><a name="nameoccur">1. NameOccurrence</a></h4>
+    <p>
+    The NameOccurrence class represents an IDENTIFIER seen in the input stream.  It can be adorned with a
+    specifier (covered previously) and it can be qualified (also covered previously).  Furthermore, it
+    can be marked as a template occurrence.  A NameOccurrence is marked as being a template if it
+    is preceeded by the <code>template</code> keyword.  This allows the NameOccurrence to be correctly
+    identified as an ID_template_name by the TokenDecorator.  For example, in the following code snippet:
+    <pre>
+      class X { template&lt;int i&gt; void f(); };
+      X::template f&lt;100&gt;();
+    </pre>
+    f would be marked as a template occurrence.
+    </p>
+    <br>
+    <h4><a name="tokbuf">2. TokenBuffer</a></h4>
+    <p>
+    The TokenBuffer is responsible for gathering the information from the scanner and passing it on to
+    the parser.  It also saves various information about the surrounding context for later use
+    by the TokenDecorator and the parser.  In the following section we describe some of the
+    important member functions and how they are used.
+    </p>
+    <p><strong>Data Structures</strong>
+      The Token Buffer contains an array of MAX_BUF entries (currently 5).  These entries contain
+      the token, a std::string with the lexeme, a YYSTYPE structure which will contain a TokenInfo
+      pointer, and a NameDeclaration pointer which will point to the last Qualifier in a nested name
+      specifier with a template name (e.g. X&lt;7,13&gt;::Y&lt; Z&lt;int&gt;::Q &gt;::p [The first &gt; contains a pointer
+        to <code>X's</code> NameDeclaration object, the second &gt; points to <code>Z</code>'s, the third points to <code>Y's</code>] ).
+    </p>
+    <p><strong>2.1 init</strong>
+      This function is called by the constructor.  It reads MAX_BUF tokens into the buffer array.
+    </p>
+    <p><strong>2.2 getNextToken</strong>
+      This function effectively looks at the next token.  To accomplish this, it will do one of two things.
+      <OL><LI>It can increment the currentToken index.  This only occurs at the beginning of the parse, when
+              the currentToken index is less than MAX_BUF/2, or at the end of the parse (after EOF has been seen).</LI>
+          <LI>It can move all of the tokens down one spot in the array (erasing the oldest).  It can then read in
+              the next token from the scanner.</LI>
+      </OL>
+      If the currentToken is a DOT (.) or an ARROW (-&gt;), then the TokenBuffer notes that it is inMemberAccess.<br>
+      If the currentToken is <code>class</code> or <code>struct</code> keyword and the next two tokens are IDENTIFIER and COLON,
+      then it notes that it is inBaseSpecifierList.<BR>
+      If the currentToken is a LEFTBRACK ({), then it notes it is not inBaseSpecifierList.<br>
+      If the currentToken is a LEFTPAREN ((), then it increments the parenLevel.  This is necessary for deciphering
+      the last identifier in a template expression such as <code>X&lt;(5&gt;7)&gt;</code>.  In the previous example, only
+      the last &gt; sign represents the end of the template parameter list.<BR>
+      If the currentToken is a RIGHTPAREN ()), then it decrements the parenLevel.<BR>
+      If the currentToken is a GREATER(&gt;) and it is in a template argument list, and the parenLevel is zero,
+      then it notes the last seen template id as the current qualified template id by calling the restoreId function.<BR>
+      Finally, the getMultiWordType function is called.
+    </p>
+    <p><strong>2.3. getMultiWordType</strong>
+      This function looks at the current token and the next one or two tokens to determine if the
+      type is a multi word type (e.g. long int, unsigned short int, unsigned char).
+      The algorithm is fairly straight forward and can be seen in the code.
+    </p>
+    <p><strong>2.4. setOccurSpec</strong>
+      This function is responsible for setting any occur specifiers on the NameOccurence object.
+      It begins by checking the left context to see if the previous token was the <code>enum</code>
+      keyword.  If so, it sets the <code>ElabEnum</code> specifier.<BR>
+      Otherwise it looks for the <code>class</code>, <code>union</code>, or <code>struct</code> keywords
+      and, if one is found, it sets the <code>ElabClass</code> specifier.<BR>
+      If not found, it looks for the <code>namespace</code> keyword and sets the <code>Namespace</code>
+      specifier if found.<BR>
+      Otherwise, it looks for a preceeding ~ and sets the Destructor qualifier if found.<BR>
+      After checking the left context, the TokenBuffer checks the right context for a COLCOL (::).
+      If found, the <code>Qualfier</code> specifier is set.<BR>
+      Finally, it checks to see if it is inMemberAccess and does not have a specifier.  If so,
+      it is specified as a <code>Member</code>.  If that is not true, then it checks to see whether
+      or not it is inBaseSpecifierList and it is not a qualifier.  If so, then it sets the
+      <code>ElabClass</code> specifier.
+    </p>
+    <p><strong>2.5. getNameOccurrence</strong>
+      This function will turn the TokenInfo pointer contained in the buffer array into a NameOccurrence object.
+      It creates a NameOccurrence object and attempts to set the occur qualifier through a number of steps.
+      First, if the previous two tokens were ::~, then it uses the last identifier seen as the qualifier.<BR>
+      Otherwise, if the previous two tokens were IDENTIFIER ::, then it uses the NameDeclaration object
+      for the IDENTIFIER token as the qualifier.<BR>
+      If that is not the case, then it checks to see if the previous two tokens were &gt;::.  If so, it
+      looks at the &gt; token's lastDecl member, and if non-NULL, uses it for a qualifier.<BR>
+      Otherwise, it will check to see if the previous two tokens were <code>template</code>::.  If so, it
+      will get the ::'s lastDecl member (unless, NULL then it uses the last identifier).<BR>
+      If all of the above fail, and the previous token is ::, then it is a global qualifier and the
+      GlobalNamespace is retrieved from the ActionFacade and used as a qualifier.<BR>
+      If the previous token is <code>template</code> and the token before is a ::, -&gt;, or ., then
+      the NameOccurence is marked as being a template.<BR>
+      After performing the qualifications, this function calls setOccurSpec and returns the NameOccurrence object.
+    </p>
+    <p><strong>2.6. saveId</strong>
+      This function is called by the TokenDecorator whenever a template argument list is entered.  It
+      sets the inTemplateArgList value to true and pushes the previous identifier onto a stack.
+    </p>
+    <p><strong>2.7. restoreId</strong>
+      This function is called at the end of a template argument list.  It checks to see if the current
+      token is a GREATER (&gt;) or a COLCOL (::) and if so, sets their lastDecl pointer to the
+      NameDeclaration at the top of the stack, pops the stack, and sets the inTemplateArgList
+      member to false. ** This is a bug.
+    </p>
+    <p><strong>2.8. setNameDeclaration</strong>
+      This function is called once a NameDeclaration is found by the TokenDecorator.  It sets
+      the current Token's name declaration to be the one found by the TokenDecorator.  It
+      also sets the last_identifier member to the NameDeclaration pointer passed in.
+      Furthermore, if the next token is a LEFTPAREN (() and the previous token was
+      not <code>template</code> and the type of the declaration is FunctionType, then
+      the lastWasF member variable is set to true.  The lastWasF member variable
+      is used to ensure that PrototypeScope is entered on time and correctly through
+      BTYACC predicates (described later).
+    </p>
+    <h4><a name="tokdec">3. TokenDecorator</a></h4>
+    <p>
+      The TokenDecorator is responsible for decorating the token so that
+      the parser can embed semantic information into its grammar.  Furthermore,
+      it provides an interface to many of the TokenBuffer's operations
+      such as getLastIdentifier, lastWasFun, and getTokenCount.  It is
+      also responsible for saving and printing the statistics that appear
+      in the output (described previously). Also, it uses the
+      InvariantFaciliatators to check the classes invariants after
+      printing the statistics.
+    </p>
+    <p><strong>3.1. getNextToken</strong>
+      getNextToken is the function that directs the token decoration
+      process.  First, a token is retrieved from the TokenBuffer through
+      use of the TokenBuffer::getNextToken function.  Next, if the
+      current token is an identifier, it undergoes token decoration.
+      If it is not, it is passed on unchanged.<BR>
+      The token decoration process begins by the retrival of the
+      NameOccurrence object from the TokenBuffer through use of the
+      TokenBuffer::getNameOcurrence function.  Next, the occurrence
+      is translated into a NameDeclaration though the doLookup
+      function.  If the doLookup function returns NULL, then a
+      new NameDeclaration object is created in the current scope.
+      Furthermore, if the name occurrence was a template, then it
+      is marked as a template.  If the doLookup function does not
+      return NULL, then the NameDeclaration returned has a reference
+      added to it.  However, in this case, it is <strong>not</strong>
+      marked as a template.  Instead, it is determined to be a template
+      if it has not be determined already.  Basically, there are two
+      different ways to be a template, markTemplate says that you
+      have not been declared, but are a template, setIsTemplate says
+      you have been declared a template.  Next, if the NameOccurrence
+      object received from the TokenBuffer has a qualifier, then that
+      qualifier is given to the NameDeclaration object to be its
+      qualifier.  Then, the NameDeclaration object that was
+      created (or found) is handed back to the TokenBuffer.  Finally,
+      getCSIdent is called on the NameDeclaration object and the
+      result of that is used as the current token and passed to the
+      parser.
+    </p>
+    <p><strong>3.2. doLookup</strong>
+      doLookup uses the action facade to make its initial lookup.
+      If the NameOccurrence object to be looked up has a qualifier,
+      then this function calls the ActionFacade's lookupQualifiedName.
+      Otherwise, this function calls the ActionFacade's lookupUnqualifiedName.
+      If a NameDeclaration was not found, then it could be because we
+      are the first argument in a class method declared out of line.
+      For instance:
+      <pre>
+           class X {
+             public:
+               typedef int T;
+               void f( T );
+           };
+           void X::f( T ) {}
+      </pre>
+      In this case, the parser will not have executed the rule to enter
+      prototype scope before T is encountered in the lookahead (see section
+      on problems with Token Decorated Parsing).  However, T must
+      be looked up in f's corresponding scope to be found.  Therefore,
+      the following code is used:
+      <pre>
+       if( decl == NULL && buf.lastWasFun() &&
+           buf.getLastIdentifier()->getCorrespondingScope() ) {
+         decl = buf.getLastIdentifier()->getCorrespondingScope()->lookup( id );
+       }
+      </pre> ** This is a bug and should go before the other lookups.
+      Finally, whether found or not, the NameDeclaration object is returned.
+    </p>
+    <p><strong>3.3 getCSIdent</strong>
+      This function takes a NameDeclaration object (and whether it
+      was preceeded by <code>template</code>), and returns back a
+      potentially decorated token.<BR>
+      If the NameDeclaration object does not have a type object, and
+      it was not preceeded by <code>template</code>, then it returns
+      the undecorated <code>IDENTIFIER</code> token.<BR>
+      If the NameDeclaration object was preceeded by <code>template</code>,
+      or the next token in the buffer is a &lt; character and isTemplate
+      returns true, then the saveId is called for the TokenBuffer
+      and an <code>ID_template_name</code> is returned.  The grammar
+      only wants an ID_template_name when it is about to start a template
+      argument list.  Therefore, it must either be preceeded by <code>template</code>
+      or proceeded by a &lt; sign. <BR>
+      If the NameDeclaration object has class type and it is not
+      an instance and it is not a typedef, then <code>ID_class_name</code> is
+      returned.<BR>
+      If the NameDeclaration object has enum type and it is not
+      an instance, then <code>ID_enum_name</code> is returned.<BR>
+      If the NameDeclaration object has namespace type and it
+      is not an instance, then <code>ID_original_namespace_name</code> is
+      returned.<BR>
+      If the NameDeclaration object has namespace type and it
+      is an instance, then <code>ID_namespace_alias</code> is returned.<BR>
+      If the name declaration is a typedef:
+      <pre>
+            else if( !decl->isInstance() &&
+                     (decl->getType()->getDecl() != decl ||
+                     decl->getType()->checkType(Type::DT_INDIRECT) ||
+                     decl->getType()->checkType(Type::DT_FUNCTION) ) ) {
+      </pre>
+      then <code>ID_typedef_name</code> is returned.<BR>
+      If the object is a template parameter type and not an instance,
+      then <code>ID_class_name</code> is returned.  It used to be that
+      <code>ID_typedef_name</code> was returned for this, as template
+      parameters do not have to be classes.  However, the grammar
+      is not set up to support that, and favors <code>ID_class_name</code> over
+      <code>ID_typedef_name</code>; therefore, it was changed.<BR>
+      Finally, if none of the above returned, a plain <code>IDENTIFIER</code>
+      token is returned.
+    </p>
+    <p><strong>3.4. isTemplate</strong>
+      This function determines if a NameDeclaration object is a template.
+      If the object has a corresponding class scope, and the corresponding
+      scope has template parameters, then it is a template.<BR>
+      If the object has a corresponding function scope, and the corresponding
+      function scope's prototype scope has template parameters, then
+      it is a template.<BR>
+      If the object has a corresponding prototype scope, and the corresponding
+      prototype scope has template parameters, then it is a template.<BR>
+      If the type of the object is template template parameter, then it
+      is a template.<BR>
+      If the object has been previous set as a template (through setIsTemplate),
+      then it is a template.<BR>
+    </p>
+    <h4><a name="decl">4. NameDeclaration</a></h4>
+    <p>
+      The NameDeclaration class tries to contain as much information about
+      the declaration of an object or type as possible.  It contains a pointer
+      to the corresponding and containing scope and to the type.
+      It also contains whether it is an instance of the type or the
+      type declaration.  It records whether or not it is in the
+      symbol table, is a template, or has been marked as a template.
+      It contains a special entry to its destructor due to the fact
+      that it should be autogenerated and can be explicitly called.
+      It also contains a list of references (when it has been seen)
+      that is mostly incomplete, but can be useful at times.  Furthermore
+      it contains its access (Public, Private, Protected, or Unknown), as
+      well as, any attributes such as friend, pure, virtual, const, static,
+      or extern (extern is not currently supported).
+    </p>
+    <p><strong>4.1. Constructor</strong>
+      The constructor's main job is to change the name if it is a constructor
+      or destructor being declared.  A flag is passed in to tell if it
+      is a destructor.  The actual code is:
+      <pre>
+          if( definedIn &&
+              dynamic_cast<ClassScope*>( definedIn ) &&
+              getName() == definedIn->getName() ) {
+          if( isDestructor )      
+             setName( definedIn->getName() + "::~" + definedIn->getName() );
+          else
+             setName( definedIn->getName() + "::" + definedIn->getName() );
+    </pre>
+    The name must be changed from X to X::X or X::~X to prevent name lookup
+    from finding the constructor call when it should be finding the class type.
+    </p>
+    <p><strong>4.2. isaMatch</strong>
+      This function is responsible for determining if a NameOccurrence
+      matches a NameDeclaration in lookup.  First, it checks to see
+      if thier names match.  If so, then it analyzes the OccurSpecifier
+      of the NameOccurrence.<BR>
+      If the specifier is <code>ElabEnum</code>, then the type of the
+      NameDeclaration must be enum, or template parameter.<BR>
+      If the specifier is <code>ElabClass</code>, then the type of the
+      NameDeclaration must be class, template parameter, or
+      template template parameter.  If the specifier is
+      <code>Member</code>, then the type can be NULL, or the type
+      can be enum or class if it is not an instance and the
+      type is not a namespace.<BR>
+      If the specifier is a namespace, then the type must be a namespace.<BR>
+      If the specifier is a qualifier, then the type can be a class
+      that is not an instance, a namespace, a basic type that is not an
+      instance (for typedef int T; T x; x::~T()), a template parameter
+      that is not an instance, or a template template parameter that is not
+      an instance.<BR>
+      If the specifier is not listed above, then a match is assumed.
+    </p>
+    <p><strong>4.3. getDestructor</strong>
+      This function is responsible for finding or creating a destructor
+      for this NameDeclaration.  First, it checks to see if the
+      type is a class or namespace type.  If it is not, then
+      a destructor called <code>__basic_destructor</code> is created,
+      entered into the global scope, and returned.  Otherwise,
+      if the type is a namespace, NULL is returned.  Now, it
+      must be a class.  Therefore, the corresponding class scope
+      is looked up, the name is changed into <code>X::~X</code> form,
+      and then looked up.  If one is not found, a destructor is
+      created and inserted into the class scope.
+    </p>
+    <h4><a name="scope">5. The Scope Heirarchy</a></h4>
+    <p>The Scope Heirarchy consists of 7 scopes: Scope, LocalScope,
+      NamespaceScope, ClassScope, PrototypeScope, FunctionScope,
+      and TemplateParameterScope.</p>
+    <p><strong>5.1. Scope</strong>
+      Scope is an abstract base class that provides default implementations
+      for many virtual functions.
+      <p><strong>5.1.1. insertLocal</strong>
+      This function pushes a NameDeclaration object onto the back
+      of a list.  It also sets the NameDeclaration objects containing
+      scope and sets the NameDeclaration inSymbolTable flag.
+      </p>
+      <p><strong>5.1.2. undoRecentInsertLocal</strong>
+      This function takes a NameDeclaration and compares it to
+      the last NameDeclaration inserted.  They must be the same or
+      an error is issued.  If they are the same, the NameDeclaration
+      last inserted is poped from the back of the list.
+      </p>
+      <p><strong>5.1.3. removeDeclaration</strong>
+      This function accepts a NameDeclaration and finds it in
+      its list of local objects.  If found, it removes it.
+      </p>
+      <p><strong>5.1.4. findHere</strong>
+      Given a NameOccurrence, this function looks through its
+      list of NameDeclarations to try and find a match.  It
+      uses the isaMatch function of the NameDeclaration class
+      to assure a match.  Furthermore, if the occurrence has
+      not been specified to be a class or an enum, it searches
+      for non types first, then types.  This allows:
+      <pre>
+        class X {};
+        X X;
+        X X2; // this should fail...X refers to the variable
+        class X X3; // this should pass...X has been specified as a class.
+      </pre>      
+    </p>
+    <p><strong>5.2. LocalScope</strong>
+      A LocalScope represents a basic block.  In addition to
+      the NameDeclaration list inherited from Scope, it also
+      contains a list of used namespaces.
+      <p><strong>5.2.1. canContain</strong>
+        This returns true if the specifier is nothing, ElabClass, or ElabEnum,
+        since their declarations can occur within a LocalScope.
+      </p>
+      <p><strong>5.2.2. lookup</strong>
+        First the name occurence is passed to canContain.  If it can
+        be contained within a local scope, the findHere method of
+        Scope is called.  If the declaration has not been found,
+        then the used namespaces are searched.  If it still has
+        not been found, then the containing scope is looked in
+        as well as any anonymous scopes of the containing scope.
+      </p>
+      <p><strong>5.2.3. searchUsedNamespaces</strong>
+        This function merely loops through the list of namespace scopes
+        and does a lookup in each one.
+      </p>
+    </p>
+    <p><strong>5.3. NamespaceScope</strong>
+      The NamespaceScope class represents a named or anonymous
+      namespace scope.  It also contains a list of used namespaces.
+      <p><strong>5.3.1. canContain</strong>
+        A NamespaceScope can contain an enum, class, member, namespace,
+        pseudoDestructor, Destructor, Qualilfier, or nothing.        
+      </p>
+      <p><strong>5.3.2. lookup</strong>
+        Since namespaces may recursively include one another, they
+        must be stored in a set as they are being searched.  If the
+        namespace is ever found in the set, then it is not searched
+        as it has already been searched through a recursive using
+        clause.  If it is not found in the set, then it puts a
+        pointer to itself in the set saying that it has been searched.
+        If the canContain member function returns true, then the
+        findHere function is called on the NameOccurrence being
+        looked up.  If a NameDeclaration is not found, then used
+        namespaces are searched.  If it has still not been found,
+        then the containing scope is searched along with any
+        anonymous scopes in the containing scope.
+      </p>
+      <p><strong>5.3.3. searchUsedNamespaces</strong>
+        This function merely loops through the list of namespace scopes
+        and does a lookup in each one.
+      </p>
+    </p>
+    <p><strong>5.4. ClassScope</strong>
+        A ClassScope represents the scope of a class declaration.
+        Along with the NameDeclaration list, a list of base classes
+        and thier access restrictions, a list of friends, and a
+        TemplateParameterScope, is stored.
+      <p><strong>5.4.1. canContain</strong>
+        A class scope can contain a conversion function, a destructor,
+        a destructor qualifier, an enum, a class, a member,
+        a pseudo-destructor, a qualifier, or nothing.       
+      </p>
+      <p><strong>5.4.2. lookup</strong>
+        This function first checks the canContain function to see if
+        it should be looked up in this scope.  If so, the findHere
+        function is called.  If it is not found, but the name is
+        the same as the class name, then the current declaration is
+        returned (for destructors).  If the declaration has still
+        not been found, and a template parameter scope exists, then
+        the template parameter scope is searched.  Next, the base
+        classes are searched followed by any containing scopes.
+      </p>
+    </p>
+    <p><strong>5.5. Prototype Scope</strong>
+      A PrototypeScope represents a function's prototype.  It also
+      contains the template parameter scope, if any, for the function.
+      <p><strong>5.5.1 canContain</strong>
+        A PrototypeScope can only contain those declarations whose
+        specifier is nothing.
+      </p>
+      <p><strong>5.5.2 lookup</strong>
+        If a template parameter scope exists, then it is looked up in first.
+        Otherwise, the current scope is looked in.  If still not found,
+        the containing scope is examined.  Finally, if the declaration is
+        qualified, and the qualifier is of class scope, that scope is
+        examined.
+      </p>    
+    </p>
+    <p><strong>5.6. FunctionScope</strong>
+      A function scope represents  the scope of the entire function,
+      not just a basic block.  Therefore, the ISO C++ standard
+      states that the only thing that can be in a FunctionScope is
+      a label.  It is the LocalScope inside the FunctionScope that
+      actually contains most declarations. <BR>
+      A function scope contains a pointer to its prototype scope and
+      a list of pointers to local scopes declared inside it.
+      <p><strong>5.6.1. canContain</strong>
+        Since the FunctionScope can only contain labels, the only
+        specifier that can occur is nothing.
+      </p>
+      <p><strong>5.6.2. lookup</strong>
+        Lookup examines the current scope to try and find the declaration.
+        If it is not found, and the Prototype scope exists, then the
+        Prototype scope is examined.  If still not found, then
+        containing scopes and thier anonymous scopes are examined.
+      </p>
+    </p>
+    <p><strong>5.7. TemplateParameterScope</strong>
+      A TemplateParameterScope represents any template argument
+      which exists in a template parameter list.
+      <p><strong>5.7.1. canContain</strong>
+        A template parameter scope can contain an occurence with
+        ElabEnum, ElabClass, a Qualifier, or nothing.
+      </p>
+      <p><strong>5.7.2. lookup</strong>
+        A template parameter scope, if canContain returns true, calls the
+        Scope::findHere function and then checks the containing scopes
+        and thier anonymous scopes.
+      </p>
+    </p>
+    <h4><a name="type">6. The Type Heirarchy</a></h4>
+    <p>
+      The Type Heirarchy consists of 9 classes: Type, BasicType,
+      FunctionType, IndirectType, ClassType, EnumType, NamespaceType,
+      TemplateParameterType, and TemplateTemplateParameterType.<BR><BR>
+
+      Each class must provide an override to the getDecl function,
+      which returns the name declaration for the type, the checkType
+      function, which checks the dynamic type of the object,
+      and the clone function, which returns a copy of the object.<BR><BR>
+
+      The checkType function uses an enum DynType which contains the
+      following members
+      <UL><LI>DT_NAMESPACE</LI><LI>DT_ENUM</LI><LI>DT_CLASS</LI>
+          <LI>DT_BASIC</LI><LI>DT_FUNCTION</LI><LI>DT_FUNCTION_PROTOTYPE</LI>
+          <LI>DT_FUNCTION_DEFINITION</LI><LI>DT_INDIRECT</LI>
+          <LI>DT_TEMPLATE_PARM</LI><LI>DT_TEMPLATE_TEMPLATE_PARM</LI>
+      </UL>
+      Each DynType enumerator maps onto a distinct Type class except for
+      DT_FUNCTION, DT_FUNCTION_PROTOTYPE, and DT_FUNCTION_DEFINTION, which
+      all map onto the FunctionType class.
+    </p>
+    <p><strong>6.1. Type</strong>
+      This is the base class for the hierarchy and provides facilities
+      to make the type const or volitile as well as to check to see
+      if the type is const or volatile.
+      <p><strong>6.2. BasicType</strong>
+        This class represents a BasicType (int, float, char, etc...).
+      <p><strong>6.2.1 checkBasicType</strong>
+        BasicType provides an enum, BType, to represent which Basic type it is.
+        The enum provides the following enumerators:
+        <UL><LI>BT_CHAR</LI><LI>BT_UCHAR</LI><LI>BT_WCHAR</LI><LI>BT_BOOL</LI>
+        <LI>BT_SHORT</LI><LI>BT_USHORT</LI><LI>BT_INT</LI><LI>BT_LONG</LI>
+        <LI>BT_ULONG</LI><LI>BT_SIGNED</LI><LI>BT_UNSIGNED</LI><LI>BT_FLOAT</LI>
+        <LI>BT_DOUBLE</LI><LI>BT_LDOUBLE</LI><LI>BT_VOID</LI>
+        </UL>
+        checkBasicType accepts one of these enumerators and returns true
+        if the type is the same as the enumerator.
+      </p>
+      <p><strong>6.2.2. getDecl</strong>
+        The getDecl function returns NULL since a basic type does not have
+        a declaration.
+      </p>
+    </p>
+    <p><strong>6.3. FunctionType</strong>
+      This type represents the type of a function.  It contains an enum member
+      which determines whether it is a prototype or a definition.
+      It also contains the return type of the function.
+      <p><strong>6.3.1. getReturnType</strong>
+      This returns the return type of the function.
+      </p>
+      <p><strong>6.3.2. getDecl</strong>
+      This returns the name declaration object for the function declaration.
+      </p>
+      <p><strong>6.3.3. checkType</strong>
+      This always returns true for DT_FUNCTION.  For DT_FUNCTION_PROTOTYPE
+      it returns true if the enum member is Q_PROTOTYPE.
+      For DT_FUNCTION_DEFINITION, it returns true if the enum member
+      is Q_FUNCTION.
+      </p>
+    </p>
+    <p><strong>6.4. IndirectType</strong>
+      This class represents the type of a pointer, rererence, or array.
+      It contains an enum member that determines which one it is.  It also
+      contains a pointer to the pointed-to type.
+    </p>
+    <p><strong>6.5. ClassType</strong>
+      This represents the type of a class definition.
+      It contains the NameDeclaration object for the original definition.
+    </p>
+    <p><strong>6.6. EnumType</strong>
+      This represents the type of an enum definition.
+    </p>
+    <p><strong>6.7. NamespaceType</strong>
+      This represents the type of a namespace definition.
+    </p>
+    <p><strong>6.8. TemplateParameterType</strong>
+      This represents the type of a template parameter.
+    </p>
+    <p><strong>6.8. TemplateTemplateParameterType</strong>
+      This represents the type of a template template parameter.
+    </p><BR>
+    <h3><a name="chor2">C. Choreographing classes</a></h3>
+    <br>
+    <p> While the previous section focused on classes that acted as data structures,
+      this section will focus on the classes that direct those data structes' actions.
+    </p>
+    <h4><a name="lookup">1. LookupController</a></h4>
+    <p>
+      The LookupController is responsible for determining how a Name
+      Occurrence or NameDeclaration should be looked up. It contains
+      a pointer to a ContextManager object.
+    </p>
+    <p><strong>1.1. lookupUnqualifiedName</strong>
+      This function first clears the set of searched namespaces,
+      then, it gets the current scope from the ContextManager and
+      calls the lookup method for that scope.  If the NameDeclaration
+      was not found, it asks the ContextManager for the first
+      template scope and searches it.
+      It has to check for the template scope seperately because the
+      template scope may not have been attached to a class or
+      prototype scope yet due to lookahead.
+    </p>
+    <p><strong>1.2. lookupQualifiedName</strong>
+      This function first clears the set of searched namespaces.
+      Next, it gets the qualifier from the NameOccurrence.
+      If the qualifier has TemplateParameterType or
+      TemplateTemplateParameterType, the function returns NULL
+      as no lookup is available.  Otherwise, the corresponding
+      scope is retrieved and lookup is performed in that scope.
+    </p>
+    <p><strong>1.3. lookupPseudoDestructor</strong>
+      This function calls the getDestructor function of the
+      NameDeclaration passed in.
+    </p>
+    <p><strong>1.4. Other functions</strong>
+      The LookupController contains other functions to lookup
+      class scopes, function calls, binary operators, etc...
+      However, they are not currently used and may be overhauled
+      or removed in a future release.
+    </p>
+    <h4><a name="context">2. ContextManager</a></h4>
+    <p>The ContextManager is responsible for managing the entrance and
+       exit of scopes.  It is designed to be a singleton.
+      It contains two data structures, a stack of scopes which represent
+      the nested scope heirarchy, and a list of scopes representing
+      all of the scopes seen.
+    </p>
+    <p><strong>2.1. getCurrentScope</strong>
+      Returns the top of the stack of scopes.
+    </p>
+    <p><strong>2.2. getPreviousScope</strong>
+      Returns the second element in the stack of scopes.
+    </p>
+    <p><strong>2.3. enterScope</strong>
+      Pushes a scope on the stack
+    </p>
+    <p><strong>2.4. leaveCurrentScope</strong>
+      Pops a scope off the stack
+    </p>
+    <p><strong>2.5. moveIntoPrototypeScope</strong>
+      This function accepts a name declaration and attempts to move
+      into its prototype scope.  It could be that this declaration
+      has been predeclared (e.g., int x();), if so, then it will
+      already have a corresponding scope and that scope should be
+      entered.  This is represented by the code:
+    <pre>
+          if( decl->getType() && decl->getType()->checkType( Type::DT_FUNCTION_PROTOTYPE )
+             && decl->getCorrespondingScope() != NULL ) {
+              enterScope( decl->getCorrespondingScope() );
+              return decl;
+          }
+    </pre>
+    If that is not the case, then a new function type and Prototype scope
+    should be created and the scope created should be entered.
+    First, the return type of the function will be the current type
+    of the NameDeclaration object passed in.  That type will be used
+    to create a FunctionType object with the Q_PROTOTYPE enum member.
+    The newly created FunctionType object will be assigned to the
+    NameDeclaration object's type member.  Next, a new prototype
+    scope will be created with the NameDeclaration object as the
+    declaration for the prototype and the current scope as the
+    containing scope.  Then, the ContextManager will search for
+    a template scope and assign it to the PrototypeScope's
+    TemplateParameterScope member variable.  Finally, the
+    newly created scope will be pushed on the list of scopes
+    and on the stack of scopes.
+    </p>
+    <p><strong>2.6. moveIntoFunctionScope</strong>
+      This function will attempt to move into a function's scope.
+      The first thing to check for is whether or not you are in
+      a member intializer list.  If so, the function scope has
+      already been entered and this is a duplicate call.  Simply
+      set the mem_init variable to false, and continue onward.
+      Second, if the NameDeclaration object passedin already has
+      FunctionType, then it is a Q_PROTOTYPE.  Change it to be
+      a Q_FUNCTION.  The prototype scope will be the NameDeclaration's
+      corresponding scope.  Next, it creates a function scope and
+      gets any previous template parameter scope for the function
+      prototype scope's use.  Finally, it pushes the function scope
+      on the list and stack.
+    </p>
+    <p><strong>2.7. moveIntoClassScope</strong>
+      This function attempts to move into class scope.
+      First, the current template scope is retrieved.  Second,
+      an explicit specialization is looked for.  If the type is
+      a class and it has a corresponding class scope, and that
+      scope has template parameters, then we are entering an
+      explicit specialization.  That means that the Corresponding
+      Scope should be pushed on both the list and stack and the
+      function should terminate.  Otherwise, we insert the
+      NameDeclaration into the current scope with a newly
+      created ClassType object.  We also create a ClassScope
+      and set the TemplateParameterScope accordingly.  Finally,
+      we push the scope on the back of the list and stack.
+    </p>
+    <p><strong>2.8. moveIntoLocalScope</strong>
+      This function creates a new LocalScope object with the
+      current scope as the containing scope.  It then loops back
+      through the containing scopes until it finds a function.
+      The local scope is then added to the function's list of
+      local scopes.  Finally, the newly created scope is added
+      to the list and stack.
+    </p>
+    <p><strong>2.9. moveIntoTemplateParameterScope</strong>
+      This just creates a new TemplateParameterScope and puts
+      it on the list and stack.
+    </p>
+    <p><strong>2.10. moveIntoNamespaceScope</strong>
+      This function first checks to see if the NameDeclaration
+      passed in already has a corresponding scope.  If not,
+      it creates a new scope, inserts the declaration into
+      the current scope, and pushes the scope on the list.
+      Then, it takes whichever scope should be used and
+      pushes it on the stack of scopes.
+    </p>
+    <p><strong>2.11. moveIntoAnonNamespace</strong>
+      This function gets the current scope and ensures it is
+      a namespace scope (since anon namespaces may only occur in
+      other namespaces).  Second, it moves into the namespace scope.
+      Finally, it adds the anonymous scope to the list of uses declarations
+      of the containing scope.
+    </p>
+    <p><strong>2.12. installBaseInCurrentScope</strong>
+      This function ensures that the current scope is a class
+      scope.  It then gets the corresponding scope of the
+      base class' NameDeclaration object (which is passed in).
+      If the scope was found, then it is given to the class
+      scope to add.  Otherwise, if the base class was a
+      template parameter or a template template parameter,
+      nothing is done.
+    </p>
+    <p><strong>2.13. useNamespace</strong>
+      This function merely ensures that the current scope is either a
+      local scope or a namespace scope.  Then, it adds the NameDeclaration
+      for the namespace to the uses list of the current scope.      
+    </p>
+    <p><strong>2.14. undoRecentInsertLocal</strong>
+      If the NameDeclaration is qualified, it calls
+      undoRecentInsertLocal on the qualified scope.  Otherwise
+      it calls it on the current scope.
+    </p>
+    <p><strong>2.15. useDeclaration</strong>
+      This function creates a new NameDeclaration based on the one
+      passed in and inserts it into the local scope.  It then
+      sets the newly created NameDeclaration's instance to whatever
+      the old instance was and also sets the isTemplate member
+      in the same way.
+    </p>
+    <p><strong>2.16. getCurrentClassScope</strong>
+      This function merely loops through containing scopes
+      until it finds one that is a class scope.
+    </p>
+    <p><strong>2.17. getCurrentTemplateScope</strong>
+      This function looks at the list of scopes and finds
+      the first scope that is a TemplateParmaeterScope.  If
+      the function's argumetn is true, it erases the scope
+      from the list, to prevent others from finding it.  Otherwise,
+      it leaves it alone.
+    </p>
+    <p><strong>2.18. insertLocal</strong>
+      This function choreographs the insertion of a name declaration
+      in a scope.  First, it checks to see if the name is qualifed.
+      If it is, it will insert into the qualified declaration's scope.
+      Otherwise, it inserts into the local scope.  Next, it checks
+      for duplicate class/namespace entries.
+      If the declaration is already in
+      the symbol table, and the containing scope is the scope
+      previously found, and the type passed in is the same as
+      the NameDeclaration's type and the decl is not an instance,
+      then it is a duplicate class/namespace declaration and is not
+      inserted again.  Otherwise, if the type is a function prototype
+      type, and the containing scope is the scope previously found,
+      then nothing is done.  If neither of the above hold, then
+      the NameDeclaration found by lookup was incorrect and a new
+      one must be created.  To create a new one, it checks to see
+      if it will be a destructor, if so it reformats the name into
+      the <code>X::~X</code> format.  Then, it creates a new NameDeclaration,
+      sets its occur qualifier (if any), and inserts it in the scope.
+    </p>
+    <h4><a name="action">3. ActionFacade</a></h4>
+    <p>The ActionFacade is a thin wrapper around the LookupController and
+       ContextManager.  It also adds a few utility functions for the
+       parser actions to use.  The wrapper functions will not be
+       discussed here, as they merely forward the function call to the
+       appropriate object.
+    </p>
+    <p><strong>3.1. makeAnonIdent</strong>
+      This function is called to create an anonymous identifier
+      for things such as cast operators .  The anonymous
+      identifier created is in the form __anonX where X is
+      a unique number.
+    </p>
+    <p><strong>3.2. makeAnonParmIdent</strong>
+      This function is called to create an anonymous identifier
+      for unnamed function parameters.  The anonymous identifier
+      created is in the form __anonX where X is the position
+      of the parameter.
+    </p>
+    <p><strong>3.3 makeAnonNSIdent</strong>
+      This function is called to create an anonymous identifier
+      for unnamed namespaces.  This funtion always returns
+      "anon".
+    </p><BR>
+    <h3><a name="classes">D. Validation Classes</a></h3>
+    <br>
+    <p>
+    There are six classes used to help validate the Scope heirarchy, Type
+    heirarchy, and NameDeclaration class.  Each one of the three mentioned
+    has a corresponding InvariantVisitor and InvariantFacilitator.  The
+    InvariantFacilitator stores references to objects that it should validate.
+    The InvariantVisitor loops over those stored references and makes
+    assertions about the objects stored.  Since the objects are monotonic
+    in nature, they are only validated at the end of the program.  The actual
+    assertions used are listed in a subsequent section.
+    </p>
+    <h4><a name="ifac">1. *InvariantFacilitator</a></h4>
+    <p> There is a TypeInvariantFaciliator, ScopeInvariantFacilitator,
+      and NameDeclarationInvariantFacilitator.  They all follow the
+      same pattern.  Each contains a static vector of pointers to
+      objects of that type.
+    </p>
+    <p><strong>1.1 CheckInvariants</strong>
+      Checks the invariants on this object.
+      This uses a form of the acyclic visitor.  A dynamic_cast is
+      performed for each class in the heirarchy (most derived first)
+      until the right class is found, then it is sent to the visitor.
+    </p>
+    <p><strong>1.2 CheckStoredClassesInvariants</strong>
+      Checks the invariants on all objects stored by
+      calling CheckInvariants on each object in the array.
+    </p>
+    <h4><a name="ivis">2. *InvariantVisitor</a></h4>
+    Type, Scope, and NameDeclaration also each have an InvariantVisitor.
+    This Visitor uses the Visitor pattern to check the correct
+    invariants based on the dynamic type of the object being checked.<BR>
+    <h3><a name="asg">E. Abstract syntax graph</a></h3>
+    <br>
+    <p>The abstract syntax graph was designed to be similar in
+      nature to the one described by the
+   <a href="http://swag.uwaterloo.ca/~cppx/">Bell Canada Datrix proposal</a>.
+      The classes from which it is composed are created using the treecc
+      sytem.  The operations that act on those classes are also specified
+      using treecc.
+    </p>
+    <h4><a name="list">1. The classes</a></h4>
+    <p>
+      The classes and their purposes are listed below:
+      <dl><dt>cASGNds</dt><dd>The base class of all ASG nodes</dd>
+      <dt>cIdentifier</dt><dd>The base class of Types, Objects, and Functions.
+         It contains a name and a visibility.</dd>
+      <dt>cObjectList</dt><dd>A list of object declarations.  Used for
+        declarations of the form <code>int x,y,z;</code>.</dd>
+      <dt>cExpression</dt><dd>The base class for all expressions</dd>
+      <dt>cCtrlStmt</dt><dd>The base class for all control statements</dd>
+      <dt>cType</dt><dd>The base class for all types</dd>
+      <dt>cScope</dt><dd>The base class for all scopes</dd>
+      <dt>cThrowSpec</dt><dd>Represents a throw specification on a
+                             function</dd>
+      <dt>cBuiltInType</dt><dd>Represents a built in type.</dd>
+      <dt>cEnumType</dt><dd>Represents an enum type</dd>
+      <dt>cArrayType</dt><dd>Represents an array type</dd>
+      <dt>cPtrType</dt><dd>Represents a pointer type</dd>
+      <dt>cRefType</dt><dd>Represents a reference type</dd>
+      <dt>cFctType</dt><dd>Represents the type of a function</dd>
+      <dt>cAggrType</dt><dd>Represents a class, struct, or union type</dd>
+      <dt>cAliasType</dt><dd>Represents a typedef type</dd>
+      <dt>cForwardType</dt><dd>Represents a forward type declaration</dd>
+      <dt>cScopeCompil</dt><dd>Represents the scope of a compilation unit</dd>
+      <dt>cNameSpace</dt><dd>Represents the scope of a namespace</dd>
+      <dt>cBlock</dt><dd>Represents the scope of a local block</dd>
+      <dt>cTryBlock</dt><dd>Represents the scope of a try block</dd>
+      <dt>cCatchBlock</dt><dd>Represents the scope of a catch block</dd>
+      <dt>cObject</dt><dd>Represents a variable</dd>
+      <dt>cTemplateParm</dt><dd>Base class of template parameters</dd>
+      <dt>cConstTemplateParm</dt><dd>Represents a template parameter that
+             has a specified type (i.e., non-generic)</dd>
+      <dt>cGenericTemplateParm</dt><dd>Represents a template parameter that
+             has a generic type</dd>
+      <dt>cTemplateTemplateParm</dt><dd>Represents a template template
+        parameter</dd>
+      <dt>cIfDecl</dt><dd>Represents a declaration made inside an if statement</dd>
+      <dt>cEnumerator</dt><dd>Represents an enumerator</dd>
+      <dt>cFunction</dt><dd>Represents a function definition</dd>
+      <dt>cExtern</dt><dd>Represents an extern block</dd>
+      <dt>cUsing</dt><dd>Represents a using directive or declaration</dd>
+      <dt>cFormalCatchParam</dt><dd>Represents a catch block parameter</dd>
+      <dt>cFormalFctParam</dt><dd>Represents a function parameter</dd>
+      <dt>cLabel</dt><dd>Represents a label</dd>
+      <dt>cCaseLabel</dt><dd>Represents a label in a case statement</dd>
+      <dt>cDefaultLabel</dt><dd>Represents the default label in a case statement</dd>
+      <dt>cLiteral</dt><dd>Represents a literal value</dd>
+      <dt>cActualFctParamList</dt><dd>A list of actual function arguments</dd>
+      <dt>cEmptyExpr</dt><dd>A class representing nothing</dd>
+      <dt>cNameRef</dt><dd>An occurence of a name in the source code</dd>
+      <dt>cInitList</dt><dd>An object's initializer list</dd>
+      <dt>cCreationExpr</dt><dd>A <code>new</code> expression</dd>
+      <dt>cDestroyExpr</dt><dd>A <code>delete</code> expression</dd>
+      <dt>cJump</dt><dd>The base class for control transfer statements</dd>
+      <dt>cBreak</dt><dd>A break statement</dd>
+      <dt>cContinue</dt><dd>A continue statement</dd>
+      <dt>cGoto</dt><dd>A goto statement</dd>
+      <dt>cReturn</dt><dd>A return statement</dd>
+      <dt>cThrow</dt><dd>A Throw statement</dd>
+      <dt>cSelection</dt><dd>A base class for selection
+                             statements (if, switch)</dd>
+      <dt>cIf</dt><dd>An if statement</dd>
+      <dt>cSwitch</dt><dd>A switch statement</dd>
+      <dt>cLoop</dt><dd>A base class for loop statments (while,for,do)</dd>
+      <dt>cWhileDoLoop</dt><dd>A while loop</dd>
+      <dt>cDoWhileLoop</dt><dd>A do while loop</dd>
+      <dt>cForLoop</dt><dd>A for loop</dd>
+      <dt>cOperator</dt><dd>A base class for operators</dd>
+      <dt>cUnaryOperator</dt><dd>A unary operator</dd>
+      <dt>cBinaryOperator</dt><dd>A binary operator
+                                  (includes function calls and casts)</dd>
+      <dt>cQuestionOperator</dt><dd>the <code>?:</code> operator</dd>
+    </dl>
+    </p>
+    <h4><a name="conn">2. The connections</a></h4>
+    <p>
+    Each class is connected to other classes by what can be thought
+    of as edges on a graph.  In many systems, these edges are represented
+    by actual classes; in our system, the edges are simply pointers
+    to the connected classes.
+    </p>
+    The connections are as follows:
+    <dl>
+      <dt>cObjectList</dt><dd>This contains a list of cASGNds which
+        were declared.  For instance, <code>int x,y,z</code> will create
+        an object list with three members; one for each x, y, and z.</dd>
+      <dt>cScope</dt><dd>This contains a list of cASGNds which represent
+        the scope's contenets</dd>
+      <dt>cThrowSpec</dt><dd>This contains a list of cTypes which represent
+        types that can be thrown by the function</dd>
+      <dt>cEnumType</dt><dd>This contains a list of enumerators which
+        were declared inside it</dd>
+      <dt>cArrayType</dt><dd>This contains a cType which is the
+        type of the array elements.  It also contains a list of
+        cExpression objects which are the array dimensions.</dd>
+      <dt>cPtrType</dt><dd>This contains a cType which represents
+        the dereferenced type</dd>
+      <dt>cRefType</dt><dd>This contains a cType which represents
+        the dereferenced type</dd>
+      <dt>cFctType</dt><dd>This contains a cType which represents
+        the return type, a cThrowSpec which represents the throw
+        specification, and a list of cFormalFctParam which are
+        the parameters.</dd>
+      <dt>cAggrType</dt><dd>This contains a list of (cNameRef,Visibility)
+        pairs which represent base classes and thier visibility.  It
+        also contains a list of cASGNds which were declared as friends
+        and a list of cASGNds which were declared as members.</dd>
+      <dt>cAliasType</dt><dd>This contains a cType which represents
+        the type aliased to as well as a list of cExpressions which
+        include any additional array dimensions.</dd>
+      <dt>cForwardType</dt><dd>This contains a list of cASGNds representing
+        the actual template parameter arguments, and a cNameRef representing
+        a nested name specifier.  It also contains a list of cTemplateParm
+        which are formal template parameters.</dd>
+      <dt>cCatchBlock</dt><dd>This contains a cFormalCatchParam which
+        represents the type that should be caught</dd>
+      <dt>cObject</dt><dd>This contains an array of cExpressions representing
+        the actual array sizes, a list of cASGNds representing actual
+        template arguments, a cExpression representing the number of
+        bits (if it is a bitfield), a cExpression representing its
+        initial value, and a cType representing its type.</dd>
+      <dt>cConstTemplateParm</dt><dd>This contains a cFormalFctParam
+        representing the declared parameter</dd>
+      <dt>cGenericTemplateParm</dt><dd>This contains a cType
+        which represents any default parameter</dd>
+      <dt>cTemplateTemplateParm</dt><dd>This contains a
+        list of cTemplateParm which represent the template parameter
+        list.  It also contains a cNameRef which represents the default.</dd>
+      <dt>cIfDecl</dt><dd>This contains the cObject being declared</dd>
+      <dt>cEnumerator</dt><dd>This contains the cExpression to which
+        the enumerator evaluates to</dd>
+      <dt>cFunction</dt><dd>This contains a cASGNds which represents the
+        block of executable statements making up the function, a cBlock
+        representing the initializer list of a constructor, a
+        cFctType representing the type of the function, and a
+        cASGNds list representing template arguments</dd>
+      <dt>cExtern</dt><dd>This contains a cASGNds list which represents
+        declarations inside the <code>extern</code> block</dd>
+      <dt>cLabel</dt><dd>This contains a cASGNds with the code that is
+        labeled</dd>
+      <dt>cCaseLabel</dt><dd>This contains a cExpression class which
+        represents the value of the case</dd>
+      <dt>cActualFctParamList</dt><dd>This contains a list of cExpression
+        objects representing the actual arguments to a function</dd>
+      <dt>cNameRef</dt><dd>This contains a cASGNds list representing
+        the actual template arguments and a cNameRef representing a
+        nested name specifier.  It also has a cType if it is a
+        cast operator representing the type of the operator</dd>
+      <dt>cInitList</dt><dd>This contains a cActualFctParamList describing
+        the initializer values</dd>
+      <dt>cCreationExpr</dt><dd>This contains a cType describing the
+        type to create, a cExpression with the initial value, and
+        a cActualFctParamList with any placement new options</dd>
+      <dt>cDestroyExpr</dt><dd>This contains a cExpression with
+        what to delete</dd>
+      <dt>cGoto</dt><dd>This contains a cExpression with where to go</dd>
+      <dt>cReturn</dt><dd>This contains a cExpression with the value to
+                          return</dd>
+      <dt>cThrow</dt><dd>This contains a cExpression with the value to throw</dd>
+      <dt>cIf</dt><dd>This contains a cExpression with the condition, a
+                      cASGNds which should be executed if the condition is true,
+                      and a cASGNds which should be executed if the condition is false.
+        </dd>
+      <dt>cSwitch</dt><dd>This contains a cExpression with the condition, and
+        a cASGNds with the cases</dd>
+      <dt>cWhileDoLoop</dt><dd>This contains a cExpression with the
+        condition and a cASGNds with the code to execute</dd>
+      <dt>cDoWhileLoop</dt><dd>This contains a cExpression with the
+        condition and a cASGNds with the code to execute</dd>
+      <dt>cForLoop</dt><dd>This contains a cASGNds with the initial value,
+        a cExpression with the conditional statement, a cExpression
+        with the increment statement, and a cASGNds with the executable
+        code.</dd>
+      <dt>cUnaryOperator</dt><dd>This contains a cExpression containing
+        the expression to apply the operator to</dd>
+      <dt>cBinaryOperator</dt><dd>This contains two cExpressions representing
+        the left hand and right hand side of the expression</dd>
+      <dt>cQuestionOperator</dt><dd>This contains three cExpression objects
+        representing the expression, true value, and false value.</dd>
+    </dl>
+    <h4><a name="uml">3. A diagram</a></h4>
+    XXX
+    <h4><a name="oper">4. Operations</a></h4>
+    <p>
+      Certain operations are defined on these heirarchies.  Some
+      operations are defined here.  Those that are not defined
+      here are trivial to understand and can be found in the
+      ASG/asgnds.tc file.
+    </p>
+    <p><strong>getType(cIdentifier)</strong>
+      If the cIdentifier is derived from Type, it returns itself.<BR>
+      If the cIdentifeir is a cObject or cFunction, it returns the cType
+      member.<BR>
+      If the cIdentifier is a cConstTemplateParameter, it returns the
+      cType member of its cFormalFctParam member.<BR>
+      Otherwise, it returns NULL
+    </p>
+    <p><strong>setType(cIdentifier)</strong>
+      If the cIdentifier is an cObject, it sets the cType member.<BR>
+      If the cIdentifier is a cConstTemplateParm, it sets the cType
+      member of the cFormalFctParam.<BR>
+      If the cIdentifier is a cFunction, it sets the return
+      type of the function.<BR>
+    </p>
+    <p><strong>setTemplateParms(cType)</strong>
+      If the cType is a cFctType, cForwardType, or cAggrType, the
+      template parameters are set to the list passed in.
+    </p>
+    <h4><a name="visitor">5. Visitor accept</a></h4>
+    <p>Each class also defines a virtual accept method that calls
+      the visit method in the ASGVisitor class passed in.  This
+      is used to add algorithms to the heirarchy without having
+      to modify the treecc file.
+    </p>    
+    <hr>
+    <center><h2><a name="impl">Implementation issues</a></h2></center>
+    <br>
+    <h3><a name="diff">A. Difficulties encountered</a></h3>
+    <br>
+    <p>
+      As with all software projects, <em>keystone</em> has had its share
+      of difficulties.  In this section, we will outline some of the major
+      difficulties that plague the <em>keystone</em> source code.  Much
+      of the ugliness that is present in the source is due to these
+      issues.
+    </p>
+    <h4><a name="prob">1. The fundamental problem</a></h4>
+    <p>
+      The fundamental problem with Token Decorated Parsing is the inability
+      of the parser to execute certain actions without lookahead.
+      This lookahead forces Token Decoration to be performed too early, at
+      times when the correct scope has not been entered.  The classical
+      example of this is
+      <pre>
+      class X {
+         typedef int AT;
+         void f( AT arg );
+      };
+      void X::f( AT arg ) {}
+      </pre>
+      This example poses serious difficulties for Token Decorated parsing.
+      The parser usually needs to see that <code>AT</code> is a type name
+      before it decides that the construct is a function definition.
+      However, prototype scope has not yet been entered, since prototype
+      scope is only entered once the construct has been identified.
+      Therefore, AT is looked up in global scope and not found.
+      Another example of the same problem is
+      <pre>
+      template<class T> class X : public T {};
+      </pre>
+      In this case, the opening bracket ({) must be seen before class
+      scope is entered; however, T must be looked up in the class scope's
+      template scope.  Once again, the lookahead has caused a problem
+      with token decoration.    
+    </p>
+    <h4><a name="remember">2. Remembering qualified context</a></h4>
+    <p>
+      A second problem with parsing C++ is remembering the qualified
+      context in the face of templates.  In a non templated language,
+      remembering the qualified context is trivial.  For example,
+      <code>A::B::C</code> can be used to illustrate the fact that the
+      qualified context for B is A, and the qualified context of
+      C is the B and its qualified context.  Therefore, you only
+      need two lookbehind tokens to store the qualified context.
+      In C++, an additional ~ may be interspersed between the ::
+      and the identifier for destructors (e.g. X::~X) giving rise
+      to the need for three lookbehind tokens.  However, with
+      templates, and the template syntax, an unknown number
+      of lookbehind tokens are needed.  For example,
+      <pre>
+        template<int i, class T> class X{
+            template<class J> class A {
+               struct B {};
+            };
+        };
+        X<17,char>::A<X<17,float>::A>::B
+      </pre>
+      From this example it can be seen that determining qualified context
+      is not a trivial matter.
+    </p>
+    <h4><a name="id_template">3. ID_template_name issues</a></h4>
+    <p>
+      The grammar provided by the ISO C++ committee mandates a number
+      of decorated tokens such as ID_class_name and ID_typedef_name.
+      One might thing that each template function or class should
+      be decorated as an ID_template_name.  However, the grammar
+      only wants an ID_template_name when it is used in a template_id
+      expression: <code>ID_template_name LESS template_argument_list GREATER</code>.
+      Therefore, a lookahead must be done to see if the next token is LESS.
+      If so, the current token may be decorated as an ID_template_name, otherwise
+      it should receieve some other decoration.<BR>
+      Secondly, there may be some dispute over what a template parameter
+      should be decorated as.  The standard does not identifier a
+      ID_template_parameter_name.  It would seem logical to decorate it
+      as an ID_typedef_name; however, this fails to resolve to a
+      class_or_namespace_name which the template parameter might be.  Therefore,
+      ID_class_name was chosen as the decorated token for template parameters.
+    </p>
+    <h4><a name="prec">4. Precedence issues</a></h4>
+    <p>
+      There are a number of ambiguities in the C++ grammar which cannot
+      be solved by token decoration without modification of the grammar.
+      One in particular is the difference between a declaration
+      and an initializer.
+      <pre>
+        X (f);
+      </pre>
+       has two possible derivations.  The first (and correct) one
+       is a declaration of f with type int.  The second one is a
+       declaration of variable X with implicit type int and initializer f.
+    </p>
+    <h4><a name="gram">5. Grammar issues</a></h4>
+    <p>
+      One grammar issue was uncovered during the creation of <em>keystone</em>
+      that required modification of the grammar.  An elaborated_type_specifier
+      and a postfix_expression both had derivations that should have allowed
+      for template_ids but did not.
+    </p><BR>
+    <h3><a name="sol">B. Solutions</a></h3>
+    <br>
+    <p>This section will outline some of the solutions for the
+      problems presented in the previous section.
+    </p>
+    <h4><a name="curb">1. Curbing lookahead</a></h4>
+    <p>As we discussed in the previous section, lookahead is the
+       bane of token decorated parsing.  However, there are usually
+       ways to find a "valid" point in the parse, stop the trial parse,
+       and execute all of the actions up to that point thereby resetting
+       lookahead back to zero.  In BTYACC, this command is called YYVALID.
+       A YYVALID call is placed after all left and right brackets ({})
+       as well as all semicolons (;).  Furthermore, it is used to solve
+       the function problem above.  If the left paren has been seen,
+       and the previous identifier was a known function, then we call
+       YYVALID which will execute the previous actions and put us
+       in prototype scope.  Then, name lookup and token decoration
+       can proceed unfettered.
+    <h4><a name="stack">2. A stack of NameDeclarations</a></h4>
+    <p>
+      To solve the problem of qualified name lookup, we use a stack
+      of NameDeclaration objects.  Everytime an ID_template_name is
+      decorated, we save the identifier on a stack.  When a template
+      scope is exited, we pop the identifier off the stack and
+      associate it with the GREATER token that ended the scope.
+    </p><BR>
+    <h3><a name="validate">C. Validation</a></h3>
+    <br>
+    <p>This section will examine the assertions and invariants that
+       are present throughout the <em>keystone</em> system.  Furthermore,
+       it will look at invariants that should be true but are not
+       for various reasons
+    </p>
+    <p><strong><a name="assert">1. Assertions</a></strong>
+      Various assertions are made throughout the <em>keystone</em>
+      system using the MAKE_ASSERTION macro.  MAKE_ASSERTION creates
+      an object of type Assertion which will throw itself if its
+      condition is violated.  The test program will catch these
+      assertions and print them to the screen if one is thrown.
+      <table border><caption>The Assertions</caption>
+        <tr><th>file</th><th>function</th><th>assertion</th></tr>
+        <tr>
+          <td>ActionFacade.cpp</td><td>lookupUnqualifiedName</td>
+          <td>The input NameOccurrence object cannot be NULL</td>
+        </tr>
+        <tr>
+          <td>ActionFacade.cpp</td><td>lookupQualifiedName</td>
+          <td>The input NameOccurrence object cannot be NULL</td>
+        </tr>
+        <tr>
+          <td>ActionFacade.cpp</td><td>lookupPseudoDestructor</td>
+          <td>The input NameDeclaration objects cannot be NULL</td>
+        </tr>
+        <tr>
+          <td>ActionFacade.cpp</td><td>useDeclaration</td>
+          <td>The input NameDeclaration object cannot be NULL</td>
+        </tr>
+        <tr>
+          <td>ActionFacade.cpp</td><td>useDeclaration</td>
+          <td>The input NameDeclaration object must be in the symbol table</td>
+        </tr>        
+        <tr>
+          <td>ActionFacade.cpp</td><td>useNamespace</td>
+          <td>The input NameDeclaration object cannot be NULL</td>
+        </tr>        
+        <tr>
+          <td>ActionFacade.cpp</td><td>useNamespace</td>
+          <td>The input NameDeclaration object's type must be namespace type</td>
+        </tr>        
+        <tr>
+          <td>ActionFacade.cpp</td><td>insertLocal</td>
+          <td>The input NameDeclaration object cannot be NULL</td>
+        </tr>        
+        <tr>
+          <td>ActionFacade.cpp</td><td>moveIntoClassScope</td>
+          <td>The input NameDeclaration object cannot be NULL</td>
+        </tr>        
+        <tr>
+          <td>ActionFacade.cpp</td><td>moveIntoNamespaceScope</td>
+          <td>The input NameDeclaration object cannot be NULL</td>
+        </tr>        
+        <tr>
+          <td>ActionFacade.cpp</td><td>moveIntoAnonNamespace</td>
+          <td>The input NameDeclaration object cannot be NULL</td>
+        </tr>        
+        <tr>
+          <td>ActionFacade.cpp</td><td>moveIntoPrototypeScope</td>
+          <td>The input NameDeclaration object cannot be NULL</td>
+        </tr>        
+        <tr>
+          <td>ActionFacade.cpp</td><td>moveIntoFunctionScope</td>
+          <td>The input NameDeclaration object cannot be NULL</td>
+        </tr>        
+        <tr>
+          <td>ActionFacade.cpp</td><td>moveIntoFunctionScope</td>
+          <td>The input NameDeclaration object must be in the symbol table</td>
+        </tr>
+        <tr>
+          <td>ActionFacade.cpp</td><td>moveIntoFunctionScope</td>
+          <td>The input NameDeclaration object must have function prototype type</td>
+        </tr>
+        <tr>
+          <td>ActionFacade.cpp</td><td>installBaseClass</td>
+          <td>The base class NameDeclaration object cannot be NULL.</td>
+        </tr>
+        <tr>
+          <td>ActionFacade.cpp</td><td>installBaseClass</td>
+          <td>The base class must be of Class type, template parameter type,
+              or template template parameter type.</td>
+        </tr>
+        <tr>
+          <td>ActionFacade.cpp</td><td>makeFriend</td>
+          <td>The current scope must not be NULL</td>
+        </tr>
+        <tr>
+          <td>ActionFacade.cpp</td><td>makeFriend</td>
+          <td>The input NameDeclaration object must have a type</td>
+        </tr>        
+        <tr>
+          <td>ActionFacade.cpp</td><td>makeFriend</td>
+          <td>The containing scope must be a ClassScope</td>
+        </tr>        
+        <tr>
+          <td>ActionFacade.cpp</td><td>makeTypedef</td>
+          <td>The input NameDeclaration object must not be NULL </td>
+        </tr>        
+        <tr>
+          <td>ActionFacade.cpp</td><td>makeInstance</td>
+          <td>The input NameDeclaration object must not be NULL </td>
+        </tr>        
+        <tr>
+          <td>ArgumentStack.cpp</td><td>endArgumentList</td>
+          <td>The argument list cannot be empty</td>
+        </tr>        
+        <tr>
+          <td>ArgumentStack.cpp</td><td>getArgumentList</td>
+          <td>The argument list cannot be empty</td>
+        </tr>        
+        <tr>
+          <td>ContextManager.cpp</td><td>getCurrentClassScope</td>
+          <td>The nestedScopes stack cannot be empty</td>
+        </tr>        
+        <tr>
+          <td>ContextManager.cpp</td><td>installBaseInCurrentScope</td>
+          <td>The current scope must be a class scope</td>
+        </tr>        
+        <tr>
+          <td>ContextManager.cpp</td><td>useNamespace</td>
+          <td>The input NameDeclaration object's corresponding scope
+             must be a namespace scope</td>
+        </tr>
+        <tr>
+          <td>ContextManager.cpp</td><td>moveIntoAnonNamespace</td>
+          <td>The current scope must be namespace scope</td>
+        </tr>
+        <tr>
+          <td>ContextManager.cpp</td><td>insertLocal</td>
+          <td>The nested scopes stack cannot be empty</td>
+        </tr>
+        <tr>
+          <td>ContextManager.cpp</td><td>useDeclaration</td>
+          <td>The input NameDeclaration object's type cannot be NULL</td>
+        </tr>
+        <tr>
+          <td>DeclarationStack.cpp</td><td>top</td>
+          <td>The stack cannot be empty</td>
+        </tr>
+        <tr>
+          <td>DeclarationStack.cpp</td><td>push</td>
+          <td>The input NameDeclaration object cannot be NULL</td>
+        </tr>
+        <tr>
+          <td>DeclarationStack.cpp</td><td>push</td>
+          <td>The input Type object cannot be NULL</td>
+        </tr>
+        <tr>
+          <td>LookupController.cpp</td><td>lookupQualifiedName</td>
+          <td>The input NameOccurrence object cannot have
+              a NULL qualifier.</td>
+        </tr>
+        <tr>
+          <td>LookupController.cpp</td><td>lookupQualifiedName</td>
+          <td>The input NameOccurrence object's qualifier's corresponding
+              scope cannot be NULL.</td>
+        </tr>
+        <tr>
+          <td>LookupController.cpp</td><td>lookupQualifiedName</td>
+          <td>The input NameOccurrence object's qualifier's corresponding
+              scope cannot be NULL.</td>
+        </tr>
+        <tr>
+          <td>LookupController.cpp</td><td>lookupPseudoDestructor</td>
+          <td>The input NameDeclaration objects cannot be NULL.</td>
+        </tr>
+        <tr>
+          <td>TokenBuffer.cpp</td><td>getNameOccurrence</td>
+          <td>An IDENTIFIER preceeding a COLCOL must have a valid
+              NameDeclaration object attached to it.</td>
+        </tr>
+        <tr>
+          <td>TokenDecorator.cpp</td><td>getCSIdent</td>
+          <td>The input NameDeclaration object must not be NULL</td>
+        </tr>
+        <tr>
+          <td>Type.cpp</td><td>FunctionType::FunctionType</td>
+          <td>The input NameDeclaration object must not be NULL</td>
+        </tr>
+        <tr>
+          <td>Type.cpp</td><td>FunctionType::print</td>
+          <td>The NameDeclaration for the function must not be NULL</td>
+        </tr>
+        <tr>
+          <td>Type.cpp</td><td>IndirectType::print</td>
+          <td>The indirection type must be IT_ARRAY, IT_POINTER,
+              or IT_REFERENCE</td>
+        </tr>
+        <tr>
+          <td>actions.cpp</td><td>condition</td>
+          <td>The identifier passed to condition must be of type cObject</td>
+        </tr>
+        <tr>
+          <td>actions.cpp</td><td>direct_declarator_arr</td>
+          <td>The identifier passed to condition must be of type cObject</td>
+        </tr>
+        <tr>
+          <td>NameDeclaration.cpp</td><td>addReference</td>
+          <td>The TokenPosn passed in cannot be NULL</td>
+        </tr>
+        <tr>
+          <td>NameDeclaration.cpp</td><td>takeReference</td>
+          <td>The reference list size cannot be NULL</td>
+        </tr>
+        <tr>
+          <td>Scope.cpp</td><td>Scope::insertLocal</td>
+          <td>The input NameDeclaration object cannot be NULL</td>
+        </tr>
+        <tr>
+          <td>Scope.cpp</td><td>Scope::undoRecentInsertLocal</td>
+          <td>The list of local NameDeclarations cannot be empty</td>
+        </tr>
+        <tr>
+          <td>Scope.cpp</td><td>Scope::undoRecentInsertLocal</td>
+          <td>The list of local NameDeclarations cannot be empty</td>
+        </tr>
+        <tr>
+          <td>Scope.cpp</td><td>Scope::undoRecentInsertLocal</td>
+          <td>The back of the locals list must be the same as the
+              input NameDeclaration</td>
+        </tr>
+        <tr>
+          <td>Scope.cpp</td><td>Scope::lookup</td>
+          <td>The input NameOccurrence object cannot be qualified</td>
+        </tr>
+        <tr>
+          <td>Scope.cpp</td><td>FunctionScope::lookup</td>
+          <td>The input NameOccurrence object cannot be qualified</td>
+        </tr>
+        <tr>
+          <td>Scope.cpp</td><td>LocalScope::lookup</td>
+          <td>The input NameOccurrence object cannot be qualified</td>
+        </tr>
+        <tr>
+          <td>Scope.cpp</td><td>TemplateParameterScope::lookup</td>
+          <td>The input NameOccurrence object cannot be qualified</td>
+        </tr>
+    </table>
+    </p>
+    <p><strong><a name="invar">2. Invariants</a></strong>
+      Invariants are executed at the end of the program and affect classes
+      in the Scope and Type heirarchy, as well as, the NameDeclaration class.
+      <table border><caption>The Invariants</caption>
+        <tr><th>Class</th><th>Invariant</th></tr>
+        <tr><td>Scope</td><td>The NameDeclaration object corresponding
+            to this scope implies that the corresponding scope for
+            the NameDeclaration is the same as the scope under scrutiny.</td>
+        </tr>
+        <tr><td>Scope</td><td>Either the containing scope is not NULL,
+          or the scope's name is "_GlobalNamespace".</td>
+        </tr>
+        <tr><td>Scope</td><td>All of the local objects should have a containing
+          scope that is equal to the scope under scrutiny.</td>
+        </tr>
+        <tr><td>FunctionScope</td>
+          <td>The prototype scope's name should be the same as the
+              FunctionScope under scrutiny's name.</td>
+        </tr>
+        <tr><td>FunctionScope</td>
+          <td>The containing scope should be a class or namespace scope.</td>
+        </tr>
+        <tr><td>PrototypeScope</td>
+          <td>None of the local declarations may be of NamespaceType.</td>
+        </tr>
+        <tr><td>PrototypeScope</td>
+          <td>The containing scope must be a NamespaceScope, ClassScope,
+              PrototypeScope, or LocalScope.</td>
+        </tr>
+        <tr><td>LocalScope</td>
+          <td>The NameDeclaration object must be NULL.</td>
+        </tr>
+        <tr><td>LocalScope</td>
+          <td>None of the local declarations may be of NamespaceType.</td>
+        </tr>
+        <tr><td>LocalScope</td>
+          <td>The containing scope must be LocalScope or FunctionScope.</td>
+        </tr>
+        <tr><td>NamespaceScope</td>
+          <td>The containing scope must be a NamespaceScope.</td>
+        </tr>
+        <tr><td>ClassScope</td>
+          <td>None of the local declarations may be of NamespaceType.</td>
+        </tr>
+        <tr><td>ClassScope</td>
+          <td>The containig scope must be a NamespaceScope, ClassScope,
+              or LocalScope</td>
+        </tr>
+        <tr><td>NameDeclaration</td>
+          <td>The containing scope not NULL implies that
+           the corresponding scope is not equal to the containing scope.</td>
+        </tr>
+        <tr><td>NameDeclaration</td>
+          <td>The corresponding scope cannot be a LocalScope.</td>
+        </tr>
+        <tr><td>NameDeclaration</td>
+          <td>If the type is ClassType and it is an instance, then
+              the corresponding scope should be NULL.</td>
+        </tr>        
+        <tr><td>NameDeclaration</td>
+          <td>If the type is NamespaceType, then
+              the corresponding scope should be a NamespaceScope.</td>
+        </tr>        
+        <tr><td>NameDeclaration</td>
+          <td>If the type is FunctionType, then
+              the corresponding scope should be FunctionScope or a PrototypeScope.</td>
+        </tr>        
+        <tr><td>NameDeclaration</td>
+          <td>If the type is DT_FUNCTION_PROTOTYPE, then
+              the corresponding scope should be ProtypeScope or NULL</td>
+        </tr>        
+        <tr><td>NameDeclaration</td>
+          <td>If the type is DT_FUNCTION_DEFINITION, then
+              the corresponding scope should be FunctionScope or NULL</td>
+        </tr>        
+        <tr><td>NameDeclaration</td>
+          <td>If the virtual attribute is set, the containing scope should be set and
+              they type should be FunctionType.</td>
+        </tr>        
+        <tr><td>NameDeclaration</td>
+          <td>If the pure attribute is set, then the virtual attribute should be set.</td>
+        </tr>        
+        <tr><td>NameDeclaration</td>
+          <td>If the Friend attribute is set, then the type should be function or class type.</td>
+        </tr>        
+        <tr><td>NameDeclaration</td>
+          <td>If the Static attribute is set, then the type should not be NamespaceType.</td>
+        </tr>        
+        <tr><td>NameDeclaration</td>
+          <td>If the const attribute is set, then it must be an instance or have
+              FunctionType.</td>
+        </tr>        
+        <tr><td>BasicType</td>
+          <td>The NameDeclaration of this type must be NULL.</td>
+        </tr>        
+        <tr><td>FunctionType</td>
+          <td>The NameDeclaration of this type must not be NULL.</td>
+        </tr>        
+        <tr><td>FunctionType</td>
+          <td>The Type of NameDeclaration of this type must not be NULL.</td>
+        </tr>        
+        <tr><td>FunctionType</td>
+          <td>The return type of this type must not be NULL.</td>
+        </tr>        
+        <tr><td>FunctionType</td>
+          <td>The corresponding NameDeclaration's type cannot be NamespaceType.</td>
+        </tr>        
+        <tr><td>FunctionType</td>
+          <td>The return type cannot have NamespaceType.</td>
+        </tr>        
+        <tr><td>IndirectType</td>
+          <td>The reference type must not be NULL.</td>
+        </tr>        
+        <tr><td>ClassType</td>
+          <td>The NameDeclaration object's type must be of ClassType.</td>
+        </tr>        
+        <tr><td>EnumType</td>
+          <td>The NameDeclaration object's type must be of EnumType.</td>
+        </tr>        
+        <tr><td>NamespaceType</td>
+          <td>The NameDeclaration object's type must be of NamespaceType.</td>
+        </tr>        
+        </table>
+    </p>
+    <p><strong><a name="valprob">3. Problems</a></strong>
+      The current problem with the invariant system is that it cannot be extended to
+      the traditional class invariant system because most of the invariants only
+      become true after a certain period of time and it would be cumbersome to
+      install a modality into them.  Therefore, new ways of checking and denoting
+      invariants are being investigated.
+    </p><br>
+    <h3><a name="asgissues">D. Abstract Syntax Graph</a></h3>
+      There are two major issues surrounding the ASG and Treecc.
+      <a name="tccversion">First</a>, the current
+      version of Treecc available for download (0.1.4) contains a bug which impedes
+      the compilation of <em>keystone</em>.  A patched version exists in the CVS tree.
+      <a name="create_visitor">Second</a>, creating Visitors by hand is painful
+      and error prone.  To solve this problem, we created another script,
+     create_visitor.pl, which automates the process.  The usage is:
+     <code>create_visitor.pl</code>.  It will prompt for a visitor
+      name.  It will then create a .cpp and .h file corresponding to the name you entered.
+      The .h and .cpp files will contain a skeleton visitor that can be filled in
+      by the user.  The skeleton file is autogenerated from the Visitor.h file so
+      that any modifications to the base class are automatically incorporated into
+      the script.
+    <br>
+    <hr>
+    <center><h2><a name="misc">Miscellaneous Notes</a></h2></center>
+    <br>
+    <h3><a name="features">A. Upcoming features</a></h3>
+    <br>
+    <p><UL><LI>There will be a symbol table available with the ASG which allows name lookup
+          and cross referencing</LI>
+           <LI>Expanded invariants</LI>
+           <LI>An option to print the syntax tree in TA or GXL</LI>
+      </UL>
+    </p>
+    <hr>
+    <address><a href="mailto:thgibbs@cs.clemson.edu"></a></address>
+<!-- Created: Sat Sep 21 18:17:14 EDT 2002 -->
+<!-- hhmts start -->
+Last modified: Mon Sep 23 02:09:25 EDT 2002
+<!-- hhmts end -->
+  </body>
+</html>

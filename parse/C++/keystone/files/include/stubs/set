@@ -1,0 +1,188 @@
+
+#ifndef _STL_SET_
+#define _STL_SET_
+
+#include <cstddef>
+#include "allocator.h"
+#include <functional>
+#include <iterator>
+#include <utility>
+
+namespace std
+{
+   template <class Key, class Compare = less<Key>,
+      class Allocator = allocator<Key> >
+   class set
+   {
+   public:
+      typedef Key 		key_type;
+      typedef Key		value_type;
+      typedef Compare		key_compare;
+      typedef Compare value_compare;
+      typedef Allocator allocator_type;
+      typedef value_type& reference;
+      typedef const Key& const_reference;
+      typedef Key* iterator;
+      typedef const Key* const_iterator;
+      typedef size_t          size_type;
+      typedef ptrdiff_t       difference_type;
+      typedef value_type*     pointer;
+      typedef const Key*        const_pointer;
+      typedef std::reverse_iterator<iterator> reverse_iterator;
+      typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
+
+      explicit set(const Compare& = Compare(), const Allocator& = Allocator());
+      template <class InputIterator> set(InputIterator, InputIterator, 
+         const Compare& = Compare(), const allocator<Key>& = Allocator());
+
+      set(const set<Key,Compare,Allocator>& );
+      ~set();
+      set<Key,Compare,Allocator>& operator=(const set<Key,Compare,Allocator>&);
+      allocator_type get_allocator() const;
+
+      iterator begin();
+      const_iterator begin() const;
+      iterator end();
+      const_iterator end() const;
+      reverse_iterator rbegin();
+      const_reverse_iterator rbegin() const;
+      reverse_iterator rend();
+      const_reverse_iterator rend() const;
+
+      bool empty() const;
+      size_type size() const;
+      size_type max_size() const;
+
+      pair<iterator, bool> insert(const value_type&);
+      iterator insert(iterator, const value_type&);
+      template <class InputIterator> void insert(InputIterator, InputIterator);
+
+      void erase(iterator);
+      size_type erase(const key_type&);
+      void erase(iterator, iterator);
+      void swap(set<Key,Compare,Allocator>&);
+      void clear();
+
+      key_compare key_comp() const;
+      value_compare value_comp() const;
+
+      iterator find(const key_type&) const;
+      size_type count(const key_type&) const;
+
+      iterator lower_bound(const key_type&) const;
+      iterator upper_bound(const key_type&) const;
+      pair<iterator,iterator> equal_range(const key_type&) const;
+   };
+
+   template <class Key, class Compare, class Allocator>
+     bool operator==(const set<Key,Compare,Allocator>&,
+        const set<Key,Compare,Allocator>&);
+   template <class Key, class Compare, class Allocator>
+     bool operator<(const set<Key,Compare,Allocator>&,
+        const set<Key,Compare,Allocator>&);
+   template <class Key, class Compare, class Allocator>
+     bool operator!=(const set<Key,Compare,Allocator>&,
+        const set<Key,Compare,Allocator>&);
+   template <class Key, class Compare, class Allocator>
+     bool operator>(const set<Key,Compare,Allocator>&,
+        const set<Key,Compare,Allocator>&);
+   template <class Key, class Compare, class Allocator>
+     bool operator>=(const set<Key,Compare,Allocator>&,
+        const set<Key,Compare,Allocator>&);
+   template <class Key, class Compare, class Allocator>
+     bool operator<=(const set<Key,Compare,Allocator>&,
+        const set<Key,Compare,Allocator>&);
+   template <class Key, class Compare, class Allocator>
+     bool swap(const set<Key,Compare,Allocator>&,
+        const set<Key,Compare,Allocator>&);
+
+  template <class Key, class Compare = less<Key>,
+      class Allocator = allocator<Key> >
+   class multiset
+   {
+   public:
+      typedef Key       key_type;
+      typedef Key       value_type;
+      typedef Compare      key_compare;
+      typedef Compare value_compare;
+      typedef Allocator allocator_type;
+      typedef value_type& reference;
+      typedef const Key& const_reference;
+      typedef Key* iterator;
+      typedef const Key* const_iterator;
+      typedef size_t  size_type;
+      typedef ptrdiff_t  difference_type;
+      typedef value_type*pointer;
+      typedef const Key*   const_pointer;
+      typedef std::reverse_iterator<iterator> reverse_iterator;
+      typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
+
+      explicit multiset(const Compare& = Compare(), const Allocator& = Allocator());
+      template <class InputIterator> multiset(InputIterator, InputIterator,
+         const Compare& = Compare(), const allocator<Key>& = Allocator());
+
+      multiset(const multiset<Key,Compare,Allocator>& );
+      ~multiset();
+      multiset<Key,Compare,Allocator>& operator=(const multiset<Key,Compare,Allocator>&);
+      allocator_type get_allocator() const;
+
+      iterator begin();
+      const_iterator begin() const;
+      iterator end();
+      const_iterator end() const;
+      reverse_iterator rbegin();
+      const_reverse_iterator rbegin() const;
+      reverse_iterator rend();
+      const_reverse_iterator rend() const;
+
+      bool empty() const;
+      size_type size() const;
+      size_type max_size() const;
+
+      pair<iterator, bool> insert(const value_type&);
+      iterator insert(iterator, const value_type&);
+      template <class InputIterator> void insert(InputIterator, InputIterator);
+
+      void erase(iterator);
+      size_type erase(const key_type&);
+      void erase(iterator, iterator);
+      void swap(multiset<Key,Compare,Allocator>&);
+      void clear();
+
+      key_compare key_comp() const;
+      value_compare value_comp() const;
+
+      iterator find(const key_type&) const;
+      size_type count(const key_type&) const;
+
+      iterator lower_bound(const key_type&) const;
+      iterator upper_bound(const key_type&) const;
+      pair<iterator,iterator> equal_range(const key_type&) const;
+   };
+
+   template <class Key, class Compare, class Allocator>
+     bool operator==(const multiset<Key,Compare,Allocator>&,
+        const multiset<Key,Compare,Allocator>&);
+   template <class Key, class Compare, class Allocator>
+     bool operator<(const multiset<Key,Compare,Allocator>&,
+        const multiset<Key,Compare,Allocator>&);
+   template <class Key, class Compare, class Allocator>
+     bool operator!=(const multiset<Key,Compare,Allocator>&,
+        const multiset<Key,Compare,Allocator>&);
+   template <class Key, class Compare, class Allocator>
+     bool operator>(const multiset<Key,Compare,Allocator>&,
+        const multiset<Key,Compare,Allocator>&);
+   template <class Key, class Compare, class Allocator>
+     bool operator>=(const multiset<Key,Compare,Allocator>&,
+        const multiset<Key,Compare,Allocator>&);
+   template <class Key, class Compare, class Allocator>
+     bool operator<=(const multiset<Key,Compare,Allocator>&,
+        const multiset<Key,Compare,Allocator>&);
+   template <class Key, class Compare, class Allocator>
+     bool swap(const multiset<Key,Compare,Allocator>&,
+        const multiset<Key,Compare,Allocator>&);
+
+}
+
+#endif
+

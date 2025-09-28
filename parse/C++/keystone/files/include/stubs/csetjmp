@@ -1,0 +1,22 @@
+
+#ifndef __STL_CSETJMP__
+#define __STL_CSETJMP__
+
+
+
+typedef struct jmp_buf_tag  /* C++ doesn't like tagless structs.  */
+  {
+    /* NOTE: The machine-dependent definitions of `__sigsetjmp'
+       assume that a `jmp_buf' begins with a `__jmp_buf' and that
+       `__mask_was_saved' follows it.  Do not move these members
+       or add others before it.  */
+    int jmpbuf[6];    /* Calling environment.  */
+    int mask_was_saved;  /* Saved the signal mask?  */
+    long saved_mask[32];  /* Saved signal mask.  */
+  } jmp_buf[1];
+
+  using ::jmp_buf;
+  //using ::longjmp;
+int setjmp (jmp_buf __env);
+
+#endif

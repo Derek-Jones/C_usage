@@ -1,0 +1,9 @@
+// FOO
+/* BAR */
+BAZ
+#include "whatever.h"
+
+         MOBY {
+} QUUX
+
+QUUUX

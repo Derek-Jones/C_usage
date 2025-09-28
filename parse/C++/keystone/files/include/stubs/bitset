@@ -1,0 +1,92 @@
+
+#ifndef _STL_BITSET_
+#define _STL_BITSET_
+
+#include <cstddef>
+#include <string>
+#include <stdexcept>
+#include <iosfwd>
+
+namespace std
+{
+
+   template<size_t N>
+   class bitset
+   {
+   public:
+      // bit reference
+      class reference
+      {
+         friend class bitset;
+         reference();
+      public:
+         ~reference();
+         reference& operator=(bool);
+         reference& operator=(const reference&);
+         bool operator~() const;
+         operator bool() const;
+         reference& flip();
+      };
+
+      // 23.3.5.1, constructors:
+      bitset();
+      bitset(unsigned long);
+      template<class charT, class traits, class Allocator>
+      explicit bitset(
+         const basic_string<charT, traits, Allocator>&,
+         typename basic_string<charT, traits, Allocator>::size_type = 0,
+         typename basic_string<charT, traits, Allocator>::size_type = -1);
+//            = basic_string<charT, traits, Allocator>::npos);
+
+      // 20.3.5.2, bitset operations:
+      bitset<N>& operator&=(const bitset<N>&);
+      bitset<N>& operator|=(const bitset<N>&);
+      bitset<N>& operator^=(const bitset<N>&);
+      bitset<N>& operator<<=(size_t);
+      bitset<N>& operator>>=(size_t);
+      bitset<N>& set();
+      bitset<N>& set(size_t, int = true);
+      bitset<N>& reset();
+      bitset<N>& reset(size_t);
+      bitset<N>& operator~() const;
+      bitset<N>& flip();
+      bitset<N>& flip(size_t);
+
+      // element access:
+      reference operator[](size_t);
+
+      unsigned long to_ulong() const;
+      template<class charT, class traits, class Allocator>
+      basic_string<charT, traits, Allocator> to_string() const;
+      size_t count() const;
+      size_t size() const;
+      bool operator==(const bitset<N>&) const;
+      bool operator!=(const bitset<N>&) const;
+      bool test(size_t) const;
+      bool any() const;
+      bool none() const;
+      bitset<N> operator<<(size_t) const;
+      bitset<N> operator>>(size_t) const;
+   };
+
+   // 23.3.5.3, bitset operations:
+   template<size_t N>
+   bitset<N> operator&(const bitset<N>&, const bitset<N>&);
+   template<size_t N>
+   bitset<N> operator^(const bitset<N>&, const bitset<N>&);
+   template<size_t N>
+   bitset<N> operator|(const bitset<N>&, const bitset<N>&);
+
+   template<class charT, class traits, size_t N>
+   basic_istream<charT, traits>&
+   operator>>(basic_istream<charT, traits>&, bitset<N>&);
+
+   template<class charT, class traits, size_t N>
+   basic_ostream<charT, traits>&
+   operator<<(basic_ostream<charT, traits>&, const bitset<N>&);
+
+} // end namespace std
+
+
+#endif
+

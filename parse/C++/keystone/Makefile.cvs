@@ -1,0 +1,13 @@
+
+default: all
+
+all: configure
+
+configure: configure.ac
+	@autoreconf --install
+
+clean:
+	@if [ -f Makefile ]; then make distclean; fi || true
+	@rm -rvf aclocal.m4 configure config.*
+	@rm -rvf config *.cache
+	@rm -rvf `find . -name Makefile.in`

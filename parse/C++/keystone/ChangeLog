@@ -1,0 +1,362 @@
+
+#
+# Daily Changes
+#
+
+2004-09-27  Nick Kraft <nkraft@cs.clemson.edu>
+	* add primitive types directly to the Global Scope
+	* worked on resolution of cForwardType - can't get enough info
+	* cForwardType nodes should be added to the containing scope of their declaration
+	* cannot resolve cForwardType at compile-time because we cannot get the most recent decl from the
+    containing scope during the parse since we don't have owning namespaces for cForwardType when
+    it is created - we need nodes, not Types and Scopes from the action facade
+
+
+2004-09-26  Nick Kraft <nkraft@cs.clemson.edu>
+	* cSwitch, cIf, cForLoop, cDoWhileLoop, cWhileDoLoop - changed the children from cAsgNds to cBlock nodes
+	* cFunction - changed the block from cAsgNds to cBlock node
+	* elimination of cObjectList from final tree (are used internally to pass info upstream)
+
+2004-09-22  Nick Kraft <nkraft@cs.clemson.edu>
+	* KEEP TRACK OF CHANGES
+	* Merged all ChangeLog files to this one
+	* Moved Keystone parser into parser directory
+	* Moved Schema declarations into schema directory
+	* Will create new src level directory for new ASG
+	* key-conf now parser-conf
+	* key.conf now parser.conf
+	* config.mk moved to parser directory
+
+2004-09-11  Nick Kraft <nkraft@cs.clemson.edu>
+	* worked on PrintCodeVisitor
+		* remaining problem constructs
+			* Allocator() - seen as cast
+			* Function Pointers
+		* other than these problems standard-schema.cpp with iostream and resulting stubs goes through
+
+2004-09-10  Nick Kraft <nkraft@cs.clemson.edu>
+	* worked on PrintCodeVisitor
+		* fixed templates
+		* fixed some cForwardType template issues
+		* attached m_parent_scope to class members during parse
+		* fixed cBinaryOperator ( special case of "[]" )
+		* still fail here:
+			* typedef void (*event_callback)(event, ios_base&, int);
+			* due to function pointers
+		* still don't have non-template cForwardType being named "class" when child of cObjectList
+
+2004-08-21  Nick Kraft <nkraft@cs.clemson.edu>
+	* updated gpl header in each file to match new keystone home on sourceforge
+
+2004-08-09  Nick Kraft <nkraft@cs.clemson.edu>
+	* rewrote key-conf in perl (was cpp with flex/bison)
+
+2004-07-29  Nick Kraft <nkraft@cs.clemson.edu>
+	* Began eliminating global variables
+
+2004-07-28  Nick Kraft <nkraft@cs.clemson.edu>
+	* Makefile
+			changed keydir to get pwd of parent directory
+			  this allows for inclusion of stub headers when cpp is run
+				note that this was not changed for subdirs since we only
+				  use the STUB_INCLUDE macro in main.cpp
+	* main.cpp
+			added functionality to run cpp before the parse
+			added message for successful parse
+
+2004-07-03  Nick Kraft <nkraft@cs.clemson.edu>
+	* main.cpp - cleanup, figure out macros
+
+2004-06-08  Nick Kraft <nkraft@cs.clemson.edu>
+	* Applied GPL to all files
+
+2004-04-22  Nick Kraft <nkraft@cs.clemson.edu>
+	* src.mk - moved functions to ../keystone.mk
+
+2004-04-20  Nick Kraft <nkraft@cs.clemson.edu>
+	* Directory - reorganized
+	* src.mk    - added function pathsearch (from gmake docs)
+							- added function checktool  (homegrown)
+	* Makefile  - added .configure target to check for g++,flex,btyacc,treecc
+
+2004-09-13  Nick Kraft <nkraft@cs.clemson.edu>
+	* moved types directory to processor
+
+2004-09-12  Nick Kraft <nkraft@cs.clemson.edu>
+	* SemanticActions.cpp
+		* iteration_statement_do, iteration_statement_while, iteration_statement_for
+			* added code to always put child statments in a cBlock, even when a single statement
+
+2004-08-28  Nick Kraft <nkraft@cs.clemson.edu>
+	* IsoCpp.btyacc
+			* removed non-conformant empty RHS from "parameter_declaration_list"
+	* TokenBuffer.h, TokenDecorator.cpp, IsoCpp.btyacc
+			* decorate INTEGER_LITERAL as PS_LITERAL in case of pure specifier
+				(was previously a hack using constant_initializer - pure_specifier was never reduced)
+
+2004-08-27  Nick Kraft <nkraft@cs.clemson.edu>
+	* IsoCpp.btyacc
+			* changed "expression-statement -> expression ;" to ISO conformant "expression-statement -> expression-opt ;"
+			* reordered RHS's of "access-specifier" to conform to ISO
+			* reordered RHS's of "class-head" to conform to ISO
+			* added non-terminal "boolean_literal"
+			* added non-terminal "unary_operator"
+
+2004-08-26  Nick Kraft <nkraft@cs.clemson.edu>
+	* ContextManager.cpp - getCurrentTemplateScope(bool)
+			* changed iterator to reverse iterator (ie search listOfScopes backwards)
+			  this allows for QNL of static members of templated classes, etc
+			* this caused 14.7.3-16 to pass (introduced no fails)
+
+
+2004-08-21  Nick Kraft <nkraft@cs.clemson.edu>
+	* marked instances in btyacc grammar that are inconsistent with ISO standard with (--NS--)
+	* completed conversion of SemanticActions to a canonical class
+	* numbered rhs in IsoCpp.btyacc
+	* cross-referenced actions in SemanticActions class against rhs numbers in IsoCpp.btyacc
+
+2004-08-06  Nick Kraft <nkraft@cs.clemson.edu>
+	* modified ContextManager constructor to use init list
+	* made global var "inTemplate" from IsoCpp.btyacc a member var in ContextManager
+	* made global vars "saw_member_ptr" and "saw_function_def" from IsoCpp.btyacc member vars in SemanticActions
+
+
+2004-08-05  Nick Kraft <nkraft@cs.clemson.edu>
+	* added LocationTracker.[h|cpp]
+		  class is member of Processor
+	* made Processor class transparent to contained classes
+		  serves only as access point
+		  several classes in Processor now associated through member pointers
+
+2004-08-03  Nick Kraft <nkraft@cs.clemson.edu>
+	* moved actions.[h|cpp] to SemanticActions.[h|cpp]
+		  moved all global variables and free functions into class Actions
+		  for now everything is static, need to figure out what is what before making it a "real" class
+
+2004-08-01  Nick Kraft <nkraft@cs.clemson.edu>
+	* eliminated CppKeywords class
+		  provided extensibility that wasn't needed
+	* KeywordManager.[h|cpp]
+		  changed the way keywords are initialized
+		  lessened the memory requirements of keystone
+	* reworked and fixed recycling
+
+2004-07-29  Nick Kraft <nkraft@cs.clemson.edu>
+	* created Processor.[h|cpp]
+		  singleton class to contain all single instance classes in the parser
+		  replaces use of global variables w/externs
+	* temporarily broke recycling to implement the above (seemed broken anyway)
+	* ActionFacade.[h|cpp]
+		  converted debug_on and setDebug to non-static member/method
+	* actions.[h|cpp]
+		  converted PDEBUG to use __PRETTY_FUNCTION__ (thanks Ed)
+	* IsoCpp.btyacc
+		  converted PDEBUG statements to a new config (YYERROR_DEBUG)
+	* converted P_SENTRY to use __PRETTY_FUNCTION__
+	* *.cpp
+		  add P_SENTRY to important methods that didn't have it
+
+2004-07-28  Nick Kraft <nkraft@cs.clemson.edu>
+	* BtYaccPosn.h - created
+	* IsoCpp.flex
+			added \r to WHITE equiv class
+			fixed do_preprocessor -
+				was setting filename but not line number
+				(caused problems with error messages)
+	* IsoCpp.btyacc
+			enabled YYPOSN position tracking
+			enabled yyerror_detailed
+			overloaded yyerror_detailed to provide coherent error msgs
+			added getTokenText to assist yyerror_detailed
+	* TokenBuffer.cpp
+			enabled yyposn tracking with additions to readToken and getNextToken
+
+2004-07-06  Nick Kraft <nkraft@cs.clemson.edu>
+	* moved free function hasValidChoice
+		from Scope.cpp to ClassScope.cpp (only reference site)
+    and made it a private static member of ClassScope
+	* made free functions occurAsClass and pickBest
+		(they were only used in the Scope hierarchy)
+		static methods of Scope (get rid of pointless externs)
+	* made global variable scope_searched_set a public static
+		member of Scope (used by LookupController in the parser
+		as well as in NamespaceScope)
+	* Reordered data members of NameDeclaration
+		todo: make a bit vector and index it with an existing enum
+
+2004-07-03  Nick Kraft <nkraft@cs.clemson.edu>
+	* ActionFacade.cpp - SENTRY modifications
+	* P_SENTRY <- SENTRY
+
+2004-06-13  Nick Kraft <nkraft@cs.clemson.edu>
+	* TypeEval.treecc - cleanup
+	* TypeEval.treecc - cleanup lines 1-1042
+	* DatrixAsg.treecc - cleanup
+	* class AsgNds <- class ASGNds
+	* AsgNodes.h <- AsgNds.h
+
+2004-06-08  Nick Kraft <nkraft@cs.clemson.edu>
+	* Applied GPL to all files
+	* Sentry.h
+		  converted P_SENTRY to use __PRETTY_FUNCTION__
+
+2004-06-02  Nick Kraft <nkraft@cs.clemson.edu>
+	* Moved Visitor.h to ../utility
+	* Moved Assertion.[h|cpp] to ../utility
+	* Moved Sentry.h to ../utility
+	* AsgNds.h         <- ASG_def.h
+	* AsgTypedef.h     <- ASG_type.h
+	* DatrixAsg.treecc <- asgnds.tc
+	* TypeEval.treecc  <- type_eval.tc
+	* DatrixAsg.h      <- asgnds_tree.h
+	* DatrixAsg.cpp    <- asgnds_tree.cpp
+	* AsgNds.h     - cleanup
+	* AsgTypedef.h - cleanup
+	* Visibility.h - cleanup
+
+2004-05-28  Nick Kraft <nkraft@cs.clemson.edu>
+	* ChangeLog - created
+	* Access.h  - cleanup
+	* Attribute.h   - cleanup
+	* Attribute.cpp - created, moved operator<< from NameDeclaration.cpp
+	* Kind.h   - cleanup
+	* Kind.cpp - created, moved operator<< from NameDeclaration.cpp
+	* NameDeclaration.h   - cleanup
+	* NameDeclaration.cpp - cleanup
+	* Visitor.h - cleanup
+	* created directory scopes
+	* created directory validation
+	* moved Scope.[h|cpp] to scopes
+	* moved Invariant Facilitators/Visitors to validation
+	* Scope.h - cleanup
+	* Scope.cpp - cleanup
+	* Scope.h - split into	ClassScope.h
+									FunctionScope.h
+									LocalScope.h
+									NamespaceScope.h
+									PrototypeScope.h
+									TemplateParameterScope.h
+	* Scope.cpp - split into	ClassScope.cpp
+										FunctionScope.cpp
+										LocalScope.cpp
+										NamespaceScope.cpp
+										PrototypeScope.cpp
+										TemplateParameterScope.cpp
+	* NameDeclarationInvariantFacilitator.h - cleanup
+	* NameDeclarationInvariantFacilitator.cpp - cleanup
+	* NameDeclarationInvariantVisitor.h - cleanup
+	* NameDeclarationInvariantVisitor.cpp - cleanup
+	* ScopeInvariantFacilitator.h - cleanup
+	* ScopeInvariantFacilitator.cpp - cleanup
+	* ScopeInvariantVisitor.h - cleanup
+	* ScopeInvariantVisitor.cpp - cleanup
+
+2004-05-09  Nick Kraft <nkraft@cs.clemson.edu>
+	* actions.cpp - cleanup finished
+
+2004-05-08  Nick Kraft <nkraft@cs.clemson.edu>
+	* LookupController.cpp - cleanup finished
+	* TokenDecorator.cpp - cleanup finished
+
+2004-05-06  Nick Kraft <nkraft@cs.clemson.edu>
+	* Created directories: types validation
+
+2004-05-05  Nick Kraft <nkraft@cs.clemson.edu>
+	* ContextManager.cpp - cleanup finished
+	* LookupController.h - cleanup finished
+	* TokenBuffer.[h|cpp] - cleanup finished
+	* TypeInvariantFacilitator.[h|cpp] - cleanup finished
+	* TypeInvariantVisitor.[h|cpp] - cleanup finished
+	* Type.[h|cpp] - split into multiple files (1 pair per class)
+
+2004-05-04  Nick Kraft <nkraft@cs.clemson.edu>
+	* IsoCpp.btyacc - cleanup finished
+	* ContextManager.h - cleanup finished
+	* ContextManager.cpp - cleanup lines 1-370
+
+2004-05-03  Nick Kraft <nkraft@cs.clemson.edu>
+	* ActionFacade.[h|cpp] - cleanup finished
+	* ArgumentStack.[h|cpp] - cleanup finished
+	* action.cpp - cleanup lines 1180-2440
+	* IsoCpp.flex - cleanup finished
+	* TokenInfo.[h|cpp] - cleanup finished
+	* TokenDecorator.h - cleanup finished
+	* TokenDecorator.cpp - cleanup lines 1-57
+
+2004-04-24  Nick Kraft <nkraft@cs.clemson.edu>
+	* action.cpp - cleanup lines 500-1180
+
+2004-04-23  Nick Kraft <nkraft@cs.clemson.edu>
+	* action.h - cleanup finished
+	* action.cpp - cleanup lines 1-500
+	* KeywordManager.* - cleanup finished
+	* Sentry.h - cleanup finished
+
+2004-04-22  Nick Kraft <nkraft@cs.clemson.edu>
+	* IsoCpp.btyacc <-- isocpp.y
+	* IsoCpp.flex <-- scan.l
+	* Nonterminals.btyacc <-- attribs.y
+	* Makefile - adjusted to handle above filename changes
+	* Renamed class CPP_Keywords to CppKeywords
+	* Renamed Keywords method initialise to initialize
+	* Removed unneeded default constructor from class CppKeywords
+	* Removed unneeded default constructor from class DeclarationStack
+	* Formatted various files
+
+#
+# Tanton Revision History
+#
+
+2002-01-01 - 2003-08-01  Tanton H. Gibbs  <thgibbs@cs.clemson.edu>
+
+v 0.0.6 - YYVALID is called after a template parameter.  YYVALID
+          is also called after a template header.  Optional comma
+          was added for end of enum definitions in isocpp.y.  Fixed
+          catch clauses and if declarations to use decl_stack correctly. 
+          Fixed PDEBUG statement for simple_type_specifier_template.
+          For function overloads with multiple template arguments
+          and class template specializations, the new template
+          parameters were not getting added; this is fixed.  Qualified
+          types that were qualified by an instantiated template were
+          not being looked up correctly if there were nested inside
+          parens.  Initializers were having YYERROR set too often,
+          changed to examine before_equal instead of last_decl.  Class
+          type is now being decorated as a template type if it is a
+          template specialization.  GSTVisitor and ASGPlainTextVisitor
+          were not checking for NULL cCatchParm declaration which
+          meant ELIPSES were found in the catch.  Constructor was
+          not being moved into scope before parameters.  typename
+          always forced type into class type whereas it might be
+          an enum type or other type.  Constructor was not being
+          looked up correctly as X::X...instead was just X.
+          getCurrentClassScope was not looking in the prototype scope
+          for an occurQual.  Ensure initialzer path is not taken
+          when a template scope exists.  Empty string was not
+          accepted as a string literal.  Check for template before
+          checking for typedef.  Typedefs that typedef a class, should
+          be decorated as ID_class_name, not ID_typedef_name.
+
+v 0.0.5 - Constructors do not have return types; therefore none was
+          added as a type in Type_Info.  DataType was also modified
+          to handle NULL types.  VaribleInfo was modified to handle
+          NULL types as well as NULL parent scopes for those located
+          in the global scope.  Ended infinite while loop in API
+          when if had both true and false block.  Inserted anonymous
+          union members into the enclosing scope.
+
+v 0.0.4 - Fixed problems caused by NULL objects attempting to access
+          m_start_line in actions.cpp.  Also fixed problem in SymTable
+          where standby was being overwritten during function lookup.
+          Inheritance based function lookup was not writing to standby
+          appropriately.  Instead, all discoveries were assigned to
+          to_return.
+
+v 0.0.3 - Removed backward.h, Keyword.h, and changed strstream to sstream.
+          Also removed numerous header file inclusions/moved them to .cpp files
+	       instead of .h files.  Also added VERSION file and changed main.cpp
+	       to print out the version at the start of the job.
+
+v 0.0.2 - Fixed bug with not dereferencing pointer types, reference types, and
+          array types before checking for template arguments.  I need to
+          revisit this issue for alias types.  Also, updated MANIFEST to be accurate.
+

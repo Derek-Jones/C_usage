@@ -1,0 +1,7 @@
+#ifndef _CWCTYPE_
+#define _CWCTYPE_
+namespace std {
+#include <wctype.h>
+}
+
+#endif

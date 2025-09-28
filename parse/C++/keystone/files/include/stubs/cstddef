@@ -1,0 +1,10 @@
+
+#ifndef _STL_CSTDDEF_
+#define _STL_CSTDDEF_
+
+namespace std
+{
+#include <stddef.h>
+}
+
+#endif

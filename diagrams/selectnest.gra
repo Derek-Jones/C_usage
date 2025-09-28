@@ -1,0 +1,56 @@
+
+.ps 8
+
+.G1
+
+# selectnest.gra, 22 Oct 07
+
+graph Q_1
+
+frame invis ht 1.5 wid 2.2 left solid bot solid
+
+coord x 0.7,15.4 y 0.9,107386 log y
+
+ticks bot out at 1, 5, 10, 15, 20
+#ticks left out at  10, 100, 1000, 10000, 34000
+ticks left out at 1, 10 "10", 100 "100", 1000 "1,000", 10000 "10,000", 100000 "100,000"
+
+label bot "Nesting depth"
+label left "\fIselection-statement\fRs" "" ""
+
+draw em solid times
+next em at 10.5,107386/2
+next em at 11.5,107386/2
+".c files" ljust at 12,107386/2
+
+draw em solid times
+
+copy "select_max_nesting.d" thru {
+	next em at $1,$2
+	}
+
+draw em solid bullet
+next em at 10.5,107386/5
+next em at 11.5,107386/5
+"Embedded" ljust at 12,107386/5
+
+draw em solid bullet
+
+# the value for depth 5 is interpolated
+copy thru {
+	next em at $1,$2
+	} until "XXX"
+1 107386*0.495
+2 107386*0.196
+3 107386*0.095
+4 107386*0.067
+5 107386*0.065
+6 107386*0.063
+7 107386*0.019
+8 107386*0.014
+9 107386*0.007
+10 107386*0.008
+XXX
+
+.G2
+

@@ -1,0 +1,112 @@
+1	yyparse {cbook.tab.c 4539}
+2		yyinitGLRStack {cbook.tab.c 3551}
+3			malloc {}
+4			yyinitStateSet {cbook.tab.c 3532}
+5				malloc {}
+6		_setjmp {}
+7		yyglrShift {cbook.tab.c 3710}
+8			yyexpandGLRStack {cbook.tab.c 3575}
+9				yyMemoryExhausted {cbook.tab.c 1610}
+10					longjmp {}
+11				malloc {}
+12				free {}
+13		yyisDefaultedState {cbook.tab.c 3441}
+14		yydefaultAction {cbook.tab.c 3448}
+15		yyreportSyntaxError {cbook.tab.c 4328}
+16			yyerror {}
+17		yyglrReduce {cbook.tab.c 3833}
+18			yydoAction {cbook.tab.c 3759}
+19				yyrhsLength {cbook.tab.c 3392}
+20				abort {}
+21				yyuserAction {cbook.tab.c 1674}
+22					yyfill {cbook.tab.c 1654}
+23						yyfillin {cbook.tab.c 1633}
+24							abort {}
+25					cnt_rule {}
+26					printf {}
+27				yyupdateSplit {cbook.tab.c 3647}
+28			yylhsNonterm {cbook.tab.c 3430}
+29			yyLRgotoState {cbook.tab.c 3487}
+30			yyglrShift ... {7}
+31			yyrhsLength ... {19}
+32			abort {}
+33			yyupdateSplit ... {27}
+34			yyaddDeferredAction {cbook.tab.c 3513}
+35				yyexpandGLRStack ... {8}
+36			yymarkStackDeleted {cbook.tab.c 3655}
+37			yyglrShiftDefer {cbook.tab.c 3734}
+38				yyaddDeferredAction ... {34}
+39		yylex {}
+40		yygetLRActions {cbook.tab.c 3466}
+41		yyisShiftAction {cbook.tab.c 3498}
+42		yyisErrorAction {cbook.tab.c 3504}
+43		yyprocessOneStack {cbook.tab.c 4250}
+44			abort {}
+45			yyisDefaultedState ... {13}
+46			yydefaultAction ... {14}
+47			yymarkStackDeleted ... {36}
+48			yyglrReduce ... {17}
+49			yylex {}
+50			yygetLRActions ... {40}
+51			yysplitStack {cbook.tab.c 3893}
+52				abort {}
+53				realloc {}
+54				yyMemoryExhausted ... {9}
+55			... yyprocessOneStack ... {43}
+56			yyisShiftAction ... {41}
+57			yyglrShift ... {7}
+58			yyisErrorAction ... {42}
+59		yyremoveDeletes {cbook.tab.c 3677}
+60		yyundeleteLastStack {cbook.tab.c 3666}
+61		yyFail {cbook.tab.c 1600}
+62			yyerror {}
+63			longjmp {}
+64		yyresolveStack {cbook.tab.c 4200}
+65			yyresolveStates {cbook.tab.c 4023}
+66				abort {}
+67				... yyresolveStates ... {65}
+68				yyresolveValue {cbook.tab.c 4135}
+69					yyidenticalOptions {cbook.tab.c 3922}
+70						yyrhsLength ... {19}
+71					yymergeOptionSets {cbook.tab.c 3943}
+72						yyrhsLength ... {19}
+73					yypreference {cbook.tab.c 3997}
+74					yyreportAmbiguity {cbook.tab.c 4113}
+75						yyFail ... {61}
+76					yyresolveAction {cbook.tab.c 4047}
+77						yyrhsLength ... {19}
+78						... yyresolveStates ... {65}
+79						yyuserAction ... {21}
+80					yyuserMerge {cbook.tab.c 3351}
+81						multiplicative_merge {}
+82						additive_merge {}
+83		yycompressStack {cbook.tab.c 4218}
+84		yyrecoverSyntaxError {cbook.tab.c 4439}
+85			yyFail ... {61}
+86			yydestruct {cbook.tab.c 3373}
+87			yylex {}
+88			yymarkStackDeleted ... {36}
+89			yyremoveDeletes ... {59}
+90			yycompressStack ... {83}
+91			yyisShiftAction ... {41}
+92			yyglrShift ... {7}
+93			yydestroyGLRState {cbook.tab.c 3398}
+94				yydestruct ... {86}
+95				yyrhsLength ... {19}
+96				... yydestroyGLRState ... {93}
+97		abort {}
+98		yyerror {}
+99		yydestruct ... {86}
+100		yydestroyGLRState ... {93}
+101		yyfreeGLRStack {cbook.tab.c 3637}
+102			free {}
+103			yyfreeStateSet {cbook.tab.c 3543}
+104				free {}
+105	yypdumpstack {cbook.tab.c 4745}
+106		fprintf {}
+107	yypstack {cbook.tab.c 4735}
+108		yypstates {cbook.tab.c 4725}
+109			fprintf {}
+110			yy_yypstack {cbook.tab.c 4714}
+111				... yy_yypstack ... {110}
+112				fprintf {}

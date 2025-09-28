@@ -1,0 +1,15 @@
+#SCF-B 1.1
+Hash-Method: MD5
+Merge-Program: comparator 1.5
+Normalization: remove-whitespace, remove-braces
+Shred-Size: 3
+%%
+test1-b:18
+test1-a:24
+%%
+test1-a/subdir/c.txt:1:9:13
+test1-b/odd.txt:3:11:18
+%%
+test1-a/subdir/c.txt:10:13:13
+test1-b/odd.txt:15:18:18
+%%

@@ -1,0 +1,25 @@
+\w+\+\w+\*\w+ 
+620
+\w+[[:space:]]\+[[:space:]]\w+\*\w+ 
+970
+\w+[[:space:]]\+[[:space:]]\w+[[:space:]]\*[[:space:]]\w+ 
+1376
+\w+\+\w+[[:space:]]\*[[:space:]]\w+ 
+7
+\w+[[:space:]]*\+[[:space:]]*\w+[[:space:]]*\*[[:space:]]*\w+ 
+2978
+\w+\*\w+\+\w+ 
+564
+\w+[[:space:]]\*[[:space:]]\w+\+\w+ 
+2
+\w+[[:space:]]\*[[:space:]]\w+[[:space:]]\+[[:space:]]\w+ 
+803
+\w+\*\w+[[:space:]]\+[[:space:]]\w+ 
+488
+\w+[[:space:]]*\*[[:space:]]*\w+[[:space:]]*\+[[:space:]]*\w+ 
+1959
+
+real    8m41.096s
+user    4m50.654s
+sys     3m15.144s
+

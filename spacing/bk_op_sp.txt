@@ -1,0 +1,2890 @@
+id+id+id
+896
+id + id+id
+26
+id + id + id
+2550
+id+id + id
+68
+id *+ *id *+ *id
+3607
+id+id-id
+531
+id + id-id
+90
+id + id - id
+1680
+id+id - id
+42
+id *+ *id *- *id
+2375
+id+id*id
+620
+id + id*id
+970
+id + id * id
+1376
+id+id * id
+7
+id *+ *id ** *id
+2978
+id+id/id
+85
+id + id/id
+306
+id + id / id
+155
+id+id / id
+1
+id *+ *id */ *id
+551
+id+id%id
+22
+id + id%id
+13
+id + id % id
+16
+id+id % id
+0
+id *+ *id *% *id
+65
+id+id&id
+0
+id + id&id
+0
+id + id & id
+0
+id+id & id
+0
+id *+ *id *& *id
+1
+id+id|id
+0
+id + id|id
+0
+id + id | id
+4
+id+id | id
+0
+id *+ *id *| *id
+4
+id+id&*id
+0
+id + id&*id
+0
+id + id &* id
+0
+id+id &* id
+0
+id *+ *id *&* *id
+0
+id+id||id
+0
+id + id||id
+0
+id + id || id
+10
+id+id || id
+5
+id *+ *id *|| *id
+15
+id+id<<id
+1
+id + id<<id
+2
+id + id << id
+0
+id+id << id
+0
+id *+ *id *<< *id
+3
+id+id>>id
+0
+id + id>>id
+0
+id + id >> id
+0
+id+id >> id
+4
+id *+ *id *>> *id
+4
+id+id==id
+1
+id + id==id
+0
+id + id == id
+115
+id+id == id
+26
+id *+ *id *== *id
+142
+id+id!=id
+0
+id + id!=id
+0
+id + id != id
+27
+id+id != id
+18
+id *+ *id *!= *id
+45
+id+id>id
+18
+id + id>id
+0
+id + id > id
+667
+id+id > id
+125
+id *+ *id *> *id
+820
+id+id<id
+8
+id + id<id
+0
+id + id < id
+228
+id+id < id
+74
+id *+ *id *< *id
+313
+id+id<=id
+0
+id + id<=id
+0
+id + id <= id
+134
+id+id <= id
+21
+id *+ *id *<= *id
+156
+id+id>=id
+9
+id + id>=id
+0
+id + id >= id
+125
+id+id >= id
+44
+id *+ *id *>= *id
+179
+id-id+id
+194
+id - id+id
+35
+id - id + id
+685
+id-id + id
+41
+id *- *id *+ *id
+975
+id-id-id
+7431
+id - id-id
+134
+id - id - id
+848
+id-id - id
+148
+id *- *id *- *id
+9145
+id-id*id
+106
+id - id*id
+253
+id - id * id
+386
+id-id * id
+2
+id *- *id ** *id
+773
+id-id/id
+881
+id - id/id
+299
+id - id / id
+56
+id-id / id
+15
+id *- *id */ *id
+1379
+id-id%id
+173
+id - id%id
+63
+id - id % id
+14
+id-id % id
+1
+id *- *id *% *id
+711
+id-id&id
+2
+id - id&id
+0
+id - id & id
+22
+id-id & id
+13
+id *- *id *& *id
+38
+id-id|id
+7
+id - id|id
+0
+id - id | id
+10
+id-id | id
+1
+id *- *id *| *id
+52
+id-id&*id
+0
+id - id&*id
+0
+id - id &* id
+0
+id-id &* id
+0
+id *- *id *&* *id
+0
+id-id||id
+0
+id - id||id
+0
+id - id || id
+12
+id-id || id
+11
+id *- *id *|| *id
+23
+id-id<<id
+0
+id - id<<id
+0
+id - id << id
+0
+id-id << id
+0
+id *- *id *<< *id
+0
+id-id>>id
+0
+id - id>>id
+0
+id - id >> id
+0
+id-id >> id
+0
+id *- *id *>> *id
+0
+id-id==id
+1
+id - id==id
+0
+id - id == id
+66
+id-id == id
+17
+id *- *id *== *id
+88
+id-id!=id
+0
+id - id!=id
+0
+id - id != id
+12
+id-id != id
+6
+id *- *id *!= *id
+19
+id-id>id
+8
+id - id>id
+0
+id - id > id
+214
+id-id > id
+56
+id *- *id *> *id
+293
+id-id<id
+4
+id - id<id
+0
+id - id < id
+191
+id-id < id
+33
+id *- *id *< *id
+370
+id-id<=id
+0
+id - id<=id
+0
+id - id <= id
+43
+id-id <= id
+11
+id *- *id *<= *id
+54
+id-id>=id
+0
+id - id>=id
+0
+id - id >= id
+107
+id-id >= id
+12
+id *- *id *>= *id
+119
+id*id+id
+564
+id * id+id
+2
+id * id + id
+803
+id*id + id
+488
+id ** *id *+ *id
+1959
+id*id-id
+47
+id * id-id
+4
+id * id - id
+196
+id*id - id
+97
+id ** *id *- *id
+390
+id*id*id
+623
+id * id*id
+32
+id * id * id
+509
+id*id * id
+8
+id ** *id ** *id
+2270
+id*id/id
+411
+id * id/id
+49
+id * id / id
+525
+id*id / id
+68
+id ** *id */ *id
+1068
+id*id%id
+10
+id * id%id
+2
+id * id % id
+3
+id*id % id
+3
+id ** *id *% *id
+41
+id*id&id
+0
+id * id&id
+0
+id * id & id
+1
+id*id & id
+3
+id ** *id *& *id
+10
+id*id|id
+0
+id * id|id
+0
+id * id | id
+47
+id*id | id
+0
+id ** *id *| *id
+47
+id*id&*id
+0
+id * id&*id
+0
+id * id &* id
+0
+id*id &* id
+0
+id ** *id *&* *id
+0
+id*id||id
+0
+id * id||id
+0
+id * id || id
+3
+id*id || id
+6
+id ** *id *|| *id
+9
+id*id<<id
+1
+id * id<<id
+0
+id * id << id
+2
+id*id << id
+0
+id ** *id *<< *id
+3
+id*id>>id
+1
+id * id>>id
+0
+id * id >> id
+3
+id*id >> id
+1
+id ** *id *>> *id
+5
+id*id==id
+2
+id * id==id
+0
+id * id == id
+26
+id*id == id
+6
+id ** *id *== *id
+49
+id*id!=id
+0
+id * id!=id
+0
+id * id != id
+7
+id*id != id
+2
+id ** *id *!= *id
+12
+id*id>id
+1
+id * id>id
+0
+id * id > id
+48
+id*id > id
+22
+id ** *id *> *id
+74
+id*id<id
+3
+id * id<id
+0
+id * id < id
+29
+id*id < id
+14
+id ** *id *< *id
+56
+id*id<=id
+0
+id * id<=id
+0
+id * id <= id
+7
+id*id <= id
+4
+id ** *id *<= *id
+16
+id*id>=id
+1
+id * id>=id
+0
+id * id >= id
+8
+id*id >= id
+12
+id ** *id *>= *id
+25
+id/id+id
+70
+id / id+id
+0
+id / id + id
+101
+id/id + id
+81
+id */ *id *+ *id
+278
+id/id-id
+1692
+id / id-id
+14
+id / id - id
+91
+id/id - id
+498
+id */ *id *- *id
+2412
+id/id*id
+60
+id / id*id
+0
+id / id * id
+49
+id/id * id
+11
+id */ *id ** *id
+136
+id/id/id
+16376
+id / id/id
+5
+id / id / id
+65
+id/id / id
+2
+id */ *id */ *id
+17263
+id/id%id
+294
+id / id%id
+7
+id / id % id
+3
+id/id % id
+0
+id */ *id *% *id
+390
+id/id&id
+5
+id / id&id
+0
+id / id & id
+0
+id/id & id
+8
+id */ *id *& *id
+17
+id/id|id
+10
+id / id|id
+0
+id / id | id
+0
+id/id | id
+1
+id */ *id *| *id
+23
+id/id&*id
+0
+id / id&*id
+0
+id / id &* id
+0
+id/id &* id
+0
+id */ *id *&* *id
+0
+id/id||id
+0
+id / id||id
+0
+id / id || id
+2
+id/id || id
+8
+id */ *id *|| *id
+10
+id/id<<id
+3
+id / id<<id
+0
+id / id << id
+1
+id/id << id
+0
+id */ *id *<< *id
+4
+id/id>>id
+0
+id / id>>id
+0
+id / id >> id
+0
+id/id >> id
+0
+id */ *id *>> *id
+0
+id/id==id
+0
+id / id==id
+0
+id / id == id
+8
+id/id == id
+10
+id */ *id *== *id
+19
+id/id!=id
+0
+id / id!=id
+0
+id / id != id
+3
+id/id != id
+3
+id */ *id *!= *id
+6
+id/id>id
+1
+id / id>id
+0
+id / id > id
+7
+id/id > id
+16
+id */ *id *> *id
+27
+id/id<id
+1
+id / id<id
+0
+id / id < id
+5
+id/id < id
+19
+id */ *id *< *id
+26
+id/id<=id
+0
+id / id<=id
+0
+id / id <= id
+1
+id/id <= id
+16
+id */ *id *<= *id
+17
+id/id>=id
+0
+id / id>=id
+0
+id / id >= id
+7
+id/id >= id
+3
+id */ *id *>= *id
+10
+id%id+id
+13
+id % id+id
+0
+id % id + id
+7
+id%id + id
+9
+id *% *id *+ *id
+40
+id%id-id
+167
+id % id-id
+0
+id % id - id
+2
+id%id - id
+33
+id *% *id *- *id
+387
+id%id*id
+4
+id % id*id
+0
+id % id * id
+6
+id%id * id
+3
+id *% *id ** *id
+31
+id%id/id
+60
+id % id/id
+0
+id % id / id
+1
+id%id / id
+6
+id *% *id */ *id
+105
+id%id%id
+956
+id % id%id
+0
+id % id % id
+4
+id%id % id
+0
+id *% *id *% *id
+3372
+id%id&id
+0
+id % id&id
+0
+id % id & id
+0
+id%id & id
+4
+id *% *id *& *id
+6
+id%id|id
+0
+id % id|id
+0
+id % id | id
+0
+id%id | id
+2
+id *% *id *| *id
+3
+id%id&*id
+0
+id % id&*id
+0
+id % id &* id
+0
+id%id &* id
+0
+id *% *id *&* *id
+0
+id%id||id
+0
+id % id||id
+0
+id % id || id
+4
+id%id || id
+0
+id *% *id *|| *id
+4
+id%id<<id
+0
+id % id<<id
+0
+id % id << id
+0
+id%id << id
+0
+id *% *id *<< *id
+0
+id%id>>id
+0
+id % id>>id
+0
+id % id >> id
+0
+id%id >> id
+0
+id *% *id *>> *id
+0
+id%id==id
+12
+id % id==id
+0
+id % id == id
+134
+id%id == id
+23
+id *% *id *== *id
+173
+id%id!=id
+2
+id % id!=id
+0
+id % id != id
+65
+id%id != id
+17
+id *% *id *!= *id
+103
+id%id>id
+1
+id % id>id
+0
+id % id > id
+12
+id%id > id
+14
+id *% *id *> *id
+51
+id%id<id
+3
+id % id<id
+0
+id % id < id
+5
+id%id < id
+3
+id *% *id *< *id
+33
+id%id<=id
+0
+id % id<=id
+0
+id % id <= id
+0
+id%id <= id
+2
+id *% *id *<= *id
+4
+id%id>=id
+0
+id % id>=id
+0
+id % id >= id
+6
+id%id >= id
+0
+id *% *id *>= *id
+10
+id&id+id
+0
+id & id+id
+0
+id & id + id
+0
+id&id + id
+0
+id *& *id *+ *id
+0
+id&id-id
+8
+id & id-id
+16
+id & id - id
+8
+id&id - id
+0
+id *& *id *- *id
+33
+id&id*id
+0
+id & id*id
+0
+id & id * id
+0
+id&id * id
+0
+id *& *id ** *id
+0
+id&id/id
+3
+id & id/id
+20
+id & id / id
+0
+id&id / id
+0
+id *& *id */ *id
+23
+id&id%id
+1
+id & id%id
+4
+id & id % id
+0
+id&id % id
+0
+id *& *id *% *id
+8
+id&id&id
+2
+id & id&id
+0
+id & id & id
+55
+id&id & id
+0
+id *& *id *& *id
+57
+id&id|id
+1
+id & id|id
+1
+id & id | id
+0
+id&id | id
+0
+id *& *id *| *id
+3
+id&id&*id
+0
+id & id&*id
+0
+id & id &* id
+0
+id&id &* id
+0
+id *& *id *&* *id
+0
+id&id||id
+1
+id & id||id
+0
+id & id || id
+60
+id&id || id
+8
+id *& *id *|| *id
+69
+id&id<<id
+1
+id & id<<id
+28
+id & id << id
+20
+id&id << id
+0
+id *& *id *<< *id
+49
+id&id>>id
+0
+id & id>>id
+0
+id & id >> id
+2
+id&id >> id
+0
+id *& *id *>> *id
+2
+id&id==id
+1
+id & id==id
+0
+id & id == id
+10
+id&id == id
+1
+id *& *id *== *id
+12
+id&id!=id
+0
+id & id!=id
+0
+id & id != id
+10
+id&id != id
+0
+id *& *id *!= *id
+10
+id&id>id
+0
+id & id>id
+0
+id & id > id
+0
+id&id > id
+0
+id *& *id *> *id
+0
+id&id<id
+0
+id & id<id
+0
+id & id < id
+1
+id&id < id
+1
+id *& *id *< *id
+2
+id&id<=id
+0
+id & id<=id
+0
+id & id <= id
+0
+id&id <= id
+0
+id *& *id *<= *id
+0
+id&id>=id
+0
+id & id>=id
+0
+id & id >= id
+0
+id&id >= id
+0
+id *& *id *>= *id
+0
+id|id+id
+0
+id | id+id
+4
+id | id + id
+1
+id|id + id
+0
+id *| *id *+ *id
+8
+id|id-id
+14
+id | id-id
+1
+id | id - id
+2
+id|id - id
+1
+id *| *id *- *id
+67
+id|id*id
+0
+id | id*id
+6
+id | id * id
+52
+id|id * id
+0
+id *| *id ** *id
+58
+id|id/id
+10
+id | id/id
+4
+id | id / id
+0
+id|id / id
+0
+id *| *id */ *id
+20
+id|id%id
+1
+id | id%id
+1
+id | id % id
+2
+id|id % id
+0
+id *| *id *% *id
+4
+id|id&id
+0
+id | id&id
+0
+id | id & id
+3
+id|id & id
+0
+id *| *id *& *id
+3
+id|id|id
+1706
+id | id|id
+8
+id | id | id
+3948
+id|id | id
+3
+id *| *id *| *id
+5821
+id|id&*id
+0
+id | id&*id
+0
+id | id &* id
+0
+id|id &* id
+0
+id *| *id *&* *id
+0
+id|id||id
+1
+id | id||id
+0
+id | id || id
+0
+id|id || id
+0
+id *| *id *|| *id
+1
+id|id<<id
+49
+id | id<<id
+47
+id | id << id
+138
+id|id << id
+1
+id *| *id *<< *id
+234
+id|id>>id
+0
+id | id>>id
+10
+id | id >> id
+35
+id|id >> id
+0
+id *| *id *>> *id
+45
+id|id==id
+1
+id | id==id
+0
+id | id == id
+0
+id|id == id
+0
+id *| *id *== *id
+1
+id|id!=id
+0
+id | id!=id
+0
+id | id != id
+0
+id|id != id
+0
+id *| *id *!= *id
+0
+id|id>id
+0
+id | id>id
+0
+id | id > id
+0
+id|id > id
+0
+id *| *id *> *id
+4
+id|id<id
+0
+id | id<id
+0
+id | id < id
+0
+id|id < id
+0
+id *| *id *< *id
+3
+id|id<=id
+0
+id | id<=id
+0
+id | id <= id
+0
+id|id <= id
+0
+id *| *id *<= *id
+0
+id|id>=id
+0
+id | id>=id
+0
+id | id >= id
+0
+id|id >= id
+0
+id *| *id *>= *id
+0
+id&*id+id
+0
+id &* id+id
+0
+id &* id + id
+0
+id&*id + id
+0
+id *&* *id *+ *id
+0
+id&*id-id
+0
+id &* id-id
+0
+id &* id - id
+0
+id&*id - id
+0
+id *&* *id *- *id
+0
+id&*id*id
+0
+id &* id*id
+0
+id &* id * id
+0
+id&*id * id
+0
+id *&* *id ** *id
+0
+id&*id/id
+0
+id &* id/id
+0
+id &* id / id
+0
+id&*id / id
+0
+id *&* *id */ *id
+0
+id&*id%id
+0
+id &* id%id
+0
+id &* id % id
+0
+id&*id % id
+0
+id *&* *id *% *id
+0
+id&*id&id
+0
+id &* id&id
+0
+id &* id & id
+0
+id&*id & id
+0
+id *&* *id *& *id
+0
+id&*id|id
+0
+id &* id|id
+0
+id &* id | id
+0
+id&*id | id
+0
+id *&* *id *| *id
+0
+id&*id&*id
+0
+id &* id&*id
+0
+id &* id &* id
+0
+id&*id &* id
+0
+id *&* *id *&* *id
+0
+id&*id||id
+0
+id &* id||id
+0
+id &* id || id
+0
+id&*id || id
+0
+id *&* *id *|| *id
+0
+id&*id<<id
+0
+id &* id<<id
+0
+id &* id << id
+0
+id&*id << id
+0
+id *&* *id *<< *id
+0
+id&*id>>id
+0
+id &* id>>id
+0
+id &* id >> id
+0
+id&*id >> id
+0
+id *&* *id *>> *id
+0
+id&*id==id
+0
+id &* id==id
+0
+id &* id == id
+0
+id&*id == id
+0
+id *&* *id *== *id
+0
+id&*id!=id
+0
+id &* id!=id
+0
+id &* id != id
+0
+id&*id != id
+0
+id *&* *id *!= *id
+0
+id&*id>id
+0
+id &* id>id
+0
+id &* id > id
+0
+id&*id > id
+0
+id *&* *id *> *id
+0
+id&*id<id
+0
+id &* id<id
+0
+id &* id < id
+0
+id&*id < id
+0
+id *&* *id *< *id
+0
+id&*id<=id
+0
+id &* id<=id
+0
+id &* id <= id
+0
+id&*id <= id
+0
+id *&* *id *<= *id
+0
+id&*id>=id
+0
+id &* id>=id
+0
+id &* id >= id
+0
+id&*id >= id
+0
+id *&* *id *>= *id
+0
+id||id+id
+1
+id || id+id
+11
+id || id + id
+59
+id||id + id
+0
+id *|| *id *+ *id
+71
+id||id-id
+2
+id || id-id
+3
+id || id - id
+17
+id||id - id
+0
+id *|| *id *- *id
+24
+id||id*id
+0
+id || id*id
+2
+id || id * id
+1
+id||id * id
+0
+id *|| *id ** *id
+3
+id||id/id
+0
+id || id/id
+0
+id || id / id
+1
+id||id / id
+0
+id *|| *id */ *id
+1
+id||id%id
+0
+id || id%id
+0
+id || id % id
+8
+id||id % id
+0
+id *|| *id *% *id
+8
+id||id&id
+1
+id || id&id
+10
+id || id & id
+24
+id||id & id
+0
+id *|| *id *& *id
+36
+id||id|id
+1
+id || id|id
+0
+id || id | id
+0
+id||id | id
+0
+id *|| *id *| *id
+1
+id||id&*id
+0
+id || id&*id
+0
+id || id &* id
+0
+id||id &* id
+0
+id *|| *id *&* *id
+0
+id||id||id
+1
+id || id||id
+0
+id || id || id
+150
+id||id || id
+0
+id *|| *id *|| *id
+151
+id||id<<id
+0
+id || id<<id
+2
+id || id << id
+0
+id||id << id
+0
+id *|| *id *<< *id
+2
+id||id>>id
+0
+id || id>>id
+1
+id || id >> id
+2
+id||id >> id
+0
+id *|| *id *>> *id
+3
+id||id==id
+9
+id || id==id
+54
+id || id == id
+2307
+id||id == id
+3
+id *|| *id *== *id
+2386
+id||id!=id
+0
+id || id!=id
+8
+id || id != id
+317
+id||id != id
+0
+id *|| *id *!= *id
+328
+id||id>id
+11
+id || id>id
+38
+id || id > id
+1088
+id||id > id
+0
+id *|| *id *> *id
+1161
+id||id<id
+0
+id || id<id
+12
+id || id < id
+395
+id||id < id
+0
+id *|| *id *< *id
+408
+id||id<=id
+0
+id || id<=id
+2
+id || id <= id
+85
+id||id <= id
+0
+id *|| *id *<= *id
+86
+id||id>=id
+0
+id || id>=id
+8
+id || id >= id
+515
+id||id >= id
+0
+id *|| *id *>= *id
+526
+id<<id+id
+0
+id << id+id
+2
+id << id + id
+5
+id<<id + id
+1
+id *<< *id *+ *id
+8
+id<<id-id
+1
+id << id-id
+3
+id << id - id
+25
+id<<id - id
+0
+id *<< *id *- *id
+29
+id<<id*id
+0
+id << id*id
+4
+id << id * id
+6
+id<<id * id
+3
+id *<< *id ** *id
+13
+id<<id/id
+0
+id << id/id
+1
+id << id / id
+0
+id<<id / id
+0
+id *<< *id */ *id
+1
+id<<id%id
+0
+id << id%id
+0
+id << id % id
+0
+id<<id % id
+0
+id *<< *id *% *id
+0
+id<<id&id
+0
+id << id&id
+0
+id << id & id
+6
+id<<id & id
+2
+id *<< *id *& *id
+9
+id<<id|id
+59
+id << id|id
+0
+id << id | id
+271
+id<<id | id
+66
+id *<< *id *| *id
+392
+id<<id&*id
+0
+id << id&*id
+0
+id << id &* id
+0
+id<<id &* id
+0
+id *<< *id *&* *id
+0
+id<<id||id
+0
+id << id||id
+0
+id << id || id
+1
+id<<id || id
+0
+id *<< *id *|| *id
+1
+id<<id<<id
+2
+id << id<<id
+0
+id << id << id
+2
+id<<id << id
+0
+id *<< *id *<< *id
+4
+id<<id>>id
+0
+id << id>>id
+0
+id << id >> id
+11
+id<<id >> id
+0
+id *<< *id *>> *id
+29
+id<<id==id
+0
+id << id==id
+0
+id << id == id
+1
+id<<id == id
+2
+id *<< *id *== *id
+7
+id<<id!=id
+0
+id << id!=id
+0
+id << id != id
+0
+id<<id != id
+3
+id *<< *id *!= *id
+3
+id<<id>id
+0
+id << id>id
+0
+id << id > id
+6
+id<<id > id
+0
+id *<< *id *> *id
+6
+id<<id<id
+0
+id << id<id
+0
+id << id < id
+0
+id<<id < id
+0
+id *<< *id *< *id
+0
+id<<id<=id
+0
+id << id<=id
+0
+id << id <= id
+2
+id<<id <= id
+0
+id *<< *id *<= *id
+2
+id<<id>=id
+0
+id << id>=id
+0
+id << id >= id
+1
+id<<id >= id
+1
+id *<< *id *>= *id
+2
+id>>id+id
+0
+id >> id+id
+1
+id >> id + id
+3
+id>>id + id
+0
+id *>> *id *+ *id
+4
+id>>id-id
+0
+id >> id-id
+0
+id >> id - id
+16
+id>>id - id
+0
+id *>> *id *- *id
+20
+id>>id*id
+0
+id >> id*id
+3
+id >> id * id
+11
+id>>id * id
+0
+id *>> *id ** *id
+14
+id>>id/id
+0
+id >> id/id
+0
+id >> id / id
+0
+id>>id / id
+0
+id *>> *id */ *id
+0
+id>>id%id
+0
+id >> id%id
+0
+id >> id % id
+0
+id>>id % id
+0
+id *>> *id *% *id
+0
+id>>id&id
+0
+id >> id&id
+0
+id >> id & id
+111
+id>>id & id
+11
+id *>> *id *& *id
+129
+id>>id|id
+0
+id >> id|id
+0
+id >> id | id
+23
+id>>id | id
+0
+id *>> *id *| *id
+23
+id>>id&*id
+0
+id >> id&*id
+0
+id >> id &* id
+0
+id>>id &* id
+0
+id *>> *id *&* *id
+0
+id>>id||id
+0
+id >> id||id
+0
+id >> id || id
+0
+id>>id || id
+0
+id *>> *id *|| *id
+0
+id>>id<<id
+0
+id >> id<<id
+0
+id >> id << id
+1
+id>>id << id
+0
+id *>> *id *<< *id
+3
+id>>id>>id
+0
+id >> id>>id
+0
+id >> id >> id
+1
+id>>id >> id
+0
+id *>> *id *>> *id
+1
+id>>id==id
+0
+id >> id==id
+0
+id >> id == id
+29
+id>>id == id
+3
+id *>> *id *== *id
+36
+id>>id!=id
+0
+id >> id!=id
+0
+id >> id != id
+12
+id>>id != id
+3
+id *>> *id *!= *id
+15
+id>>id>id
+0
+id >> id>id
+0
+id >> id > id
+0
+id>>id > id
+1
+id *>> *id *> *id
+1
+id>>id<id
+0
+id >> id<id
+0
+id >> id < id
+0
+id>>id < id
+0
+id *>> *id *< *id
+1
+id>>id<=id
+0
+id >> id<=id
+0
+id >> id <= id
+0
+id>>id <= id
+0
+id *>> *id *<= *id
+0
+id>>id>=id
+0
+id >> id>=id
+0
+id >> id >= id
+0
+id>>id >= id
+1
+id *>> *id *>= *id
+6
+id==id+id
+0
+id == id+id
+31
+id == id + id
+124
+id==id + id
+0
+id *== *id *+ *id
+156
+id==id-id
+10
+id == id-id
+73
+id == id - id
+146
+id==id - id
+0
+id *== *id *- *id
+230
+id==id*id
+6
+id == id*id
+12
+id == id * id
+16
+id==id * id
+0
+id *== *id ** *id
+35
+id==id/id
+1
+id == id/id
+25
+id == id / id
+8
+id==id / id
+0
+id *== *id */ *id
+34
+id==id%id
+6
+id == id%id
+78
+id == id % id
+0
+id==id % id
+0
+id *== *id *% *id
+84
+id==id&id
+0
+id == id&id
+0
+id == id & id
+0
+id==id & id
+0
+id *== *id *& *id
+0
+id==id|id
+0
+id == id|id
+0
+id == id | id
+4
+id==id | id
+0
+id *== *id *| *id
+4
+id==id&*id
+0
+id == id&*id
+0
+id == id &* id
+0
+id==id &* id
+0
+id *== *id *&* *id
+0
+id==id||id
+11
+id == id||id
+3
+id == id || id
+3597
+id==id || id
+84
+id *== *id *|| *id
+3733
+id==id<<id
+0
+id == id<<id
+0
+id == id << id
+8
+id==id << id
+0
+id *== *id *<< *id
+8
+id==id>>id
+0
+id == id>>id
+0
+id == id >> id
+1
+id==id >> id
+0
+id *== *id *>> *id
+1
+id==id==id
+4
+id == id==id
+0
+id == id == id
+10
+id==id == id
+0
+id *== *id *== *id
+20
+id==id!=id
+0
+id == id!=id
+0
+id == id != id
+0
+id==id != id
+0
+id *== *id *!= *id
+0
+id==id>id
+0
+id == id>id
+0
+id == id > id
+0
+id==id > id
+0
+id *== *id *> *id
+0
+id==id<id
+0
+id == id<id
+0
+id == id < id
+0
+id==id < id
+0
+id *== *id *< *id
+1
+id==id<=id
+0
+id == id<=id
+0
+id == id <= id
+0
+id==id <= id
+0
+id *== *id *<= *id
+0
+id==id>=id
+0
+id == id>=id
+0
+id == id >= id
+0
+id==id >= id
+0
+id *== *id *>= *id
+0
+id!=id+id
+3
+id != id+id
+13
+id != id + id
+64
+id!=id + id
+0
+id *!= *id *+ *id
+80
+id!=id-id
+0
+id != id-id
+34
+id != id - id
+42
+id!=id - id
+0
+id *!= *id *- *id
+76
+id!=id*id
+0
+id != id*id
+17
+id != id * id
+18
+id!=id * id
+0
+id *!= *id ** *id
+37
+id!=id/id
+0
+id != id/id
+5
+id != id / id
+4
+id!=id / id
+0
+id *!= *id */ *id
+9
+id!=id%id
+1
+id != id%id
+11
+id != id % id
+0
+id!=id % id
+0
+id *!= *id *% *id
+18
+id!=id&id
+0
+id != id&id
+0
+id != id & id
+0
+id!=id & id
+0
+id *!= *id *& *id
+0
+id!=id|id
+0
+id != id|id
+0
+id != id | id
+0
+id!=id | id
+0
+id *!= *id *| *id
+0
+id!=id&*id
+0
+id != id&*id
+0
+id != id &* id
+0
+id!=id &* id
+0
+id *!= *id *&* *id
+0
+id!=id||id
+0
+id != id||id
+0
+id != id || id
+518
+id!=id || id
+10
+id *!= *id *|| *id
+534
+id!=id<<id
+0
+id != id<<id
+2
+id != id << id
+3
+id!=id << id
+0
+id *!= *id *<< *id
+6
+id!=id>>id
+0
+id != id>>id
+1
+id != id >> id
+3
+id!=id >> id
+0
+id *!= *id *>> *id
+4
+id!=id==id
+0
+id != id==id
+0
+id != id == id
+0
+id!=id == id
+0
+id *!= *id *== *id
+0
+id!=id!=id
+0
+id != id!=id
+0
+id != id != id
+0
+id!=id != id
+0
+id *!= *id *!= *id
+0
+id!=id>id
+0
+id != id>id
+0
+id != id > id
+0
+id!=id > id
+0
+id *!= *id *> *id
+0
+id!=id<id
+0
+id != id<id
+0
+id != id < id
+0
+id!=id < id
+0
+id *!= *id *< *id
+0
+id!=id<=id
+0
+id != id<=id
+0
+id != id <= id
+0
+id!=id <= id
+0
+id *!= *id *<= *id
+0
+id!=id>=id
+0
+id != id>=id
+0
+id != id >= id
+0
+id!=id >= id
+0
+id *!= *id *>= *id
+0
+id>id+id
+22
+id > id+id
+67
+id > id + id
+222
+id>id + id
+0
+id *> *id *+ *id
+311
+id>id-id
+10
+id > id-id
+59
+id > id - id
+202
+id>id - id
+1
+id *> *id *- *id
+301
+id>id*id
+12
+id > id*id
+160
+id > id * id
+104
+id>id * id
+1
+id *> *id ** *id
+284
+id>id/id
+0
+id > id/id
+49
+id > id / id
+21
+id>id / id
+0
+id *> *id */ *id
+88
+id>id%id
+0
+id > id%id
+13
+id > id % id
+1
+id>id % id
+0
+id *> *id *% *id
+35
+id>id&id
+0
+id > id&id
+0
+id > id & id
+1
+id>id & id
+0
+id *> *id *& *id
+2
+id>id|id
+0
+id > id|id
+0
+id > id | id
+0
+id>id | id
+0
+id *> *id *| *id
+4
+id>id&*id
+0
+id > id&*id
+0
+id > id &* id
+0
+id>id &* id
+0
+id *> *id *&* *id
+0
+id>id||id
+1
+id > id||id
+0
+id > id || id
+404
+id>id || id
+24
+id *> *id *|| *id
+437
+id>id<<id
+0
+id > id<<id
+4
+id > id << id
+3
+id>id << id
+0
+id *> *id *<< *id
+7
+id>id>>id
+0
+id > id>>id
+2
+id > id >> id
+6
+id>id >> id
+0
+id *> *id *>> *id
+8
+id>id==id
+0
+id > id==id
+0
+id > id == id
+0
+id>id == id
+1
+id *> *id *== *id
+2
+id>id!=id
+0
+id > id!=id
+0
+id > id != id
+0
+id>id != id
+0
+id *> *id *!= *id
+0
+id>id>id
+0
+id > id>id
+0
+id > id > id
+1
+id>id > id
+0
+id *> *id *> *id
+3
+id>id<id
+10
+id > id<id
+0
+id > id < id
+0
+id>id < id
+0
+id *> *id *< *id
+158
+id>id<=id
+0
+id > id<=id
+0
+id > id <= id
+0
+id>id <= id
+0
+id *> *id *<= *id
+0
+id>id>=id
+0
+id > id>=id
+0
+id > id >= id
+2
+id>id >= id
+0
+id *> *id *>= *id
+2
+id<id+id
+56
+id < id+id
+151
+id < id + id
+345
+id<id + id
+2
+id *< *id *+ *id
+570
+id<id-id
+95
+id < id-id
+153
+id < id - id
+302
+id<id - id
+0
+id *< *id *- *id
+696
+id<id*id
+27
+id < id*id
+121
+id < id * id
+105
+id<id * id
+0
+id *< *id ** *id
+258
+id<id/id
+93
+id < id/id
+106
+id < id / id
+76
+id<id / id
+2
+id *< *id */ *id
+59854
+id<id%id
+0
+id < id%id
+2
+id < id % id
+1
+id<id % id
+0
+id *< *id *% *id
+21
+id<id&id
+0
+id < id&id
+0
+id < id & id
+0
+id<id & id
+0
+id *< *id *& *id
+0
+id<id|id
+1
+id < id|id
+0
+id < id | id
+0
+id<id | id
+0
+id *< *id *| *id
+14
+id<id&*id
+0
+id < id&*id
+0
+id < id &* id
+0
+id<id &* id
+0
+id *< *id *&* *id
+0
+id<id||id
+18
+id < id||id
+0
+id < id || id
+1621
+id<id || id
+58
+id *< *id *|| *id
+1717
+id<id<<id
+1
+id < id<<id
+3
+id < id << id
+16
+id<id << id
+0
+id *< *id *<< *id
+20
+id<id>>id
+0
+id < id>>id
+4
+id < id >> id
+3
+id<id >> id
+0
+id *< *id *>> *id
+7
+id<id==id
+0
+id < id==id
+0
+id < id == id
+0
+id<id == id
+0
+id *< *id *== *id
+1
+id<id!=id
+0
+id < id!=id
+0
+id < id != id
+0
+id<id != id
+0
+id *< *id *!= *id
+0
+id<id>id
+161
+id < id>id
+0
+id < id > id
+6
+id<id > id
+0
+id *< *id *> *id
+1083
+id<id<id
+15
+id < id<id
+0
+id < id < id
+15
+id<id < id
+0
+id *< *id *< *id
+36
+id<id<=id
+0
+id < id<=id
+0
+id < id <= id
+13
+id<id <= id
+0
+id *< *id *<= *id
+14
+id<id>=id
+0
+id < id>=id
+0
+id < id >= id
+0
+id<id >= id
+0
+id *< *id *>= *id
+1
+id<=id+id
+3
+id <= id+id
+71
+id <= id + id
+100
+id<=id + id
+0
+id *<= *id *+ *id
+175
+id<=id-id
+4
+id <= id-id
+19
+id <= id - id
+35
+id<=id - id
+0
+id *<= *id *- *id
+59
+id<=id*id
+0
+id <= id*id
+18
+id <= id * id
+17
+id<=id * id
+0
+id *<= *id ** *id
+35
+id<=id/id
+2
+id <= id/id
+16
+id <= id / id
+5
+id<=id / id
+0
+id *<= *id */ *id
+23
+id<=id%id
+0
+id <= id%id
+2
+id <= id % id
+2
+id<=id % id
+0
+id *<= *id *% *id
+5
+id<=id&id
+0
+id <= id&id
+0
+id <= id & id
+0
+id<=id & id
+0
+id *<= *id *& *id
+0
+id<=id|id
+0
+id <= id|id
+0
+id <= id | id
+1
+id<=id | id
+0
+id *<= *id *| *id
+2
+id<=id&*id
+0
+id <= id&*id
+0
+id <= id &* id
+0
+id<=id &* id
+0
+id *<= *id *&* *id
+0
+id<=id||id
+0
+id <= id||id
+0
+id <= id || id
+206
+id<=id || id
+8
+id *<= *id *|| *id
+216
+id<=id<<id
+0
+id <= id<<id
+0
+id <= id << id
+1
+id<=id << id
+0
+id *<= *id *<< *id
+1
+id<=id>>id
+0
+id <= id>>id
+0
+id <= id >> id
+2
+id<=id >> id
+0
+id *<= *id *>> *id
+2
+id<=id==id
+0
+id <= id==id
+0
+id <= id == id
+0
+id<=id == id
+0
+id *<= *id *== *id
+0
+id<=id!=id
+0
+id <= id!=id
+0
+id <= id != id
+0
+id<=id != id
+0
+id *<= *id *!= *id
+0
+id<=id>id
+0
+id <= id>id
+0
+id <= id > id
+0
+id<=id > id
+0
+id *<= *id *> *id
+0
+id<=id<id
+0
+id <= id<id
+0
+id <= id < id
+28
+id<=id < id
+0
+id *<= *id *< *id
+30
+id<=id<=id
+3
+id <= id<=id
+0
+id <= id <= id
+40
+id<=id <= id
+0
+id *<= *id *<= *id
+44
+id<=id>=id
+0
+id <= id>=id
+0
+id <= id >= id
+0
+id<=id >= id
+0
+id *<= *id *>= *id
+0
+id>=id+id
+0
+id >= id+id
+62
+id >= id + id
+163
+id>=id + id
+0
+id *>= *id *+ *id
+225
+id>=id-id
+0
+id >= id-id
+71
+id >= id - id
+63
+id>=id - id
+0
+id *>= *id *- *id
+134
+id>=id*id
+3
+id >= id*id
+35
+id >= id * id
+39
+id>=id * id
+0
+id *>= *id ** *id
+78
+id>=id/id
+2
+id >= id/id
+12
+id >= id / id
+13
+id>=id / id
+0
+id *>= *id */ *id
+27
+id>=id%id
+0
+id >= id%id
+0
+id >= id % id
+0
+id>=id % id
+0
+id *>= *id *% *id
+1
+id>=id&id
+0
+id >= id&id
+0
+id >= id & id
+0
+id>=id & id
+0
+id *>= *id *& *id
+0
+id>=id|id
+0
+id >= id|id
+0
+id >= id | id
+0
+id>=id | id
+0
+id *>= *id *| *id
+0
+id>=id&*id
+0
+id >= id&*id
+0
+id >= id &* id
+0
+id>=id &* id
+0
+id *>= *id *&* *id
+0
+id>=id||id
+4
+id >= id||id
+0
+id >= id || id
+195
+id>=id || id
+25
+id *>= *id *|| *id
+226
+id>=id<<id
+1
+id >= id<<id
+3
+id >= id << id
+7
+id>=id << id
+0
+id *>= *id *<< *id
+11
+id>=id>>id
+0
+id >= id>>id
+3
+id >= id >> id
+0
+id>=id >> id
+0
+id *>= *id *>> *id
+3
+id>=id==id
+0
+id >= id==id
+0
+id >= id == id
+0
+id>=id == id
+0
+id *>= *id *== *id
+0
+id>=id!=id
+0
+id >= id!=id
+0
+id >= id != id
+0
+id>=id != id
+0
+id *>= *id *!= *id
+0
+id>=id>id
+0
+id >= id>id
+0
+id >= id > id
+0
+id>=id > id
+0
+id *>= *id *> *id
+0
+id>=id<id
+0
+id >= id<id
+0
+id >= id < id
+1
+id>=id < id
+0
+id *>= *id *< *id
+1
+id>=id<=id
+0
+id >= id<=id
+0
+id >= id <= id
+0
+id>=id <= id
+0
+id *>= *id *<= *id
+0
+id>=id>=id
+0
+id >= id>=id
+0
+id >= id >= id
+2
+id>=id >= id
+0
+id *>= *id *>= *id
+2

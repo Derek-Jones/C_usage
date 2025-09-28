@@ -1,0 +1,50 @@
+
+.ps 8
+
+.G1
+
+# loopnest.g, 22 Oct 07
+
+graph Q_1
+
+frame invis ht 1.5 wid 2.2 left solid bot solid
+
+coord x 0.0,7.2 y 0.8,194746 log y
+
+ticks bot out at 0, 1, 2, 3, 4, 5, 6 "", 7 "", 8 "", 9 "", 10 ""
+#ticks left out at  10, 100, 1000, 10000, 34000
+ticks left out at 1, 10 "10", 100 "100", 1000 "1,000", 10000 "10,000", 100000 "100,000"
+
+label bot "Maximum nesting depth"
+label left "Function definitions" "" ""
+
+draw em solid times
+next em at 4.5,194746/2
+next em at 5.5,194746/2
+".c files" ljust at 6,194746/2
+
+draw em solid times
+
+copy "loop_max_nesting.d" thru {
+	next em at $1,$2
+	}
+
+draw em solid bullet
+next em at 4.5,194746/7
+next em at 5.5,194746/7
+"Embedded" ljust at 6,194746/7
+
+draw em solid bullet
+
+copy thru {
+	next em at $1,$2
+	} until "XXX"
+1 194746*0.906
+2 194746*0.079
+3 194746*0.011
+4 194746*0.001
+5 194746*0.000
+XXX
+
+.G2
+

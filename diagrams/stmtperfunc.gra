@@ -1,0 +1,73 @@
+
+.ps 8
+
+.G1
+
+# stmtperfunc.g, 28 Nov 03
+# built on: Mon Dec 24 12:58:11 GMT 2007
+
+graph Q_1
+
+frame invis ht 1.5 wid 2.2*1.5 left solid bot solid
+
+coord x 0,81 y 0.9,71582 log y
+
+label bot "Statements"
+label left "Function definitions" "" ""
+
+#ticks bot out at 0, 16, 32, 64, 100, 128, 150, 200, 255
+ticks left out at 1, 10 "10", 100 "100", 1000 "1,000", 10000 "10,000"
+
+draw cd solid delta size -1
+next cd at 50,71582/2
+next cd at 53,71582/2
+"\fIexpression-statement\fR" ljust at 55,71582/2
+draw cd solid bullet
+next cd at 50,71582/5
+next cd at 53,71582/5
+"\fIselection-statement\fR" ljust at 55,71582/5
+draw cd solid dot
+next cd at 50,71582/13
+next cd at 53,71582/13
+"\fIcompound-statement\fR" ljust at 55,71582/13
+draw cd solid square size -2
+next cd at 50,71582/30
+next cd at 53,71582/30
+"\fIjump-statement\fR" ljust at 55,71582/30
+draw cd solid times size -1
+next cd at 50,71582/73
+next cd at 53,71582/73
+"\fIiteration-statement\fR" ljust at 55,71582/73
+
+draw cd solid times size -1
+
+copy "iter_per_func.d" thru {
+   next cd at $1, $2
+}
+
+draw cd solid bullet size -1
+
+copy "select_per_func.d" thru {
+   next cd at $1, $2
+}
+
+draw cd solid square size -2
+
+copy "jump_per_func.d" thru {
+   next cd at $1, $2
+}
+
+draw cd solid dot size -2
+
+copy "cmpd_per_func.d" thru {
+   next cd at $1, $2
+}
+
+draw cd solid delta size -2
+
+copy "expr_per_func.d" thru {
+   next cd at $1, $2
+}
+
+.G2
+

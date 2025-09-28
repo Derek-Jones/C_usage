@@ -1,0 +1,15 @@
+#!/bin/bash
+
+./bin/key \
+  -I/home/nkraft/research/keystone \
+  -I/home/nkraft/research/keystone/src \
+  -I/home/nkraft/research/keystone/src/schema \
+  -I/home/nkraft/research/keystone/src/asg \
+  -I/home/nkraft/research/keystone/src/syntax-analyzer \
+  -I/home/nkraft/research/keystone/src/syntax-analyzer/ast \
+  -I/home/nkraft/research/keystone/src/syntax-analyzer/parser \
+  -I/home/nkraft/research/keystone/src/syntax-analyzer/symboltable \
+  -I/home/nkraft/research/keystone/src/syntax-analyzer/utility \
+  -g \
+  $1
+

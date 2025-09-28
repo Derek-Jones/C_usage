@@ -1,0 +1,19 @@
+_funcptr_tovoid | _funcptr_tovoid
+_funcptr_tovoid | _funcptr_tovoid
+num typedef 85458
+File: typedef_type.t
+ unsigned int  ,, 2.68
+ unsigned char  ,, 2.21
+ enum  *() ,, 1.46
+ int  *() ,, 1.46
+ union  ,, 1.38
+ unsigned short  ,, 1.07
+ void  *() ,, 1.18
+ int  ,, 2.46
+ long  ,, 1.29
+ unsigned long  ,, 1.47
+ enum  ,, 9.50
+ struct  * ,, 6.97
+ struct  ,, 58.00
+ other-types ,, 8.86
+End File

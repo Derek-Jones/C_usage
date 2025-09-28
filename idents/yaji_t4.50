@@ -1,0 +1,51 @@
+all 20 131 9 9 21			all, every item
+amount 129 138 14 267 33	quantity, number of items
+answer 3 39 12 15 103		answer to a query
+arg2 334 42 4 52 61		second argument for a command
+arg3 126 6 4 42 24		third argument for a command
+attrib 9 72 20 1 8		attribute
+avail 73 106 8 63 20		available
+b4 2 35 28 3 17			no idea
+bottom 134 40 242 151 34	bottom of the stack, or memory, or page
+cache 116 293 174 104 3		cache
+change 19 39 29 7 6		changed text
+child 71 492 28 155 21		child process
+chunk 189 166 82 225 141	portion of memory, or file
+closedir 5 2 3 6 64		close directory/folder
+colon 38 20 52 109 5		:
+comment 2 15 21 28 8		documentation
+count2 5 11 4 4 9			count
+current 441 3768 155 191 177	current, not previous, not next
+d0 63 14 21 44 28			no idea
+day 20 67 1 142 61		day
+db 15 1398 16 127 168		database
+dec 14 15 83 5 151		decimal, december
+def 136 31 245 36 247		definition
+destination 25 82 3 18 20	destination
+directory 5 19 18 58 29		folder
+DWORD 14 7 206 80 287		no idea
+events 1 152 4 66 18		user created external events such as mouse
+clicks, system internal events
+ex 134 166 166 56 20		exit, example
+F_GETFL 5 1 17 19 2		get flag
+fields 317 17 17 27 1		fields
+finished 3 46 5 8 7		finished status of an operation such as loading
+F_SETFL 7 1 18 18 9		set flag
+good 8 15 13 4 1			status of something being good
+HighPart 20 9 4 4 126		no idea
+HIWORD 22 7 15 9 3		no idea
+indent 334 17 15 158 37		indented formatting
+index2 2 40 44 24 13		index into some list
+infile 149 38 8 20 77		in the file
+initialized 90 122 74 34 10	bound
+items 22 69 126 54 2234		items in a list or any other data structure
+j1 38 2 12 22 2			no idea
+junk 34 59 23 50 68		no idea
+kill 28 10 28 8 29		kill a process
+LARGE_INTEGER 16 6 4 5 71	long integer
+len1 156 58 50 12 12		length, string length, queue length
+location 232 234 13 44 3	memory location
+LOWORD 18 9 11 5 19		no idea
+LowPart 20 24 4 17 222		no idea
+marker 60 47 48 123 8		no idea
+mask2 10 24 15 6 3		address mask

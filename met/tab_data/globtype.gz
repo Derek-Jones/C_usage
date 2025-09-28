@@ -1,0 +1,40 @@
+File: ext_type.t
+ unsigned int  ,, 1.32
+ struct  [] ,, 5.19
+ int  [] ,, 1.63
+ union  * ,, 4.25
+ char  [] ,, 1.77
+ const char  [] ,, 8.40
+ float  ,, 1.99
+ void  *() ,, 6.59
+ char  * ,, 4.48
+ float  [] ,, 1.03
+ int  ,, 23.60
+ struct  * ,, 13.99
+ struct  ,, 10.07
+ enum  ,, 3.44
+ other-types ,, 12.27
+End File
+File: int_type.t
+ unsigned int  ,, 1.96
+ int  [] ,, 1.17
+ struct  [] ,, 6.72
+ struct  * * ,, 1.22
+ char  [] ,, 2.52
+ const char  [] ,, 2.20
+ unsigned char  [] ,, 9.56
+ char  * ,, 3.31
+ const struct  ,, 1.79
+ int  * ,, 1.02
+ ( const char  * const ) [] ,, 6.31
+ unsigned long  ,, 1.24
+ int  ,, 19.90
+ const unsigned char  [] ,, 1.98
+ unsigned short  [] ,, 5.61
+ const short  [] ,, 1.71
+ ( char  * ) [] ,, 1.41
+ enum  ,, 1.51
+ struct  ,, 7.34
+ struct  * ,, 8.87
+ other-type ,, 12.65
+End File

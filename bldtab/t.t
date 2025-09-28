@@ -1,0 +1,23 @@
+ IF control-expression ,, 45.14,,(6.72)
+ FOR control-expression ,, 45.69,,(65.97)
+ WHILE control-expression ,, 4.51,,(11.98)
+ SWITCH control-expression ,, 0.00,,(0.01)
+ other contexts ,, 4.66,,(unknown)
+row 2
+ IF control-expression ,, 69.34,,(1.81)
+ FOR control-expression ,, 17.24,,(4.47)
+ WHILE control-expression ,, 4.66,,(2.18)
+ SWITCH control-expression ,, 0.00,,(0.00)
+ other contexts ,, 8.75,,(unknown)
+row 3
+ IF control-expression ,, 80.32,,(6.06)
+ FOR control-expression ,, 3.58,,(2.64)
+ WHILE control-expression ,, 7.68,,(10.52)
+ SWITCH control-expression ,, 0.00,,(0.00)
+ other contexts ,, 8.43,,(unknown)
+row end
+ IF control-expression ,, 77.23,,(3.46)
+ FOR control-expression ,, 7.08,,(3.10)
+ WHILE control-expression ,, 4.74,,(3.85)
+ SWITCH control-expression ,, 0.00,,(0.00)
+ other contexts ,, 10.95,,(unknown)

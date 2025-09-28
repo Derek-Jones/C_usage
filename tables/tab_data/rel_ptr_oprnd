@@ -1,0 +1,20 @@
+ char * ,, > ,, char * ,, 67.5 ,, const char * ,, > ,, const char * ,, 4.0
+ char * ,, <= ,, char * ,, 39.6 ,, other-types ,, > ,, other-types ,, 3.8
+ char * ,, >= ,, char * ,, 26.9 ,, int * ,, >= ,, int * ,, 3.6
+ char * ,, < ,, char * ,, 25.8 ,, const char * ,, >= ,, const char * ,, 3.6
+ struct * ,, <= ,, struct * ,, 23.2 ,, struct * ,, > ,, struct * ,, 3.1
+ unsigned char * ,, >= ,, unsigned char * ,, 22.8 ,, short * ,, <= ,, short * ,, 3.0
+ unsigned char * ,, < ,, unsigned char * ,, 21.0 ,, other-types ,, < ,, other-types ,, 2.8
+ short * ,, >= ,, short * ,, 16.1 ,, unsigned int * ,, >= ,, unsigned int * ,, 2.6
+ struct * ,, < ,, struct * ,, 14.9 ,, const char * ,, < ,, const char * ,, 2.6
+ unsigned char * ,, <= ,, unsigned char * ,, 13.4 ,, const unsigned char * ,, < ,, const unsigned char * ,, 2.0
+ signed int * ,, < ,, signed int * ,, 13.1 ,, unsigned int * ,, > ,, unsigned int * ,, 1.9
+ struct * ,, >= ,, struct * ,, 13.0 ,, unsigned long * ,, <= ,, unsigned long * ,, 1.8
+ void * ,, > ,, void * ,, 11.0 ,, other-types ,, <= ,, other-types ,, 1.8
+ void * ,, < ,, void * ,, 9.4 ,, const char * ,, <= ,, const char * ,, 1.8
+ unsigned char * ,, > ,, unsigned char * ,, 8.7 ,, void * ,, >= ,, void * ,, 1.6
+ unsigned short * ,, <= ,, unsigned short * ,, 7.9 ,, unsigned short * ,, < ,, unsigned short * ,, 1.2
+ const unsigned char * ,, <= ,, const unsigned char * ,, 4.9 ,, unsigned int * ,, < ,, unsigned int * ,, 1.2
+ ptr-to * ,, < ,, ptr-to * ,, 4.8 ,, union * ,, <= ,, union * ,, 1.2
+ unsigned short * ,, >= ,, unsigned short * ,, 4.7 ,, int * ,, < ,, int * ,, 1.2
+ const unsigned char * ,, >= ,, const unsigned char * ,, 4.7 ,, int * ,, <= ,, int * ,, 1.2

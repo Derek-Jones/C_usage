@@ -1,0 +1,91 @@
+.FILE tf.c
+.DATE Sep  6 2003
+.TIME 17:00:15
+.VERSION 1.4
+#
+.START tf.c
+.ERR     3   8 1521 0 1
+.ERR     3   8 634 4 0
+.ERR     3   8 9506 6 0 "k"
+.ERR     4  18 9504 6 0 "abitfield"
+.ERR     4  18 9523 6 0 "abitfield"
+.ERR     6  10 9508 6 0 "h"
+.ERR     6  10 9525 6 0 "h"
+.ERR     7  18 1360 4 0
+.ERR     7  22 9508 6 0 "i"
+.ERR     7  22 9525 6 0 "i"
+.ERR     8  19 9508 6 0 "j"
+.ERR     8  19 9525 6 0 "j"
+.ERR    11   1 9508 6 0 "main"
+.ERR    11   1 9525 6 0 "main"
+#
+.FUNC main 11
+.ERR    12   4 9505 6 0 "loc"
+.CALL j 12 char
+.ERR    13   6 9505 6 0 "ss"
+.ERR    14   0 9505 6 0 "f"
+.ERR    14   0 9524 6 0 "f"
+.ERR    14   0 1769 5 0 "f"
+.ERR    14   0 1362 4 0
+.CALL f 14 int
+.ERR    15   0 9505 6 0 "g"
+.ERR    15   0 9524 6 0 "g"
+.ERR    15   0 1769 5 0 "g"
+.ERR    15   0 1362 4 0
+.CALL g 15 int int
+.ERR    16   0 1362 4 0
+.CALL h 16 int int int
+.ERR    17   3 1361 4 0
+.CALL i 17 int int int int
+.MOD NONE ss 19
+.MOD NONE loc 20
+.ACC NONE ss 20
+.ACC NONE loc 20
+.ERR    21   0 744 5 0
+.LOCAL g scope 2  used 1 set 0 FUNC
+.LOCAL f scope 2  used 1 set 0 FUNC
+.LOCAL ss scope 2  used 1 set 2 size 2 IDENT short
+.LOCAL loc scope 2  used 1 set 2 size 4 IDENT int
+.METRICS
+STMTS 6 UNIQ_PPLITS 3 UNIQ_LITS 3 UNIQ_PPIDS 9 
+UNIQ_IDS 7 LINES 10 B_LINES 1 CHARS 80 
+B_CHARS 17 EXPR_COMPLEX 4 E_IDENT_COUNT 9 E_LIT_COUNT 8 
+E_OP_COUNT 10 UNIQ_OPS 4 EDGES 1 NODES 2 
+.PPTOKS
+OPEN_RND 5 PLUS 1 CLOSE_RND 5 COMMA 3 
+SEMICOLON 8 ASSIGN 4 IDENTIFIER 13 EOLN 10 
+PP_NUMBER 8 
+.TOKS
+INT 1 SHORT 1 OPEN_RND 5 PLUS 1 
+CLOSE_RND 5 COMMA 3 SEMICOLON 8 ASSIGN 4 
+LITERAL 8 IDENTIFIER 11 
+.END
+.GLOBAL
+main EXTERNAL defined 1 used 1 set 0 FUNC
+h EXTERNAL defined 0 used 1 set 0 FUNC
+j EXTERNAL defined 0 used 1 set 0 FUNC
+abitfield EXTERNAL defined 0 used 0 set 0 size 4 IDENT struct
+i EXTERNAL defined 0 used 1 set 0 FUNC
+.METRICS
+CHARS 198 B_CHARS 49 LINES 22 B_LINES 4 
+.PPTOKS
+OPEN_RND 9 PLUS 1 COLON 1 CLOSE_RND 9 
+COMMA 4 SEMICOLON 13 ELLIPSIS 1 OPEN_CURL 2 
+CLOSE_CURL 2 ASSIGN 4 IDENTIFIER 30 EOLN 24 
+PP_NUMBER 9 
+.TOKS
+EXTERN 3 CHAR 1 INT 5 SHORT 1 
+VOID 2 STRUCT 1 OPEN_RND 9 PLUS 1 
+COLON 1 CLOSE_RND 9 COMMA 4 SEMICOLON 13 
+ELLIPSIS 1 OPEN_CURL 2 CLOSE_CURL 2 ASSIGN 4 
+LITERAL 9 IDENTIFIER 17 
+.END tf.c
+.ERR    22   0 1764 5 0 "i"
+.ERR    22   0 1764 5 0 "h"
+.ERR    22   0 1764 5 0 "g"
+.ERR    22   0 1764 5 0 "f"
+.ERR    22   0 1778 5 0 "h"
+.ERR    22   0 1778 5 0 "j"
+.ERR    22   0 1778 5 0 "abitfield"
+.ERR    22   0 1775 5 0 "abitfield"
+.ERR    22   0 1778 5 0 "i"

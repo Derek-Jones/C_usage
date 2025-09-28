@@ -1,0 +1,28 @@
+
+
+cArc
+
+cArcSyntax : cArc
+cArcSon      : cArcSyntax
+cArcTrue     : cArcSyntax
+cArcFalse    : cArcSyntax
+cArcOpd      : cArcSyntax
+cImport      : cArcSyntax
+cArcCond     : cArcSyntax
+cArcForInit  : cArcSyntax
+cArcForIncr  : cArcSyntax
+cArcInitVal  : cArcSyntax
+cArcBitDim   : cArcSyntax
+cArcArrayDim : cArcSyntax
+cArcSource   : cArcSyntax
+
+cArcReference : cArc
+cIncludes    : cArcReference
+cInstance    : cArcReference
+cInheritance : cArcReference
+cImplements  : cArcReference
+cArcFriend   : cArcReference
+cArcDefLoc   : cArcReference
+cRefersTo    : cArcReference
+
+

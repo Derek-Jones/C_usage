@@ -1,0 +1,18 @@
+ int ,, + ,, _int ,, 37.5 ,, unsigned long ,, + ,, _int ,, 2.6
+ int ,, - ,, _int ,, 19.5 ,, unsigned long ,, - ,, unsigned long ,, 2.4
+ other-types ,, + ,, other-types ,, 16.2 ,, unsigned int ,, - ,, unsigned int ,, 2.2
+ other-types ,, - ,, other-types ,, 16.0 ,, long ,, - ,, _int ,, 2.2
+ _int ,, + ,, _int ,, 11.8 ,, _int ,, - ,, int ,, 2.1
+ int ,, - ,, int ,, 10.8 ,, ptr-to ,, - ,, _int ,, 2.0
+ _int ,, - ,, _int ,, 8.8 ,, long ,, - ,, long ,, 2.0
+ ptr-to ,, - ,, ptr-to ,, 6.4 ,, unsigned int ,, + ,, _int ,, 1.7
+ ptr-to ,, + ,, unsigned long ,, 6.2 ,, float ,, + ,, float ,, 1.7
+ ptr-to ,, + ,, long ,, 5.8 ,, unsigned short ,, - ,, int ,, 1.5
+ float ,, - ,, float ,, 5.0 ,, unsigned long ,, + ,, unsigned long ,, 1.4
+ unsigned long ,, - ,, _int ,, 4.9 ,, int ,, - ,, unsigned short ,, 1.4
+ int ,, + ,, int ,, 4.7 ,, _int ,, + ,, int ,, 1.4
+ unsigned int ,, - ,, _int ,, 4.2 ,, unsigned short ,, + ,, _int ,, 1.2
+ ptr-to ,, + ,, int ,, 3.7 ,, unsigned short ,, - ,, _int ,, 1.1
+ _unsigned long ,, - ,, _int ,, 3.1 ,, unsigned char ,, - ,, _int ,, 1.1
+ ptr-to ,, - ,, unsigned long ,, 3.1 ,, unsigned int ,, + ,, unsigned int ,, 1.0
+ ptr-to ,, + ,, _int ,, 3.0 ,,   ,,  ,,  ,, 

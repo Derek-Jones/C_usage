@@ -1,0 +1,7 @@
+ == CHAR_CONST ,, 7.1 ,, 22.8 ,, CHAR_CONST || ,, 4.2 ,, 4.2
+ , CHAR_CONST ,, 0.3 ,, 18.1 ,, CHAR_CONST && ,, 5.3 ,, 3.3
+ CASE CHAR_CONST ,, 8.5 ,, 16.7 ,, <= CHAR_CONST ,, 7.1 ,, 1.7
+ = CHAR_CONST ,, 0.8 ,, 14.2 ,, >= CHAR_CONST ,, 3.6 ,, 1.5
+ != CHAR_CONST ,, 5.3 ,, 8.4 ,, CHAR_CONST ) ,, 33.0 ,, 0.7
+ ( CHAR_CONST ,, 0.1 ,, 6.1 ,, CHAR_CONST , ,, 17.6 ,, 0.3
+ CHAR_CONST : ,, 16.7 ,, 6.0 ,, CHAR_CONST ; ,, 16.6 ,, 0.3

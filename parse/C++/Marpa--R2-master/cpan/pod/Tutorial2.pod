@@ -1,0 +1,190 @@
+# Copyright 2014 Jeffrey Kegler
+# This file is part of Marpa::R2.  Marpa::R2 is free software: you can
+# redistribute it and/or modify it under the terms of the GNU Lesser
+# General Public License as published by the Free Software Foundation,
+# either version 3 of the License, or (at your option) any later version.
+#
+# Marpa::R2 is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser
+# General Public License along with Marpa::R2.  If not, see
+# http://www.gnu.org/licenses/.
+
+=head1 NAME
+
+Marpa::R2 - Marpa Tutorial 2
+
+=head1 Synopsis
+
+=for Marpa::R2::Display
+name: Tutorial 2 synopsis
+normalize-whitespace: 1
+
+    use Marpa::R2;
+
+    my $dsl = <<'END_OF_DSL';
+    :default ::= action => [name,values]
+    lexeme default = latm => 1
+
+    Expression ::= Term action => ::first
+    Term ::=
+          Factor action => ::first
+        | Term '+' Term action => do_add
+    Factor ::=
+          Number action => ::first
+        | Factor '*' Factor action => do_multiply
+    Number ~ digits
+    digits ~ [\d]+
+    :discard ~ whitespace
+    whitespace ~ [\s]+
+    END_OF_DSL
+
+    my $grammar = Marpa::R2::Scanless::G->new( { source => \$dsl } );
+    my $recce = Marpa::R2::Scanless::R->new(
+        { grammar => $grammar, semantics_package => 'My_Actions' } );
+    my $input = '42 * 1 + 7';
+    $recce->read( \$input );
+
+    my $value_ref = $recce->value;
+    my $value = $value_ref ? ${$value_ref} : 'No Parse';
+
+    sub My_Actions::do_add {
+        my ( undef, $t1, undef, $t2 ) = @_;
+        return $t1 + $t2;
+    }
+
+    sub My_Actions::do_multiply {
+        my ( undef, $t1, undef, $t2 ) = @_;
+        return $t1 * $t2;
+    }
+
+=for Marpa::R2::Display::End
+
+=head1 UNDER CONSTRUCTION
+
+This tutorial is under construction.
+
+=head1 Description
+
+=head2 Overview
+
+This document contains a second tutorial
+of the Scanless interface (SLIF),
+which demonstrates a lower level of method calls.
+These lower level allow access to more of Marpa's
+features.
+As examples, users will use these lower level calls
+to use Marpa events;
+to examine the values of multiple  parses of an ambiguous parse;
+and to get finer control of the response to Marpa errors.
+
+This uses the same extremely simple calculator
+as the tutorial in the landing page.
+Must of the code is exactly the same in fact,
+and we will skip it,
+going straight to what is new.
+
+=head2 Marpa::R2::Scanless::R::new
+
+=for Marpa::R2::Display
+name: Tutorial 2 synopsis
+partial: 1
+normalize-whitespace: 1
+
+    my $recce = Marpa::R2::Scanless::R->new(
+        { grammar => $grammar, semantics_package => 'My_Actions' } );
+
+=for Marpa::R2::Display::End
+
+C<Marpa::R2::Scanless::R::new> creates a new SLIF recognizer.
+Its arguments are references to hashes of named arguments.
+In this example the first named argument is
+the required argument: "C<grammar>".
+The value of the
+C<grammar>
+named argument must be a Marpa::R2 SLIF
+grammar.
+
+The second argument is optional, but you will use it frequently.
+The "C<semantics_package>" named argument tells Marpa in which Perl package to
+look for the closures implementing the semantics for this grammar.
+We will talk more about this below.
+
+=head2 Marpa::R2::Scanless::R::read
+
+=for Marpa::R2::Display
+name: Tutorial 2 synopsis
+partial: 1
+normalize-whitespace: 1
+
+    my $input = '42 * 1 + 7';
+    $recce->read( \$input );
+
+=for Marpa::R2::Display::End
+
+To parse a string,
+we use 
+the C<Marpa::R2::Scanless::R::read()> method.
+In its simplest form,
+as here,
+the C<Marpa::R2::Scanless::R::read()> takes a reference
+to a string containing the input stream as its argument.
+
+=head2 Marpa::R2::Scanless::R::value
+
+=for Marpa::R2::Display
+name: Tutorial 2 synopsis
+partial: 1
+normalize-whitespace: 1
+
+    my $value_ref = $recce->value;
+    my $value = $value_ref ? ${$value_ref} : 'No Parse';
+
+=for Marpa::R2::Display::End
+
+The C<Marpa::R2::Scanless::R::value()> method returns
+a reference to the parse result's value,
+if there was a parse result.
+If there was no parse result,
+C<Marpa::R2::Scanless::R::value()>
+returns
+C<undef>.
+
+The value of the parse is exactly the same,
+and computed in exactly the same way,
+as in the previous tutorial.
+
+=head1 Copyright and License
+
+=for Marpa::R2::Display
+ignore: 1
+
+  Copyright 2014 Jeffrey Kegler
+  This file is part of Marpa::R2.  Marpa::R2 is free software: you can
+  redistribute it and/or modify it under the terms of the GNU Lesser
+  General Public License as published by the Free Software Foundation,
+  either version 3 of the License, or (at your option) any later version.
+
+  Marpa::R2 is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser
+  General Public License along with Marpa::R2.  If not, see
+  http://www.gnu.org/licenses/.
+
+=for Marpa::R2::Display::End
+
+=cut
+
+# Local Variables:
+#   mode: cperl
+#   cperl-indent-level: 4
+#   fill-column: 100
+# End:
+# vim: expandtab shiftwidth=4:
+

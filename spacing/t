@@ -1,0 +1,39 @@
+nospace        34866  hl    2923  s   29579  lh   2364
+space_nospace   4132  hl      90  s     393  lh   3649
+space_space    31375  hl   11480  s   11162  lh   8733
+nospace_space   2659  hl    2136  s     405  lh    118
+total_sp       73032  hl   16629  s   41539  lh  14864
+relat relat 297
+low_high 14864
+<< equal 53
+mult relat 271
+mult bitwise 81
+logical relat 2154
+relat logical 2564
+equal add 540
+add mult 5820
+bitwise add 55
+bitwise bitwise 5727
+total 73032
+add relat 2132
+bitwise << 331
+same 41539
+add bitwise 59
+<< bitwise 549
+relat << 59
+high_low 16629
+mult add 4979
+equal mult 208
+equal logical 4223
+mult mult 20155
+bitwise mult 104
+add add 15399
+logical equal 2698
+mult equal 320
+bitwise logical 70
+relat mult 1060
+<< add 57
+relat add 2278
+logical logical 151
+add equal 289
+logical add 93

@@ -1,0 +1,3 @@
+FOR ( abc ; abc ; abc )
+FOR ( abc ; efg ( abc ) ; abc )
+FOR ( abc ; x -> abc ; x )

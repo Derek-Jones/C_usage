@@ -1,0 +1,7 @@
+ struct ,, 58.00 ,, unsigned long ,, 1.47
+ enum ,, 9.50 ,, int *() ,, 1.46
+ other-types ,, 8.86 ,, enum *() ,, 1.46
+ struct * ,, 6.97 ,, union ,, 1.38
+ unsigned int ,, 2.68 ,, long ,, 1.29
+ int ,, 2.46 ,, void *() ,, 1.18
+ unsigned char ,, 2.21 ,, unsigned short ,, 1.07

@@ -1,0 +1,4 @@
+ char * ,, - ,, char * ,, 48.9 ,, void * ,, - ,, void * ,, 1.4
+ unsigned char * ,, - ,, unsigned char * ,, 26.2 ,, int * ,, - ,, int * ,, 1.4
+ struct * ,, - ,, struct * ,, 13.7 ,, unsigned short * ,, - ,, unsigned short * ,, 1.2
+ const char * ,, - ,, const char * ,, 4.6 ,, other-types ,, &emdash; ,, other-types ,, 0.0

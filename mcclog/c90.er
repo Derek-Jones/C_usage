@@ -1,0 +1,79 @@
+*
+*	ISO_C/errors	Lastmod	22 Jul 96  DJ 
+*			Created	   Jul 87  SAC
+*
+******************************************************************************
+*
+*	Error message file for ISO C
+*
+*	(c) 1989-1996 Knowledge Software Ltd, all rights reserved
+*
+*	-- date -- init -- modification --
+*	 1 Jun 89  SAC  Added error level, #defines and comments
+*
+******************************************************************************
+*
+* The format of this file is as follows:
+*
+*	* star indicates a comment
+*
+*	#define name digit comment
+*		defines name as a mnemonic for the error level digit
+*
+*	errorno level message
+*		messages (only) may be continued over several lines
+*		by using the \ character
+
+* Leading whitespace (space and tab) is ignored on any line except a
+* continuation of a message.  Any amount of whitespace may separate the
+* level from the errorno and the message.  Similarly for the name in a
+* #define.  The first character of any message is considered to be the
+* first non-whitespace character after the level.
+
+#define implicit	2	standard specifies implicit action
+#define	warn		2
+#define impldef		4	implementation defined behaviour
+#define impundef	5	implicitly specified as undefined behaviour
+#define expundef	5	explicitly specified as undefined behaviour
+#define style		5	Stylistic issues
+#define usercont	7	user error
+#define	recover		7	recoverable (semantic) error
+* In the following case we must not generate code, or mce gets upset
+#define constraint	8	standard constraint violations
+#define	syntax		8	syntax error
+* The following errors are fatal, and halt execution immediately
+#define fatal		9	general fatal error
+#define userfatal	9	serious user error
+#define system		9	serious file errors - do not change
+
+**** Ident checking errors
+*
+* Undefined ISO C
+*
+1300	expundef	[U] '%s' is reserved for any uses\\
+\nREFERENCE = ISO-7.1.2.1 Reserved identifiers
+1301	expundef	[U] '%s' is reserved  as a file scope\
+ identifier/tag\\
+\nREFERENCE = ISO-7.1.2.1 Reserved identifiers
+1302	expundef	[U] '%s' is a reserved macro name.
+1303	expundef	[U] '%s' is a possibly macro covered identifier
+1304	expundef	[U] '%s' can't be redefined, even after #undef\\
+\nREFERENCE = ISO-7.1.2.1 Reserved identifiers (third point).
+1305	expundef	[U] '%s' is a macro name reserved for future use
+1306	expundef	[U] '%s' is reserved for future use as a (possibly\
+ macro covered) external identifier
+1307	expundef	[U] '%s' is a reserved external identifier name\\
+\nREFERENCE = ISO-7.1.2.1 Reserved identifiers   (forth point).
+1308	expundef	[U] '%s' is reserved for future use as an external\
+ identifier name\\
+\nREFERENCE = ISO-7.1.2.1 Reserved identifiers (forth point).
+1309	expundef	[U] '%s' is a reserved tag name\\
+\nREFERENCE = ISO-7.1.2.1 Reserved identifiers (lines 13-15)
+1310	expundef	[U] '%s' is a reserved file scope identifier\\
+\nREFERENCE = ISO-7.1.2.1 Reserved identifiers (lines 13-15)
+1311	expundef	[U] '%s' library function needs type from header file
+1312	warn		ISO C doesn't define '%s' as an external
+1313	expundef	[U] '%s' need not be defined as an external - include\
+ the header
+1314	warn		Shouldn't defined NDEBUG after including assert.h
+

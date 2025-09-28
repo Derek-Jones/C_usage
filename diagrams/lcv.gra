@@ -1,0 +1,55 @@
+
+.ps 8
+
+.G1
+
+# lcv.gra, 28 Mar 03
+
+graph Q_1
+
+frame invis ht 1.5 wid 2.2*1.5 left solid bot solid
+
+coord x 0,18 y 0.8,86882 log y
+
+ticks bot out at 0, 1, 2 "", 3, 4 "", 5, 10, 15, 20
+#ticks left out at  10, 100, 1000, 10000, 34000
+ticks left out at 1, 10 "10", 100 "100", 1000 "1,000", 10000 "10,000"
+
+label bot "Possible loop control variables"
+label left "\fBfor\fR loop headers" "" ""
+
+draw em solid square
+next em at 13,43441/3.4
+next em at 14,43441/3.4
+"\fIexpression-2\fR" ljust at 15,43441/3.4
+
+draw em solid square size -2
+
+copy "lcvcntrl.d" thru {
+	next em at $1,$2
+	}
+
+draw em solid times
+next em at 13,43441/8.2
+next em at 14,43441/8.2
+"\fIexpression-3\fR" ljust at 15,43441/8.2
+
+draw em solid times
+
+copy "lcvinc.d" thru {
+	next em at $1,$2
+	}
+
+draw em solid bullet
+next em at 13,43441/20.0
+next em at 14,43441/20.0
+"\fIclause-1\fR" ljust at 15,43441/20.0
+
+draw em solid bullet
+
+copy "lcvinit.d" thru {
+	next em at $1,$2
+	}
+
+.G2
+

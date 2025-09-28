@@ -1,0 +1,60 @@
+
+.ps 8
+
+.G1
+
+# benfordint.g, 31 May 02
+# built on: Thu Jan 24 01:48:18 GMT 2008
+
+graph Q_1
+
+frame invis ht 1.5 wid 2.2 left solid bot solid
+
+coord x 1,15 y 0.009,1.0 log y
+
+label bot "First non-zero digit"
+label left "Probability of appearing" ""
+
+tick bot at 1, 2, 3, 4, 5, 6,7, 8, 9, 10 "A", 11 "B", 12 "C", 13 "D", 14 "E", 15 "F"
+tick left at 0.01 "1", 0.1 "10", 1.0 "100"
+
+total=0
+copy "benfordint.d" thru {
+   if $1 != 0 then {
+      total=total+$2
+      }
+}
+
+draw do solid
+copy "benfordint.d" thru {
+   next do at $1, $2/total
+}
+
+"decimal" at 5.0,0.02
+
+draw do dotted
+for ben=1 to 9 by 1 do {
+   next do at ben, log(1+1/ben)
+   }
+
+draw do dotted
+for ben=1 to 15 by 1 do {
+   next do at ben, log(1+1/ben)/log(16)
+   }
+
+total=0
+copy "benfordhex.d" thru {
+   if $1 != 0 then {
+      total=total+$2
+      }
+}
+
+draw do dashed
+copy "benfordhex.d" thru {
+   next do at $1, $2/total
+}
+
+"hexadecimal" at 12.5,0.12
+
+.G2
+

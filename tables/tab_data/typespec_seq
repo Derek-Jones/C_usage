@@ -1,0 +1,6 @@
+ INT ,, 39.9 ,, LONG ,, 2.2
+ VOID ,, 24.3 ,, UNSIGNED ,, 1.6
+ CHAR ,, 15.6 ,, UNSIGNED SHORT ,, 0.9
+ UNSIGNED LONG ,, 6.2 ,, FLOAT ,, 0.6
+ UNSIGNED INT ,, 4.0 ,, SHORT ,, 0.5
+ UNSIGNED CHAR ,, 3.4 ,, DOUBLE ,, 0.5

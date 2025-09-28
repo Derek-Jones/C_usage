@@ -1,0 +1,26 @@
+
+.ps 8
+
+.G1
+
+# indentdiff.g, 22 Mar 03
+# built on: Thu Jan 24 01:48:18 GMT 2008
+
+frame invis ht 1.5 wid 2.2*1.5 left solid bot solid
+
+coord x -102,102 y 0.9,5085950 log y
+
+label bot "Indentation difference"
+label left "Lines" "" "" ""
+
+ticks bot out at -100, -75, -50, -25, 0, 25, 50, 75, 100
+#ticks left out at 1, 10, 100, 1000, 10000, 100000, 1000000 "", 2046000 "2,046,000"
+ticks left out at 1, 10 "10", 100 "100", 1000 "1,000", 10000 "10,000", 100000 "100,000", 1000000 "1,000,000"
+
+draw un solid
+copy "indentdiff.d" thru {
+   next un at $1-250, $2
+}
+
+.G2
+

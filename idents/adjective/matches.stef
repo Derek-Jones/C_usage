@@ -1,0 +1,475 @@
+>>> single adjective
+available 13
+lost 5
+odd 10
+sharp 16
+fresh 5
+severe 2
+symbolic 33
+virtual 109
+basic 57
+tiny 10
+main 114
+full 49
+expensive 6
+suggested 4
+secondary 53
+double 227
+outside 6
+limited 5
+visible 9
+specific 42
+off 59
+brief 2
+qualified 49
+abnormal 8
+separate 21
+dynamic 45
+select 72
+padded 3
+continued 6
+bottom 16
+precise 2
+sealed 2
+functional 3
+early 9
+aggregate 31
+public 48
+dangerous 3
+positive 7
+linear 4
+super 110
+relevant 3
+quick 16
+formal 30
+chosen 6
+desired 10
+absolute 18
+big 58
+due 2
+serious 3
+original 58
+valid 129
+internal 108
+strict 58
+established 2
+flat 15
+empty 66
+optimal 6
+mean 3
+careful 5
+integrated 5
+anticipated 2
+random 10
+dead 87
+useful 3
+spurious 3
+viable 6
+wide 64
+uncertain 4
+cast 59
+intrinsic 73
+quiet 8
+real 350
+funny 4
+fixed 87
+long 245
+free 245
+stupid 9
+boring 3
+trivial 8
+pure 22
+bogus 5
+independent 6
+incomplete 37
+weak 43
+key 74
+horizontal 3
+equivalent 10
+inherited 14
+ultimate 7
+exact 24
+global 184
+broken 10
+legitimate 21
+new 719
+protected 31
+interesting 3
+possible 41
+slow 13
+dominant 3
+disabled 8
+imported 6
+central 19
+sensitive 2
+live 98
+winning 3
+plain 5
+traditional 17
+static 199
+straight 2
+mini 2
+additional 11
+far 31
+paradoxical 3
+deep 9
+expected 16
+current 434
+international 6
+different 7
+strange 3
+missing 71
+balanced 2
+direct 38
+unnecessary 2
+physical 7
+unused 60
+terminal 95
+finite 4
+prime 4
+ugly 29
+close 90
+negative 19
+alternative 64
+initial 99
+extended 45
+common 124
+back 26
+multiple 58
+detailed 3
+marked 43
+written 35
+macho 2
+open 158
+profitable 5
+portable 3
+native 8
+dire 2
+arithmetic 10
+proper 3
+local 198
+complete 54
+outer 66
+registered 5
+transient 9
+clean 31
+working 6
+raw 69
+effective 3
+spare 2
+scientific 5
+positional 2
+tertiary 5
+soft 42
+clear 154
+complex 152
+accurate 2
+fit 7
+ordinary 5
+significant 2
+useless 14
+immediate 58
+hard 123
+high 131
+illegal 3
+vacant 2
+white 23
+just 21
+simple 57
+inner 90
+recent 3
+relative 17
+safe 48
+extra 76
+critical 8
+left 63
+true 83
+regular 9
+unique 21
+correct 5
+successful 2
+major 14
+normal 59
+sudden 3
+narrow 6
+good 6
+easy 19
+selective 26
+logical 71
+shallow 3
+wrong 10
+similar 6
+failed 7
+marginal 3
+usual 3
+friendly 5
+relational 7
+compact 3
+natural 3
+idle 2
+numerical 3
+tidy 3
+cumulative 10
+potential 9
+single 73
+final 109
+stable 6
+cheap 17
+special 73
+unexpected 5
+external 57
+printed 23
+huge 6
+opposite 5
+minor 10
+dependent 16
+automatic 6
+abstract 44
+false 52
+universal 3
+silent 7
+private 59
+continuous 2
+artificial 15
+blank 39
+right 54
+active 29
+general 37
+looking 11
+detached 2
+committed 2
+received 7
+shared 47
+small 68
+identified 2
+constant 387
+naked 3
+lazy 3
+peculiar 2
+reduced 20
+short 129
+fine 3
+visual 10
+permanent 22
+dim 28
+forward 71
+cool 2
+large 33
+bad 178
+low 125
+sure 2
+backward 26
+known 63
+standard 36
+reserved 12
+inverted 2
+temporary 20
+leading 12
+strong 9
+weird 7
+combined 16
+fundamental 5
+closed 7
+actual 29
+upward 2
+round 54
+signed 92
+acceptable 3
+biased 2
+generic 33
+>>> any adjective pair
+constant selective 2
+intrinsic disabled 2
+current static 2
+true false 2
+constant logical 2
+double forward 2
+close single 2
+clear hard 3
+high low 2
+weak global 2
+bad signed 2
+new live 2
+empty off 2
+left right 2
+double real 6
+free basic 2
+marked new 2
+sharp sharp 2
+double long 3
+low immediate 2
+terminal terminal 3
+free multiple 2
+short double 2
+terminal new 3
+constant double 2
+static cast 4
+terminal clear 5
+global current 2
+pure virtual 2
+current possible 2
+round single 2
+intrinsic global 2
+real arithmetic 2
+strange white 2
+open key 3
+blank common 2
+known hard 2
+real main 2
+constant valid 2
+signed long 3
+known true 5
+long immediate 3
+empty printed 2
+global bad 2
+initial fixed 2
+common blank 2
+pure key 2
+dynamic cast 4
+short clear 2
+exact real 2
+static off 2
+long real 4
+static local 2
+long long 14
+abstract virtual 2
+just select 2
+valid cast 2
+new clean 3
+new terminal 3
+big immediate 2
+round extended 2
+inner true 2
+new common 2
+new inner 2
+valid initial 2
+current live 2
+double high 3
+double double 2
+bad cast 2
+round biased 2
+ugly complex 2
+current alternative 2
+live known 2
+bad free 2
+private virtual 2
+bad complex 2
+constant wide 3
+global symbolic 2
+open shared 2
+round double 2
+double small 2
+static final 2
+constant real 2
+complex long 2
+constant long 2
+immediate constant 2
+special wide 3
+missing close 2
+long double 10
+complex double 3
+shared marked 2
+small free 3
+main main 2
+protected virtual 2
+constant new 38
+live relevant 2
+reduced ugly 3
+standard constant 2
+free forward 2
+virtual pure 2
+strict low 5
+real known 2
+global new 3
+current constant 2
+illegal static 2
+single real 3
+high positive 2
+initial forward 2
+round constant 2
+white sharp 2
+marked clear 5
+signed short 2
+double low 3
+new basic 2
+public virtual 2
+real double 2
+unused short 2
+legitimate constant 3
+real bottom 2
+main inner 2
+safe high 2
+functional cast 2
+new wide 2
+clear secondary 2
+double finite 2
+specific extra 2
+global live 3
+constant complex 2
+open blank 2
+short immediate 2
+constant high 2
+>>> adjective adjective something
+current static 1
+true false 1
+double forward 1
+close single 1
+clear hard 2
+weak global 1
+new live 1
+bad signed 1
+double real 5
+free basic 1
+marked new 1
+sharp sharp 1
+terminal terminal 2
+free multiple 1
+terminal new 2
+static cast 1
+terminal clear 4
+open key 1
+known hard 1
+real main 1
+long immediate 2
+global bad 1
+initial fixed 1
+dynamic cast 1
+short clear 1
+exact real 1
+long real 2
+long long 6
+new clean 2
+valid cast 1
+big immediate 1
+new inner 1
+valid initial 1
+current live 1
+double double 1
+ugly complex 1
+current alternative 1
+global symbolic 1
+double small 1
+static final 1
+complex long 1
+long double 4
+complex double 1
+shared marked 1
+small free 1
+main main 1
+live relevant 1
+reduced ugly 1
+strict low 2
+real known 1
+global new 1
+current constant 1
+single real 2
+white sharp 1
+marked clear 4
+new basic 1
+legitimate constant 2
+main inner 1
+safe high 1
+clear secondary 1
+global live 2
+short immediate 1
+constant high 1

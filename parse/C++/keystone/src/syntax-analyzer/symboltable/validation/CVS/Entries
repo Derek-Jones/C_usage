@@ -1,0 +1,15 @@
+/Makefile.am/1.1.1.1/Wed Nov 24 20:31:55 2004//
+/NameDeclarationInvariantFacilitator.cpp/1.1.1.1/Wed Nov 24 20:31:55 2004//
+/NameDeclarationInvariantFacilitator.h/1.1.1.1/Wed Nov 24 20:31:55 2004//
+/NameDeclarationInvariantVisitor.cpp/1.1.1.1/Wed Nov 24 20:31:55 2004//
+/NameDeclarationInvariantVisitor.h/1.1.1.1/Wed Nov 24 20:31:55 2004//
+/ScopeInvariantFacilitator.cpp/1.1.1.1/Wed Nov 24 20:31:55 2004//
+/ScopeInvariantFacilitator.h/1.1.1.1/Wed Nov 24 20:31:55 2004//
+/ScopeInvariantVisitor.cpp/1.1.1.1/Wed Nov 24 20:31:55 2004//
+/ScopeInvariantVisitor.h/1.1.1.1/Wed Nov 24 20:31:55 2004//
+/TypeInvariantFacilitator.cpp/1.1.1.1/Wed Nov 24 20:31:55 2004//
+/TypeInvariantFacilitator.h/1.1.1.1/Wed Nov 24 20:31:55 2004//
+/TypeInvariantVisitor.cpp/1.1.1.1/Wed Nov 24 20:31:55 2004//
+/TypeInvariantVisitor.h/1.1.1.1/Wed Nov 24 20:31:55 2004//
+/Visitor.h/1.1.1.1/Wed Nov 24 20:31:55 2004//
+D

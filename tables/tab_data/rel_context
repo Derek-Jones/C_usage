@@ -1,0 +1,5 @@
+IF control-expression ,, 76.7&nbsp;(3.4) ,, 45.5&nbsp;(6.7) ,, 68.5&nbsp;(1.8) ,, 80.5&nbsp;(6.0)
+other contexts ,, 11.5&nbsp;(&emdash;) ,, 4.8&nbsp;(&emdash;) ,, 9.5&nbsp;(&emdash;) ,, 8.4&nbsp;(&emdash;)
+WHILE control-expression ,, 4.8&nbsp;(3.9) ,, 4.6&nbsp;(12.0) ,, 4.8&nbsp;(2.2) ,, 7.6&nbsp;(10.4)
+FOR control-expression ,, 7.1&nbsp;(3.1) ,, 45.2&nbsp;(65.9) ,, 17.2&nbsp;(4.5) ,, 3.5&nbsp;(2.6)
+SWITCH control-expression ,, 0.0&nbsp;(0.0) ,, 0.0&nbsp;(0.0) ,, 0.0&nbsp;(0.0) ,, 0.0&nbsp;(0.0)

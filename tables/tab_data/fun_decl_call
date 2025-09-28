@@ -1,0 +1,4 @@
+Defined using ellipsis notation ,, 2.7
+No prototype in scope ,, 3.3
+Returns a value which is always ignored ,, 1.7
+Default declared as <c_code>extern int ()</c_code> ,, 0.0

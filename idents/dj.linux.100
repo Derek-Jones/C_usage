@@ -1,0 +1,100 @@
+device 3169
+mode 3215
+EFAULT 3216
+base_addr 3217
+v 3219
+esp 3221
+inline 3272
+msg 3307
+r 3354
+u_char 3426
+kfree 3507
+ptr 3559
+sk_buff 3609
+devc 3610
+t 3653
+b 3696
+SCpnt 3702
+start 3712
+regs 3713
+ch 3717
+stats 3735
+link 3750
+id 3758
+current 3768
+KERN_ERR 3793
+dentry 3909
+base 3967
+value 3992
+out 4063
+q 4145
+hostdata but what kind of host data?
+retval abbreviation for return value
+KERN_INFO a typdef of a structure type holding information about the kernel?
+lock a lock on a data structure
+outb abbreviation for output buffer
+d abbreviation for device or drive???
+np an n pointer?  what is n?
+st no idea (abbreviation for start?)
+sb some sort of buffer (what starts with s?)
+drive disk drive?  driver number?
+x I don't think this is a coordinate.  I have no idea
+entry an index into some table?
+sprintf a library function, should have removed this
+page the page in a page mapped memory manager
+ha high address?  I have no idea
+result the result from some I/O operation?
+length the length of some buffer, presumably not measured in bytes?
+n another loop counter?
+var abbreviation for variable? value added reseller?
+bh no idea
+addr abbreviation for address
+type information about the kind of information held in another variable?
+u an unsigned quantity?
+host the system host name?  or some kind of host identification
+EINVAL  should have removed this from the list (lloks like it is from error.h)
+req abbreviation for request (used in devive handling?)
+hw abbreviation for hardware?
+self a self referencing pointer?
+offset but what is it the offset from?
+tp temporary (pointer)? transaction processing?
+ioaddr address used by I/O routines
+buffer as the name suggests ...
+u32 a 32 bit unsigned int value
+val abbreviation for value
+next member of a structure used to create a linked list
+size but what is it the size of?  One of the data buffers?
+net_device a flag indicating some sort of network device?
+state the state of a finite state machine?
+tmp a temporary variable (perhaps no), a reference to the tmp directory?
+file but what sort of file (I don't think this refers to a file pointer)
+tty so well known it is nolonger considered to be an abbreviation
+err abbreviation for error
+c used to hold some character
+sk no idea
+arg abbreviation for argument (perhaps a command line argument?)
+priv abbreviation for priviledge (I don't think it is an abbreviaiton for private)
+irq acronym for interrupt request
+lp comething to do with the line printer?
+ret a return value?
+cs a C string?
+port an I/O port
+buf abbreviation for buffer
+status some kind of status indicator
+j perhaps the inner loop variable used in a nested loop (with i used in the outer loop)
+count some quantity that gradually gets increased (increments of 1 perhaps)
+name name of something obviously
+cmd abbreviation for command, but what sort of command?
+inode well known file system concept
+card I don't think linux supports punched cards.  I have no ideas about this one
+data data read from some device?
+s a string perhaps?
+len length of something, I[ hate this usage]
+skb an acronym for something, serial kxxx buffer?
+info an inportant sdata structure?  perhaps a kernel filesystem?
+flags plural, perhaps a bit set of flag values?
+p a pointer variable?
+NULL should have removed this from the list
+printk some sort print function specific to the kernel, perhaps a printf clone
+dev reference to the /dev file system
+i loop variable

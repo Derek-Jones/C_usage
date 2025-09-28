@@ -1,0 +1,209 @@
+19383,19384c19383,19384
+< non-comment characters, &zs;144568262&ze;, &zs;43485916&ze;
+< non-comment new-lines, &zs;6113075&ze;, &zs;1491192&ze;
+---
+> noncomment characters, &zs;144568262&ze;, &zs;43485916&ze;
+> noncomment new-lines, &zs;6113075&ze;, &zs;1491192&ze;
+49513,49519c49513,49518
+< <keyword>struct</keyword>, &zp;66.5&ze;, <keyword>struct</keyword> <keyword>*</keyword>, &zp;1.8&ze;
+< <keyword>char</keyword>, &zp;8.0&ze;, <keyword>int</keyword>, &zp;1.8&ze;
+< <keyword>union</keyword>, &zp;6.0&ze;, <keyword>const</keyword> <keyword>char</keyword>, &zp;1.3&ze;
+< other-types, &zp;5.5&ze;, <keyword>char</keyword> <keyword>*</keyword>, &zp;1.2&ze;
+< <keyword>void</keyword>, &zp;3.3&ze;, str <keyword>|</keyword> str
+< <keyword>unsigned</keyword> <keyword>char</keyword>, &zp;2.6&ze;, _<keyword>double</keyword> <keyword>|</keyword> _<keyword>double</keyword>
+< <keyword>unsigned</keyword> <keyword>int</keyword>, &zp;2.2&ze;, _<keyword>double</keyword> <keyword>|</keyword> _<keyword>double</keyword>
+---
+> <keyword>struct</keyword>, &zp;66.5&ze;, <keyword>unsigned</keyword> <keyword>int</keyword>, &zp;2.2&ze;  
+> <keyword>char</keyword>, &zp;8.0&ze;, <keyword>struct</keyword> <keyword>*</keyword>, &zp;1.8&ze;
+> <keyword>union</keyword>, &zp;6.0&ze;, <keyword>int</keyword>, &zp;1.8&ze;
+> other-types, &zp;5.5&ze;, <keyword>const</keyword> <keyword>char</keyword>, &zp;1.3&ze;
+> <keyword>void</keyword>, &zp;3.3&ze;, <keyword>char</keyword> <keyword>*</keyword>, &zp;1.2&ze;
+> <keyword>unsigned</keyword> <keyword>char</keyword>, &zp;2.6&ze;, , 
+68407,68415c68406,68413
+<  ,  gcc,  idsoftware,  linux,  netscape,  openafs,  openMotif,  postgresql 
+<  , &zs;46549&ze;, &zs;27467&ze;, &zs;275566&ze;, &zs;52326&ze;, &zs;35868&ze;, &zs;35465&ze;, &zs;18131&ze; 
+<  gcc ,  -- ,  &zs;2&ze; ,  &zs;9&ze; ,  &zs;6&ze; ,  &zs;5&ze; ,  &zs;3&ze; ,  &zs;3&ze; 
+<  idsoftware ,  &zs;5&ze; ,  -- ,  &zs;8&ze; ,  &zs;6&ze; ,  &zs;5&ze; ,  &zs;4&ze; ,  &zs;3&ze; 
+<  linux ,  &zs;1&ze; ,  &zs;0&ze; ,  -- ,  &zs;1&ze; ,  &zs;1&ze; ,  &zs;0&ze; ,  &zs;0&ze; 
+<  netscape ,  &zs;5&ze; ,  &zs;3&ze; ,  &zs;8&ze; ,  -- ,  &zs;5&ze; ,  &zs;7&ze; ,  &zs;3&ze; 
+<  openafs ,  &zs;6&ze; ,  &zs;4&ze; ,  &zs;12&ze; ,  &zs;8&ze; ,  -- ,  &zs;3&ze; ,  &zs;5&ze; 
+<  openMotif ,  &zs;4&ze; ,  &zs;3&ze; ,  &zs;6&ze; ,  &zs;11&ze; ,  &zs;3&ze; ,  -- ,  &zs;3&ze; 
+<  postgresql ,  &zs;9&ze; ,  &zs;5&ze; ,  &zs;12&ze; ,  &zs;11&ze; ,  &zs;10&ze; ,  &zs;6&ze; ,  -- 
+---
+>   , 46549 , 27467 , 275566 , 52326 , 35868 , 35465 , 18131
+>  gcc  ,  --  ,  2  ,  9  ,  6  ,  5  ,  3  ,  3
+>  idsoftware  ,  5  ,  --  ,  8  ,  6  ,  5  ,  4  ,  3
+>  linux  ,  1  ,  0  ,  --  ,  1  ,  1  ,  0  ,  0
+>  netscape  ,  5  ,  3  ,  8  ,  --  ,  5  ,  7  ,  3
+>  openafs  ,  6  ,  4  ,  12  ,  8  ,  --  ,  3  ,  5
+>  openMotif  ,  4  ,  3  ,  6  ,  11  ,  3  ,  --  ,  3
+>  postgresql  ,  9  ,  5  ,  12  ,  11  ,  10  ,  6  ,  --
+83324,83337c83322,83336
+< &comma;, &z2p;8.82&ze;, <keyword>==</keyword>, &z2p;0.53&ze;, <keyword>||</keyword>, &z2p;0.16&ze;, <keyword>-=</keyword>, &z2p;0.03&ze;
+< <keyword>)</keyword>, &z2p;8.09&ze;, <keyword>:</keyword>, &z2p;0.46&ze;, <keyword>+=</keyword>, &z2p;0.11&ze;, <keyword>++v</keyword>, &z2p;0.02&ze;
+< <keyword>(</keyword>, &z2p;8.09&ze;, <keyword>-v</keyword>, &z2p;0.40&ze;, <keyword>></keyword>, &z2p;0.11&ze;, <keyword>%</keyword>, &z2p;0.02&ze;
+< <keyword>;</keyword>, &z2p;7.80&ze;, <keyword>*p</keyword>, &z2p;0.40&ze;, <keyword><<</keyword>, &z2p;0.09&ze;, <keyword>--v</keyword>, &z2p;0.01&ze;
+< <keyword>=</keyword>, &z2p;3.08&ze;, <keyword>+</keyword>, &z2p;0.38&ze;, <keyword>?:</keyword>, &z2p;0.08&ze;, <keyword>...</keyword>, &z2p;0.01&ze;
+< <keyword>-></keyword>, &z2p;3.00&ze;, <keyword>*v</keyword>, &z2p;0.34&ze;, <keyword>?</keyword>, &z2p;0.08&ze;, <keyword>>>=</keyword>, &z2p;0.01&ze;
+< <keyword>}</keyword>, &z2p;1.87&ze;, <keyword>&</keyword>, &z2p;0.32&ze;, <keyword>|=</keyword>, &z2p;0.08&ze;, <keyword>^</keyword>, &z2p;0.01&ze;
+< <keyword>{</keyword>, &z2p;1.87&ze;, <keyword>!</keyword>, &z2p;0.31&ze;, <keyword>>=</keyword>, &z2p;0.07&ze;, <keyword>+v</keyword>, &z2p;0.00&ze;
+< <keyword>.</keyword>, &z2p;1.26&ze;, <keyword>v++</keyword>, &z2p;0.27&ze;, <keyword>/</keyword>, &z2p;0.06&ze;, <keyword>%=</keyword>, &z2p;0.00&ze;
+< <keyword>*</keyword>, &z2p;1.10&ze;, <keyword>&&</keyword>, &z2p;0.26&ze;, <keyword>>></keyword>, &z2p;0.06&ze;, <keyword>##</keyword>, &z2p;0.00&ze;
+< <keyword>#</keyword>, &z2p;1.00&ze;, <keyword>!=</keyword>, &z2p;0.26&ze;, <keyword>~</keyword>, &z2p;0.05&ze;, <keyword>*=</keyword>, &z2p;0.00&ze;
+< <keyword>]</keyword>, &z2p;0.96&ze;, <keyword><</keyword>, &z2p;0.22&ze;, <keyword>v--</keyword>, &z2p;0.04&ze;, <keyword>/=</keyword>, &z2p;0.00&ze;
+< <keyword>[</keyword>, &z2p;0.96&ze;, <keyword>-</keyword>, &z2p;0.19&ze;, <keyword>&=</keyword>, &z2p;0.04&ze;, <keyword><<=</keyword>, &z2p;0.00&ze;
+< <keyword>&v</keyword>, &z2p;0.58&ze;, <keyword>|</keyword>, &z2p;0.17&ze;, <keyword><=</keyword>, &z2p;0.04&ze;, <keyword>^=</keyword>, &z2p;0.00&ze;
+---
+> &comma;, &z2p;8.82&ze;, <keyword>:</keyword>, &z2p;0.46&ze;, <keyword>></keyword>, &z2p;0.11&ze;, <keyword>--v</keyword>, &z2p;0.01&ze;
+> <keyword>)</keyword>, &z2p;8.09&ze;, <keyword>-v</keyword>, &z2p;0.40&ze;, <keyword><<</keyword>, &z2p;0.09&ze;, <keyword>...</keyword>, &z2p;0.01&ze;
+> <keyword>(</keyword>, &z2p;8.09&ze;, <keyword>*p</keyword>, &z2p;0.40&ze;, <keyword>?:</keyword>, &z2p;0.08&ze;, <keyword>>>=</keyword>, &z2p;0.01&ze;
+> <keyword>;</keyword>, &z2p;7.80&ze;, <keyword>+</keyword>, &z2p;0.38&ze;, <keyword>?</keyword>, &z2p;0.08&ze;, <keyword>^</keyword>, &z2p;0.01&ze;
+> <keyword>=</keyword>, &z2p;3.08&ze;, <keyword>*v</keyword>, &z2p;0.34&ze;, <keyword>|=</keyword>, &z2p;0.08&ze;, <keyword>+v</keyword>, &z2p;0.00&ze;
+> <keyword>-></keyword>, &z2p;3.00&ze;, <keyword>&</keyword>, &z2p;0.32&ze;, <keyword>>=</keyword>, &z2p;0.07&ze;, <keyword>:b</keyword>, &z2p;0.00&ze;
+> <keyword>}</keyword>, &z2p;1.87&ze;, <keyword>!</keyword>, &z2p;0.31&ze;, <keyword>/</keyword>, &z2p;0.06&ze;, <keyword>%=</keyword>, &z2p;0.00&ze;
+> <keyword>{</keyword>, &z2p;1.87&ze;, <keyword>v++</keyword>, &z2p;0.27&ze;, <keyword>>></keyword>, &z2p;0.06&ze;, <keyword>##</keyword>, &z2p;0.00&ze;
+> <keyword>.</keyword>, &z2p;1.26&ze;, <keyword>&&</keyword>, &z2p;0.26&ze;, <keyword>~</keyword>, &z2p;0.05&ze;, <keyword>*=</keyword>, &z2p;0.00&ze;
+> <keyword>*</keyword>, &z2p;1.10&ze;, <keyword>!=</keyword>, &z2p;0.26&ze;, <keyword>v--</keyword>, &z2p;0.04&ze;, <keyword>/=</keyword>, &z2p;0.00&ze;
+> <keyword>#</keyword>, &z2p;1.00&ze;, <keyword><</keyword>, &z2p;0.22&ze;, <keyword>&=</keyword>, &z2p;0.04&ze;, <keyword><<=</keyword>, &z2p;0.00&ze;
+> <keyword>]</keyword>, &z2p;0.96&ze;, <keyword>-</keyword>, &z2p;0.19&ze;, <keyword><=</keyword>, &z2p;0.04&ze;, <keyword>^=</keyword>, &z2p;0.00&ze;
+> <keyword>[</keyword>, &z2p;0.96&ze;, <keyword>|</keyword>, &z2p;0.17&ze;, <keyword>-=</keyword>, &z2p;0.03&ze;, , 
+> <keyword>&v</keyword>, &z2p;0.58&ze;, <keyword>||</keyword>, &z2p;0.16&ze;, <keyword>++v</keyword>, &z2p;0.02&ze;, , 
+> <keyword>==</keyword>, &z2p;0.53&ze;, <keyword>+=</keyword>, &z2p;0.11&ze;, <keyword>%</keyword>, &z2p;0.02&ze;, , 
+86061c86060
+<  \\, &zp;0.6&ze;, &zp;70.8&ze;, <c_syntax>integer-constant</c_syntax>, &zp;2.2&ze;, &zp;6.6&ze;
+---
+> \\, &zp;0.6&ze;, &zp;70.8&ze;, <c_syntax>integer-constant</c_syntax>, &zp;2.2&ze;, &zp;6.6&ze;
+103683,103687c103682,103686
+< <keyword>if</keyword> control-expression, 76.7&nbsp;(&zp;3.4&ze;), 45.5&nbsp;(&zp;6.7&ze;), 68.5&nbsp;(&zp;1.8&ze;), 80.5&nbsp;(&zp;6.0&ze;)
+< other contexts, 11.5&nbsp;(&emdash;), 4.8&nbsp;(&emdash;), 9.5&nbsp;(&emdash;), 8.4&nbsp;(&emdash;)
+< <keyword>while</keyword> control-expression, 4.8&nbsp;(&zp;3.9&ze;), 4.6&nbsp;(&zp;12.0&ze;), 4.8&nbsp;(&zp;2.2&ze;), 7.6&nbsp;(&zp;10.4&ze;)
+< <keyword>for</keyword> control-expression, 7.1&nbsp;(&zp;3.1&ze;), 45.2&nbsp;(&zp;65.9&ze;), 17.2&nbsp;(&zp;4.5&ze;), 3.5&nbsp;(&zp;2.6&ze;)
+< <keyword>switch</keyword> control-expression, 0.0&nbsp;(&zp;0.0&ze;), 0.0&nbsp;(&zp;0.0&ze;), 0.0&nbsp;(&zp;0.0&ze;), 0.0&nbsp;(&zp;0.0&ze;)
+---
+> other contexts, &zp;11.5&ze; (&emdash;), (&emdash;), (&emdash;), (&emdash;)
+> <keyword>if</keyword> control-expression, &zp;76.7&ze; (&zp;3.4&ze;), (&zp;6.7&ze;), (&zp;1.8&ze;), (&zp;6.0&ze;)
+> <keyword>for</keyword> control-expression, &zp;7.1&ze; (&zp;3.1&ze;), (&zp;65.9&ze;), (&zp;4.5&ze;), (&zp;2.6&ze;)
+> <keyword>while</keyword> control-expression, &zp;4.8&ze; (&zp;3.9&ze;), (&zp;12.0&ze;), (&zp;2.2&ze;), (&zp;10.4&ze;)
+> <keyword>switch</keyword> control-expression, &zp;0.0&ze; (&zp;0.0&ze;), (&zp;0.0&ze;), (&zp;0.0&ze;), (&zp;0.0&ze;)
+106048,106052c106047,106051
+< <keyword>if</keyword> control-expression, 51.4&nbsp;(&zp;10.5&ze;), 82.4&nbsp;(&zp;10.4&ze;)
+< other contexts, 45.3&nbsp;(&emdash;), 7.7&nbsp;(&emdash;)
+< <keyword>while</keyword> control-expression, 2.1&nbsp;(&zp;8.1&ze;), 6.9&nbsp;(&zp;18.4&ze;)
+< <keyword>for</keyword> control-expression, 0.3&nbsp;(&zp;0.6&ze;), 3.0&nbsp;(&zp;4.7&ze;)
+< <keyword>switch</keyword> control-expression, 0.8&nbsp;(&zp;5.2&ze;), 0.0&nbsp;(&zp;0.0&ze;)
+---
+> other contexts, &zp;45.3&ze; (&emdash;), (&emdash;)
+> <keyword>for</keyword> control-expression, &zp;0.3&ze; (&zp;0.6&ze;), (&zp;4.7&ze;)
+> <keyword>while</keyword> control-expression, &zp;2.1&ze; (&zp;8.1&ze;), (&zp;18.4&ze;)
+> <keyword>if</keyword> control-expression, &zp;51.4&ze; (&zp;10.5&ze;), (&zp;10.4&ze;)
+> <keyword>switch</keyword> control-expression, &zp;0.8&ze; (&zp;5.2&ze;), (&zp;0.0&ze;)
+106664,106668c106663,106667
+< <keyword>if</keyword> control-expression, 8.8&nbsp;(&zp;0.7&ze;), 86.0&nbsp;(&zp;6.9&ze;)
+< other contexts, 90.7&nbsp;(&emdash;), 11.9&nbsp;(&emdash;)
+< <keyword>while</keyword> control-expression, 0.3&nbsp;(&zp;0.5&ze;), 1.9&nbsp;(&zp;2.7&ze;)
+< <keyword>for</keyword> control-expression, 0.0&nbsp;(&zp;0.0&ze;), 0.3&nbsp;(&zp;0.2&ze;)
+< <keyword>switch</keyword> control-expression, 0.1&nbsp;(&zp;0.3&ze;), 0.0&nbsp;(&zp;0.0&ze;)
+---
+> other contexts, &zp;90.7&ze; (&emdash;), (&emdash;)
+> <keyword>if</keyword> control-expression, &zp;8.8&ze; (&zp;0.7&ze;), (&zp;6.9&ze;)
+> <keyword>while</keyword> control-expression, &zp;0.3&ze; (&zp;0.5&ze;), (&zp;2.7&ze;)
+> <keyword>for</keyword> control-expression, &zp;0.0&ze; (&zp;0.0&ze;), (&zp;0.2&ze;)
+> <keyword>switch</keyword> control-expression, &zp;0.1&ze; (&zp;0.3&ze;), (&zp;0.0&ze;)
+116362,116367c116361,116366
+< <keyword>enum</keyword> <keyword>{</keyword>, &zs;456&ze; (&zs;1591&ze;), <keyword>struct</keyword> id <keyword>;</keyword>, &zs;76&ze; (&zs;13384&ze;)
+< <keyword>enum</keyword> id <keyword>;</keyword>, &zs;0&ze; (&zs;0&ze;), <keyword>struct</keyword> id id, &zs;122974&ze; (&zs;27589&ze;)
+< <keyword>enum</keyword> id <keyword>{</keyword>, &zs;474&ze; (&zs;1059&ze;), <keyword>union</keyword> <keyword>{</keyword>, &zs;297&ze; (&zs;725&ze;)
+< <keyword>enum</keyword> id id, &zs;2922&ze; (&zs;633&ze;), <keyword>union</keyword> id <keyword>;</keyword>, &zs;0&ze; (&zs;11&ze;)
+< <keyword>struct</keyword> <keyword>{</keyword>, &zs;1567&ze; (&zs;6503&ze;), <keyword>union</keyword> id <keyword>{</keyword>, &zs;105&ze; (&zs;2624&ze;)
+< <keyword>struct</keyword> id <keyword>{</keyword>, &zs;4407&ze; (&zs;1311&ze;), <keyword>union</keyword> id id, &zs;330&ze; (&zs;231&ze;)
+---
+> <keyword>enum</keyword> <keyword>{</keyword>, &zc;456 (1&comma;591), <keyword>struct</keyword> id <keyword>;</keyword>, &z;&zcz;76 (13&comma;384)
+> <keyword>enum</keyword> id <keyword>;</keyword>, &zcz;&z;0 (&zcz;&z;0), <keyword>struct</keyword> id id, 122&comma;974 (27&comma;589)
+> <keyword>enum</keyword> id <keyword>{</keyword>, &zc;474 (1&comma;059), <keyword>union</keyword> <keyword>{</keyword>, &z;&zc;297 (&z;&zc;725)
+> <keyword>enum</keyword> id id, 2&comma;922 (&zc;633), <keyword>union</keyword> id <keyword>;</keyword>, &z2;&zcz;0 (&z;&zcz;11)
+> <keyword>struct</keyword> <keyword>{</keyword>, 1&comma;567 (6&comma;503), <keyword>union</keyword> id <keyword>{</keyword>, &z;&zc;105 (&z;2&comma;624)
+> <keyword>struct</keyword> id <keyword>{</keyword>, 4&comma;407 (1&comma;311), <keyword>union</keyword> id id, &z2;&zc;330 (&z;&zc;231)
+119260,119263c119259,119262
+< All value assigned implicitly, &zp;60.1&ze;
+< All values are bitwise distinct and zero is not used, &zp;8.6&ze;
+< One or more constants share the same value, &zp;2.9&ze;
+< All values are continuous &comma; i.e. &comma; number of enumeration constants equals maximum value minus minimum value plus &zs;1&ze;, &zp;80.4&ze;
+---
+> All value assigned implicitly, &zp;79.1&ze;
+> All values are bitwise distinct and zero is not used, &zp;1.7&ze;
+> One or more constants share the same value, &zp;1.8&ze;
+> All values are continuous &comma; i.e.&comma; number of enumeration constants equals maximum value minus minimum value plus &zs;1&ze;, &zp;94.9&ze;
+138501d138499
+< others, &zp;32.4&ze;, <keyword>!</keyword> function-call, &zp;3.8&ze;
+138504,138505c138502,138503
+< <keyword>!</keyword> object, &zp;7.4&ze;, function-call <keyword>==</keyword> object, &zp;1.6&ze;
+< function-call, &zp;7.4&ze;, object <keyword>></keyword> object, &zp;1.4&ze;
+---
+> function-call, &zp;7.4&ze;, function-call <keyword>==</keyword> object, &zp;1.6&ze;
+> <keyword>!</keyword> object, &zp;7.4&ze;, object <keyword>></keyword> object, &zp;1.4&ze;
+138508a138507
+> <keyword>!</keyword> function-call, &zp;3.8&ze;, others, &zp;32.4&ze;
+138525,138528c138524,138526
+< object, &zp;75.3&ze;
+< function-call, &zp;14.2&ze;
+< expression, &zp;5.2&ze;
+< others, &zp;3.3&ze;
+---
+>  object, &zp;75.3&ze;
+>  function-call, &zp;14.2&ze;
+>  expression, &zp;5.2&ze;
+138529a138528
+> others, &zp;3.3&ze;
+140654,140658c140653,140657
+< assignment <keyword>;</keyword> identifier <keyword><</keyword> identifier <keyword>;</keyword> identifier <keyword>v++</keyword>, &zp;33.2&ze;
+< assignment <keyword>;</keyword> identifier <keyword><</keyword> <c_syntax>integer-constant</c_syntax> <keyword>;</keyword> identifier <keyword>v++</keyword>, &zp;11.3&ze;
+< assignment <keyword>;</keyword> identifier <keyword>;</keyword> assignment, &zp;7.0&ze;
+< assignment <keyword>;</keyword> identifier <keyword><</keyword> expression <keyword>;</keyword> identifier <keyword>v++</keyword>, &zp;3.3&ze;
+< assignment <keyword>;</keyword> identifier <keyword><</keyword> identifier <keyword>;</keyword> <keyword>++v</keyword> identifier, &zp;2.7&ze;
+---
+> assignment <keyword>;</keyword> object <keyword><</keyword> object <keyword>;</keyword> object <keyword>v++</keyword>, &zp;33.2&ze;
+> assignment <keyword>;</keyword> object <keyword><</keyword> <c_syntax>integer-constant</c_syntax> <keyword>;</keyword> object <keyword>v++</keyword>, &zp;11.3&ze;
+> assignment <keyword>;</keyword> object <keyword>;</keyword> assignment, &zp;7.0&ze;
+> assignment <keyword>;</keyword> object <keyword><</keyword> expression <keyword>;</keyword> object <keyword>v++</keyword>, &zp;3.3&ze;
+> assignment <keyword>;</keyword> object <keyword><</keyword> object <keyword>;</keyword> <keyword>++v</keyword> object, &zp;2.7&ze;
+140660,140664c140659,140663
+< assignment <keyword>;</keyword> identifier <keyword>!=</keyword> identifier <keyword>;</keyword> assignment, &zp;2.5&ze;
+< assignment <keyword>;</keyword> identifier <keyword><=</keyword> identifier <keyword>;</keyword> identifier <keyword>v++</keyword>, &zp;2.2&ze;
+< assignment <keyword>;</keyword> identifier <keyword>>=</keyword> <c_syntax>integer-constant</c_syntax> <keyword>;</keyword> identifier <keyword>v--</keyword>, &zp;1.6&ze;
+< assignment <keyword>;</keyword> identifier <keyword><</keyword> function-call <keyword>;</keyword> identifier <keyword>v++</keyword>, &zp;1.4&ze;
+< assignment <keyword>;</keyword> identifier <keyword><</keyword> identifier <keyword>;</keyword> identifier <keyword>v++</keyword> &comma; identifier <keyword>v++</keyword>, &zp;1.4&ze;
+---
+> assignment <keyword>;</keyword> object <keyword>!=</keyword> object <keyword>;</keyword> assignment, &zp;2.5&ze;
+> assignment <keyword>;</keyword> object <keyword><=</keyword> object <keyword>;</keyword> object <keyword>v++</keyword>, &zp;2.2&ze;
+> assignment <keyword>;</keyword> object <keyword>>=</keyword> <c_syntax>integer-constant</c_syntax> <keyword>;</keyword> object <keyword>v--</keyword>, &zp;1.6&ze;
+> assignment <keyword>;</keyword> object <keyword><</keyword> function-call <keyword>;</keyword> object <keyword>v++</keyword>, &zp;1.4&ze;
+> assignment <keyword>;</keyword> object <keyword><</keyword> object <keyword>;</keyword> object <keyword>v++</keyword> &comma; object <keyword>v++</keyword>, &zp;1.4&ze;
+140683d140681
+<  others, &zp;43.5&ze;, expression, &zp;2.2&ze;
+140691c140689,140690
+< assignment <keyword>!=</keyword> object, &zp;2.4&ze;, , 
+---
+> assignment <keyword>!=</keyword> object, &zp;2.4&ze;, others, &zp;43.5&ze;
+>   expression, &zp;2.2&ze;,  , 
+148376c148375
+<  <c_syntax>integer-constant</c_syntax>, &zp;20.3&ze;
+---
+> <c_syntax>integer-constant</c_syntax>, &zp;20.3&ze;
+151652c151651
+<   object-like macro <c_syntax>integer-constant</c_syntax>, &zp;50.7&ze;
+---
+> object-like macro <c_syntax>integer-constant</c_syntax>, &zp;50.7&ze;
+151657c151656
+<   object-like macro <c_syntax>string-literal</c_syntax>, &zp;3.4&ze;
+---
+> object-like macro <c_syntax>string-literal</c_syntax>, &zp;3.4&ze;
+151660c151659
+<   object-like macro <c_syntax>constant-expression</c_syntax>, &zp;2.0&ze;
+---
+>   object-like macro constant-expression, &zp;2.0&ze;
+154309,154310c154308,154309
+< #if(n)def, &zp;1.5&ze;
+< <keyword>#define</keyword> #undef-#define <keyword>#undef</keyword>, &zp;1.4&ze;
+---
+> <keyword>#if[n]def</keyword>, &zp;1.5&ze;
+> <keyword>#define</keyword> #und-def <keyword>#undef</keyword>, &zp;1.4&ze;

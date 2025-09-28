@@ -1,0 +1,8 @@
+ int ,, 22.8 ,, char * ,, 3.2
+ const char [] ,, 15.4 ,, union * ,, 3.0
+ other-types ,, 10.6 ,, enum ,, 2.4
+ struct * ,, 10.3 ,, float ,, 1.4
+ const struct ,, 10.2 ,, char [] ,, 1.4
+ struct ,, 8.2 ,, unsigned int ,, 1.2
+ void *() ,, 4.6 ,, int [] ,, 1.2
+ struct [] ,, 4.1 ,,   ,, 

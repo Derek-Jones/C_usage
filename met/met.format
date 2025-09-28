@@ -1,0 +1,151 @@
+.met file description, 27 May 98
+
+Comment lines start with a # character
+
+The first three lines give housekeeping information on the file itself.
+Global information on the file occurs at the end.
+
+Information on each function starts with the line FUNC function_name.
+This is followed by information on the arguments and local
+declarations.  Local declarations may occur within nested scopes.
+The scope level and line number is given for locals.
+
+Token counts are given for preprocessed tokens, ie prior to phase 3
+(essentially what the user sees in the source) and after phase 7 (the
+tokens that actually get compiled).  The token count consists of
+the token name followed by the number of times it occurred (only
+non-zero values being given).
+
+LOC           Lines Of Code
+LINES         Number of LINES in file
+B_LINES       Number of Blank LINES (number of new-lines not
+              preceeded by any characters)
+C_LINES       Number of new-lines contained within comments.  So
+              a complete comment on one line counts as zero.
+	      Also the count for a multi-line comment is likely
+	      to be one off.  Because the new-line after the
+	      closing comment delimite dis not counted.
+STMTS         Number of STateMenTs
+CHARS         Number of CHARacterS
+C_CHARS       Number of Comment CHARacterS
+B_CHARS       Number of Blank CHARacterS
+EDGES         Number of edges in the flow graph
+NODES         Number of NODES in the flow graph
+UNIQ_OPS      Number of unique operators in expressions
+E_OP_COUNT    Number of operators in expressions
+UNIQ_PPLITS   Number of unique literals prior to preprocessing
+UNIQ_LITS     Number of unique literals after preprocessing
+UNIQ_PPIDS    Number of unique identifiers before preprcoessing
+UNIQ_IDS      Number of unique identifiers after preprocessing
+UNIQ_OPS      Number of unique operators after preprocessing
+E_IDENT_COUNT Number of identifiers in expressions
+E_LIT_COUNT   Number of literals in expressions
+E_OP_COUNT    Number of operators in expressions
+ppTOK         Number of times TOK occurred prior to preprocessing
+TOK           Number of times TOK occurred after preprocessing
+
+There are a few ordering restrictions on where counts may occur:
+
+   o Nested include files will have their information generated
+     'inside' the information on outer level files.
+     START/END pairs need to be matched up to handle this.
+
+   o The keyword GLOBAL marks the start of a list of information
+     on global names.
+
+
+Field names:
+
+   o id_type is one of IDENT, LABEL, TAG
+
+   o linkage is one of EXTERN, STATIC, NONE
+
+   o ACC name is accessed
+
+   o MOD name is modified
+
+   o The scope of globals is 1, identifiers declared at the outermost
+     block in a function definition have scope 2, scope level is
+     incremented for every compound statement entered.
+
+   o size is measured in bytes
+
+   o used_flag: 0 never used, 1 used at least once
+
+   o set_flag: 0 never set, 1 set once, 2 set more than once
+
+
+Included files
+
+There is a matching .START file_x/.END file_x for every included
+file (the top level source file also has this matching pair).
+Nested include file appear within the .START/.END of the file
+that includes them.  All of the information relating to the
+contents of a file is contained between the .START/.END pair.
+
+Token counts
+
+C has two sorts of tokens:
+
+   1) Preprocessor tokens
+      These are created by the preprocessor.  All tokens start
+      life as preprocessor tokens.  Some tokens disappear in
+      this phase, ie #define (ppdefine), #if (ppif)
+
+   2) Tokens
+      In translation phase 6 (the C standard defines 8 phases
+      of translation) preprocessor tokens are converted into
+      tokens.  During this convertion process:
+      
+         o keywords are recognised (the preprocessor treats
+	   them as pp_identifiers).
+
+	 o Certain preprocessor tokens are not convertable (this
+	   is a translation time error).
+
+
+Those preprocessor tokens that do not map directly to a token,
+or disappear before reaching translation phase 6 have the letters
+PP_ prefixed to their names.
+
+A list of pptoken and token names can be found in the files
+dispmet/toknames.h and dispmet/gramtoks.h.
+
+Many metrics are derived from psyhcological theories of
+human brain operation.  These rely onn counts of what people
+see in the code.  For this reason the pptoken counts
+do not include tokens derived from macro expansion (token
+counts are based on the total number of tokens
+passed to the parser and are not bothered about where the
+tokens come from).
+
+
+.FILE filename
+.DATE date
+.TIME time
+.VERSION version_number
+# Lines starting with the hash character are treated as comments
+.START include_filename
+.FUNC function_name line_number
+.ARG name scope used_flag set_flag size id_type
+.LOCAL name scope used_flag set_flag size id_type
+.ERR line_num col_offset err_num err_level suppress_flag aux_string
+.ACC linkage name line_number
+.MOD linkage name line_number
+.CALL func_name line_number
+.METRICS
+LOC count B_LINES count C_LINES count CHARS count COMM_CHARS count
+EDGES count NODES count
+.PPTOKS
+pptok1 count pptok2 count pptok3 count ...
+.TOKS
+tok1 count tok2 count tok3 count ...
+#
+.FUNC function_name
+...
+#
+.GLOBAL
+name 'size' byte_count linkage 'defined' def_flag 'used' used_flag FUNC/IDENT/TYPEDEF
+.INCLUDED include_name
+.END include_filename
+

@@ -1,0 +1,16 @@
+ fprintf ,, 1.468 ,, memmove ,, 0.093 ,, strstr ,, 0.028 ,, ferror ,, 0.016
+ sprintf ,, 0.978 ,, fclose ,, 0.085 ,, sin ,, 0.028 ,, atof ,, 0.016
+ printf ,, 0.902 ,, strchr ,, 0.077 ,, mblen ,, 0.028 ,, strncat ,, 0.015
+ strlen ,, 0.824 ,, fopen ,, 0.077 ,, realloc ,, 0.026 ,, ftell ,, 0.015
+ strcmp ,, 0.730 ,, fabs ,, 0.065 ,, memcmp ,, 0.021 ,, tolower ,, 0.014
+ strcpy ,, 0.533 ,, signal ,, 0.045 ,, fputs ,, 0.021 ,, fscanf ,, 0.014
+ free ,, 0.397 ,, getenv ,, 0.045 ,, strerror ,, 0.020 ,, abort ,, 0.014
+ memcpy ,, 0.324 ,, abs ,, 0.044 ,, cos ,, 0.020 ,, qsort ,, 0.013
+ memset ,, 0.321 ,, perror ,, 0.040 ,, strtok ,, 0.019 ,, mbtowc ,, 0.013
+ exit ,, 0.218 ,, fwrite ,, 0.034 ,, strrchr ,, 0.019 ,, fseek ,, 0.013
+ malloc ,, 0.201 ,, fflush ,, 0.034 ,, sqrt ,, 0.019 ,, calloc ,, 0.013
+ strncmp ,, 0.194 ,, sscanf ,, 0.032 ,, ungetc ,, 0.018 ,, mbstowcs ,, 0.012
+ strcat ,, 0.190 ,, vsprintf ,, 0.031 ,, floor ,, 0.017 ,, feof ,, 0.012
+ rand ,, 0.179 ,, fread ,, 0.030 ,, ceil ,, 0.017 ,, atol ,, 0.012
+ strncpy ,, 0.145 ,, snprintf ,, 0.029 ,, toupper ,, 0.016 ,, wcstombs ,, 0.011
+ atoi ,, 0.110 ,, time ,, 0.028 ,, fgets ,, 0.016 ,,   ,, 

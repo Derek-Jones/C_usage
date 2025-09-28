@@ -1,0 +1,9 @@
+#SCF-B 1.1
+Hash-Method: MD5
+Merge-Program: comparator 1.6
+Normalization: remove-whitespace
+Shred-Size: 3
+%%
+../../programs/gcc-2.95:2233065
+../../programs/mozilla:2890897
+%%

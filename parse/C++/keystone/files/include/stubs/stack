@@ -1,0 +1,51 @@
+
+#ifndef _STL_STACK
+#define _STL_STACK
+
+#include <deque>
+
+namespace std
+{
+
+   template
+   <
+      class T,
+      class Container = deque<T>
+   >
+   class stack
+   {
+   public:
+      typedef typename Container::value_type value_type;
+      typedef typename Container::size_type size_type;
+      typedef Container container_type;
+
+   protected:
+      Container c;
+
+   public:
+      explicit stack(const Container& = Container());
+
+      bool empty() const;
+      size_type size() const;
+      value_type& top();
+      const value_type& top() const;
+      void push(const value_type&);
+      void pop();
+   };
+
+   template<class T, class A>
+   bool operator==(const stack<T, A>&, const stack<T, A>&);
+   template<class T, class A>
+   bool operator!=(const stack<T, A>&, const stack<T, A>&);
+   template<class T, class A>
+   bool operator<(const stack<T, A>&, const stack<T, A>&);
+   template<class T, class A>
+   bool operator<=(const stack<T, A>&, const stack<T, A>&);
+   template<class T, class A>
+   bool operator>(const stack<T, A>&, const stack<T, A>&);
+   template<class T, class A>
+   bool operator>=(const stack<T, A>&, const stack<T, A>&);
+
+} // end namespace std
+
+#endif

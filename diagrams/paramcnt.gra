@@ -1,0 +1,69 @@
+
+.ps 8
+
+.G1
+
+# paramcnt.g, 30 Oct 07
+# built on: Mon Dec 24 12:58:11 GMT 2007
+
+frame invis ht 1.5 wid 2.2*1.2 left solid bot solid
+
+coord x 0,11 y 0,52
+
+label bot "Parameters"
+label left "% Function definitions"
+
+ticks bot out at 0, 1, 2 "", 3, 4 "", 5, 10, 15
+
+draw tl solid times
+next tl at 7,45
+next tl at 8,45
+".c files" size -1 ljust at 8.3,45
+
+draw tl solid times
+copy "paramcount.d" thru {
+   next tl at $1, $3
+}
+
+draw db dashed bullet
+next db at 7,40
+next db at 8,40
+"SPECint95" size -1 ljust at 8.3,40
+
+draw bd dashed bullet
+copy thru {
+   next bd at $1, $2
+   } until "XXX"
+0 7.6
+1 27.0
+2 15.5
+3 9.5
+4 9.6
+5 10.3
+6 9.2
+7 6.3
+8 4.6
+XXX
+
+draw cd dashed delta
+next cd at 7,35
+next cd at 8,35
+"Embedded" size -1 ljust at 8.3,35
+
+draw cd dashed delta
+copy thru {
+   next cd at $1, $2
+   } until "XXX"
+0 51.0
+1 27.8
+2 11.5
+3 5.4
+4 2.0
+5 1.4 
+6 0.5
+7 0.2
+8 0.3
+XXX
+
+.G2
+

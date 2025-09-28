@@ -1,0 +1,1611 @@
+STRUCT wadinfo_struct NEW_LINE { NEW_LINE COMMENT_NL CPP_COMMENT NEW_LINE CHAR identification [ ] ; 
+STRUCT filelump_struct NEW_LINE { NEW_LINE INT filepos ; 
+STRUCT timeval last = { , } 
+STRUCT timezone whocares ; 
+STRUCT timeval zerowait = { , } ; 
+__E__O__F__
+__E__O__F__
+STRUCT wadinfo_struct NEW_LINE { NEW_LINE CHAR identification [ ] ; 
+STRUCT filelump_struct NEW_LINE { NEW_LINE INT filepos ; 
+STRUCT lumpinfo_struct NEW_LINE { NEW_LINE INT handle ; 
+STRUCT stat fileinfo ; 
+__E__O__F__
+ENUM { false , true } 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE byte * data ; 
+STRUCT NEW_LINE { NEW_LINE qboolean restart_sound ; 
+__E__O__F__
+STRUCT model_s * cl_mod_powerscreen ; 
+STRUCT NEW_LINE { NEW_LINE INT modelindex ; 
+STRUCT model_s * S_RegisterSexedModel ( entity_state_t * ent , CHAR *p base ) NEW_LINE { NEW_LINE INT n ; 
+STRUCT model_s * mdl ; 
+__E__O__F__
+STRUCT model_s * cl_mod_smoke ; 
+STRUCT model_s * cl_mod_flash ; 
+STRUCT NEW_LINE { NEW_LINE INT length ; 
+STRUCT sfx_s * cl_sfx_footsteps [ ] ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT edict_s * ) ent ; 
+STRUCT edict_s * ) ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT x1 , y1 , x2 , y2 ; 
+STRUCT NEW_LINE { NEW_LINE FLOAT value ; 
+__E__O__F__
+ENUM NEW_LINE { NEW_LINE ex_free , ex_explosion , ex_misc , ex_flash , ex_mflash , ex_poly , ex_poly2 NEW_LINE } 
+STRUCT NEW_LINE { NEW_LINE exptype_t type ; 
+STRUCT NEW_LINE { NEW_LINE INT entity ; 
+STRUCT model_s * model ; 
+STRUCT NEW_LINE { NEW_LINE entity_t ent ; 
+STRUCT sfx_s * cl_sfx_ric1 ; 
+STRUCT sfx_s * cl_sfx_ric2 ; 
+STRUCT sfx_s * cl_sfx_ric3 ; 
+STRUCT sfx_s * cl_sfx_lashit ; 
+STRUCT sfx_s * cl_sfx_spark5 ; 
+STRUCT sfx_s * cl_sfx_spark6 ; 
+STRUCT sfx_s * cl_sfx_spark7 ; 
+STRUCT sfx_s * cl_sfx_railg ; 
+STRUCT sfx_s * cl_sfx_rockexp ; 
+STRUCT sfx_s * cl_sfx_grenexp ; 
+STRUCT sfx_s * cl_sfx_watrexp ; 
+STRUCT sfx_s * cl_sfx_plasexp ; 
+STRUCT sfx_s * cl_sfx_footsteps [ ] ; 
+STRUCT model_s * cl_mod_explode ; 
+STRUCT model_s * cl_mod_smoke ; 
+STRUCT model_s * cl_mod_flash ; 
+STRUCT model_s * cl_mod_parasite_segment ; 
+STRUCT model_s * cl_mod_grapple_cable ; 
+STRUCT model_s * cl_mod_parasite_tip ; 
+STRUCT model_s * cl_mod_explo4 ; 
+STRUCT model_s * cl_mod_bfg_explo ; 
+STRUCT model_s * cl_mod_powerscreen ; 
+STRUCT model_s * cl_mod_plasmaexplo ; 
+STRUCT sfx_s * cl_sfx_lightning ; 
+STRUCT sfx_s * cl_sfx_disrexp ; 
+STRUCT model_s * cl_mod_lightning ; 
+STRUCT model_s * cl_mod_heatbeam ; 
+STRUCT model_s * cl_mod_monster_heatbeam ; 
+STRUCT model_s * cl_mod_explo4_big ; 
+STRUCT model_s * model ) NEW_LINE { NEW_LINE INT ent ; 
+STRUCT model_s * model ) NEW_LINE { NEW_LINE INT ent ; 
+STRUCT model_s * model ) NEW_LINE { NEW_LINE INT ent ; 
+STRUCT model_s * model ) NEW_LINE { NEW_LINE INT srcEnt , destEnt ; 
+__E__O__F__
+STRUCT model_s * gun_model ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE VOID ( *v draw ) ( VOID ) ; 
+STRUCT NEW_LINE { NEW_LINE INT nskins ; 
+__E__O__F__
+__E__O__F__
+STRUCT sfx_s * S_RegisterSexedSound ( entity_state_t * ent , CHAR *p base ) NEW_LINE { NEW_LINE INT n ; 
+STRUCT sfx_s * sfx ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+ENUM match_s { NEW_LINE MATCH_NONE , NEW_LINE MATCH_SETUP , NEW_LINE MATCH_PREGAME , NEW_LINE MATCH_GAME , NEW_LINE MATCH_POST NEW_LINE } 
+ENUM { NEW_LINE ELECT_NONE , NEW_LINE ELECT_MATCH , NEW_LINE ELECT_ADMIN , NEW_LINE ELECT_MAP NEW_LINE } 
+STRUCT ctfgame_s NEW_LINE { NEW_LINE INT team1 , team2 ; 
+STRUCT { NEW_LINE CHAR *p classname ; 
+STRUCT admin_settings_s { NEW_LINE INT matchlen ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT tm * ltime ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE edict_t * ent ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT cplane_s * p ) NEW_LINE { NEW_LINE INT i ; 
+STRUCT cplane_s * p ) NEW_LINE { NEW_LINE FLOAT dist1 , dist2 ; 
+STRUCT cplane_s * p ) NEW_LINE { NEW_LINE STATIC INT bops_initialized ; 
+UNION NEW_LINE { NEW_LINE FLOAT f ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT tm * ltime ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE edict_t * ent ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE UNSIGNED mask ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT cplane_s * p ) NEW_LINE { NEW_LINE INT i ; 
+STRUCT cplane_s * p ) NEW_LINE { NEW_LINE FLOAT dist1 , dist2 ; 
+STRUCT cplane_s * p ) NEW_LINE { NEW_LINE STATIC INT bops_initialized ; 
+UNION NEW_LINE { NEW_LINE FLOAT f ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT key ; 
+STRUCT sigaction sa ; 
+__E__O__F__
+STRUCT tm * newtime ; 
+__E__O__F__
+STRUCT timeval tp ; 
+STRUCT timezone tzp ; 
+STRUCT stat st ; 
+STRUCT dirent * d ; 
+STRUCT dirent * d ; 
+__E__O__F__
+__E__O__F__
+STRUCT stat buf ; 
+STRUCT timeval timeout ; 
+STRUCT mntent * ent ; 
+STRUCT stat st ; 
+__E__O__F__
+__E__O__F__
+STRUCT vidmode_s NEW_LINE { NEW_LINE CONST CHAR *p description ; 
+STRUCT stat st ; 
+__E__O__F__
+STRUCT cdrom_tochdr tochdr ; 
+STRUCT cdrom_tocentry entry ; 
+STRUCT cdrom_ti ti ; 
+STRUCT cdrom_subchnl subchnl ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE byte data [ MAX_MSGLEN ] ; 
+STRUCT NEW_LINE { NEW_LINE loopmsg_t msgs [ MAX_LOOPBACK ] ; 
+STRUCT sockaddr_in * s ) NEW_LINE { NEW_LINE memset ( s , , SIZEOF ( *v s ) ) ; 
+STRUCT sockaddr_in * s , netadr_t * a ) NEW_LINE { NEW_LINE *v ( INT *p ) & a -> ip = *v ( INT *p ) & s -> sin_addr ; 
+STRUCT sockaddr * sadr ) NEW_LINE { NEW_LINE STRUCT STRUCT hostent * h ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_family = AF_INET ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_port = ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_port = htons ( ( SHORT ) atoi ( colon + ) ) ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_addr = inet_addr ( copy ) ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_addr = *v ( INT *p ) h -> h_addr_list [ ] ; 
+STRUCT sockaddr_in sadr ; 
+STRUCT sockaddr * ) & sadr ) ) NEW_LINE RETURN false ; 
+STRUCT sockaddr_in from ; 
+STRUCT sockaddr * ) & from , &v fromlen ) ; 
+STRUCT sockaddr_in addr ; 
+STRUCT sockaddr * ) & addr , SIZEOF ( addr ) ) ; 
+STRUCT sockaddr_in address ; 
+STRUCT sockaddr * ) & address ) ; 
+STRUCT timeval timeout ; 
+__E__O__F__
+STRUCT tm * newtime ; 
+__E__O__F__
+STRUCT timeval tp ; 
+STRUCT timezone tzp ; 
+STRUCT stat st ; 
+STRUCT dirent * d ; 
+STRUCT dirent * d ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT key ; 
+STRUCT sigaction sa ; 
+__E__O__F__
+STRUCT audio_buf_info info ; 
+STRUCT count_info count ; 
+__E__O__F__
+STRUCT stat buf ; 
+STRUCT timeval timeout ; 
+STRUCT mntent * ent ; 
+STRUCT stat st ; 
+__E__O__F__
+__E__O__F__
+STRUCT vidmode_s NEW_LINE { NEW_LINE CONST CHAR *p description ; 
+STRUCT stat st ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT vidmode_s NEW_LINE { NEW_LINE CONST CHAR *p description ; 
+__E__O__F__
+STRUCT cmdalias_s NEW_LINE { NEW_LINE STRUCT STRUCT cmdalias_s * next ; 
+STRUCT cmd_function_s NEW_LINE { NEW_LINE STRUCT STRUCT cmd_function_s * next ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE cplane_t * plane ; 
+STRUCT NEW_LINE { NEW_LINE cplane_t * plane ; 
+STRUCT NEW_LINE { NEW_LINE INT contents ; 
+STRUCT NEW_LINE { NEW_LINE INT contents ; 
+STRUCT NEW_LINE { NEW_LINE INT numareaportals ; 
+__E__O__F__
+UNION NEW_LINE { NEW_LINE FLOAT f ; 
+UNION NEW_LINE { NEW_LINE byte b [ ] ; 
+STRUCT zhead_s NEW_LINE { NEW_LINE STRUCT STRUCT zhead_s * prev , *v next ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR name [ MAX_QPATH ] ; 
+STRUCT pack_s NEW_LINE { NEW_LINE CHAR filename [ MAX_OSPATH ] ; 
+STRUCT filelink_s NEW_LINE { NEW_LINE STRUCT STRUCT filelink_s * next ; 
+STRUCT searchpath_s NEW_LINE { NEW_LINE CHAR filename [ MAX_OSPATH ] ; 
+STRUCT searchpath_s * next ; 
+__E__O__F__
+STRUCT { NEW_LINE UINT4 state [ ] ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE vec3_t origin ; 
+__E__O__F__
+UNION NEW_LINE { NEW_LINE UNSIGNED c ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+STRUCT _TargaHeader { NEW_LINE UNSIGNED CHAR id_length , colormap_type , image_type ; 
+STRUCT NEW_LINE { NEW_LINE SHORT x , y ; 
+STRUCT image_s * R_RegisterSkin ( CHAR *p name ) NEW_LINE { NEW_LINE RETURN GL_FindImage ( name , it_skin ) ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT model_s * R_RegisterModel ( CHAR *p name ) NEW_LINE { NEW_LINE model_t * mod ; 
+__E__O__F__
+STRUCT model_s * R_RegisterModel ( CHAR *p name ) ; 
+STRUCT image_s * R_RegisterSkin ( CHAR *p name ) ; 
+STRUCT image_s * Draw_FindPic ( CHAR *p name ) ; 
+__E__O__F__
+STRUCT _TargaHeader { NEW_LINE UNSIGNED CHAR id_length , colormap_type , image_type ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT internal_format ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE INT index0 ; 
+STRUCT NEW_LINE { NEW_LINE INT num_points ; 
+__E__O__F__
+ENUM { touchessolid , drawnode , nodrawnode } 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT _TargaHeader { NEW_LINE UNSIGNED CHAR id_length , colormap_type , image_type ; 
+STRUCT image_s * R_RegisterSkin ( CHAR *p name ) NEW_LINE { NEW_LINE RETURN R_FindImage ( name , it_skin ) ; 
+__E__O__F__
+__E__O__F__
+STRUCT image_s * R_RegisterSkin ( CHAR *p name ) ; 
+__E__O__F__
+__E__O__F__
+STRUCT model_s * R_RegisterModel ( CHAR *p name ) NEW_LINE { NEW_LINE model_t * mod ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE particle_t * particle ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE byte * pbase , *v pdest ; 
+__E__O__F__
+STRUCT { NEW_LINE VOID *p pdest ; 
+STRUCT { NEW_LINE INT isflattop ; 
+STRUCT { NEW_LINE INT quotient ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE FLOAT u , v ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT tm * newtime ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+__E__O__F__
+STRUCT areanode_s NEW_LINE { NEW_LINE INT axis ; 
+STRUCT areanode_s * children [ ] ; 
+STRUCT NEW_LINE { NEW_LINE vec3_t boxmins , boxmaxs ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE byte data [ MAX_MSGLEN ] ; 
+STRUCT NEW_LINE { NEW_LINE loopmsg_t msgs [ MAX_LOOPBACK ] ; 
+STRUCT sockaddr_in * s ) NEW_LINE { NEW_LINE memset ( s , , SIZEOF ( *v s ) ) ; 
+STRUCT sockaddr_in * s , netadr_t * a ) NEW_LINE { NEW_LINE *v ( INT *p ) & a -> ip = *v ( INT *p ) & s -> sin_addr ; 
+STRUCT sockaddr * sadr ) NEW_LINE { NEW_LINE STRUCT STRUCT hostent * h ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_family = AF_INET ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_port = ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_port = htons ( ( SHORT ) atoi ( colon + ) ) ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_addr = inet_addr ( copy ) ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_addr = *v ( INT *p ) h -> h_addr_list [ ] ; 
+STRUCT sockaddr_in sadr ; 
+STRUCT sockaddr * ) & sadr ) ) NEW_LINE RETURN false ; 
+STRUCT sockaddr_in from ; 
+STRUCT sockaddr * ) & from , &v fromlen ) ; 
+STRUCT sockaddr_in addr ; 
+STRUCT sockaddr * ) & addr , SIZEOF ( addr ) ) ; 
+STRUCT sockaddr_in address ; 
+STRUCT sockaddr * ) & address ) ; 
+STRUCT timeval timeout ; 
+__E__O__F__
+STRUCT timeval tp ; 
+STRUCT timezone tzp ; 
+STRUCT stat st ; 
+STRUCT dirent * d ; 
+STRUCT dirent * d ; 
+__E__O__F__
+STRUCT stat buf ; 
+STRUCT timeval timeout ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+ENUM _ControlList NEW_LINE { NEW_LINE AxisNada = 0 , AxisForward , AxisLook , AxisSide , AxisTurn , AxisUp NEW_LINE } 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE byte data [ MAX_MSGLEN ] ; 
+STRUCT NEW_LINE { NEW_LINE loopmsg_t msgs [ MAX_LOOPBACK ] ; 
+STRUCT sockaddr * s ) NEW_LINE { NEW_LINE memset ( s , , SIZEOF ( *v s ) ) ; 
+STRUCT sockaddr_in * ) s ) -> sin_family = AF_INET ; 
+STRUCT sockaddr_in * ) s ) -> sin_port = a -> port ; 
+STRUCT sockaddr_in * ) s ) -> sin_addr . s_addr = INADDR_BROADCAST ; 
+STRUCT sockaddr_in * ) s ) -> sin_family = AF_INET ; 
+STRUCT sockaddr_in * ) s ) -> sin_addr . s_addr = *v ( INT *p ) & a -> ip ; 
+STRUCT sockaddr_in * ) s ) -> sin_port = a -> port ; 
+STRUCT sockaddr_ipx * ) s ) -> sa_family = AF_IPX ; 
+STRUCT sockaddr_ipx * ) s ) -> sa_netnum , &v a -> ipx [ ] , ) ; 
+STRUCT sockaddr_ipx * ) s ) -> sa_nodenum , &v a -> ipx [ ] , ) ; 
+STRUCT sockaddr_ipx * ) s ) -> sa_socket = a -> port ; 
+STRUCT sockaddr_ipx * ) s ) -> sa_family = AF_IPX ; 
+STRUCT sockaddr_ipx * ) s ) -> sa_netnum , , ) ; 
+STRUCT sockaddr_ipx * ) s ) -> sa_nodenum , , ) ; 
+STRUCT sockaddr_ipx * ) s ) -> sa_socket = a -> port ; 
+STRUCT sockaddr * s , netadr_t * a ) NEW_LINE { NEW_LINE IF ( s -> sa_family == AF_INET ) NEW_LINE { NEW_LINE a -> type = NA_IP ; 
+STRUCT sockaddr_in * ) s ) -> sin_addr . s_addr ; 
+STRUCT sockaddr_in * ) s ) -> sin_port ; 
+STRUCT sockaddr_ipx * ) s ) -> sa_netnum , ) ; 
+STRUCT sockaddr_ipx * ) s ) -> sa_nodenum , ) ; 
+STRUCT sockaddr_ipx * ) s ) -> sa_socket ; 
+STRUCT sockaddr * sadr ) NEW_LINE { NEW_LINE STRUCT STRUCT hostent * h ; 
+STRUCT sockaddr_ipx * ) sadr ) -> sa_family = AF_IPX ; 
+STRUCT sockaddr_ipx * ) sadr ) -> sa_socket = htons ( ( UNSIGNED SHORT ) val ) ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_family = AF_INET ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_port = ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_port = htons ( ( SHORT ) atoi ( colon + ) ) ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_addr = inet_addr ( copy ) ; 
+STRUCT sockaddr_in * ) sadr ) -> sin_addr = *v ( INT *p ) h -> h_addr_list [ ] ; 
+STRUCT sockaddr sadr ; 
+STRUCT sockaddr from ; 
+STRUCT sockaddr * ) & from , &v fromlen ) ; 
+STRUCT sockaddr addr ; 
+STRUCT sockaddr_in address ; 
+STRUCT sockaddr * ) & address ) ; 
+STRUCT sockaddr_ipx address ; 
+STRUCT timeval timeout ; 
+__E__O__F__
+STRUCT tm * newtime ; 
+__E__O__F__
+STRUCT _finddata_t findinfo ; 
+STRUCT _finddata_t findinfo ; 
+__E__O__F__
+__E__O__F__
+STRUCT dibinfo NEW_LINE { NEW_LINE BITMAPINFOHEADER header ; 
+STRUCT NEW_LINE { NEW_LINE WORD palVersion ; 
+__E__O__F__
+__E__O__F__
+ENUM { SIS_SUCCESS , SIS_FAILURE , SIS_NOTAVAIL } 
+__E__O__F__
+__E__O__F__
+STRUCT vidmode_s NEW_LINE { NEW_LINE CONST CHAR *p description ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT playAudioRequest NEW_LINE { NEW_LINE CHAR addressingMode ; 
+STRUCT readRequest NEW_LINE { NEW_LINE CHAR mediaDescriptor ; 
+STRUCT writeRequest NEW_LINE { NEW_LINE CHAR mediaDescriptor ; 
+STRUCT cd_request NEW_LINE { NEW_LINE CHAR headerLength ; 
+UNION NEW_LINE { NEW_LINE STRUCT STRUCT playAudioRequest playAudio ; 
+STRUCT readRequest read ; 
+STRUCT writeRequest write ; 
+STRUCT audioChannelInfo_s NEW_LINE { NEW_LINE CHAR code ; 
+STRUCT deviceStatus_s NEW_LINE { NEW_LINE CHAR code ; 
+STRUCT mediaChange_s NEW_LINE { NEW_LINE CHAR code ; 
+STRUCT audioDiskInfo_s NEW_LINE { NEW_LINE CHAR code ; 
+STRUCT audioTrackInfo_s NEW_LINE { NEW_LINE CHAR code ; 
+STRUCT audioStatus_s NEW_LINE { NEW_LINE CHAR code ; 
+STRUCT reset_s NEW_LINE { NEW_LINE CHAR code ; 
+UNION readInfo_u NEW_LINE { NEW_LINE STRUCT STRUCT audioChannelInfo_s audioChannelInfo ; 
+STRUCT deviceStatus_s deviceStatus ; 
+STRUCT mediaChange_s mediaChange ; 
+STRUCT audioDiskInfo_s audioDiskInfo ; 
+STRUCT audioTrackInfo_s audioTrackInfo ; 
+STRUCT audioStatus_s audioStatus ; 
+STRUCT reset_s reset ; 
+STRUCT NEW_LINE { NEW_LINE INT start ; 
+STRUCT NEW_LINE { NEW_LINE qboolean valid ; 
+STRUCT cd_request * cdRequest ; 
+UNION readInfo_u * readInfo ; 
+STRUCT reset_s ) ; 
+STRUCT reset_s ) ; 
+STRUCT audioTrackInfo_s ) ; 
+STRUCT audioDiskInfo_s ) ; 
+STRUCT audioStatus_s ) ; 
+STRUCT mediaChange_s ) ; 
+STRUCT audioChannelInfo_s ) ; 
+STRUCT cd_request NEW_LINE ) + SIZEOF ( UNION UNION readInfo_u ) ) ; 
+STRUCT cd_request * ) memory ; 
+UNION readInfo_u * ) ( memory + SIZEOF ( STRUCT STRUCT cd_request ) ) ; 
+__E__O__F__
+STRUCT cdrom_tochdr tochdr ; 
+STRUCT cdrom_tocentry entry ; 
+STRUCT cdrom_ti ti ; 
+STRUCT cdrom_subchnl subchnl ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT predicted_player { NEW_LINE INT flags ; 
+STRUCT NEW_LINE { NEW_LINE INT modelindex ; 
+STRUCT predicted_player * pplayer ; 
+STRUCT predicted_player * pplayer ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT entity ; 
+STRUCT model_s * model ; 
+STRUCT NEW_LINE { NEW_LINE vec3_t origin ; 
+__E__O__F__
+STRUCT cmdalias_s NEW_LINE { NEW_LINE STRUCT STRUCT cmdalias_s * next ; 
+STRUCT cmd_function_s NEW_LINE { NEW_LINE STRUCT STRUCT cmd_function_s * next ; 
+__E__O__F__
+UNION NEW_LINE { NEW_LINE FLOAT f ; 
+UNION NEW_LINE { NEW_LINE FLOAT f ; 
+UNION NEW_LINE { NEW_LINE byte b [ ] ; 
+STRUCT NEW_LINE { NEW_LINE CHAR name [ MAX_QPATH ] ; 
+STRUCT pack_s NEW_LINE { NEW_LINE CHAR filename [ MAX_OSPATH ] ; 
+STRUCT NEW_LINE { NEW_LINE CHAR name [ ] ; 
+STRUCT NEW_LINE { NEW_LINE CHAR id [ ] ; 
+STRUCT searchpath_s NEW_LINE { NEW_LINE CHAR filename [ MAX_OSPATH ] ; 
+STRUCT searchpath_s * next ; 
+STRUCT cache_user_s * cu ) NEW_LINE { NEW_LINE loadcache = cu ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE vrect_t rect ; 
+STRUCT cachepic_s NEW_LINE { NEW_LINE CHAR name [ MAX_QPATH ] ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE VOID *p pdest ; 
+STRUCT { NEW_LINE INT isflattop ; 
+STRUCT { NEW_LINE INT quotient ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT texnum ; 
+STRUCT NEW_LINE { NEW_LINE INT texnum ; 
+STRUCT cachepic_s NEW_LINE { NEW_LINE CHAR name [ MAX_QPATH ] ; 
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE SHORT x , y ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT glRect_s { NEW_LINE UNSIGNED CHAR l , t , w , h ; 
+__E__O__F__
+STRUCT _TargaHeader { NEW_LINE UNSIGNED CHAR id_length , colormap_type , image_type ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE plane_t * plane ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+STRUCT vt_stat x ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+STRUCT vt_stat x ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT key ; 
+__E__O__F__
+STRUCT { NEW_LINE modestate_t type ; 
+STRUCT { NEW_LINE INT width ; 
+STRUCT NEW_LINE { NEW_LINE INT modenum ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR manufacturer ; 
+STRUCT _TargaHeader { NEW_LINE UNSIGNED CHAR id_length , colormap_type , image_type ; 
+__E__O__F__
+__E__O__F__
+ENUM _ControlList NEW_LINE { NEW_LINE AxisNada = 0 , AxisForward , AxisLook , AxisSide , AxisTurn NEW_LINE } 
+STRUCT MYDATA { NEW_LINE LONG lX ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE UINT4 state [ ] ; 
+__E__O__F__
+ENUM { m_none , m_main , m_singleplayer , m_load , m_save , m_multiplayer , m_setup , m_net , m_options , m_video , m_keys , m_help , m_quit , m_serialconfig , m_modemconfig , m_lanconfig , m_gameoptions , m_search , m_slist } 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT sockaddr_in * s ) NEW_LINE { NEW_LINE memset ( s , , SIZEOF ( *v s ) ) ; 
+STRUCT sockaddr_in * s , netadr_t * a ) NEW_LINE { NEW_LINE *v ( INT *p ) & a -> ip = *v ( INT *p ) & s -> sin_addr ; 
+STRUCT hostent * h ; 
+STRUCT sockaddr_in sadr ; 
+STRUCT sockaddr_in sadr ; 
+STRUCT sockaddr_in from ; 
+STRUCT sockaddr * ) & from , &v fromlen ) ; 
+STRUCT sockaddr_in addr ; 
+STRUCT sockaddr * ) & addr , SIZEOF ( addr ) ) ; 
+STRUCT sockaddr_in address ; 
+STRUCT sockaddr_in address ; 
+STRUCT sockaddr * ) & address , &v namelen ) == -v ) NEW_LINE Sys_Error ( STRING , strerror ( errno ) ) ; 
+__E__O__F__
+STRUCT sockaddr_in * s ) NEW_LINE { NEW_LINE memset ( s , , SIZEOF ( *v s ) ) ; 
+STRUCT sockaddr_in * s , netadr_t * a ) NEW_LINE { NEW_LINE *v ( INT *p ) & a -> ip = *v ( INT *p ) & s -> sin_addr ; 
+STRUCT hostent * h ; 
+STRUCT sockaddr_in sadr ; 
+STRUCT sockaddr_in sadr ; 
+STRUCT sockaddr_in from ; 
+STRUCT sockaddr * ) & from , &v fromlen ) ; 
+STRUCT sockaddr_in addr ; 
+STRUCT sockaddr * ) & addr , SIZEOF ( addr ) ) ; 
+STRUCT sockaddr_in address ; 
+STRUCT sockaddr_in address ; 
+STRUCT sockaddr * ) & address , &v namelen ) == -v ) NEW_LINE Sys_Error ( STRING , strerror ( errno ) ) ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE INT index0 ; 
+__E__O__F__
+ENUM { touchessolid , drawnode , nodrawnode } 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE FLOAT u , v ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE CHAR team [ + ] ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT audio_buf_info info ; 
+STRUCT count_info count ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+ENUM { SIS_SUCCESS , SIS_FAILURE , SIS_NOTAVAIL } 
+__E__O__F__
+STRUCT stat buf ; 
+STRUCT stat fileinfo ; 
+STRUCT timeval tp ; 
+STRUCT timezone tzp ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+STRUCT vt_stat x ; 
+__E__O__F__
+STRUCT { NEW_LINE INT width ; 
+STRUCT { NEW_LINE modestate_t type ; 
+STRUCT NEW_LINE { NEW_LINE INT modenum ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT input ; 
+STRUCT sigaction sa ; 
+STRUCT NEW_LINE { NEW_LINE INT key ; 
+STRUCT timeval timeout ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT memblock_s NEW_LINE { NEW_LINE INT size ; 
+STRUCT memblock_s * next , *v prev ; 
+STRUCT NEW_LINE { NEW_LINE INT size ; 
+STRUCT NEW_LINE { NEW_LINE INT sentinal ; 
+STRUCT cache_system_s NEW_LINE { NEW_LINE INT size ; 
+STRUCT cache_system_s * prev , *v next ; 
+STRUCT cache_system_s * lru_prev , *v lru_next ; 
+__E__O__F__
+ENUM { NOT_WHITESPACE , WHITESPACE , TOKEN_AVAILABLE , LINE_DONE , FILE_DONE , PARSED_OKAY } 
+ENUM { NOSEG , DATASEG , TEXTSEG } 
+STRUCT { NEW_LINE CHAR *p text ; 
+STRUCT { NEW_LINE CHAR *p text ; 
+__E__O__F__
+__E__O__F__
+STRUCT peer { NEW_LINE time_t last ; 
+STRUCT sockaddr_in sin ; 
+STRUCT sockaddr_in dest ; 
+STRUCT peer * next ; 
+STRUCT hostent * phe ; 
+STRUCT servent * pse ; 
+STRUCT protoent * ppe ; 
+STRUCT sockaddr_in sin ; 
+STRUCT sockaddr * ) & sin , SIZEOF ( sin ) ) < ) NEW_LINE { NEW_LINE fprintf ( stderr , STRING , host , service , sys_errlist [ errno ] ) ; 
+STRUCT timeval tv ; 
+STRUCT sockaddr_in fsin ; 
+STRUCT sockaddr_in address ; 
+STRUCT sockaddr * ) & fsin , &v alen ) ; 
+STRUCT sockaddr * ) & p -> sin , NEW_LINE SIZEOF ( p -> sin ) ) ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE ddef_t * pcache ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT s ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE UNSIGNED mask ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+__E__O__F__
+STRUCT stat buf ; 
+STRUCT timeval tp ; 
+STRUCT timezone tzp ; 
+STRUCT timeval timeout ; 
+__E__O__F__
+STRUCT _timeb tstruct ; 
+STRUCT timeval timeout ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE vec3_t boxmins , boxmaxs ; 
+__E__O__F__
+STRUCT playAudioRequest NEW_LINE { NEW_LINE CHAR addressingMode ; 
+STRUCT readRequest NEW_LINE { NEW_LINE CHAR mediaDescriptor ; 
+STRUCT writeRequest NEW_LINE { NEW_LINE CHAR mediaDescriptor ; 
+STRUCT cd_request NEW_LINE { NEW_LINE CHAR headerLength ; 
+UNION NEW_LINE { NEW_LINE STRUCT STRUCT playAudioRequest playAudio ; 
+STRUCT readRequest read ; 
+STRUCT writeRequest write ; 
+STRUCT audioChannelInfo_s NEW_LINE { NEW_LINE CHAR code ; 
+STRUCT deviceStatus_s NEW_LINE { NEW_LINE CHAR code ; 
+STRUCT mediaChange_s NEW_LINE { NEW_LINE CHAR code ; 
+STRUCT audioDiskInfo_s NEW_LINE { NEW_LINE CHAR code ; 
+STRUCT audioTrackInfo_s NEW_LINE { NEW_LINE CHAR code ; 
+STRUCT audioStatus_s NEW_LINE { NEW_LINE CHAR code ; 
+STRUCT reset_s NEW_LINE { NEW_LINE CHAR code ; 
+UNION readInfo_u NEW_LINE { NEW_LINE STRUCT STRUCT audioChannelInfo_s audioChannelInfo ; 
+STRUCT deviceStatus_s deviceStatus ; 
+STRUCT mediaChange_s mediaChange ; 
+STRUCT audioDiskInfo_s audioDiskInfo ; 
+STRUCT audioTrackInfo_s audioTrackInfo ; 
+STRUCT audioStatus_s audioStatus ; 
+STRUCT reset_s reset ; 
+STRUCT NEW_LINE { NEW_LINE INT start ; 
+STRUCT NEW_LINE { NEW_LINE qboolean valid ; 
+STRUCT cd_request * cdRequest ; 
+UNION readInfo_u * readInfo ; 
+STRUCT reset_s ) ; 
+STRUCT reset_s ) ; 
+STRUCT audioTrackInfo_s ) ; 
+STRUCT audioDiskInfo_s ) ; 
+STRUCT audioStatus_s ) ; 
+STRUCT mediaChange_s ) ; 
+STRUCT audioChannelInfo_s ) ; 
+STRUCT cd_request NEW_LINE ) + SIZEOF ( UNION UNION readInfo_u ) ) ; 
+STRUCT cd_request * ) memory ; 
+UNION readInfo_u * ) ( memory + SIZEOF ( STRUCT STRUCT cd_request ) ) ; 
+__E__O__F__
+STRUCT cdrom_tochdr tochdr ; 
+STRUCT cdrom_tocentry entry ; 
+STRUCT cdrom_ti ti ; 
+STRUCT cdrom_subchnl subchnl ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT cmdalias_s NEW_LINE { NEW_LINE STRUCT STRUCT cmdalias_s * next ; 
+STRUCT cmd_function_s NEW_LINE { NEW_LINE STRUCT STRUCT cmd_function_s * next ; 
+__E__O__F__
+UNION NEW_LINE { NEW_LINE FLOAT f ; 
+UNION NEW_LINE { NEW_LINE FLOAT f ; 
+UNION NEW_LINE { NEW_LINE byte b [ ] ; 
+STRUCT NEW_LINE { NEW_LINE CHAR name [ MAX_QPATH ] ; 
+STRUCT pack_s NEW_LINE { NEW_LINE CHAR filename [ MAX_OSPATH ] ; 
+STRUCT NEW_LINE { NEW_LINE CHAR name [ ] ; 
+STRUCT NEW_LINE { NEW_LINE CHAR id [ ] ; 
+STRUCT searchpath_s NEW_LINE { NEW_LINE CHAR filename [ MAX_OSPATH ] ; 
+STRUCT searchpath_s * next ; 
+STRUCT cache_user_s * cu ) NEW_LINE { NEW_LINE loadcache = cu ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT handlerhistory_s NEW_LINE { NEW_LINE INT intr ; 
+STRUCT handlerhistory_s * oldstuff ; 
+STRUCT handlerhistory_s * oldstuff ; 
+__E__O__F__
+STRUCT { NEW_LINE vrect_t rect ; 
+STRUCT cachepic_s NEW_LINE { NEW_LINE CHAR name [ MAX_QPATH ] ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE VOID *p pdest ; 
+STRUCT { NEW_LINE INT isflattop ; 
+STRUCT { NEW_LINE INT quotient ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+ENUM { NOT_WHITESPACE , WHITESPACE , TOKEN_AVAILABLE , LINE_DONE , FILE_DONE , PARSED_OKAY } 
+ENUM { NOSEG , DATASEG , TEXTSEG } 
+STRUCT { NEW_LINE CHAR *p text ; 
+STRUCT { NEW_LINE CHAR *p text ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT texnum ; 
+STRUCT NEW_LINE { NEW_LINE INT texnum ; 
+STRUCT cachepic_s NEW_LINE { NEW_LINE CHAR name [ MAX_QPATH ] ; 
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE SHORT x , y ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT glRect_s { NEW_LINE UNSIGNED CHAR l , t , w , h ; 
+__E__O__F__
+STRUCT _TargaHeader { NEW_LINE UNSIGNED CHAR id_length , colormap_type , image_type ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE plane_t * plane ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+STRUCT vt_stat x ; 
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE modestate_t type ; 
+STRUCT { NEW_LINE INT width ; 
+STRUCT NEW_LINE { NEW_LINE INT modenum ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR manufacturer ; 
+STRUCT _TargaHeader { NEW_LINE UNSIGNED CHAR id_length , colormap_type , image_type ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE LONG interruptVector ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+ENUM _ControlList NEW_LINE { NEW_LINE AxisNada = 0 , AxisForward , AxisLook , AxisSide , AxisTurn NEW_LINE } 
+STRUCT MYDATA { NEW_LINE LONG lX ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+__E__O__F__
+__E__O__F__
+ENUM { m_none , m_main , m_singleplayer , m_load , m_save , m_multiplayer , m_setup , m_net , m_options , m_video , m_keys , m_help , m_quit , m_serialconfig , m_modemconfig , m_lanconfig , m_gameoptions , m_search , m_slist } 
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+STRUCT NEW_LINE { NEW_LINE CHAR *p description ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE SHORT version ; 
+STRUCT { NEW_LINE SHORT version ; 
+STRUCT { NEW_LINE SOCKET s ; 
+STRUCT { NEW_LINE SOCKET s ; 
+STRUCT { NEW_LINE INT retVal ; 
+STRUCT { NEW_LINE INT retVal ; 
+STRUCT { NEW_LINE INT len ; 
+STRUCT { NEW_LINE INT retVal ; 
+STRUCT { NEW_LINE SOCKET s ; 
+STRUCT { NEW_LINE INT retVal ; 
+STRUCT sockaddr sockaddr ; 
+STRUCT { NEW_LINE SOCKET s ; 
+STRUCT sockaddr sockaddr ; 
+STRUCT { NEW_LINE INT retVal ; 
+STRUCT { NEW_LINE INT bufflen ; 
+STRUCT sockaddr address ; 
+STRUCT { NEW_LINE INT af ; 
+STRUCT { NEW_LINE SOCKET s ; 
+STRUCT sockaddr addr ; 
+STRUCT { NEW_LINE SOCKET s ; 
+STRUCT { NEW_LINE SOCKET sock [ MAXSOCKETS ] ; 
+STRUCT hostent HostEnt ; 
+STRUCT in_addr * HostEnt_addr_list [ HOSTENT_ADDR_LIST_LIMIT ] ; 
+STRUCT in_addr HostEnt_addrs [ HOSTENT_ADDR_LIST_LIMIT ] ; 
+STRUCT sockaddr * name , INT namelen ) NEW_LINE { NEW_LINE RTQ_NODE * n = MGenGetNode ( IDLE_QUEUE ) ; 
+STRUCT hostent * s , VOID *p flattened ) NEW_LINE { NEW_LINE STRUCT STRUCT hostent * old = ( STRUCT STRUCT hostent * ) flattened ; 
+STRUCT in_addr ) ) { NEW_LINE printf ( STRING ) ; 
+STRUCT sockaddr * name , INT *p namelen ) NEW_LINE { NEW_LINE RTQ_NODE * n = MGenGetNode ( IDLE_QUEUE ) ; 
+STRUCT hostent * NEW_LINE gethostbyname ( CONST CHAR *p name ) NEW_LINE { NEW_LINE RTQ_NODE * n = MGenGetNode ( IDLE_QUEUE ) ; 
+STRUCT hostent * retVal ; 
+STRUCT hostent * ) r -> Data ; 
+STRUCT hostent * NEW_LINE gethostbyaddr ( CONST CHAR *p addr , INT len , INT type ) NEW_LINE { NEW_LINE RTQ_NODE * n = MGenGetNode ( IDLE_QUEUE ) ; 
+STRUCT hostent * retVal ; 
+STRUCT hostent * ) r -> Data ; 
+STRUCT sockaddr * from , NEW_LINE INT *p fromlen ) NEW_LINE { NEW_LINE INT i ; 
+STRUCT sockaddr ) ) ; 
+STRUCT sockaddr * to , INT tolen ) NEW_LINE { NEW_LINE INT i ; 
+STRUCT in_addr in ) NEW_LINE { NEW_LINE STATIC CHAR buf [ ] ; 
+__E__O__F__
+__E__O__F__
+STRUCT in_addr NEW_LINE { NEW_LINE UNION UNION NEW_LINE { NEW_LINE STRUCT STRUCT { UNSIGNED CHAR s_b1 , s_b2 , s_b3 , s_b4 ; 
+STRUCT { UNSIGNED SHORT s_w1 , s_w2 ; 
+STRUCT sockaddr_in NEW_LINE { NEW_LINE SHORT sin_family ; 
+STRUCT in_addr sin_addr ; 
+STRUCT hostent { NEW_LINE CHAR *p h_name ; 
+STRUCT in_addr in ) ; 
+STRUCT NEW_LINE { NEW_LINE CHAR state ; 
+STRUCT in_addr localAddr ; 
+STRUCT NEW_LINE { NEW_LINE CHAR reserved1 [ ] ; 
+STRUCT in_addr remoteAddr ; 
+STRUCT NEW_LINE { NEW_LINE SHORT remotePort ; 
+STRUCT NEW_LINE { NEW_LINE CHAR reserved1 [ ] ; 
+STRUCT in_addr remoteAddr ; 
+STRUCT NEW_LINE { NEW_LINE SHORT ioport ; 
+STRUCT in_addr bcastaddr ; 
+STRUCT qsockaddr addr ; 
+STRUCT qsockaddr * hostaddr ) NEW_LINE { NEW_LINE RETURN ; 
+STRUCT qsockaddr * from ) NEW_LINE { NEW_LINE BW_UDPreadInfo1_t * info1 ; 
+STRUCT sockaddr_in * ) from ) -> sin_addr = info1 -> remoteAddr ; 
+STRUCT sockaddr_in * ) from ) -> sin_port = htons ( info2 -> remotePort ) ; 
+STRUCT qsockaddr * to ) NEW_LINE { NEW_LINE BW_writeInfo_t * writeInfo ; 
+STRUCT sockaddr_in * ) to ) -> sin_addr ; 
+STRUCT sockaddr_in * ) to ) -> sin_port ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE STATIC CHAR buffer [ ] ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_net , NEW_LINE ( ( STRUCT STRUCT sockaddr_in * ) addr ) -> sin_addr . s_host , NEW_LINE ( ( STRUCT STRUCT sockaddr_in * ) addr ) -> sin_addr . s_lh , NEW_LINE ( ( STRUCT STRUCT sockaddr_in * ) addr ) -> sin_addr . s_impno , NEW_LINE ntohs ( ( ( STRUCT STRUCT sockaddr_in * ) addr ) -> sin_port ) NEW_LINE ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT ha1 , ha2 , ha3 , ha4 , hp ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr = htonl ( ipaddr ) ; 
+STRUCT sockaddr_in * ) addr ) -> sin_port = htons ( ( SHORT ) hp ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE regs . x . ax = ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr = ( ( BW_UDPinfo_t * ) lowmem_buffer ) -> localAddr . s_addr ; 
+STRUCT sockaddr_in * ) addr ) -> sin_port = htons ( ( ( BW_UDPinfo_t * ) lowmem_buffer ) -> localPort ) ; 
+STRUCT qsockaddr * addr , CHAR *p name ) NEW_LINE { NEW_LINE Q_strcpy ( name , BW_AddrToString ( addr ) ) ; 
+STRUCT qsockaddr * hostaddr ) NEW_LINE { NEW_LINE CHAR buff [ MAXHOSTNAMELEN ] ; 
+STRUCT sockaddr_in * ) hostaddr ) -> sin_port = htons ( ( SHORT ) port ) ; 
+STRUCT sockaddr_in * ) hostaddr ) -> sin_addr . s_addr = NEW_LINE ( ( ethdevinfo . inetAddr & mask ) | addr ) ; 
+STRUCT qsockaddr * addr1 , STRUCT STRUCT qsockaddr * addr2 ) NEW_LINE { NEW_LINE IF ( addr1 -> sa_family != addr2 -> sa_family ) NEW_LINE RETURN -v ; 
+STRUCT sockaddr_in * ) addr1 ) -> sin_addr . s_addr != ( ( STRUCT STRUCT sockaddr_in * ) addr2 ) -> sin_addr . s_addr ) NEW_LINE RETURN -v ; 
+STRUCT sockaddr_in * ) addr1 ) -> sin_port != ( ( STRUCT STRUCT sockaddr_in * ) addr2 ) -> sin_port ) NEW_LINE RETURN ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE RETURN ntohs ( ( ( STRUCT STRUCT sockaddr_in * ) addr ) -> sin_port ) ; 
+STRUCT qsockaddr * addr , INT port ) NEW_LINE { NEW_LINE ( ( STRUCT STRUCT sockaddr_in * ) addr ) -> sin_port = htons ( port ) ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE VOLATILE INT head ; 
+STRUCT ComPort_s NEW_LINE { NEW_LINE STRUCT STRUCT ComPort_s * next ; 
+__E__O__F__
+STRUCT in_addr NEW_LINE { NEW_LINE UNION UNION NEW_LINE { NEW_LINE STRUCT STRUCT { UNSIGNED CHAR s_b1 , s_b2 , s_b3 , s_b4 ; 
+STRUCT { UNSIGNED SHORT s_w1 , s_w2 ; 
+STRUCT sockaddr_in NEW_LINE { NEW_LINE SHORT sin_family ; 
+STRUCT in_addr sin_addr ; 
+STRUCT in_addr in ) ; 
+STRUCT NEW_LINE { NEW_LINE UNSIGNED INT length ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE STATIC CHAR buf [ ] ; 
+STRUCT in_addr * ) & banAddr ) -> s_addr ) NEW_LINE { NEW_LINE Q_strcpy ( addrStr , inet_ntoa ( *v ( STRUCT STRUCT in_addr * ) & banAddr ) ) ; 
+STRUCT in_addr * ) & banMask ) ) ; 
+STRUCT qsockaddr readaddr ; 
+STRUCT qsockaddr clientaddr ; 
+STRUCT qsockaddr sendaddr ; 
+STRUCT qsockaddr ) ) ; 
+STRUCT qsockaddr clientaddr ; 
+STRUCT qsockaddr sendaddr ; 
+STRUCT qsockaddr ) ) ; 
+STRUCT qsockaddr clientaddr ; 
+STRUCT qsockaddr newaddr ; 
+STRUCT sockaddr_in * ) & clientaddr ) -> sin_addr . s_addr ; 
+STRUCT qsockaddr readaddr ; 
+STRUCT qsockaddr myaddr ; 
+STRUCT qsockaddr ) ) ; 
+STRUCT qsockaddr sendaddr ; 
+STRUCT qsockaddr readaddr ; 
+STRUCT qsockaddr ) ) ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE byte network [ ] ; 
+STRUCT sockaddr_ipx NEW_LINE { NEW_LINE SHORT sipx_family ; 
+STRUCT NEW_LINE { NEW_LINE SHORT checkSum ; 
+STRUCT ECBStructure NEW_LINE { NEW_LINE STRUCT STRUCT ECBStructure * link ; 
+STRUCT NEW_LINE { NEW_LINE ECB ecb ; 
+STRUCT NEW_LINE { NEW_LINE CHAR reserved [ LOWMEMSAVE ] ; 
+STRUCT qsockaddr addr ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE IPXaddr ipxaddr ; 
+STRUCT sockaddr_ipx * ) addr ) -> sipx_addr , SIZEOF ( IPXaddr ) ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE ECB * ecb ; 
+STRUCT sockaddr_ipx * ) addr ) -> sipx_family = AF_NETWARE ; 
+STRUCT sockaddr_ipx * ) addr ) -> sipx_addr , rcvbuf -> header . source . network , SIZEOF ( IPXaddr ) ) ; 
+STRUCT sockaddr_ipx * ) addr ) -> sipx_zero [ ] = ; 
+STRUCT sockaddr_ipx * ) addr ) -> sipx_zero [ ] = ; 
+STRUCT sockaddr_ipx addr ; 
+STRUCT qsockaddr * ) & addr ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE COMMENT_NL CPP_COMMENT NEW_LINE WHILE ( lma -> socketbuffer [ handle ] [ ] . ecb . inUse != ) NEW_LINE IPX_RelinquishControl ( ) ; 
+STRUCT sockaddr_ipx * ) addr ) -> sipx_addr , SIZEOF ( IPXaddr ) ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE STATIC CHAR buf [ ] ; 
+STRUCT sockaddr_ipx * ) addr ) -> sipx_addr . network [ ] , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sipx_addr . network [ ] , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sipx_addr . network [ ] , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sipx_addr . network [ ] , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sipx_addr . node [ ] , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sipx_addr . node [ ] , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sipx_addr . node [ ] , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sipx_addr . node [ ] , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sipx_addr . node [ ] , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sipx_addr . node [ ] , NEW_LINE ntohs ( ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sipx_port ) NEW_LINE ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT val ; 
+STRUCT qsockaddr ) ) ; 
+STRUCT sockaddr_ipx * ) addr ) -> sipx_port = htons ( val ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE Q_memset ( addr , , SIZEOF ( STRUCT STRUCT qsockaddr ) ) ; 
+STRUCT sockaddr_ipx * ) addr ) -> sipx_addr ) ; 
+STRUCT sockaddr_ipx * ) addr ) -> sipx_port = ipxsocket [ handle ] ; 
+STRUCT qsockaddr * addr , CHAR *p name ) NEW_LINE { NEW_LINE Q_strcpy ( name , IPX_AddrToString ( addr ) ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT n ; 
+STRUCT qsockaddr * addr1 , STRUCT STRUCT qsockaddr * addr2 ) NEW_LINE { NEW_LINE IF ( addr1 -> sa_family != addr2 -> sa_family ) NEW_LINE RETURN -v ; 
+STRUCT sockaddr_ipx * ) addr1 ) -> sipx_addr , &v ( ( STRUCT STRUCT sockaddr_ipx * ) addr2 ) -> sipx_addr , ) ) NEW_LINE RETURN -v ; 
+STRUCT sockaddr_ipx * ) addr1 ) -> sipx_port != ( ( STRUCT STRUCT sockaddr_ipx * ) addr2 ) -> sipx_port ) NEW_LINE RETURN ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE RETURN ntohs ( ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sipx_port ) ; 
+STRUCT qsockaddr * addr , INT port ) NEW_LINE { NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sipx_port = htons ( port ) ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE DOUBLE time ; 
+STRUCT NEW_LINE { NEW_LINE DOUBLE time ; 
+STRUCT NEW_LINE { NEW_LINE DOUBLE time ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE IF ( idgods . value == FLOAT_CONST ) NEW_LINE RETURN false ; 
+__E__O__F__
+STRUCT qsockaddr broadcastaddr ; 
+STRUCT hostent * local = NULL ; 
+STRUCT qsockaddr addr ; 
+STRUCT sockaddr_in * ) & broadcastaddr ) -> sin_family = AF_INET ; 
+STRUCT sockaddr_in * ) & broadcastaddr ) -> sin_addr . s_addr = INADDR_BROADCAST ; 
+STRUCT sockaddr_in * ) & broadcastaddr ) -> sin_port = htons ( net_hostport ) ; 
+STRUCT sockaddr_in address ; 
+STRUCT qsockaddr * hostaddr ) NEW_LINE { NEW_LINE CHAR buff [ ] ; 
+STRUCT sockaddr_in * ) hostaddr ) -> sin_port = htons ( ( SHORT ) port ) ; 
+STRUCT sockaddr_in * ) hostaddr ) -> sin_addr . s_addr = ( myAddr & htonl ( mask ) ) | htonl ( addr ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE RETURN ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT addrlen = SIZEOF ( STRUCT STRUCT qsockaddr ) ; 
+STRUCT sockaddr * ) addr , &v addrlen ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT ret ; 
+STRUCT sockaddr * ) addr , SIZEOF ( STRUCT STRUCT qsockaddr ) ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE STATIC CHAR buffer [ ] ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr ) ; 
+STRUCT sockaddr_in * ) addr ) -> sin_port ) ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT ha1 , ha2 , ha3 , ha4 , hp ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr = htonl ( ipaddr ) ; 
+STRUCT sockaddr_in * ) addr ) -> sin_port = htons ( hp ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT addrlen = SIZEOF ( STRUCT STRUCT qsockaddr ) ; 
+STRUCT qsockaddr ) ) ; 
+STRUCT sockaddr * ) addr , &v addrlen ) ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr = myAddr ; 
+STRUCT qsockaddr * addr , CHAR *p name ) NEW_LINE { NEW_LINE STRUCT STRUCT hostent * hostentry ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr , SIZEOF ( STRUCT STRUCT in_addr ) , AF_INET ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE STRUCT STRUCT hostent * hostentry ; 
+STRUCT sockaddr_in * ) addr ) -> sin_port = htons ( net_hostport ) ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr = *v ( INT *p ) hostentry -> h_addr_list [ ] ; 
+STRUCT qsockaddr * addr1 , STRUCT STRUCT qsockaddr * addr2 ) NEW_LINE { NEW_LINE IF ( addr1 -> sa_family != addr2 -> sa_family ) NEW_LINE RETURN -v ; 
+STRUCT sockaddr_in * ) addr1 ) -> sin_addr . s_addr != ( ( STRUCT STRUCT sockaddr_in * ) addr2 ) -> sin_addr . s_addr ) NEW_LINE RETURN -v ; 
+STRUCT sockaddr_in * ) addr1 ) -> sin_port != ( ( STRUCT STRUCT sockaddr_in * ) addr2 ) -> sin_port ) NEW_LINE RETURN ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE RETURN ntohs ( ( ( STRUCT STRUCT sockaddr_in * ) addr ) -> sin_port ) ; 
+STRUCT qsockaddr * addr , INT port ) NEW_LINE { NEW_LINE ( ( STRUCT STRUCT sockaddr_in * ) addr ) -> sin_port = htons ( port ) ; 
+__E__O__F__
+__E__O__F__
+STRUCT SerialLine_s NEW_LINE { NEW_LINE STRUCT STRUCT SerialLine_s * next ; 
+__E__O__F__
+STRUCT qsockaddr broadcastaddr ; 
+STRUCT hostent * local ; 
+STRUCT qsockaddr addr ; 
+STRUCT sockaddr_in * ) & broadcastaddr ) -> sin_family = AF_INET ; 
+STRUCT sockaddr_in * ) & broadcastaddr ) -> sin_addr . s_addr = INADDR_BROADCAST ; 
+STRUCT sockaddr_in * ) & broadcastaddr ) -> sin_port = htons ( net_hostport ) ; 
+STRUCT sockaddr_in address ; 
+STRUCT qsockaddr * hostaddr ) NEW_LINE { NEW_LINE CHAR buff [ ] ; 
+STRUCT sockaddr_in * ) hostaddr ) -> sin_port = htons ( ( SHORT ) port ) ; 
+STRUCT sockaddr_in * ) hostaddr ) -> sin_addr . s_addr = ( myAddr & htonl ( mask ) ) | htonl ( addr ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE RETURN ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT addrlen = SIZEOF ( STRUCT STRUCT qsockaddr ) ; 
+STRUCT sockaddr * ) addr , &v addrlen ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT ret ; 
+STRUCT sockaddr * ) addr , SIZEOF ( STRUCT STRUCT qsockaddr ) ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE STATIC CHAR buffer [ ] ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr ) ; 
+STRUCT sockaddr_in * ) addr ) -> sin_port ) ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT ha1 , ha2 , ha3 , ha4 , hp ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr = htonl ( ipaddr ) ; 
+STRUCT sockaddr_in * ) addr ) -> sin_port = htons ( hp ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT addrlen = SIZEOF ( STRUCT STRUCT qsockaddr ) ; 
+STRUCT qsockaddr ) ) ; 
+STRUCT sockaddr * ) addr , &v addrlen ) ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr = myAddr ; 
+STRUCT qsockaddr * addr , CHAR *p name ) NEW_LINE { NEW_LINE STRUCT STRUCT hostent * hostentry ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr , SIZEOF ( STRUCT STRUCT in_addr ) , AF_INET ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE STRUCT STRUCT hostent * hostentry ; 
+STRUCT sockaddr_in * ) addr ) -> sin_port = htons ( net_hostport ) ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr = *v ( INT *p ) hostentry -> h_addr_list [ ] ; 
+STRUCT qsockaddr * addr1 , STRUCT STRUCT qsockaddr * addr2 ) NEW_LINE { NEW_LINE IF ( addr1 -> sa_family != addr2 -> sa_family ) NEW_LINE RETURN -v ; 
+STRUCT sockaddr_in * ) addr1 ) -> sin_addr . s_addr != ( ( STRUCT STRUCT sockaddr_in * ) addr2 ) -> sin_addr . s_addr ) NEW_LINE RETURN -v ; 
+STRUCT sockaddr_in * ) addr1 ) -> sin_port != ( ( STRUCT STRUCT sockaddr_in * ) addr2 ) -> sin_port ) NEW_LINE RETURN ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE RETURN ntohs ( ( ( STRUCT STRUCT sockaddr_in * ) addr ) -> sin_port ) ; 
+STRUCT qsockaddr * addr , INT port ) NEW_LINE { NEW_LINE ( ( STRUCT STRUCT sockaddr_in * ) addr ) -> sin_port = htons ( port ) ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE DOUBLE time ; 
+__E__O__F__
+__E__O__F__
+STRUCT qsockaddr broadcastaddr ; 
+STRUCT sockaddr FAR * from , INT FAR * fromlen ) ; 
+STRUCT sockaddr FAR * to , INT tolen ) ; 
+STRUCT hostent FAR * ( PASCAL FAR * pgethostbyname ) ( CONST CHAR FAR * name ) ; 
+STRUCT hostent FAR * ( PASCAL FAR * pgethostbyaddr ) ( CONST CHAR FAR * addr , NEW_LINE INT len , INT type ) ; 
+STRUCT sockaddr FAR * name , NEW_LINE INT FAR * namelen ) ; 
+STRUCT hostent * local = NULL ; 
+STRUCT sockaddr_in * ) & broadcastaddr ) -> sin_family = AF_INET ; 
+STRUCT sockaddr_in * ) & broadcastaddr ) -> sin_addr . s_addr = INADDR_BROADCAST ; 
+STRUCT sockaddr_in * ) & broadcastaddr ) -> sin_port = htons ( ( UNSIGNED SHORT ) net_hostport ) ; 
+STRUCT sockaddr_in address ; 
+STRUCT qsockaddr * ) & address ) ) ; 
+STRUCT qsockaddr * hostaddr ) NEW_LINE { NEW_LINE CHAR buff [ ] ; 
+STRUCT sockaddr_in * ) hostaddr ) -> sin_port = htons ( ( SHORT ) port ) ; 
+STRUCT sockaddr_in * ) hostaddr ) -> sin_addr . s_addr = ( myAddr & htonl ( mask ) ) | htonl ( addr ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE RETURN ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT addrlen = SIZEOF ( STRUCT STRUCT qsockaddr ) ; 
+STRUCT sockaddr * ) addr , &v addrlen ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT ret ; 
+STRUCT sockaddr * ) addr , SIZEOF ( STRUCT STRUCT qsockaddr ) ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE STATIC CHAR buffer [ ] ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr ) ; 
+STRUCT sockaddr_in * ) addr ) -> sin_port ) ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT ha1 , ha2 , ha3 , ha4 , hp ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr = htonl ( ipaddr ) ; 
+STRUCT sockaddr_in * ) addr ) -> sin_port = htons ( ( UNSIGNED SHORT ) hp ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT addrlen = SIZEOF ( STRUCT STRUCT qsockaddr ) ; 
+STRUCT qsockaddr ) ) ; 
+STRUCT sockaddr * ) addr , &v addrlen ) ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr = myAddr ; 
+STRUCT qsockaddr * addr , CHAR *p name ) NEW_LINE { NEW_LINE STRUCT STRUCT hostent * hostentry ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr , SIZEOF ( STRUCT STRUCT in_addr ) , AF_INET ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE STRUCT STRUCT hostent * hostentry ; 
+STRUCT sockaddr_in * ) addr ) -> sin_port = htons ( ( UNSIGNED SHORT ) net_hostport ) ; 
+STRUCT sockaddr_in * ) addr ) -> sin_addr . s_addr = *v ( INT *p ) hostentry -> h_addr_list [ ] ; 
+STRUCT qsockaddr * addr1 , STRUCT STRUCT qsockaddr * addr2 ) NEW_LINE { NEW_LINE IF ( addr1 -> sa_family != addr2 -> sa_family ) NEW_LINE RETURN -v ; 
+STRUCT sockaddr_in * ) addr1 ) -> sin_addr . s_addr != ( ( STRUCT STRUCT sockaddr_in * ) addr2 ) -> sin_addr . s_addr ) NEW_LINE RETURN -v ; 
+STRUCT sockaddr_in * ) addr1 ) -> sin_port != ( ( STRUCT STRUCT sockaddr_in * ) addr2 ) -> sin_port ) NEW_LINE RETURN ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE RETURN ntohs ( ( ( STRUCT STRUCT sockaddr_in * ) addr ) -> sin_port ) ; 
+STRUCT qsockaddr * addr , INT port ) NEW_LINE { NEW_LINE ( ( STRUCT STRUCT sockaddr_in * ) addr ) -> sin_port = htons ( ( UNSIGNED SHORT ) port ) ; 
+__E__O__F__
+STRUCT qsockaddr broadcastaddr ; 
+STRUCT qsockaddr addr ; 
+STRUCT sockaddr_ipx * ) & broadcastaddr ) -> sa_family = AF_IPX ; 
+STRUCT sockaddr_ipx * ) & broadcastaddr ) -> sa_netnum , , ) ; 
+STRUCT sockaddr_ipx * ) & broadcastaddr ) -> sa_nodenum , , ) ; 
+STRUCT sockaddr_ipx * ) & broadcastaddr ) -> sa_socket = htons ( ( UNSIGNED SHORT ) net_hostport ) ; 
+STRUCT sockaddr_ipx address ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE RETURN ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT addrlen = SIZEOF ( STRUCT STRUCT qsockaddr ) ; 
+STRUCT sockaddr * ) addr , &v addrlen ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT socket = ipxsocket [ handle ] ; 
+STRUCT sockaddr * ) addr , SIZEOF ( STRUCT STRUCT qsockaddr ) ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE STATIC CHAR buf [ ] ; 
+STRUCT sockaddr_ipx * ) addr ) -> sa_netnum [ ] & , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sa_netnum [ ] & , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sa_netnum [ ] & , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sa_netnum [ ] & , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sa_nodenum [ ] & , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sa_nodenum [ ] & , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sa_nodenum [ ] & , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sa_nodenum [ ] & , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sa_nodenum [ ] & , NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sa_nodenum [ ] & , NEW_LINE ntohs ( ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sa_socket ) NEW_LINE ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT val ; 
+STRUCT qsockaddr ) ) ; 
+STRUCT sockaddr_ipx * ) addr ) -> sa_socket = htons ( ( UNSIGNED SHORT ) val ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT socket = ipxsocket [ handle ] ; 
+STRUCT qsockaddr ) ; 
+STRUCT qsockaddr ) ) ; 
+STRUCT sockaddr * ) addr , &v addrlen ) != ) NEW_LINE { NEW_LINE INT errno = pWSAGetLastError ( ) ; 
+STRUCT qsockaddr * addr , CHAR *p name ) NEW_LINE { NEW_LINE Q_strcpy ( name , WIPX_AddrToString ( addr ) ) ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE INT n ; 
+STRUCT qsockaddr * addr1 , STRUCT STRUCT qsockaddr * addr2 ) NEW_LINE { NEW_LINE IF ( addr1 -> sa_family != addr2 -> sa_family ) NEW_LINE RETURN -v ; 
+STRUCT sockaddr_ipx * ) addr1 ) -> sa_netnum && *v ( ( STRUCT STRUCT sockaddr_ipx * ) addr2 ) -> sa_netnum ) NEW_LINE IF ( memcmp ( ( ( STRUCT STRUCT sockaddr_ipx * ) addr1 ) -> sa_netnum , ( ( STRUCT STRUCT sockaddr_ipx * ) addr2 ) -> sa_netnum , ) != ) NEW_LINE RETURN -v ; 
+STRUCT sockaddr_ipx * ) addr1 ) -> sa_nodenum , ( ( STRUCT STRUCT sockaddr_ipx * ) addr2 ) -> sa_nodenum , ) != ) NEW_LINE RETURN -v ; 
+STRUCT sockaddr_ipx * ) addr1 ) -> sa_socket != ( ( STRUCT STRUCT sockaddr_ipx * ) addr2 ) -> sa_socket ) NEW_LINE RETURN ; 
+STRUCT qsockaddr * addr ) NEW_LINE { NEW_LINE RETURN ntohs ( ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sa_socket ) ; 
+STRUCT qsockaddr * addr , INT port ) NEW_LINE { NEW_LINE ( ( STRUCT STRUCT sockaddr_ipx * ) addr ) -> sa_socket = htons ( ( UNSIGNED SHORT ) port ) ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE ddef_t * pcache ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT s ; 
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE INT index0 ; 
+__E__O__F__
+ENUM { touchessolid , drawnode , nodrawnode } 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE FLOAT u , v ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR manufacturer ; 
+__E__O__F__
+__E__O__F__
+ENUM NEW_LINE { NEW_LINE dma_none , NEW_LINE dma_blaster , NEW_LINE dma_gus NEW_LINE } 
+__E__O__F__
+STRUCT section_buffer NEW_LINE { NEW_LINE LONG offset ; 
+STRUCT field_buffer NEW_LINE { NEW_LINE LONG offset ; 
+STRUCT section_buffer section_buffers [ NUM_SECTION_BUFFERS ] ; 
+STRUCT field_buffer field_buffers [ NUM_FIELD_BUFFERS ] ; 
+STRUCT CodecRateStruct NEW_LINE { NEW_LINE WORD Rate ; 
+STRUCT Gf1RateStruct NEW_LINE { NEW_LINE WORD Rate ; 
+STRUCT CodecRateStruct CodecRates [ ] = NEW_LINE { NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } COMMENT_NL CPP_COMMENT NEW_LINE } 
+STRUCT Gf1RateStruct Gf1Rates [ ] = NEW_LINE { NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } , NEW_LINE { , } NEW_LINE } 
+STRUCT CodecRateStruct * CodecRate ; 
+STRUCT Gf1RateStruct * Gf1Rate ; 
+__E__O__F__
+STRUCT audio_buf_info info ; 
+STRUCT count_info count ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+ENUM { SIS_SUCCESS , SIS_FAILURE , SIS_NOTAVAIL } 
+__E__O__F__
+STRUCT qsocket_s * netconnection ; 
+STRUCT qsocket_s * ret ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT stat buf ; 
+STRUCT stat fileinfo ; 
+__E__O__F__
+STRUCT stat buf ; 
+STRUCT stat fileinfo ; 
+STRUCT timeval tp ; 
+STRUCT timezone tzp ; 
+STRUCT timeval timeout ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE FILE * hFile ; 
+STRUCT timeval tp ; 
+STRUCT timezone tzp ; 
+STRUCT timeval timeout ; 
+__E__O__F__
+__E__O__F__
+STRUCT _timeb tstruct ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT modenum ; 
+__E__O__F__
+STRUCT { NEW_LINE INT pages [ ] ; 
+STRUCT NEW_LINE { NEW_LINE INT modenum ; 
+STRUCT vbeinfoblock_s { NEW_LINE byte VbeSignature [ ] ; 
+STRUCT vmode_s * pcurrentmode , NEW_LINE INT x , INT y , byte * pbitmap , INT width , INT height ) NEW_LINE { NEW_LINE NEW_LINE IF ( ! lvid -> direct ) NEW_LINE RETURN ; 
+STRUCT vmode_s * pcurrentmode , NEW_LINE INT x , INT y , INT width , INT height ) NEW_LINE { NEW_LINE NEW_LINE IF ( ! lvid -> direct ) NEW_LINE RETURN ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE LONG flags ; 
+STRUCT NEW_LINE { NEW_LINE INT modenum ; 
+STRUCT NEW_LINE { NEW_LINE INT input ; 
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+STRUCT sigaction sa ; 
+STRUCT NEW_LINE { NEW_LINE INT key ; 
+STRUCT timeval timeout ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE LONG flags ; 
+STRUCT NEW_LINE { NEW_LINE INT modenum ; 
+STRUCT NEW_LINE { NEW_LINE INT input ; 
+STRUCT { NEW_LINE INT key ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+STRUCT vt_stat x ; 
+__E__O__F__
+STRUCT vmode_s * pcurrentmode , INT x , NEW_LINE INT y , byte * pbitmap , INT width , INT height ) NEW_LINE { NEW_LINE INT i , j , k , plane , reps , repshift ; 
+STRUCT vmode_s * pcurrentmode , INT x , NEW_LINE INT y , INT width , INT height ) NEW_LINE { NEW_LINE INT i , j , k , plane , reps , repshift ; 
+__E__O__F__
+STRUCT { NEW_LINE INT width ; 
+STRUCT { NEW_LINE modestate_t type ; 
+STRUCT NEW_LINE { NEW_LINE INT modenum ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT input ; 
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+switch block nest=2, cur block nest=4
+STRUCT sigaction sa ; 
+STRUCT NEW_LINE { NEW_LINE INT key ; 
+STRUCT timeval timeout ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE vec3_t boxmins , boxmaxs ; 
+STRUCT areanode_s NEW_LINE { NEW_LINE INT axis ; 
+STRUCT areanode_s * children [ ] ; 
+__E__O__F__
+STRUCT memblock_s NEW_LINE { NEW_LINE INT size ; 
+STRUCT memblock_s * next , *v prev ; 
+STRUCT NEW_LINE { NEW_LINE INT size ; 
+STRUCT NEW_LINE { NEW_LINE INT sentinal ; 
+STRUCT cache_system_s NEW_LINE { NEW_LINE INT size ; 
+STRUCT cache_system_s * prev , *v next ; 
+STRUCT cache_system_s * lru_prev , *v lru_next ; 
+__E__O__F__
+ENUM { FORWARD , BACKWARD , LEFT , RIGHT , NEW_LINE # #IFDEF HERETIC NEW_LINE LOOKD , LOOKC , LOOKU , FLYD , FLYC , FLYU , NEW_LINE # #ENDIF NEW_LINE USE , FIRE , SPEED , STRAFE , STRAFE_LEFT , STRAFE_RIGHT , NEW_LINE # #IFDEF HERETIC NEW_LINE INVL , INVR , NEW_LINE # #ENDIF NEW_LINE # #IFDEF STRIFE NEW_LINE INVL , INVR , INVH , INVE , INVU , INVD , INVPOP , INVQ , HEALTHU , JUMP , LOOKU , LOOKD , NEW_LINE # #ENDIF NEW_LINE MAXKEYS } 
+ENUM NEW_LINE { NEW_LINE J_FIRE , NEW_LINE J_FORWARD , NEW_LINE J_USE , NEW_LINE J_STRAFE , NEW_LINE J_MAX NEW_LINE } 
+ENUM { M_FIRE , M_FORWARD , M_STRAFE , M_MAX } 
+UNION REGS r ; 
+ENUM { CFG_KEY , CFG_MOUSE , CFG_JOY , CFG_MAX } 
+__E__O__F__
+ENUM { CON_MOUSE , CON_JOY , CON_KEY , CON_MAX } 
+__E__O__F__
+__E__O__F__
+ENUM { MAC_MACRO0 , MAC_MACRO1 , MAC_MACRO2 , MAC_MACRO3 , MAC_MACRO4 , MAC_MACRO5 , NEW_LINE MAC_MACRO6 , MAC_MACRO7 , MAC_MACRO8 , MAC_MACRO9 , MAC_MAX } 
+__E__O__F__
+__E__O__F__
+ENUM NEW_LINE { NEW_LINE MAIN_CMUSIC , NEW_LINE MAIN_CSFX , NEW_LINE MAIN_TYPE , NEW_LINE MAIN_CONFIG , NEW_LINE MAIN_SAVE , NEW_LINE NEW_LINE MAIN_NET , NEW_LINE MAIN_NETSG , NEW_LINE MAIN_MAX NEW_LINE } 
+ENUM { SAVEYES , SAVENO , SAVEMAX } 
+UNION REGS r ; 
+__E__O__F__
+__E__O__F__
+ENUM { ADDNAME , ADDNUMBER , MAXADD } 
+ENUM NEW_LINE { NEW_LINE # #IFNDEF DOOM2 NEW_LINE MOD_EPISODE0 , MOD_EPISODE1 , MOD_EPISODE2 , NEW_LINE # #ENDIF NEW_LINE MOD_SKILL1 , MOD_SKILL2 , MOD_SKILL3 , MOD_SKILL4 , NEW_LINE MOD_DEATHNO , MOD_DEATHYES , NEW_LINE MOD_COM1 , MOD_COM2 , MOD_COM3 , MOD_COM4 , NEW_LINE MOD_CONN0 , MOD_CONN1 , MOD_CONN2 , NEW_LINE MOD_MAX NEW_LINE } 
+__E__O__F__
+ENUM { MODS_0 , MODS_1 , MODS_2 , MODS_3 , MODS_4 , MODS_5 , NEW_LINE MODS_DEATHNO , MODS_DEATHYES , NEW_LINE MODS_COM1 , MODS_COM2 , MODS_COM3 , MODS_COM4 , NEW_LINE MODS_CONN1 , MODS_CONN2 , MODS_CONN3 , NEW_LINE MODS_MAX } 
+__E__O__F__
+ENUM NEW_LINE { NEW_LINE MIDI_220 , NEW_LINE MIDI_230 , NEW_LINE MIDI_240 , NEW_LINE MIDI_250 , NEW_LINE MIDI_300 , NEW_LINE MIDI_320 , NEW_LINE MIDI_330 , NEW_LINE MIDI_332 , NEW_LINE MIDI_334 , NEW_LINE MIDI_336 , NEW_LINE MIDI_340 , NEW_LINE MIDI_360 , NEW_LINE MIDI_MAX NEW_LINE } 
+ENUM NEW_LINE { NEW_LINE SB_PORT_210 , NEW_LINE SB_PORT_220 , NEW_LINE SB_PORT_230 , NEW_LINE SB_PORT_240 , NEW_LINE SB_PORT_250 , NEW_LINE SB_PORT_260 , NEW_LINE SB_PORT_280 , NEW_LINE SB_PORT_MAX NEW_LINE } 
+ENUM NEW_LINE { NEW_LINE MCARD_GMIDI , NEW_LINE MCARD_SBAWE32 , NEW_LINE MCARD_CANVAS , NEW_LINE MCARD_WAVE , NEW_LINE MCARD_GUS , NEW_LINE MCARD_PAS , NEW_LINE MCARD_SB , NEW_LINE MCARD_ADLIB , NEW_LINE MCARD_NONE , NEW_LINE MCARD_MAX NEW_LINE } 
+__E__O__F__
+ENUM NEW_LINE { NEW_LINE # #IFNDEF DOOM2 NEW_LINE NET_EPISODE0 , NET_EPISODE1 , NET_EPISODE2 , NEW_LINE # #ENDIF NEW_LINE NET_P2 , NET_P3 , NET_P4 , NEW_LINE NET_SKILL1 , NET_SKILL2 , NET_SKILL3 , NET_SKILL4 , NET_SKILL5 , NEW_LINE NET_DEATHNO , NET_DEATHYES , NEW_LINE NET_SOCKET , NEW_LINE NET_MAX NEW_LINE } 
+__E__O__F__
+ENUM { GT_IPX , GT_MODEM , GT_SERIAL , GT_CHOOSE , GT_MACROS , GT_MAX } 
+__E__O__F__
+ENUM { NETS_0 , NETS_1 , NETS_2 , NETS_3 , NETS_4 , NETS_5 , NEW_LINE NETS_DEATHNO , NETS_DEATHYES , NEW_LINE NETS_SOCKET , NETS_MAX } 
+ENUM { NETCH_IPX , NETCH_MOD , NETCH_SER , NETCH_MAX } 
+__E__O__F__
+ENUM NEW_LINE { NEW_LINE # #IFNDEF DOOM2 NEW_LINE SER_EPISODE0 , SER_EPISODE1 , SER_EPISODE2 , NEW_LINE # #ENDIF NEW_LINE SER_SKILL1 , SER_SKILL2 , SER_SKILL3 , SER_SKILL4 , NEW_LINE SER_DEATHNO , SER_DEATHYES , NEW_LINE SER_COM1 , SER_COM2 , SER_COM3 , SER_COM4 , NEW_LINE SER_MAX NEW_LINE } 
+__E__O__F__
+UNION REGS r ; 
+UNION REGS r ; 
+__E__O__F__
+__E__O__F__
+ENUM { SERS_0 , SERS_1 , SERS_2 , SERS_3 , SERS_4 , SERS_5 , NEW_LINE SERS_DEATHNO , SERS_DEATHYES , NEW_LINE SERS_COM1 , SERS_COM2 , SERS_COM3 , SERS_COM4 , NEW_LINE SERS_MAX } 
+__E__O__F__
+__E__O__F__
+ENUM NEW_LINE { NEW_LINE DCARD_GUS , NEW_LINE DCARD_PAS , NEW_LINE DCARD_SB , NEW_LINE # #IFNDEF HERETIC NEW_LINE DCARD_PC , NEW_LINE # #ENDIF NEW_LINE DCARD_NONE , NEW_LINE DCARD_MAX NEW_LINE } 
+ENUM NEW_LINE { NEW_LINE SB_DMA_0 , NEW_LINE SB_DMA_1 , NEW_LINE SB_DMA_3 , NEW_LINE SB_DMA_5 , NEW_LINE SB_DMA_6 , NEW_LINE SB_DMA_7 , NEW_LINE SB_DMA_MAX NEW_LINE } 
+ENUM { SB_IRQ_2 , SB_IRQ_5 , SB_IRQ_7 , SB_IRQ_MAX } 
+ENUM { DIG_1 , DIG_2 , DIG_3 , DIG_4 , DIG_5 , DIG_6 , DIG_7 , DIG_8 , DIG_MAX } 
+__E__O__F__
+ENUM NEW_LINE { NEW_LINE W_NOMON , NEW_LINE # #IFNDEF HERETIC NEW_LINE W_DM2 , NEW_LINE # #ENDIF NEW_LINE W_RESPAWN , NEW_LINE NEW_LINE E1M1 , NEW_LINE E1M2 , NEW_LINE E1M3 , NEW_LINE E1M4 , NEW_LINE E1M5 , NEW_LINE E1M6 , NEW_LINE E1M7 , NEW_LINE E1M8 , NEW_LINE E1M9 , NEW_LINE # #IFDEF DOOM2 NEW_LINE E1M10 , NEW_LINE # #ENDIF NEW_LINE NEW_LINE E2M1 , NEW_LINE E2M2 , NEW_LINE E2M3 , NEW_LINE E2M4 , NEW_LINE E2M5 , NEW_LINE E2M6 , NEW_LINE E2M7 , NEW_LINE E2M8 , NEW_LINE E2M9 , NEW_LINE # #IFDEF DOOM2 NEW_LINE E2M10 , NEW_LINE # #ENDIF NEW_LINE NEW_LINE E3M1 , NEW_LINE E3M2 , NEW_LINE E3M3 , NEW_LINE E3M4 , NEW_LINE E3M5 , NEW_LINE E3M6 , NEW_LINE E3M7 , NEW_LINE E3M8 , NEW_LINE E3M9 , NEW_LINE # #IFDEF DOOM2 NEW_LINE E3M10 , NEW_LINE # #ENDIF NEW_LINE NEW_LINE W_MAX NEW_LINE } 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE SHORT ofs , length ; 
+STRUCT NEW_LINE { NEW_LINE INT width , height ; 
+STRUCT NEW_LINE { NEW_LINE INT width , height ; 
+STRUCT NEW_LINE { NEW_LINE CHAR name [ ] ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE vec_t lightmaps [ MAXLIGHTMAPS ] [ SINGLEMAP ] ; 
+__E__O__F__
+__E__O__F__
+STRUCT tnode_s NEW_LINE { NEW_LINE INT type ; 
+STRUCT NEW_LINE { NEW_LINE vec3_t backpt ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR name [ ] ; 
+STRUCT NEW_LINE { NEW_LINE CHAR id [ ] ; 
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE aliasframetype_t type ; 
+STRUCT { NEW_LINE aliasskintype_t type ; 
+STRUCT { NEW_LINE INT numnormals ; 
+STRUCT { NEW_LINE vec3_t v ; 
+__E__O__F__
+STRUCT { NEW_LINE spriteframetype_t type ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT numedges ; 
+__E__O__F__
+__E__O__F__
+STRUCT hashvert_s NEW_LINE { NEW_LINE STRUCT STRUCT hashvert_s * next ; 
+__E__O__F__
+STRUCT wvert_s NEW_LINE { NEW_LINE vec_t t ; 
+STRUCT wvert_s * prev , *v next ; 
+STRUCT wedge_s NEW_LINE { NEW_LINE STRUCT STRUCT wedge_s * next ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR identification [ ] ; 
+STRUCT NEW_LINE { NEW_LINE INT filepos ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT timeval tp ; 
+STRUCT timezone tzp ; 
+STRUCT stat buf ; 
+UNION { byte b [ ] ; 
+UNION { byte b [ ] ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE FLOAT v [ ] ; 
+STRUCT NEW_LINE { NEW_LINE vector n ; 
+STRUCT { NEW_LINE aliaspoint_t pt [ ] ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT x , y ; 
+STRUCT NEW_LINE { NEW_LINE fpoint_t a , b ; 
+STRUCT NEW_LINE { NEW_LINE fixed_t x , y ; 
+STRUCT NEW_LINE { NEW_LINE mpoint_t a , b ; 
+STRUCT NEW_LINE { NEW_LINE fixed_t slp , islp ; 
+ENUM NEW_LINE { NEW_LINE LEFT = 1 , NEW_LINE RIGHT = 2 , NEW_LINE BOTTOM = 4 , NEW_LINE TOP = 8 NEW_LINE } ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT sockaddr_in sendaddress [ MAXNETNODES ] ; 
+STRUCT sockaddr_in address ; 
+STRUCT sockaddr_in fromaddress ; 
+STRUCT sockaddr * ) & fromaddress , &v fromlen ) ; 
+STRUCT hostent * hostentry ; 
+STRUCT hostent * hostentry ; 
+__E__O__F__
+__E__O__F__
+STRUCT shmid_ds shminfo ; 
+UNION NEW_LINE { NEW_LINE DOUBLE d ; 
+__E__O__F__
+STRUCT itimerval value ; 
+STRUCT itimerval ovalue ; 
+STRUCT sigaction act ; 
+STRUCT sigaction oact ; 
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE COMMENT_NL CPP_COMMENT NEW_LINE sfxinfo_t * sfxinfo ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE COMMENT_NL CPP_COMMENT NEW_LINE SHORT status ; 
+STRUCT menu_s NEW_LINE { NEW_LINE SHORT numitems ; 
+STRUCT menu_s * prevMenu ; 
+ENUM NEW_LINE { NEW_LINE newgame = 0 , NEW_LINE options , NEW_LINE loadgame , NEW_LINE savegame , NEW_LINE readthis , NEW_LINE quitdoom , NEW_LINE main_end NEW_LINE } 
+ENUM NEW_LINE { NEW_LINE ep1 , NEW_LINE ep2 , NEW_LINE ep3 , NEW_LINE ep4 , NEW_LINE ep_end NEW_LINE } 
+ENUM NEW_LINE { NEW_LINE killthings , NEW_LINE toorough , NEW_LINE hurtme , NEW_LINE violence , NEW_LINE nightmare , NEW_LINE newg_end NEW_LINE } 
+ENUM NEW_LINE { NEW_LINE endgame , NEW_LINE messages , NEW_LINE detail , NEW_LINE scrnsize , NEW_LINE option_empty1 , NEW_LINE mousesens , NEW_LINE option_empty2 , NEW_LINE soundvol , NEW_LINE opt_end NEW_LINE } 
+ENUM NEW_LINE { NEW_LINE rdthsempty1 , NEW_LINE read1_end NEW_LINE } 
+ENUM NEW_LINE { NEW_LINE rdthsempty2 , NEW_LINE read2_end NEW_LINE } 
+ENUM NEW_LINE { NEW_LINE sfx_vol , NEW_LINE sfx_empty1 , NEW_LINE music_vol , NEW_LINE sfx_empty2 , NEW_LINE sound_end NEW_LINE } 
+ENUM NEW_LINE { NEW_LINE load1 , NEW_LINE load2 , NEW_LINE load3 , NEW_LINE load4 , NEW_LINE load5 , NEW_LINE load6 , NEW_LINE load_end NEW_LINE } 
+__E__O__F__
+STRUCT stat fileinfo ; 
+STRUCT NEW_LINE { NEW_LINE CHAR *p name ; 
+STRUCT NEW_LINE { NEW_LINE CHAR manufacturer ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+ENUM NEW_LINE { NEW_LINE DI_EAST , NEW_LINE DI_NORTHEAST , NEW_LINE DI_NORTH , NEW_LINE DI_NORTHWEST , NEW_LINE DI_WEST , NEW_LINE DI_SOUTHWEST , NEW_LINE DI_SOUTH , NEW_LINE DI_SOUTHEAST , NEW_LINE DI_NODIR , NEW_LINE NUMDIRS NEW_LINE NEW_LINE } 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE boolean istexture ; 
+STRUCT NEW_LINE { NEW_LINE boolean istexture ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT first ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE SHORT originx ; 
+STRUCT NEW_LINE { NEW_LINE CHAR name [ ] ; 
+STRUCT NEW_LINE { NEW_LINE COMMENT_NL CPP_COMMENT NEW_LINE COMMENT_NL CPP_COMMENT NEW_LINE COMMENT_NL CPP_COMMENT NEW_LINE INT originx ; 
+STRUCT NEW_LINE { NEW_LINE COMMENT_NL CPP_COMMENT NEW_LINE CHAR name [ ] ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT x1 ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT stat fileinfo ; 
+UNION { NEW_LINE CHAR s [ ] ; 
+__E__O__F__
+STRUCT timeval tp ; 
+STRUCT timezone tzp ; 
+__E__O__F__
+ENUM NEW_LINE { NEW_LINE ANIM_ALWAYS , NEW_LINE ANIM_RANDOM , NEW_LINE ANIM_LEVEL NEW_LINE NEW_LINE } 
+STRUCT NEW_LINE { NEW_LINE INT x ; 
+STRUCT NEW_LINE { NEW_LINE animenum_t type ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE COMMENT_NL CPP_COMMENT NEW_LINE INT size ; 
+__E__O__F__
+ENUM NEW_LINE { NEW_LINE tc_end , NEW_LINE tc_mobj NEW_LINE NEW_LINE } 
+ENUM NEW_LINE { NEW_LINE tc_ceiling , NEW_LINE tc_door , NEW_LINE tc_floor , NEW_LINE tc_plat , NEW_LINE tc_flash , NEW_LINE tc_strobe , NEW_LINE tc_glow , NEW_LINE tc_endspecials NEW_LINE NEW_LINE } 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE UNSIGNED bit0 , bit1 ; 
+STRUCT NEW_LINE { NEW_LINE UNSIGNED RLEWtag ; 
+__E__O__F__
+UNION REGS regs ; 
+__E__O__F__
+STRUCT mmblockstruct NEW_LINE { NEW_LINE UNSIGNED start , length ; 
+STRUCT mmblockstruct far * next ; 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE longword length ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT picnum ; 
+__E__O__F__
+__E__O__F__
+STRUCT atkinf NEW_LINE { NEW_LINE CHAR tics , attack , frame ; 
+STRUCT atkinf * cur ; 
+__E__O__F__
+ENUM { mapview , tilemapview , actoratview , visview } 
+__E__O__F__
+STRUCT NEW_LINE { NEW_LINE INT viewx , NEW_LINE viewheight , NEW_LINE shapenum ; 
+__E__O__F__
+__E__O__F__
+STRUCT { NEW_LINE FLOAT time ; 
+ENUM NEW_LINE { NEW_LINE debriefing , NEW_LINE checkmanual , NEW_LINE staffquiz , NEW_LINE miscquiz , NEW_LINE NEW_LINE totaltypes NEW_LINE } ; 
+__E__O__F__
+STRUCT diskfree_t dfree ; 
+STRUCT dostime_t time ; 
+STRUCT dosdate_t d ; 
+__E__O__F__
+ENUM { MOUSEENABLE , JOYENABLE , USEPORT2 , PADENABLE , MOUSESENS , CUSTOMIZE } ; 
+ENUM { FIRE , STRAFE , RUN , OPEN } 
+ENUM { FWRD , RIGHT , BKWD , LEFT } 
+STRUCT ffblk f ; 
+STRUCT ffblk f ; 
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__
+__E__O__F__

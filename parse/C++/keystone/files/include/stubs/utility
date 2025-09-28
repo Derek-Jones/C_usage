@@ -1,0 +1,48 @@
+
+#ifndef _STL_UTILITY_
+#define _STL_UTILITY_
+
+namespace std
+{
+   // 20.2.1, operators:
+   namespace rel_ops
+   {
+      template<class T> bool operator!=(const T&, const T&);
+      template<class T> bool operator>(const T&, const T&);
+      template<class T> bool operator<=(const T&, const T&);
+      template<class T> bool operator>=(const T&, const T&);
+   } // end namespace rel_ops
+
+   // 20.2.2, pairs:
+   template<class T1, class T2>
+   struct pair
+   {
+      typedef T1 first_type;
+      typedef T2 second_type;
+
+      pair();
+      pair(const T1&, const T2&);
+      template<class U, class V> pair(const pair<U, V>&);
+
+      T1 first;
+      T2 second;
+   };
+
+   template<class T1, class T2>
+   bool operator==(const pair<T1,T2>&, const pair<T1,T2>&);
+   template<class T1, class T2>
+   bool operator!=(const pair<T1,T2>&, const pair<T1,T2>&);
+   template<class T1, class T2>
+   bool operator<(const pair<T1,T2>&, const pair<T1,T2>&);
+   template<class T1, class T2>
+   bool operator<=(const pair<T1,T2>&, const pair<T1,T2>&);
+   template<class T1, class T2>
+   bool operator>(const pair<T1,T2>&, const pair<T1,T2>&);
+   template<class T1, class T2>
+   bool operator>=(const pair<T1,T2>&, const pair<T1,T2>&);
+
+   template<class T1, class T2>
+   pair<T1, T2> make_pair(const T1&, const T2&);
+
+} // end namespace std
+#endif

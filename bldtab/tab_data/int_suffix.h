@@ -1,0 +1,9 @@
+none 99.5997
+U/u 0.0198
+L/l 0.2096
+U/uL/ul 0.1625
+Lu/lU 0.0001
+LL/lL/ll 0.0022
+ULL/uLl/ulL/Ull 0.0061
+LLU/lLu/LlU/llu 0.0000
+END_DOT_H

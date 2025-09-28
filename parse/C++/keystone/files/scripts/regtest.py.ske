@@ -1,0 +1,146 @@
+#!/usr/bin/python
+
+from __future__ import generators
+import os, sys
+import stat
+from glob import glob
+from time import time, ctime
+
+keystone = 'ac_bin_key'
+
+class DirectoryWalker:
+
+   def __init__(self, d):
+      self.files = []
+      self.size = 0
+      self.directory = d
+      self.treewalk(d)
+      self.makeList()
+
+   def getFiles(self) : return self.files
+
+   def treewalk(self, dir, depthfirst = True):
+      names = os.listdir(dir)
+      if not depthfirst:
+         yield dir, names
+      for name in names:
+         try:
+            st = os.lstat(os.path.join(dir, name))
+         except os.error:
+            continue
+         if stat.S_ISDIR(st.st_mode):
+            for (newdirectory, children) in \
+               self.treewalk (os.path.join(dir, name), depthfirst):
+               yield newdirectory, children
+      if depthfirst:
+         yield dir, names
+
+   def makeList(self):
+      self.size = 0
+      file_list = [] 
+      for (basepath, children) in self.treewalk(self.directory):
+         for child in children:
+            #self.files += [os.path.join(basepath, child)]
+            file_list += glob(os.path.join(basepath, child) + '/*.cpp')
+            file_list += glob(os.path.join(basepath, child) + '/*.C')
+      self.files = [ os.path.realpath(x) for x in file_list ]
+      self.size = len(self.files)
+
+   def display(self):
+      for x in self.files:
+         print x
+      print "There are ", self.size, " files"
+
+class RegressionTest:
+
+   def __init__(self, fileList):
+      self.fileList = fileList
+      self.failureCount = 0
+      self.passedCount = 0
+      self.generatedCount = 0
+      self.filesThatFailed = []
+
+   def getNumberOfFails(self): return self.failureCount
+
+   def commit(self):
+      for x in self.filesThatFailed:
+         os.system('cp ' + (x + '.new') + " " + (x + '.out'))
+         os.system('rm ' + (x + '.new'))
+         os.system('rm ' + (x + '.diffs'))
+ 
+   def cleanUp(self): 
+      for x in self.filesThatFailed:
+         os.system('rm ' + (x + '.new'))
+         os.system('rm ' + (x + '.diffs'))
+
+   def displayFailedTestCases(self):
+      if self.failureCount == 0: return
+      print "The test cases that failed: "
+      for test in self.filesThatFailed:
+         print "\t", test
+
+   def testFiles(self):
+      for test in self.fileList:
+         if not os.path.exists('%s.out' % test):
+            os.system('%s %s > %s.out 2>&1' % (keystone, test, test))
+            print 'GENERATED: ', test
+            self.generatedCount += 1
+         else:
+            os.system('%s %s > %s.new 2>&1' % (keystone, test, test))
+            os.system('diff %s.out %s.new > %s.diffs' % ((test,)*3) )
+            if os.stat(test + '.diffs')[stat.ST_SIZE] == 0:
+               print 'passed: ', test
+               os.remove(test + '.diffs')
+               os.remove(test + '.new')
+               self.passedCount += 1
+            else:
+               print 'FAILED: ', test, ' (see %s.diffs)' % test
+               self.failureCount += 1
+               self.filesThatFailed += [test]
+      print sys.argv[0], ' complete ', ctime(time())
+      print
+      print "Files generated:   ", self.generatedCount
+      print "Test cases passed: ", self.passedCount
+      print "Test cases failed: ", self.failureCount
+
+if __name__ == "__main__":
+
+   if len(sys.argv) < 2 :
+      print 'usage: ' + sys.argv[0] + ' <testdir>'
+      sys.exit()
+
+   if not os.path.exists(keystone):
+      print 'Need to make executable'
+      sys.exit()
+
+   print 'Starting regression test ' + sys.argv[0]
+   print 'user: ', os.environ['USER']
+   print 'path: ', os.getcwd()
+   print 'time: ', ctime(time()), '\n'
+
+   testdir = sys.argv[1]
+   if testdir == "all":
+      if len(sys.argv) > 2:
+         testdir = sys.argv[2]
+      else:
+         testdir = "."
+      print "Testing ", testdir, " and all subdirectories"
+      walker = DirectoryWalker(testdir)
+      files = walker.getFiles()
+   else: 
+      print "Testing ", testdir
+      files = [ os.path.realpath(x) for x in glob(testdir + '/*.cpp') ]
+      files = [ os.path.realpath(x) for x in glob(testdir + '/*.C') ]
+
+   regtest = RegressionTest(files)
+   regtest.testFiles()
+   regtest.displayFailedTestCases()
+   if regtest.getNumberOfFails() > 0: 
+      print "Do you want to commit the new test output? y/n"
+      line = sys.stdin.readline()
+      if line[0] == 'y':
+         regtest.commit()
+      else:
+         regtest.cleanUp()
+
+

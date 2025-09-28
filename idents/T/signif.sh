@@ -1,0 +1,19 @@
+#
+# signif.sh,  8 Jul 03
+#
+# Count the number of unique identifiers at various numbers
+# of significant characters
+
+for f in *.id.gz
+   do
+   echo "Program " `basename $f .id.gz`
+   num_idents=`gzcat $f | wc -l`
+   echo "total idents  $num_idents"
+   for len in 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50
+      do
+      signif_idents=`gzcat $f | colrm $len | sort -u | wc -l`
+      signif_difference=`expr $num_idents - $signif_idents`
+      echo "$len $signif_idents difference $signif_difference"
+      done
+   echo "End Program"
+   done

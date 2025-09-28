@@ -1,0 +1,113 @@
+#ifndef __STD_OSTREAM
+#define __STD_OSTREAM
+
+#include <ios>
+
+namespace std
+{
+   template <class charT, class traits>
+      class basic_ostream;
+   typedef basic_ostream<char> ostream;
+   typedef basic_ostream<wchar_t> wostream;
+
+   template <class charT, class traits>
+      class basic_ostream<charT, traits>& endl(basic_ostream<charT,traits>& );
+   template <class charT, class traits>
+      class basic_ostream<charT, traits>& ends(basic_ostream<charT,traits>& );
+   template <class charT, class traits>
+      class basic_ostream<charT, traits>& flush(basic_ostream<charT,traits>& );
+
+   template <class charT, class traits>
+   class basic_ostream : public basic_ios<charT, traits>
+   {
+   public:
+      typedef charT char_type;
+      typedef typename traits::int_type int_type;
+      typedef typename traits::pos_type pos_type;
+      typedef typename traits::off_type off_type;
+      typedef traits traits_type;
+
+      explicit basic_ostream(basic_streambuf<charT,traits>*);
+      virtual ~basic_ostream();
+
+      class sentry
+      {
+         typedef traits traits_type;
+         bool ok_;
+      public:
+         explicit sentry(basic_istream<charT,traits>&, bool = false);
+         ~sentry();
+         operator bool() const { return ok_; } 
+      private:
+         sentry(const sentry&);
+         sentry& operator=(const sentry&);
+      };
+
+      basic_ostream<charT,traits>& operator<<
+         (basic_ostream<charT,traits>& (*pf)(basic_ostream<charT,traits>&));
+      basic_ostream<charT,traits>& operator<<
+         (basic_ios<charT,traits>& (*pf)(basic_ios<charT,traits>&));
+      basic_ostream<charT,traits>& operator<<
+         (ios_base& (*pf)(ios_base&));
+
+      basic_ostream<charT,traits>& operator<< (bool);
+      basic_ostream<charT,traits>& operator<< (short);
+      basic_ostream<charT,traits>& operator<< (unsigned short);
+      basic_ostream<charT,traits>& operator<< (int);
+      basic_ostream<charT,traits>& operator<< (unsigned int);
+      basic_ostream<charT,traits>& operator<< (long);
+      basic_ostream<charT,traits>& operator<< (unsigned long);
+      basic_ostream<charT,traits>& operator<< (float);
+      basic_ostream<charT,traits>& operator<< (double);
+      basic_ostream<charT,traits>& operator<< (long double);
+
+      basic_ostream<charT,traits>& operator<< (const void*);
+      basic_ostream<charT,traits>& operator<<
+         (basic_streambuf<char_type,traits>*);
+
+      basic_ostream<charT,traits>& put(char_type);
+      basic_ostream<charT,traits>& write(char_type*, streamsize);
+
+      basic_ostream<charT,traits>& flush();
+
+      pos_type tellg();
+      basic_ostream<charT,traits>& seekp(pos_type);
+      basic_ostream<charT,traits>& seekp(off_type,ios_base::seekdir);
+   };
+
+   template <class charT, class traits>
+      basic_ostream<charT,traits>& operator<<(basic_ostream<charT,traits>&,
+         charT);
+   template <class charT, class traits>
+      basic_ostream<charT,traits>& operator<<(basic_ostream<charT,traits>&,
+         char);
+   template <class traits>
+      basic_ostream<char,traits>& operator<<(basic_ostream<char,traits>&,
+         char);
+
+   template <class traits>
+      basic_ostream<char,traits>& operator<<(basic_ostream<char,traits>&,
+         signed char);
+   template <class traits>
+      basic_ostream<char,traits>& operator<<(basic_ostream<char,traits>&,
+         unsigned char);
+
+   template <class charT, class traits>
+      basic_ostream<charT,traits>& operator<<(basic_ostream<charT,traits>&,
+         const char*);
+   template <class charT, class traits>
+      basic_ostream<charT,traits>& operator<<(basic_ostream<char,traits>&,
+         const char*);
+   template <class traits>
+      basic_ostream<char,traits>& operator<<(basic_ostream<char,traits>&,
+         const char*);
+
+   template <class traits>
+      basic_ostream<char,traits>& operator<<(basic_ostream<char,traits>&,
+         const signed char*);
+   template <class traits>
+      basic_ostream<char,traits>& operator<<(basic_ostream<char,traits>&,
+         const unsigned char*);
+}
+
+#endif

@@ -1,0 +1,72 @@
+
+.ps 8
+
+.G1
+
+# exprop.g, 26 May 09
+
+graph Q_1
+
+frame invis ht 1.5 wid 2.2*1.2 left solid bot solid
+
+coord x 0.8,20.2 y 0.8,3768956 log log
+
+ticks bot out at 1, 5, 10, 15, 20
+#ticks left out at  10, 100, 1000, 10000, 34000
+ticks left out at 1, 10 "10", 100 "100", 1000 "1,000", 10000 "10,000", 100000 "100,000", 1000000 "1,000,000"
+
+label bot "Operators in expression"
+label left "Expressions" "" ""
+
+draw em dashed dot
+next em at 9.5,3768956/2
+next em at 10.5,3768956/2
+"Unary operators" ljust at 11,3768956/2
+
+draw em dashed dot
+copy "unop_expr.d" thru {
+	next em at $1,$2
+	}
+
+draw em solid bullet
+next em at 9.5,3768956/7
+next em at 10.5,3768956/7
+"Arithmetic operators" ljust at 11,3768956/7
+
+draw em solid bullet
+copy "arop_expr.d" thru {
+	next em at $1,$2
+	}
+
+draw em dashed square
+next em at 9.5,3768956/21
+next em at 10.5,3768956/21
+"Bitwise/Logical operators" ljust at 11,3768956/21
+
+draw em dashed square
+copy "bitop_expr.d" thru {
+	next em at $1,$2
+	}
+
+draw em solid times
+next em at 9.5,3768956/70
+next em at 10.5,3768956/70
+"Equality/Relational operators" ljust at 11,3768956/70
+
+draw em solid times
+copy "eq_relop_expr.d" thru {
+	next em at $1,$2
+	}
+
+draw em solid dot
+next em at 9.5,3768956/210
+next em at 10.5,3768956/210
+"Sum of these operators" ljust at 11,3768956/210
+
+draw em solid dot
+copy "allop_expr.d" thru {
+	next em at $1,$2
+	}
+
+.G2
+

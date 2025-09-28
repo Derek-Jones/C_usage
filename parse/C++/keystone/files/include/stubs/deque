@@ -1,0 +1,114 @@
+
+#ifndef _STL_DEQUE_
+#define _STL_DEQUE_
+
+#include "allocator.h"
+#include <iterator>
+
+namespace std
+{
+
+   template
+   <
+      class T,
+      class Allocator = allocator<T>
+   >
+   class deque
+   {
+   public:
+      // types:
+      typedef typename Allocator::reference reference;
+      typedef typename Allocator::const_reference const_reference;
+
+      // non-standard, but iterators need are implemented defined:
+      typedef T* DequeIterator;
+      typedef DequeIterator iterator;
+      typedef const DequeIterator const_iterator;
+      typedef size_t size_type;
+      typedef ptrdiff_t difference_type;
+      // end - impl dependent
+      typedef T value_type;
+      typedef Allocator allocator_type;
+      typedef typename Allocator::pointer pointer;
+      typedef typename Allocator::const_pointer const_pointer;
+      typedef std::reverse_iterator<iterator> reverse_iterator;
+      typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
+
+      // 23.2.1.1, construct/copy/destroy:
+      explicit deque(const Allocator& = Allocator());
+      explicit deque(size_type, const T& = T(), const Allocator& = Allocator());
+      template<class InputIter>
+      deque(InputIter, InputIter, const Allocator& = Allocator());
+      deque(const deque<T, Allocator>&);
+      ~deque();
+      deque<T, Allocator>& operator=(const deque<T, Allocator>&);
+      template<class InputIter>
+      void assign(InputIter, InputIter);
+      void assign(size_type, const T&);
+      allocator_type get_allocator() const;
+
+      // iterators
+      iterator begin();
+      const_iterator begin() const;
+      iterator end();
+      const_iterator end() const;
+      reverse_iterator rbegin();
+      const_reverse_iterator rbegin() const;
+      reverse_iterator rend();
+      const_reverse_iterator rend() const;
+
+      // 23.2.1.2, capacity:
+      size_type size() const;
+      size_type max_size() const;
+      void resize(size_type, T = T());
+      bool empty() const;
+
+      // element access:
+      reference operator[](size_type);
+      const_reference operator[](size_type) const;
+      reference at(size_type);
+      const_reference at(size_type) const;
+      reference front();
+      const_reference front() const;
+      reference back();
+      const_reference back() const;
+
+      // 23.2.1.3, modifiers:
+      void push_front(const T&);
+      void push_back(const T&);
+
+      iterator insert(iterator, const T&);
+      void insert(iterator, size_type, const T&);
+      template<class InputIter>
+      void insert(iterator, InputIter, InputIter);
+
+      void pop_front();
+      void pop_back();
+
+      iterator erase(iterator);
+      iterator erase(iterator, iterator);
+      void swap(deque<T, Allocator>&);
+      void clear();
+   };
+
+   template<class T, class A>
+   bool operator==(const deque<T, A>&, const deque<T, A>&);
+   template<class T, class A>
+   bool operator!=(const deque<T, A>&, const deque<T, A>&);
+   template<class T, class A>
+   bool operator<(const deque<T, A>&, const deque<T, A>&);
+   template<class T, class A>
+   bool operator<=(const deque<T, A>&, const deque<T, A>&);
+   template<class T, class A>
+   bool operator>(const deque<T, A>&, const deque<T, A>&);
+   template<class T, class A>
+   bool operator>=(const deque<T, A>&, const deque<T, A>&);
+
+   // specialized algorithms:
+   template<class T, class A>
+   void swap(deque<T, A>&, deque<T, A>&);
+
+} // end namespace std
+
+#endif
+

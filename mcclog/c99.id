@@ -1,0 +1,160 @@
+*
+*	ISO_C99/ident	Lastmod	26 Aug 03  DJ 
+*			Created	 4 Jul 91  DJ 
+*
+******************************************************************************
+*
+*	Header names
+*	Rules for reserved names in ISO C
+*
+*	(c) 1991-2003 Knowledge Software Ltd, all rights reserved
+*
+*	-- date -- init -- modification --
+*	26 Aug 03   DJ	 Added C99 reserved identifiers and new names
+*	28 Feb 92   GH	 Changed to free format namespace etc. specifiers
+*			 and substantially corrected tables
+*
+******************************************************************************
+*
+* The format of this file is as follows:
+*
+*	* star indicates a comment, also a blank line
+*
+*	#define name digit comment
+*		defines name as a mnemonic for the error level digit
+*
+* Leading whitespace (space and tab) is ignored on any line except a
+* continuation of a message.  Any amount of whitespace may separate the
+* level from the errorno and the message.  Similarly for the name in a
+* #define.
+* The rules for creating a regular expression to match against an
+* identifier are as follows:
+*
+* x   An ordinary character (not mentioned below) matches that character
+* '\\'   The backslash quotes any character.  \: matches a colon character
+* '.' A period matches any character
+* ':a'   A colon matches a class of characters described by the following
+* ':A'  character.  :a matches any character for which islower is true
+*    :A matches any character for which isupper is true
+* ':d'   Matches any character for which isdigit is true
+* ':n'   Matches any character for which islower or isdigit is true
+* ':N'   Matches any character for which isupper or isdigit is true
+* '*' An expression followed by an asterisk matches zero or more
+* occurrances of that expression: fo* matches f, fo, foo, etc
+* '+' An expression followed by a plus sign matches one or more
+* occurrances of that expression: fo+ matches fo, foo, fooo etc
+* '[]'   A string enclosed in square brackets matches any character in
+* that string, but no others.  If the first character in the
+* string is a circumflex, the expression matches any characters
+* not in the string.  For example, [xyz] matches x and z,
+* while [^xyz] matches a but not a.  A range of characters
+* may be specified by separating two characters by a -.  Note that,
+* no checking is done for impossible matches, ie [z-a].
+*
+*The concatenation of regular expressions is a regular expression.
+*
+
+#define cs_any_use	1300	_:A,__ - Reserved for all uses
+
+#define cs_ident_tag	1301	Reserved for file scope ident/tag
+
+#define cs_res_macro	1302	Reserved macro name ..
+#define cs_macro_id	1303	Possibly macro covered id name
+#define cs_no_def_macro 1304	Can't redefine this macro after #undef
+#define cs_macro_fut	1305	Macro name reserved for the future
+#define cs_mac_id_fut	1306	(Macro'ed) future reserved identifier
+
+#define cs_ident	1307	Reserved external ident
+#define cs_ident_fut	1308	Future reserved identifier
+
+#define cs_tag		1309	Reserved tag name
+#define cs_file_scope	1310	Reserved for file scope ident/tag
+
+#define func_ref_hd	1311	Library function uses header type
+
+#define cs_is_not_id	1312	This isn't have to be defined as a function
+#define cs_maybe_not_id	1313	This doesn't have to be defined as a function
+
+#define cs_ndebug	1314	Shouldn't define NDEBUG after including assert.h
+
+* Error message transformation upon #undef
+
+#api ISO_C
+
+#errors
+
+cs_macro_id -> cs_no_def_macro
+cs_res_macro -> cs_no_def_macro
+cs_mac_id_fut -> cs_no_def_macro
+cs_macro_fut ->
+
+#reserved
+* STD_L 0025
+* STD_L 0026
+* STD_L 0027
+*
+* Possible entries
+*	any	- matches on all fields
+*
+*  namespace:
+*	identifier, label, tag, macro, header, include, field,
+*	no_def_macro, res_macro, macro_ident
+*
+*  linkage:
+*	external, internal, none
+*
+*  scope:
+*	file, block, function, prototype
+*
+*  definition/declaration
+*	define, declare
+*
+* The words 'scope' 'linkage' and 'namespace' are ignored, but can be added to
+* the entries to make it read better e.g. "file {scope}",  "{linkage} none".
+*
+* Some of the namespace options need explaining :
+*	macro		A real macro that disappears when you undef it
+*	no_def_macro	This identifier can't be defined as a macro, but
+*			does not exist as a macro either (=> can have
+*			idents of the same name). Used after #undef
+*	macro_ident	A identifier which may possibly be covered by a
+*			macro
+*	res_macro	A reserved macro name - which can't be used even
+*			if it's undef'ed.
+*
+* regular_expression	err_num		specifiers
+*
+* fenv.h
+*
+FE_:A.*			cs_macro_fut	res_macro		included fenv.h
+FP_:A.*			cs_macro_fut	res_macro		included fenv.h
+*
+* inttypes.h
+*
+PRI:a.*			cs_macro_fut	res_macro		included inttypes.h
+PRIX			cs_macro_fut	res_macro		included inttypes.h
+SCN:a.*			cs_macro_fut	res_macro		included inttypes.h
+SCNX			cs_macro_fut	res_macro		included inttypes.h
+
+*
+* stdint.h
+*
+int.*_t			cs_ident_fut	define identifier	included stdint.h
+uint.*_t		cs_ident_fut	define identifier	included stdint.h
+INT.*_MAX		cs_macro_fut	res_macro		included stdint.h
+INT.*_MIN		cs_macro_fut	res_macro		included stdint.h
+INT.*_C			cs_macro_fut	res_macro		included stdint.h
+UINT.*_MAX		cs_macro_fut	res_macro		included stdint.h
+UINT.*_MIN		cs_macro_fut	res_macro		included stdint.h
+UINT.*_C		cs_macro_fut	res_macro		included stdint.h
+*
+* string.h
+*
+is:a.*			cs_mac_id_fut	macro_ident		included wctype.h
+is:a.*			cs_ident_fut	define identifier external 
+*
+to:a.*			cs_mac_id_fut	macro_ident		included wctype.h
+to:a.*			cs_ident_fut	define identifier external 
+
+#end
+

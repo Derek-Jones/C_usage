@@ -1,0 +1,7 @@
+<c_syntax>clause-1</c_syntax> ,, 3.8
+<c_syntax>clause-1</c_syntax> <c_syntax>expr-2</c_syntax> ,, 0.1
+<c_syntax>clause-1</c_syntax> <c_syntax>expr-2</c_syntax> <c_syntax>expr-3</c_syntax> ,, 2.5
+<c_syntax>clause-1</c_syntax> <c_syntax>expr-3</c_syntax> ,, 0.1
+<c_syntax>expr-2</c_syntax> ,, 0.8
+<c_syntax>expr-2</c_syntax> <c_syntax>expr-3</c_syntax> ,, 0.2
+<c_syntax>expr-3</c_syntax> ,, 1.6

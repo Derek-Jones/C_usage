@@ -1,0 +1,42 @@
+
+#ifndef _STL_PRIORITY_QUEUE
+#define _STL_PRIORITY_QUEUE
+
+#include <vector>
+#include <functional>
+
+namespace std
+{
+
+   template
+   <
+      class T,
+      class Container = vector<T>,
+      class Compare = less<typename Container::value_type>
+   >
+   class priority_queue
+   {
+   public:
+      typedef typename Container::value_type value_type;
+      typedef typename Container::size_type size_type;
+      typedef Container container_type;
+
+   protected:
+      Container c;
+      Compare comp;
+
+   public:
+      explicit priority_queue(const Compare& = Compare(), const Container& = Container());
+      template<class InputIter>
+      priority_queue(InputIter, InputIter, const Compare& = Compare(), const Container& = Container());
+
+      bool empty() const;
+      size_type size() const;
+      const value_type& top() const;
+      void push(const value_type&);
+      void pop();
+   };
+
+} // end namespace std
+
+#endif

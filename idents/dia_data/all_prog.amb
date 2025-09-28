@@ -1,0 +1,130 @@
+Id length= 5 num words= 12280 num patterns= 30361
+center offset= -0.5 num patterns= 11290 ambig= 1.087688
+center offset= 0.5 num patterns= 11071 ambig= 1.109204
+center offset= 1.5 num patterns= 8000 ambig= 1.535000
+Id length= 6 num words= 18636 num patterns= 54752
+center offset= -1.0 num patterns= 15177 ambig= 1.227911
+center offset= 0.0 num patterns= 15507 ambig= 1.201780
+center offset= 1.0 num patterns= 14358 ambig= 1.297952
+center offset= 2.0 num patterns= 9710 ambig= 1.919258
+Id length= 7 num words= 24977 num patterns= 83233
+center offset= -1.5 num patterns= 18125 ambig= 1.378041
+center offset= -0.5 num patterns= 19568 ambig= 1.276421
+center offset= 0.5 num patterns= 18482 ambig= 1.351423
+center offset= 1.5 num patterns= 16496 ambig= 1.514125
+center offset= 2.5 num patterns= 10562 ambig= 2.364798
+Id length= 8 num words= 30126 num patterns= 112645
+center offset= -2.0 num patterns= 20149 ambig= 1.495161
+center offset= -1.0 num patterns= 21470 ambig= 1.403167
+center offset= 0.0 num patterns= 21749 ambig= 1.385167
+center offset= 1.0 num patterns= 20220 ambig= 1.489911
+center offset= 2.0 num patterns= 18045 ambig= 1.669493
+center offset= 3.0 num patterns= 11012 ambig= 2.735743
+Id length= 9 num words= 31454 num patterns= 137078
+center offset= -2.5 num patterns= 20262 ambig= 1.552364
+center offset= -1.5 num patterns= 22154 ambig= 1.419789
+center offset= -0.5 num patterns= 22336 ambig= 1.408220
+center offset= 0.5 num patterns= 22377 ambig= 1.405640
+center offset= 1.5 num patterns= 20551 ambig= 1.530534
+center offset= 2.5 num patterns= 18383 ambig= 1.711037
+center offset= 3.5 num patterns= 11015 ambig= 2.855561
+Id length= 10 num words= 32386 num patterns= 164645
+center offset= -3.0 num patterns= 20492 ambig= 1.580422
+center offset= -2.0 num patterns= 22632 ambig= 1.430983
+center offset= -1.0 num patterns= 23867 ambig= 1.356936
+center offset= 0.0 num patterns= 23958 ambig= 1.351782
+center offset= 1.0 num patterns= 23317 ambig= 1.388944
+center offset= 2.0 num patterns= 21106 ambig= 1.534445
+center offset= 3.0 num patterns= 18415 ambig= 1.758675
+center offset= 4.0 num patterns= 10858 ambig= 2.982686
+Id length= 11 num words= 32729 num patterns= 188712
+center offset= -3.5 num patterns= 20198 ambig= 1.620408
+center offset= -2.5 num patterns= 22570 ambig= 1.450111
+center offset= -1.5 num patterns= 24016 ambig= 1.362800
+center offset= -0.5 num patterns= 24917 ambig= 1.313521
+center offset= 0.5 num patterns= 24417 ambig= 1.340419
+center offset= 1.5 num patterns= 23107 ambig= 1.416411
+center offset= 2.5 num patterns= 20636 ambig= 1.586015
+center offset= 3.5 num patterns= 18091 ambig= 1.809132
+center offset= 4.5 num patterns= 10760 ambig= 3.041729
+Id length= 12 num words= 31965 num patterns= 208738
+center offset= -4.0 num patterns= 19559 ambig= 1.634286
+center offset= -3.0 num patterns= 21915 ambig= 1.458590
+center offset= -2.0 num patterns= 23678 ambig= 1.349987
+center offset= -1.0 num patterns= 24747 ambig= 1.291672
+center offset= 0.0 num patterns= 25076 ambig= 1.274725
+center offset= 1.0 num patterns= 23863 ambig= 1.339521
+center offset= 2.0 num patterns= 22334 ambig= 1.431226
+center offset= 3.0 num patterns= 19824 ambig= 1.612439
+center offset= 4.0 num patterns= 17363 ambig= 1.840984
+center offset= 5.0 num patterns= 10379 ambig= 3.079776
+Id length= 13 num words= 30542 num patterns= 220565
+center offset= -4.5 num patterns= 18255 ambig= 1.673076
+center offset= -3.5 num patterns= 20589 ambig= 1.483413
+center offset= -2.5 num patterns= 22211 ambig= 1.375084
+center offset= -1.5 num patterns= 23583 ambig= 1.295085
+center offset= -0.5 num patterns= 24015 ambig= 1.271788
+center offset= 0.5 num patterns= 23705 ambig= 1.288420
+center offset= 1.5 num patterns= 22237 ambig= 1.373477
+center offset= 2.5 num patterns= 20797 ambig= 1.468577
+center offset= 3.5 num patterns= 18616 ambig= 1.640632
+center offset= 4.5 num patterns= 16636 ambig= 1.835898
+center offset= 5.5 num patterns= 9921 ambig= 3.078520
+Id length= 14 num words= 28742 num patterns= 229915
+center offset= -5.0 num patterns= 17135 ambig= 1.677385
+center offset= -4.0 num patterns= 19225 ambig= 1.495033
+center offset= -3.0 num patterns= 20706 ambig= 1.388100
+center offset= -2.0 num patterns= 22105 ambig= 1.300249
+center offset= -1.0 num patterns= 22792 ambig= 1.261057
+center offset= 0.0 num patterns= 22814 ambig= 1.259840
+center offset= 1.0 num patterns= 22276 ambig= 1.290268
+center offset= 2.0 num patterns= 20831 ambig= 1.379771
+center offset= 3.0 num patterns= 19551 ambig= 1.470104
+center offset= 4.0 num patterns= 17540 ambig= 1.638655
+center offset= 5.0 num patterns= 15568 ambig= 1.846223
+center offset= 6.0 num patterns= 9372 ambig= 3.066795
+Id length= 15 num words= 26492 num patterns= 233069
+center offset= -5.5 num patterns= 15814 ambig= 1.675224
+center offset= -4.5 num patterns= 17786 ambig= 1.489486
+center offset= -3.5 num patterns= 19198 ambig= 1.379935
+center offset= -2.5 num patterns= 20330 ambig= 1.303099
+center offset= -1.5 num patterns= 20932 ambig= 1.265622
+center offset= -0.5 num patterns= 21350 ambig= 1.240843
+center offset= 0.5 num patterns= 21021 ambig= 1.260264
+center offset= 1.5 num patterns= 20460 ambig= 1.294819
+center offset= 2.5 num patterns= 19191 ambig= 1.380439
+center offset= 3.5 num patterns= 18027 ambig= 1.469573
+center offset= 4.5 num patterns= 16125 ambig= 1.642915
+center offset= 5.5 num patterns= 14102 ambig= 1.878599
+center offset= 6.5 num patterns= 8733 ambig= 3.033551
+Id length= 16 num words= 23476 num patterns= 226992
+center offset= -6.0 num patterns= 14122 ambig= 1.662371
+center offset= -5.0 num patterns= 15881 ambig= 1.478244
+center offset= -4.0 num patterns= 17110 ambig= 1.372063
+center offset= -3.0 num patterns= 18018 ambig= 1.302919
+center offset= -2.0 num patterns= 18603 ambig= 1.261947
+center offset= -1.0 num patterns= 18881 ambig= 1.243366
+center offset= 0.0 num patterns= 18997 ambig= 1.235774
+center offset= 1.0 num patterns= 18623 ambig= 1.260592
+center offset= 2.0 num patterns= 18180 ambig= 1.291309
+center offset= 3.0 num patterns= 17094 ambig= 1.373347
+center offset= 4.0 num patterns= 16069 ambig= 1.460950
+center offset= 5.0 num patterns= 14523 ambig= 1.616470
+center offset= 6.0 num patterns= 12851 ambig= 1.826784
+center offset= 7.0 num patterns= 8040 ambig= 2.919900
+Id length= 17 num words= 20853 num patterns= 218446
+center offset= -6.5 num patterns= 12383 ambig= 1.684002
+center offset= -5.5 num patterns= 13965 ambig= 1.493233
+center offset= -4.5 num patterns= 15014 ambig= 1.388904
+center offset= -3.5 num patterns= 15768 ambig= 1.322489
+center offset= -2.5 num patterns= 16210 ambig= 1.286428
+center offset= -1.5 num patterns= 16715 ambig= 1.247562
+center offset= -0.5 num patterns= 16856 ambig= 1.237126
+center offset= 0.5 num patterns= 16969 ambig= 1.228888
+center offset= 1.5 num patterns= 16610 ambig= 1.255449
+center offset= 2.5 num patterns= 16229 ambig= 1.284922
+center offset= 3.5 num patterns= 15260 ambig= 1.366514
+center offset= 4.5 num patterns= 14454 ambig= 1.442715
+center offset= 5.5 num patterns= 13041 ambig= 1.599034
+center offset= 6.5 num patterns= 11576 ambig= 1.801399
+center offset= 7.5 num patterns= 7396 ambig= 2.819497

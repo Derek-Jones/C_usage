@@ -1,0 +1,230 @@
+ 
+     1          0 
+     2          0  TU: translation_unit
+     3     659371  translation_unit: external_declaration
+     4    2195121  		 statement
+     5    5411958  primary_expr: IDENTIFIER
+     6    1851573  		 CONSTANT
+     7     249013  		 string_seq
+     8     299400  		 OPEN_RND expression CLOSE_RND
+     9     249013  string_seq: STRING_LITERAL
+    10       7932  		 string_seq STRING_LITERAL
+    11      58295  argument_expr_list_opt: /* empty */
+    12     976652  		 argument_expr_list
+    13    7811944  postfix_expr: primary_expr
+    14     248580  		 postfix_expr OPEN_SQUARE expression CLOSE_SQUARE
+    15    1030328  		 postfix_expr OPEN_RND argument_expr_list_opt CLOSE_RND
+    16     379656  		 postfix_expr DOT IDENTIFIER
+    17     900697  		 postfix_expr DEREF IDENTIFIER
+    18      82127  		 postfix_expr PLUSPLUS
+    19      10527  		 postfix_expr MINUSMINUS
+    20         80  		 OPEN_RND type_name CLOSE_RND OPEN_CURL initializer_list CLOSE_CURL
+    21          0  		 OPEN_RND type_name CLOSE_RND OPEN_CURL initializer_list COMMA CLOSE_CURL
+    22     981475  argument_expr_list: assignment_expr
+    23    1019618  		 argument_expr_list COMMA assignment_expr
+    24    7801836  unary_expr: postfix_expr
+    25       8074  		 PLUSPLUS unary_expr
+    26       3874  		 MINUSMINUS unary_expr
+    27     502896  		 unary_operator cast_expr
+    28      31527  		 SIZEOF unary_expr
+    29      13400  		 SIZEOF OPEN_RND type_name CLOSE_RND
+    30     185662  unary_operator: AND
+    31      89883  		 TIMES
+    32        126  		 ADD
+    33     120758  		 MINUS
+    34      14892  		 BITNEGATE
+    35      91833  		 NOT
+    36    7446978  cast_expr: unary_expr
+    37     148193  		 OPEN_RND type_name CLOSE_RND cast_expr
+    38    6882902  multiplicative_expr: cast_expr
+    39      39507  		 multiplicative_expr TIMES cast_expr
+    40      17218  		 multiplicative_expr DIVIDE cast_expr
+    41       4458  		 multiplicative_expr REMAINDER cast_expr
+    42    6713875  additive_expr: multiplicative_expr
+    43     111927  		 additive_expr ADD multiplicative_expr
+    44      56253  		 additive_expr MINUS multiplicative_expr
+    45    6672945  shift_expr: additive_expr
+    46      23880  		 shift_expr LEFTSHIFT additive_expr
+    47      16456  		 shift_expr RIGHTSHIFT additive_expr
+    48    6539494  relational_expr: shift_expr
+    49      67808  		 relational_expr LT shift_expr
+    50      34160  		 relational_expr GT shift_expr
+    51      12030  		 relational_expr LE shift_expr
+    52      19453  		 relational_expr GE shift_expr
+    53    6301259  equality_expr: relational_expr
+    54     158941  		 equality_expr EQUAL relational_expr
+    55      79281  		 equality_expr NOTEQUAL relational_expr
+    56    6215369  AND_expr: equality_expr
+    57      85882  		 AND_expr AND equality_expr
+    58    6213412  exclusive_OR_expr: AND_expr
+    59       1956  		 exclusive_OR_expr XOR AND_expr
+    60    6166883  inclusive_OR_expr: exclusive_OR_expr
+    61      46525  		 inclusive_OR_expr OR exclusive_OR_expr
+    62    6090095  logical_AND_expr: inclusive_OR_expr
+    63      76784  		 logical_AND_expr ANDTEST inclusive_OR_expr
+    64    6042656  logical_OR_expr: logical_AND_expr
+    65      47418  		 logical_OR_expr ORTEST logical_AND_expr
+    66    6021177  conditional_expr: logical_OR_expr
+    67      21373  		 logical_OR_expr QUESTION expression COLON conditional_expr
+    68    6015480  assignment_expr: conditional_expr
+    69     869629  		 unary_expr assignment_operator assignment_expr
+    70     788943  assignment_operator: ASSIGN
+    71       1481  		 TIMESASSIGN
+    72        566  		 DIVASSIGN
+    73        273  		 REMASSIGN
+    74      32102  		 PLUSASSIGN
+    75       8489  		 MINUSASSIGN
+    76       1054  		 LSASSIGN
+    77       1976  		 RSASSIGN
+    78      10720  		 ANDASSIGN
+    79      24835  		 ORASSIGN
+    80        745  		 XORASSIGN
+    81    2700877  expression: assignment_expr
+    82      18001  		 expression COMMA assignment_expr
+    83          0  constant_expr: conditional_expr
+    84       9461  declaration: declaration_specifiers SEMICOLON
+    85     547163  		 declaration_specifiers init_declarator_list SEMICOLON
+    86     155505  decl_specifier: storage_class_specifier
+    87    1190203  		 type_specifier
+    88      18237  		 type_qualifier
+    89          0  		 function_specifier
+    90    1095631  declaration_specifiers: decl_specifier
+    91     268314  		 declaration_specifiers decl_specifier
+    92     554601  init_declarator_list: init_declarator
+    93      58036  		 init_declarator_list COMMA init_declarator
+    94     467959  init_declarator: declarator
+    95     144678  		 declarator ASSIGN initializer
+    96       3243  storage_class_specifier: TYPEDEF
+    97      12881  		 EXTERN
+    98     127672  		 STATIC
+    99         12  		 AUTO
+   100      11697  		 REGISTER
+   101     128875  type_specifier: VOID
+   102      98916  		 CHAR
+   103       7722  		 SHORT
+   104     233357  		 INT
+   105      45640  		 LONG
+   106       3275  		 FLOAT
+   107       2796  		 DOUBLE
+   108        495  		 SIGNED
+   109      85260  		 UNSIGNED
+   110          0  		 _BOOL
+   111          0  		 _COMPLEX
+   112          0  		 _IMAGINARY
+   113     166497  		 struct_or_union_specifier
+   114       3982  		 enum_specifier
+   115     634746  		 typedef_name
+   116       2514  identifier_opt: /* empty */
+   117       4982  		 IDENTIFIER
+   118       6359  struct_or_union_specifier: struct_or_union identifier_opt OPEN_CURL struct_declaration_list CLOSE_CURL
+   119     160138  		 struct_or_union IDENTIFIER
+   120     165666  struct_or_union: STRUCT
+   121        920  		 UNION
+   122       6400  struct_declaration_list: struct_declaration
+   123      30589  		 struct_declaration_list struct_declaration
+   124          0  struct_declaration: specifier_qualifier_list struct_declarator_list SEMICOLON
+   125     221358  spec_qual_list: type_specifier
+   126       2845  		 type_qualifier
+   127     198947  specifier_qualifier_list: spec_qual_list
+   128      25256  		 specifier_qualifier_list spec_qual_list
+   129      37035  struct_declarator_list: struct_declarator
+   130       1807  		 struct_declarator_list COMMA struct_declarator
+   131      37593  struct_declarator: declarator
+   132       1249  		 COLON constant_expr
+   133        784  enum_specifier: ENUM identifier_opt OPEN_CURL enumerator_list CLOSE_CURL
+   134        261  		 ENUM identifier_opt OPEN_CURL enumerator_list COMMA CLOSE_CURL
+   135       2937  		 ENUM IDENTIFIER
+   136       1048  enumerator_list: enumerator
+   137       6687  		 enumerator_list COMMA enumerator
+   138       4337  enumerator: IDENTIFIER
+   139       3398  		 IDENTIFIER ASSIGN constant_expr
+   140      17692  type_qualifier: CONST
+   141          0  		 RESTRICT
+   142       3725  		 VOLATILE
+   143          0  function_specifier: INLINE
+   144     951772  pointer_opt: /* empty */
+   145     314120  		 pointer
+   146    1086539  declarator: pointer_opt direct_declarator
+   147     135992  fndef_declarator: pointer_opt fndef_direct_declarator
+   148     446589  type_qualifier_list_opt: /* empty */
+   149        335  		 type_qualifier_list
+   150      10476  assignment_expr_opt: /* empty */
+   151      27001  		 assignment_expr
+   152       9749  identifier_list_opt: /* empty */
+   153          0  		 identifier_list
+   154    1100114  direct_declarator: IDENTIFIER
+   155     124171  		 OPEN_RND declarator CLOSE_RND
+   156      36521  		 direct_declarator OPEN_SQUARE type_qualifier_list_opt assignment_expr_opt CLOSE_SQUARE
+   157          0  		 direct_declarator OPEN_SQUARE STATIC type_qualifier_list_opt assignment_expr CLOSE_SQUARE
+   158          0  		 direct_declarator OPEN_SQUARE type_qualifier_list STATIC assignment_expr CLOSE_SQUARE
+   159          0  		 direct_declarator OPEN_SQUARE type_qualifier_list_opt TIMES CLOSE_SQUARE
+   160      42462  		 fndef_direct_declarator
+   161     169635  fndef_direct_declarator: direct_declarator OPEN_RND parameter_type_list CLOSE_RND
+   162       8819  		 direct_declarator OPEN_RND identifier_list_opt CLOSE_RND
+   163     400942  pointer: TIMES type_qualifier_list_opt
+   164       9454  		 TIMES type_qualifier_list_opt pointer
+   165        335  type_qualifier_list: type_qualifier
+   166          0  		 type_qualifier_list type_qualifier
+   167     170099  parameter_type_list: parameter_list
+   168        473  		 parameter_list COMMA ELLIPSIS
+   169     170761  parameter_list: parameter_declaration
+   170     189148  		 parameter_list COMMA parameter_declaration
+   171      83318  abstract_declarator_opt: /* empty */
+   172      78443  		 abstract_declarator
+   173     282386  parameter_declaration: declaration_specifiers declarator
+   174      67633  		 declaration_specifiers
+   175       9890  		 declaration_specifiers abstract_declarator
+   176          0  identifier_list: IDENTIFIER
+   177          0  		 identifier_list COMMA IDENTIFIER
+   178     161761  type_name: specifier_qualifier_list abstract_declarator_opt
+   179      86822  abstract_declarator: pointer
+   180       2069  		 pointer_opt direct_abstract_declarator
+   181       2273  direct_abstract_declarator_opt: /* empty */
+   182        537  		 direct_abstract_declarator
+   183        178  parameter_type_list_opt: /* empty */
+   184        921  		 parameter_type_list
+   185        558  direct_abstract_declarator: OPEN_RND abstract_declarator CLOSE_RND
+   186        954  		 direct_abstract_declarator_opt OPEN_SQUARE assignment_expr_opt CLOSE_SQUARE
+   187          0  		 direct_abstract_declarator_opt OPEN_SQUARE TIMES CLOSE_SQUARE
+   188       1094  		 direct_abstract_declarator_opt OPEN_RND parameter_type_list_opt CLOSE_RND
+   189     634746  typedef_name: IDENTIFIER
+   190    1268508  initializer: assignment_expr
+   191      57670  		 OPEN_CURL initializer_list CLOSE_CURL
+   192       4499  		 OPEN_CURL initializer_list COMMA CLOSE_CURL
+   193    1184203  designation_opt: /* empty */
+   194       2430  		 designation
+   195      64647  initializer_list: designation_opt initializer
+   196    1121352  		 initializer_list COMMA designation_opt initializer
+   197       2430  designation: designator_list ASSIGN
+   198       2449  designator_list: designator
+   199          0  		 designator_list designator
+   200        961  designator: OPEN_SQUARE constant_expr CLOSE_SQUARE
+   201       1488  		 DOT IDENTIFIER
+   202      11291  statement: labeled_statement
+   203    1326698  		 expression_statement
+   204     467831  		 selection_header
+   205      71851  		 iteration_header
+   206         70  		 OPEN_CURL
+   207     328671  		 jump_statement
+   208      11248  labeled_statement: IDENTIFIER COLON statement
+   209         35  		 CASE constant_expr COLON statement
+   210          8  		 DEFAULT COLON statement
+   211    1326698  expression_statement: expr_opt SEMICOLON
+   212     452118  selection_header: IF OPEN_RND expression CLOSE_RND
+   213      15713  		 SWITCH OPEN_RND expression CLOSE_RND
+   214      47614  expr_opt: /* empty */
+   215    1638337  		 expression
+   216      25044  iteration_header: WHILE OPEN_RND expression CLOSE_RND
+   217         24  		 DO
+   218      46773  		 FOR OPEN_RND expr_opt SEMICOLON expr_opt SEMICOLON expr_opt CLOSE_RND
+   219         10  		 FOR OPEN_RND declaration expr_opt SEMICOLON expr_opt CLOSE_RND
+   220      25830  jump_statement: GOTO IDENTIFIER SEMICOLON
+   221      10241  		 CONTINUE SEMICOLON
+   222      79729  		 BREAK SEMICOLON
+   223     212871  		 RETURN expr_opt SEMICOLON
+   224     133573  external_declaration: function_header
+   225     525798  		 declaration
+   226     119943  declaration_list_opt: /* empty */
+   227      13685  		 declaration_list
+   228     133573  function_header: declaration_specifiers fndef_declarator declaration_list_opt OPEN_CURL
+   229      15064  declaration_list: declaration

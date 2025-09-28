@@ -1,0 +1,135 @@
+################################################################################
+#
+#  1   Schema for Exchange of ISO C++ AST/ASG for Re/Reverse Engineering
+#  2   Prototype analysis tool using the schema
+#
+################################################################################
+
+
+Ideas under consideration
+-------------------------
+
+Possible Use: Add AOP concerns using api for transformations?
+
+This Schema can be implemented: with multiple inheritance (of interfaces or classes),
+                                without multiple inheritance,
+                                with the composite pattern
+
+Justifications (related to Schema conversion)
+-----------------------------------------------
+
+  It is important that a FunctionTryBlock be specially modeled, because a ctor-init may be present and
+  exceptions from that ctor-init are the responsibilities of the handlers associated with the FunctionTryBlock.
+  A special Constructor node will be created, and in the case that it's main block is a FunctionTryBlock,
+  the Constructor will point to the ctor-init owned by the FunctionTryBlock.
+
+  It is impossible to work unique nodes into the schema for Conversion functions and Constructors without adding
+  lots of extra nodes and causing implementation headaches.  This is because we must have nodes for Template,
+  Instantiated and Specialized functions, and Conversions and Constructors can be any of these.  So we would
+  end up with 3 different flavors of Template functions, etc.  The solution is to use a Function Key, much
+  like the Class Key.
+
+  The cFunctionActualParameterList node makes sense because:
+    1. A function call is a binary operator.
+    2. A function actual parameter is just an expression - it needs no special modeling.
+
+  The cTemplateActualParameterList node makes sense because:
+    1. A template is instantiated by a unique list - the list as a whole.
+    2. A template actual parameter can be anything, a type or an expression.
+
+
+Current Problems (related to Schema conversion)
+-----------------------------------------------
+
+  Template parameters don't seem to be part of the function type.
+  What about a template arguments though?  Need to experiment with
+  this.
+
+  The exception specification is not part of a function's type, but
+  it needs to be part of cFunctionType to move it up the tree.
+    * We could cheat here and just make the cExceptionSpecification
+      a member of both the cFunction and the cFunctionType.
+      The cES would be initially assigned to the cFT and then
+      transferred to the cF.  After the transfer the cES pointer
+      member of the cFT would be zero'd out.
+
+  The function type should contain "stripped down" parameters, i.e.
+  parameters without cv-qualifiers, storage-class-specifiers, or
+  default values.
+    * This is not a modeling issue for the schema.
+      The schema should only be concerned with the exchange
+      of information, this issue is related to processing the
+      information.  There must be a line drawn between the
+      representation of the information and the form needed
+      to perform analysis.  Should re-evaluate other nodes
+      to ensure this is true of previous decisions.
+
+
+Known (Unresolved) Bugs
+-----------------------
+
+
+Notes
+--------------------------
+
+1  Conversion functions are not recognized during the parse unless explicitly specified.
+
+   [Example:
+
+    class X { public: operator int(); };
+    void f ( X a )
+    { // These should all be conversion function calls
+      int i = int(a);
+      i = (int)a;
+      i = a;
+    }
+   ]
+
+
+Bug Fixes (unrelated to Schema conversion)
+------------------------------------------
+
+  Semantic Actions (Parsing)
+  --------------------------
+  A.2.001 (+)
+  A.2.002 (+)
+  A.4.001e
+  A.6.009 (?)
+  A.6.021
+  A.12.001
+
+  Fixed all access specifier handling (added a stack - needed for inner classes)
+  Moved to "Array Types" model, as opposed to the previous "Array Variables" model (as done in CPPX)
+  Retain "::" in cases such as "::yylex()"
+
+--
+
+  Replace literal type key with pointer to type representation
+
+  Semantic Actions (AST generation)
+  ---------------------------------
+  A.5.013
+  A.5.016
+  A.5.017
+  A.5.018
+  A.5.020
+  A.6.009
+  A.6.015
+  A.6.017
+  A.6.034
+  A.6.036
+  A.6.037 ... A.6.047
+  A.7.005
+  A.7.019A
+  A.7.033
+  A.7.034
+  A.7.036 (?)
+  A.8.001
+  A.8.008
+  A.8.010
+  A.8.021
+  A.12.019
+  A.13.002
+  A.13.005
+  A.13.006
+  A.13.007

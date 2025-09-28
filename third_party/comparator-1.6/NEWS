@@ -1,0 +1,48 @@
+			NEWS file for comparator/filterator
+
+1.0 -- 07 September 2003
+
+Initial release.
+
+1.1 -- 09 September 2003
+
+* Fix silly division by zero error. Add COPYING file.
+* Add -s option to filterator and make it ignore form feeds in filtered mode.
+
+1.2 -- 10 September 2003:
+
+* Add -C option; -w wasn't good enough to make indent-style difference
+invisible by itself.
+
+1.3 -- 12 September 2003:
+
+* -C now implies -w.
+* A new -r option strips comments.
+* Code is cleaned up to pass gcc -Wall.
+* filterator can now perform significance checks on shreds from shellscripts.
+* There	is now a progress meter while making SCF files.
+* The logic for merging ranges has been seriously speed-tuned and is 
+  66% faster.  This code is O(n**2) on the number of common shreds and
+  is the bottleneck on large trees.
+
+1.4 -- 12 September 2003:
+
+* Fix brown-paper-bag bug in reduction logic, introduced when I optimized it.
+* SCF-B format now includes codebase size so we can compute percentages.
+* filterator now generates a trailer containing percentage overlaps.
+
+1.5 -- 12 September 2003:
+
+* Fix bug in -r option.
+* Capture trailing braces (as on C functions) in chunks even when they are
+  ignored for comparison purposes.
+* Range reports now include the line length of the file.
+* Documentation improvements.
+
+1.6 -- 15 September 2003:
+
+* Regression-test production now in place.
+* Second application of qsort trick, for significant speedups on
+  trees with many common matches.
+* New -v option to enable progress messages; they're off by default.
+

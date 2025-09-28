@@ -1,0 +1,196 @@
+#!/usr/bin/env python
+#
+# filterator -- filter and format the output of comparator
+#
+import os, sys, re, getopt
+
+# Template for parsing the output from comparator.
+shredline = re.compile("(.*):([0-9]+):([0-9]+):([0-9]+)")
+
+# Tokens to be removed when checking whether a shred is significant
+junk = {
+    "C": map(re.compile, (
+        # Idioms that don't convey any meaning in isolation
+        r"return *\(?[a-z]+\)? *;", r"return *\(?-?[01]+\)? *;",
+        r"goto +[a-z]+;", r"exit *\([01]\);",
+        # Pragmas
+        r'/\* *ARGSUSED *\*/', r'/\* *NOTREACHED *\*/', 
+        # Bare C keywords
+        r'\bbreak\b',  r'\bcase\b',r'\bcontinue\b', r'\bdefault\b',
+        r'\bdo\b', r'\belse\b', r'\benum\b', r'\bif\b', r'\bgoto\b',
+        r'\breturn\b', r'\bswitch\b', r'\bwhile\b',
+        r'enum', r'\bint\b', r'\blong\b', r'\bshort\b', r'\bstatic\b',
+        r'\bstruct\b', r'typedef', r'\bunion\b', r'\bvoid\b',
+        r'# *define',r'# *endif',r'# *else',r'# *if\b',
+        r'# *ifdef\b',r'# *ifndef\b',
+        # Comment delimiters with no content
+        r'/\*+', r'\*+/', r'\*+', r'^ *\\s*\n',
+        # Common preprocessor macros, not significant by themselves.
+        r'\bASSERT\b', r'\bFALSE\b', r'\bNULL\b', r'\bSTATIC\b', r'\bTRUE\b',
+        # Macro include lines are noise, too.
+        r'\s*#include.*',r'#\s*line.*',
+        # Common error macros.
+        r'\bEFAULT\b', r'\bEINVAL\b', r'\bENOSYS\b',
+        # Punctuation and whitespace
+        r'\{', r'\}', r'\(', r'\)', r'\<', r'\>', r'\[', r'\]',
+        r'\^', '&', r'\|', r'\*', r'\?', r'\.', r'\+', 
+        '\\\n', ';', ':', '%', ',', '-', '/', '=', '!', '\n','\t', '\v'
+        )),
+    "shell": map(re.compile, (
+        # Idioms that don't convey any meaning in isolation
+        r"exit *[01];?",
+        # Bare shell keywords
+        r"\bbreak\b", r"\bcase\b", r"\bdone\b", r"\bdo\b", r"\belse\b",
+        r"\besac\b", r"\bfi\b", r"\bif\b", r"\breturn\b", r"\bshift\b",
+        r"\btrue\b", r"\bwhile\b", 
+        # Blank comment
+        "^#\n",
+        # Ounctuation and whitespace
+        ':', ';', '\n','\t', '\v'
+        )),
+    }
+
+def nontrivial(text, filetype):
+    "Identify a shred as trivial or nontrivial."
+    if filetype:
+        if debug:
+            print "New shred, type %s:" % `filetype`
+            sys.stdout.write(text)
+        # Basic theory of this function is that if we throw out all C
+        # syntax and and common constants, and there is still an
+        # identifier, we're looking at something that might be
+        # interesting.
+        text = ' ' + text
+        while 1:
+            savecopy = text
+            for regexp in junk[filetype]:
+                text = regexp.sub(' ', text)
+            if savecopy == text:
+                break
+            else:
+                if debug:
+                    print "Reduced:", `text`
+                continue
+    return text.strip()
+
+def deduce_deletia(line):
+    if "sh" in line:
+        return "shell"
+
+def report_common(stats=1,list=1):
+    "Generate a report on common code."
+    count = lines = 0
+    locations = []
+    while 1:
+        line = sys.stdin.readline()
+        if not line:
+            break
+        m = shredline.search(line)
+        if m:
+            locations.append((m.group(1), int(m.group(2)),
+                              int(m.group(3)), int(m.group(4))))
+        if line == '%%\n':
+            for (file, start, end, length) in locations:
+                if end - start + 1 < minsize:
+                    continue
+                try:
+                    # Try to deduce the deletia
+                    deletia = None
+                    if file.endswith(".c") or file.endswith(".h"):
+                        deletia = "C"
+                    # Skip to the relevant chunk
+                    rfp = open(file)
+                    for i in range(start-1):
+                        line = rfp.readline()
+                        if not deletia and i == 0:
+                            deletia = deduce_deletia(line)
+                    text = ""
+                    for i in range(start, end+1):
+                        nextline = rfp.readline()
+                        if not deletia and i == 0 and start == 1:
+                            deletia = deduce_deletia(line)
+                        if nextline[0] == '%':
+                            nextline = '%' + nextline
+                        text += nextline
+                    rfp.close()
+                    if nofilter or nontrivial(text, deletia):
+                        # We do this here in order to avoid losing
+                        # the error message in noise if the user needs
+                        # -d and fails to supply it.
+                        if count == 0:
+                            print "Filter-Program: filterator 1.0"
+                            print "Filtering:", ("language", "none")[nofilter]
+                            print "Hash-Method: MD5"
+                            if merge_program:
+                                print "Merge-Program:", merge_program
+                            print "Normalization:", normalization
+                            print "Shred-Size: %d" % shredsize
+                            if minsize:
+                                print "Minimum-Size: %d" % minsize
+                            print 75 * '-'
+                        count += 1
+                        lines += end - start + 1
+                        if list:
+                            print "%% %s:%s-%s: (%d matches)" % (file, start, end, len(locations))
+                            sys.stdout.write(text)
+                    locations = []
+                    break
+                except IOError:
+                    sys.stderr.write("filterator: can't open %s\n" % file)
+                    sys.exit(0)
+    if stats:
+        print 75 * '-'
+        print "# %d lines in %d overlaps." % (lines, count)
+        for (tree, linecount) in linecounts.items():
+            print "# %f%% of %s" % ((lines*100.0)/linecount, tree)
+
+if __name__ == '__main__':
+    try:
+        (optlist, args) = getopt.getopt(sys.argv[1:], 'd:ns:x')
+    except getopt.GetoptError:
+        sys.stderr.write("usage: filterator [-d dir] [-n] [-s size] [-x]\n")
+        sys.exit(2)
+    nofilter = debug = 0
+    minsize = 5
+    linecounts = {}
+    for (opt, val) in optlist:
+        if opt == '-d':
+            os.chdir(val)
+        elif opt == '-n':
+            nofilter = 1
+        elif opt == '-s':
+            minsize = int(val)
+        elif opt == '-x':
+            debug = 1
+
+    # Read the SCF header
+    hash_method = "MD5"
+    merge_program = None
+    id = sys.stdin.readline()
+    if not id.startswith("#SCF-B "):
+        sys.stderr.write("filterator: input is not a SCF-B file.\n")
+        sys.exit(1)
+    # Read metadata
+    while 1:
+        line = sys.stdin.readline()
+        if not line or line == '%%\n':
+            break
+        (tag, value) = line.split(":")
+        value = value.strip()
+        if tag == "Normalization":
+            normalization = value
+        elif tag == "Shred-Size":
+            shredsize = int(value)
+        elif tag == "Merge-Program":
+            merge_program = value
+        elif tag == "Hash-Method":
+            hash_method = value
+    # Read file statistics
+    while 1:
+        line = sys.stdin.readline()
+        if not line or line == '%%\n':
+            break
+        (tag, value) = line.split(":")
+        linecounts[tag] = int(value.strip())
+
+    report_common()

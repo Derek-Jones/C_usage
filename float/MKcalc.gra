@@ -1,0 +1,25 @@
+
+
+.G1
+
+# MKcalc.g,  5 Dec 08
+# built on: __DATE
+
+frame invis ht 2.5 wid 3.5 left solid bot solid
+
+coord x 0.5,1.05  y -1.8,1.8
+
+label bot "x"
+label left "y" "" ""
+
+ticks bot out at 0.6, 0.8, 1.0
+#ticks left out at 1, 10, 100, 1000, 10000, 100000 "", 264000 "264,000"
+#__LEFT_TICK_NUM
+
+copy "T_20.d" thru {
+   circle at $2, $4 radius 0.01
+}
+
+
+.G2
+

@@ -1,0 +1,8 @@
+ UNION IDENT ,, 65.5 ,, 0.0
+ STRUCT IDENT ,, 99.0 ,, 1.9
+ . IDENT ,, 100.0 ,, 4.2
+ -> IDENT ,, 100.0 ,, 10.1
+ GOTO IDENT ,, 99.9 ,, 0.3
+ ENUM IDENT ,, 86.6 ,, 0.0
+ #DEFINE IDENT ,, 99.9 ,, 0.7
+ CASE IDENT ,, 71.3 ,, 0.8

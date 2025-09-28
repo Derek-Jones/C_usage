@@ -1,0 +1,5 @@
+ array of const ,, 26.7 ,, const * ,, 0.4
+ const integer-type ,, 4.8 ,, const union ,, 0.3
+ const real-type ,, 2.7 ,, volatile struct ,, 0.1
+ * const ,, 2.6 ,, volatile integer-type ,, 0.1
+ const struct ,, 2.4 ,, * volatile ,, 0.1

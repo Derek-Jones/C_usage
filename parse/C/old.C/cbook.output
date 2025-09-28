@@ -1,0 +1,6180 @@
+Terminals which are not used
+
+   ELSE
+   PLUS
+   NEGATE
+   STAR
+   BITAND
+   DUMMY1
+   POSTPLUSPLUS
+   POSTMINUSMINUS
+   DUMMY2
+   TYPEDEFNAME
+   UNDEFINED
+
+
+State 0 conflicts: 2 shift/reduce
+State 38 conflicts: 3 reduce/reduce
+State 46 conflicts: 3 reduce/reduce
+State 73 conflicts: 1 shift/reduce
+State 112 conflicts: 5 reduce/reduce
+State 183 conflicts: 1 shift/reduce
+State 201 conflicts: 1 shift/reduce
+State 276 conflicts: 1 shift/reduce
+State 280 conflicts: 2 reduce/reduce
+State 281 conflicts: 1 shift/reduce
+State 315 conflicts: 1 shift/reduce
+
+
+Grammar
+
+    0 $accept: TU $end
+
+    1 TU: translation_unit
+
+    2 translation_unit: external_declaration
+    3                 | statement
+
+    4 primary_expr: IDENTIFIER
+    5             | CONSTANT
+    6             | string_seq
+    7             | OPEN_RND expression CLOSE_RND
+
+    8 string_seq: STRING_LITERAL
+    9           | string_seq STRING_LITERAL
+
+   10 argument_expr_list_opt: /* empty */
+   11                       | argument_expr_list
+
+   12 postfix_expr: primary_expr
+   13             | postfix_expr OPEN_SQUARE expression CLOSE_SQUARE
+   14             | postfix_expr OPEN_RND argument_expr_list_opt CLOSE_RND
+   15             | postfix_expr DOT IDENTIFIER
+   16             | postfix_expr DEREF IDENTIFIER
+   17             | postfix_expr PLUSPLUS
+   18             | postfix_expr MINUSMINUS
+   19             | OPEN_RND type_name CLOSE_RND OPEN_CURL initializer_list CLOSE_CURL
+   20             | OPEN_RND type_name CLOSE_RND OPEN_CURL initializer_list COMMA CLOSE_CURL
+
+   21 argument_expr_list: assignment_expr
+   22                   | argument_expr_list COMMA assignment_expr
+
+   23 unary_expr: postfix_expr
+   24           | PLUSPLUS unary_expr
+   25           | MINUSMINUS unary_expr
+   26           | unary_operator cast_expr
+   27           | SIZEOF unary_expr
+   28           | SIZEOF OPEN_RND type_name CLOSE_RND
+
+   29 unary_operator: AND
+   30               | TIMES
+   31               | ADD
+   32               | MINUS
+   33               | BITNEGATE
+   34               | NOT
+
+   35 cast_expr: unary_expr
+   36          | OPEN_RND type_name CLOSE_RND cast_expr
+
+   37 multiplicative_expr: cast_expr
+   38                    | multiplicative_expr TIMES cast_expr
+   39                    | multiplicative_expr DIVIDE cast_expr
+   40                    | multiplicative_expr REMAINDER cast_expr
+
+   41 additive_expr: multiplicative_expr
+   42              | additive_expr ADD multiplicative_expr
+   43              | additive_expr MINUS multiplicative_expr
+
+   44 shift_expr: additive_expr
+   45           | shift_expr LEFTSHIFT additive_expr
+   46           | shift_expr RIGHTSHIFT additive_expr
+
+   47 relational_expr: shift_expr
+   48                | relational_expr LT shift_expr
+   49                | relational_expr GT shift_expr
+   50                | relational_expr LE shift_expr
+   51                | relational_expr GE shift_expr
+
+   52 equality_expr: relational_expr
+   53              | equality_expr EQUAL relational_expr
+   54              | equality_expr NOTEQUAL relational_expr
+
+   55 AND_expr: equality_expr
+   56         | AND_expr AND equality_expr
+
+   57 exclusive_OR_expr: AND_expr
+   58                  | exclusive_OR_expr XOR AND_expr
+
+   59 inclusive_OR_expr: exclusive_OR_expr
+   60                  | inclusive_OR_expr OR exclusive_OR_expr
+
+   61 logical_AND_expr: inclusive_OR_expr
+   62                 | logical_AND_expr ANDTEST inclusive_OR_expr
+
+   63 logical_OR_expr: logical_AND_expr
+   64                | logical_OR_expr ORTEST logical_AND_expr
+
+   65 conditional_expr: logical_OR_expr
+   66                 | logical_OR_expr QUESTION expression COLON conditional_expr
+
+   67 assignment_expr: conditional_expr
+   68                | unary_expr assignment_operator assignment_expr
+
+   69 assignment_operator: ASSIGN
+   70                    | TIMESASSIGN
+   71                    | DIVASSIGN
+   72                    | REMASSIGN
+   73                    | PLUSASSIGN
+   74                    | MINUSASSIGN
+   75                    | LSASSIGN
+   76                    | RSASSIGN
+   77                    | ANDASSIGN
+   78                    | ORASSIGN
+   79                    | XORASSIGN
+
+   80 expression: assignment_expr
+   81           | expression COMMA assignment_expr
+
+   82 constant_expr: conditional_expr
+
+   83 declaration: declaration_specifiers SEMICOLON
+   84            | declaration_specifiers init_declarator_list SEMICOLON
+
+   85 decl_specifier: storage_class_specifier
+   86               | type_specifier
+   87               | type_qualifier
+   88               | function_specifier
+
+   89 declaration_specifiers: decl_specifier
+   90                       | declaration_specifiers decl_specifier
+
+   91 init_declarator_list: init_declarator
+   92                     | init_declarator_list COMMA init_declarator
+
+   93 init_declarator: declarator
+   94                | declarator ASSIGN initializer
+
+   95 storage_class_specifier: TYPEDEF
+   96                        | EXTERN
+   97                        | STATIC
+   98                        | AUTO
+   99                        | REGISTER
+
+  100 type_specifier: VOID
+  101               | CHAR
+  102               | SHORT
+  103               | INT
+  104               | LONG
+  105               | FLOAT
+  106               | DOUBLE
+  107               | SIGNED
+  108               | UNSIGNED
+  109               | _BOOL
+  110               | _COMPLEX
+  111               | _IMAGINARY
+  112               | struct_or_union_specifier
+  113               | enum_specifier
+  114               | typedef_name
+
+  115 identifier_opt: /* empty */
+  116               | IDENTIFIER
+
+  117 struct_or_union_specifier: struct_or_union identifier_opt OPEN_CURL struct_declaration_list CLOSE_CURL
+  118                          | struct_or_union IDENTIFIER
+
+  119 struct_or_union: STRUCT
+  120                | UNION
+
+  121 struct_declaration_list: struct_declaration
+  122                        | struct_declaration_list struct_declaration
+
+  123 struct_declaration: specifier_qualifier_list struct_declarator_list SEMICOLON
+
+  124 spec_qual_list: type_specifier
+  125               | type_qualifier
+
+  126 specifier_qualifier_list: spec_qual_list
+  127                         | specifier_qualifier_list spec_qual_list
+
+  128 struct_declarator_list: struct_declarator
+  129                       | struct_declarator_list COMMA struct_declarator
+
+  130 struct_declarator: declarator
+  131                  | COLON constant_expr
+
+  132 enum_specifier: ENUM identifier_opt OPEN_CURL enumerator_list CLOSE_CURL
+  133               | ENUM identifier_opt OPEN_CURL enumerator_list COMMA CLOSE_CURL
+  134               | ENUM IDENTIFIER
+
+  135 enumerator_list: enumerator
+  136                | enumerator_list COMMA enumerator
+
+  137 enumerator: IDENTIFIER
+  138           | IDENTIFIER ASSIGN constant_expr
+
+  139 type_qualifier: CONST
+  140               | RESTRICT
+  141               | VOLATILE
+
+  142 function_specifier: INLINE
+
+  143 pointer_opt: /* empty */
+  144            | pointer
+
+  145 declarator: pointer_opt direct_declarator
+
+  146 fndef_declarator: pointer_opt fndef_direct_declarator
+
+  147 type_qualifier_list_opt: /* empty */
+  148                        | type_qualifier_list
+
+  149 assignment_expr_opt: /* empty */
+  150                    | assignment_expr
+
+  151 identifier_list_opt: /* empty */
+  152                    | identifier_list
+
+  153 direct_declarator: IDENTIFIER
+  154                  | OPEN_RND declarator CLOSE_RND
+  155                  | direct_declarator OPEN_SQUARE type_qualifier_list_opt assignment_expr_opt CLOSE_SQUARE
+  156                  | direct_declarator OPEN_SQUARE STATIC type_qualifier_list_opt assignment_expr CLOSE_SQUARE
+  157                  | direct_declarator OPEN_SQUARE type_qualifier_list STATIC assignment_expr CLOSE_SQUARE
+  158                  | direct_declarator OPEN_SQUARE type_qualifier_list_opt TIMES CLOSE_SQUARE
+  159                  | fndef_direct_declarator
+
+  160 fndef_direct_declarator: direct_declarator OPEN_RND parameter_type_list CLOSE_RND
+  161                        | direct_declarator OPEN_RND OPEN_RND parameter_type_list CLOSE_RND CLOSE_RND
+  162                        | direct_declarator OPEN_RND identifier_list_opt CLOSE_RND
+
+  163 pointer: TIMES type_qualifier_list_opt
+  164        | TIMES type_qualifier_list_opt pointer
+
+  165 type_qualifier_list: type_qualifier
+  166                    | type_qualifier_list type_qualifier
+
+  167 parameter_type_list: parameter_list
+  168                    | parameter_list COMMA ELLIPSIS
+
+  169 parameter_list: parameter_declaration
+  170               | parameter_list COMMA parameter_declaration
+
+  171 abstract_declarator_opt: /* empty */
+  172                        | abstract_declarator
+
+  173 parameter_declaration: declaration_specifiers declarator
+  174                      | declaration_specifiers
+  175                      | declaration_specifiers abstract_declarator
+
+  176 identifier_list: IDENTIFIER
+  177                | identifier_list COMMA IDENTIFIER
+
+  178 type_name: specifier_qualifier_list abstract_declarator_opt
+
+  179 abstract_declarator: pointer
+  180                    | pointer_opt direct_abstract_declarator
+
+  181 direct_abstract_declarator_opt: /* empty */
+  182                               | direct_abstract_declarator
+
+  183 parameter_type_list_opt: /* empty */
+  184                        | parameter_type_list
+
+  185 direct_abstract_declarator: OPEN_RND abstract_declarator CLOSE_RND
+  186                           | direct_abstract_declarator_opt OPEN_SQUARE assignment_expr_opt CLOSE_SQUARE
+  187                           | direct_abstract_declarator_opt OPEN_SQUARE TIMES CLOSE_SQUARE
+  188                           | direct_abstract_declarator_opt OPEN_RND parameter_type_list_opt CLOSE_RND
+
+  189 typedef_name: IDENTIFIER
+
+  190 initializer: assignment_expr
+  191            | OPEN_CURL initializer_list CLOSE_CURL
+  192            | OPEN_CURL initializer_list COMMA CLOSE_CURL
+
+  193 designation_opt: /* empty */
+  194                | designation
+
+  195 initializer_list: designation_opt initializer
+  196                 | initializer_list COMMA designation_opt initializer
+
+  197 designation: designator_list ASSIGN
+
+  198 designator_list: designator
+  199                | designator_list designator
+
+  200 designator: OPEN_SQUARE constant_expr CLOSE_SQUARE
+  201           | DOT IDENTIFIER
+
+  202 statement: labeled_statement
+  203          | expression_statement
+  204          | selection_header
+  205          | iteration_header
+  206          | OPEN_CURL
+  207          | jump_statement
+
+  208 labeled_statement: IDENTIFIER COLON statement
+  209                  | CASE constant_expr COLON statement
+  210                  | DEFAULT COLON statement
+
+  211 expression_statement: expr_opt SEMICOLON
+
+  212 selection_header: IF OPEN_RND expression CLOSE_RND
+  213                 | SWITCH OPEN_RND expression CLOSE_RND
+
+  214 expr_opt: /* empty */
+  215         | expression
+
+  216 iteration_header: WHILE OPEN_RND expression CLOSE_RND
+  217                 | DO
+  218                 | FOR OPEN_RND expr_opt SEMICOLON expr_opt SEMICOLON expr_opt CLOSE_RND
+  219                 | FOR OPEN_RND declaration expr_opt SEMICOLON expr_opt CLOSE_RND
+
+  220 jump_statement: GOTO IDENTIFIER SEMICOLON
+  221               | CONTINUE SEMICOLON
+  222               | BREAK SEMICOLON
+  223               | RETURN expr_opt SEMICOLON
+
+  224 external_declaration: function_header
+  225                     | declaration
+
+  226 declaration_list_opt: /* empty */
+  227                     | declaration_list
+
+  228 function_header: declaration_specifiers fndef_declarator declaration_list_opt OPEN_CURL
+  229                | fndef_declarator declaration_list_opt OPEN_CURL
+
+  230 declaration_list: declaration
+  231                 | declaration_list declaration
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+_BOOL (258) 109
+_COMPLEX (259) 110
+_IMAGINARY (260) 111
+AUTO (261) 98
+STATIC (262) 97 156 157
+EXTERN (263) 96
+REGISTER (264) 99
+TYPEDEF (265) 95
+CHAR (266) 101
+FLOAT (267) 105
+DOUBLE (268) 106
+INT (269) 103
+SHORT (270) 102
+LONG (271) 104
+UNSIGNED (272) 108
+SIGNED (273) 107
+VOID (274) 100
+CONST (275) 139
+VOLATILE (276) 141
+STRUCT (277) 119
+UNION (278) 120
+ENUM (279) 132 133 134
+IF (280) 212
+ELSE (281)
+WHILE (282) 216
+FOR (283) 218 219
+DO (284) 217
+SWITCH (285) 213
+CASE (286) 209
+DEFAULT (287) 210
+BREAK (288) 222
+CONTINUE (289) 221
+RETURN (290) 223
+GOTO (291) 220
+SIZEOF (292) 27 28
+OPEN_RND (293) 7 14 19 20 28 36 154 160 161 162 185 188 212 213 216
+    218 219
+CLOSE_RND (294) 7 14 19 20 28 36 154 160 161 162 185 188 212 213 216
+    218 219
+LEFTSHIFT (295) 45
+RIGHTSHIFT (296) 46
+PLUS (297)
+ADD (298) 31 42
+NEGATE (299)
+MINUS (300) 32 43
+STAR (301)
+TIMES (302) 30 38 158 163 164 187
+REMAINDER (303) 40
+DIVIDE (304) 39
+XOR (305) 58
+AND (306) 29 56
+BITAND (307)
+OR (308) 60
+BITNEGATE (309) 33
+NOT (310) 34
+LT (311) 48
+LE (312) 50
+GE (313) 51
+GT (314) 49
+EQUAL (315) 53
+NOTEQUAL (316) 54
+ANDTEST (317) 62
+ORTEST (318) 64
+QUESTION (319) 66
+DUMMY1 (320)
+DOT (321) 15 201
+DEREF (322) 16
+PLUSPLUS (323) 17 24
+MINUSMINUS (324) 18 25
+POSTPLUSPLUS (325)
+POSTMINUSMINUS (326)
+COMMA (327) 20 22 81 92 129 133 136 168 170 177 192 196
+SEMICOLON (328) 83 84 123 211 218 219 220 221 222 223
+ELLIPSIS (329) 168
+OPEN_CURL (330) 19 20 117 132 133 191 192 206 228 229
+CLOSE_CURL (331) 19 20 117 132 133 191 192
+OPEN_SQUARE (332) 13 155 156 157 158 186 187 200
+CLOSE_SQUARE (333) 13 155 156 157 158 186 187 200
+ASSIGN (334) 69 94 138 197
+PLUSASSIGN (335) 73
+MINUSASSIGN (336) 74
+TIMESASSIGN (337) 70
+LSASSIGN (338) 75
+RSASSIGN (339) 76
+ANDASSIGN (340) 77
+DIVASSIGN (341) 71
+REMASSIGN (342) 72
+ORASSIGN (343) 78
+XORASSIGN (344) 79
+COLON (345) 66 131 208 209 210
+DUMMY2 (346)
+CONSTANT (347) 5
+IDENTIFIER (348) 4 15 16 116 118 134 137 138 153 176 177 189 201 208
+    220
+STRING_LITERAL (349) 8 9
+TYPEDEFNAME (350)
+INLINE (351) 142
+RESTRICT (352) 140
+UNDEFINED (353)
+
+
+Nonterminals, with rules where they appear
+
+$accept (99)
+    on left: 0
+TU (100)
+    on left: 1, on right: 0
+translation_unit (101)
+    on left: 2 3, on right: 1
+primary_expr (102)
+    on left: 4 5 6 7, on right: 12
+string_seq (103)
+    on left: 8 9, on right: 6 9
+argument_expr_list_opt (104)
+    on left: 10 11, on right: 14
+postfix_expr (105)
+    on left: 12 13 14 15 16 17 18 19 20, on right: 13 14 15 16 17 18
+    23
+argument_expr_list (106)
+    on left: 21 22, on right: 11 22
+unary_expr (107)
+    on left: 23 24 25 26 27 28, on right: 24 25 27 35 68
+unary_operator (108)
+    on left: 29 30 31 32 33 34, on right: 26
+cast_expr (109)
+    on left: 35 36, on right: 26 36 37 38 39 40
+multiplicative_expr (110)
+    on left: 37 38 39 40, on right: 38 39 40 41 42 43
+additive_expr (111)
+    on left: 41 42 43, on right: 42 43 44 45 46
+shift_expr (112)
+    on left: 44 45 46, on right: 45 46 47 48 49 50 51
+relational_expr (113)
+    on left: 47 48 49 50 51, on right: 48 49 50 51 52 53 54
+equality_expr (114)
+    on left: 52 53 54, on right: 53 54 55 56
+AND_expr (115)
+    on left: 55 56, on right: 56 57 58
+exclusive_OR_expr (116)
+    on left: 57 58, on right: 58 59 60
+inclusive_OR_expr (117)
+    on left: 59 60, on right: 60 61 62
+logical_AND_expr (118)
+    on left: 61 62, on right: 62 63 64
+logical_OR_expr (119)
+    on left: 63 64, on right: 64 65 66
+conditional_expr (120)
+    on left: 65 66, on right: 66 67 82
+assignment_expr (121)
+    on left: 67 68, on right: 21 22 68 80 81 150 156 157 190
+assignment_operator (122)
+    on left: 69 70 71 72 73 74 75 76 77 78 79, on right: 68
+expression (123)
+    on left: 80 81, on right: 7 13 66 81 212 213 215 216
+constant_expr (124)
+    on left: 82, on right: 131 138 200 209
+declaration (125)
+    on left: 83 84, on right: 219 225 230 231
+decl_specifier (126)
+    on left: 85 86 87 88, on right: 89 90
+declaration_specifiers (127)
+    on left: 89 90, on right: 83 84 90 173 174 175 228
+init_declarator_list (128)
+    on left: 91 92, on right: 84 92
+init_declarator (129)
+    on left: 93 94, on right: 91 92
+storage_class_specifier (130)
+    on left: 95 96 97 98 99, on right: 85
+type_specifier (131)
+    on left: 100 101 102 103 104 105 106 107 108 109 110 111 112 113
+    114, on right: 86 124
+identifier_opt (132)
+    on left: 115 116, on right: 117 132 133
+struct_or_union_specifier (133)
+    on left: 117 118, on right: 112
+struct_or_union (134)
+    on left: 119 120, on right: 117 118
+struct_declaration_list (135)
+    on left: 121 122, on right: 117 122
+struct_declaration (136)
+    on left: 123, on right: 121 122
+spec_qual_list (137)
+    on left: 124 125, on right: 126 127
+specifier_qualifier_list (138)
+    on left: 126 127, on right: 123 127 178
+struct_declarator_list (139)
+    on left: 128 129, on right: 123 129
+struct_declarator (140)
+    on left: 130 131, on right: 128 129
+enum_specifier (141)
+    on left: 132 133 134, on right: 113
+enumerator_list (142)
+    on left: 135 136, on right: 132 133 136
+enumerator (143)
+    on left: 137 138, on right: 135 136
+type_qualifier (144)
+    on left: 139 140 141, on right: 87 125 165 166
+function_specifier (145)
+    on left: 142, on right: 88
+pointer_opt (146)
+    on left: 143 144, on right: 145 146 180
+declarator (147)
+    on left: 145, on right: 93 94 130 154 173
+fndef_declarator (148)
+    on left: 146, on right: 228 229
+type_qualifier_list_opt (149)
+    on left: 147 148, on right: 155 156 158 163 164
+assignment_expr_opt (150)
+    on left: 149 150, on right: 155 186
+identifier_list_opt (151)
+    on left: 151 152, on right: 162
+direct_declarator (152)
+    on left: 153 154 155 156 157 158 159, on right: 145 155 156 157
+    158 160 161 162
+fndef_direct_declarator (153)
+    on left: 160 161 162, on right: 146 159
+pointer (154)
+    on left: 163 164, on right: 144 164 179
+type_qualifier_list (155)
+    on left: 165 166, on right: 148 157 166
+parameter_type_list (156)
+    on left: 167 168, on right: 160 161 184
+parameter_list (157)
+    on left: 169 170, on right: 167 168 170
+abstract_declarator_opt (158)
+    on left: 171 172, on right: 178
+parameter_declaration (159)
+    on left: 173 174 175, on right: 169 170
+identifier_list (160)
+    on left: 176 177, on right: 152 177
+type_name (161)
+    on left: 178, on right: 19 20 28 36
+abstract_declarator (162)
+    on left: 179 180, on right: 172 175 185
+direct_abstract_declarator_opt (163)
+    on left: 181 182, on right: 186 187 188
+parameter_type_list_opt (164)
+    on left: 183 184, on right: 188
+direct_abstract_declarator (165)
+    on left: 185 186 187 188, on right: 180 182
+typedef_name (166)
+    on left: 189, on right: 114
+initializer (167)
+    on left: 190 191 192, on right: 94 195 196
+designation_opt (168)
+    on left: 193 194, on right: 195 196
+initializer_list (169)
+    on left: 195 196, on right: 19 20 191 192 196
+designation (170)
+    on left: 197, on right: 194
+designator_list (171)
+    on left: 198 199, on right: 197 199
+designator (172)
+    on left: 200 201, on right: 198 199
+statement (173)
+    on left: 202 203 204 205 206 207, on right: 3 208 209 210
+labeled_statement (174)
+    on left: 208 209 210, on right: 202
+expression_statement (175)
+    on left: 211, on right: 203
+selection_header (176)
+    on left: 212 213, on right: 204
+expr_opt (177)
+    on left: 214 215, on right: 211 218 219 223
+iteration_header (178)
+    on left: 216 217 218 219, on right: 205
+jump_statement (179)
+    on left: 220 221 222 223, on right: 207
+external_declaration (180)
+    on left: 224 225, on right: 2
+declaration_list_opt (181)
+    on left: 226 227, on right: 228 229
+function_header (182)
+    on left: 228 229, on right: 224
+declaration_list (183)
+    on left: 230 231, on right: 227 231
+
+
+state 0
+
+    0 $accept: . TU $end
+
+    _BOOL           shift, and go to state 1
+    _COMPLEX        shift, and go to state 2
+    _IMAGINARY      shift, and go to state 3
+    AUTO            shift, and go to state 4
+    STATIC          shift, and go to state 5
+    EXTERN          shift, and go to state 6
+    REGISTER        shift, and go to state 7
+    TYPEDEF         shift, and go to state 8
+    CHAR            shift, and go to state 9
+    FLOAT           shift, and go to state 10
+    DOUBLE          shift, and go to state 11
+    INT             shift, and go to state 12
+    SHORT           shift, and go to state 13
+    LONG            shift, and go to state 14
+    UNSIGNED        shift, and go to state 15
+    SIGNED          shift, and go to state 16
+    VOID            shift, and go to state 17
+    CONST           shift, and go to state 18
+    VOLATILE        shift, and go to state 19
+    STRUCT          shift, and go to state 20
+    UNION           shift, and go to state 21
+    ENUM            shift, and go to state 22
+    IF              shift, and go to state 23
+    WHILE           shift, and go to state 24
+    FOR             shift, and go to state 25
+    DO              shift, and go to state 26
+    SWITCH          shift, and go to state 27
+    CASE            shift, and go to state 28
+    DEFAULT         shift, and go to state 29
+    BREAK           shift, and go to state 30
+    CONTINUE        shift, and go to state 31
+    RETURN          shift, and go to state 32
+    GOTO            shift, and go to state 33
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 38
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    OPEN_CURL       shift, and go to state 44
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 46
+    STRING_LITERAL  shift, and go to state 47
+    INLINE          shift, and go to state 48
+    RESTRICT        shift, and go to state 49
+
+    OPEN_RND    [reduce using rule 143 (pointer_opt)]
+    IDENTIFIER  [reduce using rule 143 (pointer_opt)]
+    $default    reduce using rule 214 (expr_opt)
+
+    TU                         go to state 50
+    translation_unit           go to state 51
+    primary_expr               go to state 52
+    string_seq                 go to state 53
+    postfix_expr               go to state 54
+    unary_expr                 go to state 55
+    unary_operator             go to state 56
+    cast_expr                  go to state 57
+    multiplicative_expr        go to state 58
+    additive_expr              go to state 59
+    shift_expr                 go to state 60
+    relational_expr            go to state 61
+    equality_expr              go to state 62
+    AND_expr                   go to state 63
+    exclusive_OR_expr          go to state 64
+    inclusive_OR_expr          go to state 65
+    logical_AND_expr           go to state 66
+    logical_OR_expr            go to state 67
+    conditional_expr           go to state 68
+    assignment_expr            go to state 69
+    expression                 go to state 70
+    declaration                go to state 71
+    decl_specifier             go to state 72
+    declaration_specifiers     go to state 73
+    storage_class_specifier    go to state 74
+    type_specifier             go to state 75
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    enum_specifier             go to state 78
+    type_qualifier             go to state 79
+    function_specifier         go to state 80
+    pointer_opt                go to state 81
+    fndef_declarator           go to state 82
+    pointer                    go to state 83
+    typedef_name               go to state 84
+    statement                  go to state 85
+    labeled_statement          go to state 86
+    expression_statement       go to state 87
+    selection_header           go to state 88
+    expr_opt                   go to state 89
+    iteration_header           go to state 90
+    jump_statement             go to state 91
+    external_declaration       go to state 92
+    function_header            go to state 93
+
+
+state 1
+
+  109 type_specifier: _BOOL .
+
+    $default  reduce using rule 109 (type_specifier)
+
+
+state 2
+
+  110 type_specifier: _COMPLEX .
+
+    $default  reduce using rule 110 (type_specifier)
+
+
+state 3
+
+  111 type_specifier: _IMAGINARY .
+
+    $default  reduce using rule 111 (type_specifier)
+
+
+state 4
+
+   98 storage_class_specifier: AUTO .
+
+    $default  reduce using rule 98 (storage_class_specifier)
+
+
+state 5
+
+   97 storage_class_specifier: STATIC .
+
+    $default  reduce using rule 97 (storage_class_specifier)
+
+
+state 6
+
+   96 storage_class_specifier: EXTERN .
+
+    $default  reduce using rule 96 (storage_class_specifier)
+
+
+state 7
+
+   99 storage_class_specifier: REGISTER .
+
+    $default  reduce using rule 99 (storage_class_specifier)
+
+
+state 8
+
+   95 storage_class_specifier: TYPEDEF .
+
+    $default  reduce using rule 95 (storage_class_specifier)
+
+
+state 9
+
+  101 type_specifier: CHAR .
+
+    $default  reduce using rule 101 (type_specifier)
+
+
+state 10
+
+  105 type_specifier: FLOAT .
+
+    $default  reduce using rule 105 (type_specifier)
+
+
+state 11
+
+  106 type_specifier: DOUBLE .
+
+    $default  reduce using rule 106 (type_specifier)
+
+
+state 12
+
+  103 type_specifier: INT .
+
+    $default  reduce using rule 103 (type_specifier)
+
+
+state 13
+
+  102 type_specifier: SHORT .
+
+    $default  reduce using rule 102 (type_specifier)
+
+
+state 14
+
+  104 type_specifier: LONG .
+
+    $default  reduce using rule 104 (type_specifier)
+
+
+state 15
+
+  108 type_specifier: UNSIGNED .
+
+    $default  reduce using rule 108 (type_specifier)
+
+
+state 16
+
+  107 type_specifier: SIGNED .
+
+    $default  reduce using rule 107 (type_specifier)
+
+
+state 17
+
+  100 type_specifier: VOID .
+
+    $default  reduce using rule 100 (type_specifier)
+
+
+state 18
+
+  139 type_qualifier: CONST .
+
+    $default  reduce using rule 139 (type_qualifier)
+
+
+state 19
+
+  141 type_qualifier: VOLATILE .
+
+    $default  reduce using rule 141 (type_qualifier)
+
+
+state 20
+
+  119 struct_or_union: STRUCT .
+
+    $default  reduce using rule 119 (struct_or_union)
+
+
+state 21
+
+  120 struct_or_union: UNION .
+
+    $default  reduce using rule 120 (struct_or_union)
+
+
+state 22
+
+  132 enum_specifier: ENUM . identifier_opt OPEN_CURL enumerator_list CLOSE_CURL
+  133               | ENUM . identifier_opt OPEN_CURL enumerator_list COMMA CLOSE_CURL
+  134               | ENUM . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 94
+
+    $default  reduce using rule 115 (identifier_opt)
+
+    identifier_opt  go to state 95
+
+
+state 23
+
+  212 selection_header: IF . OPEN_RND expression CLOSE_RND
+
+    OPEN_RND  shift, and go to state 96
+
+
+state 24
+
+  216 iteration_header: WHILE . OPEN_RND expression CLOSE_RND
+
+    OPEN_RND  shift, and go to state 97
+
+
+state 25
+
+  218 iteration_header: FOR . OPEN_RND expr_opt SEMICOLON expr_opt SEMICOLON expr_opt CLOSE_RND
+  219                 | FOR . OPEN_RND declaration expr_opt SEMICOLON expr_opt CLOSE_RND
+
+    OPEN_RND  shift, and go to state 98
+
+
+state 26
+
+  217 iteration_header: DO .
+
+    $default  reduce using rule 217 (iteration_header)
+
+
+state 27
+
+  213 selection_header: SWITCH . OPEN_RND expression CLOSE_RND
+
+    OPEN_RND  shift, and go to state 99
+
+
+state 28
+
+  209 labeled_statement: CASE . constant_expr COLON statement
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 103
+    constant_expr        go to state 104
+
+
+state 29
+
+  210 labeled_statement: DEFAULT . COLON statement
+
+    COLON  shift, and go to state 105
+
+
+state 30
+
+  222 jump_statement: BREAK . SEMICOLON
+
+    SEMICOLON  shift, and go to state 106
+
+
+state 31
+
+  221 jump_statement: CONTINUE . SEMICOLON
+
+    SEMICOLON  shift, and go to state 107
+
+
+state 32
+
+  223 jump_statement: RETURN . expr_opt SEMICOLON
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    $default  reduce using rule 214 (expr_opt)
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 69
+    expression           go to state 70
+    expr_opt             go to state 108
+
+
+state 33
+
+  220 jump_statement: GOTO . IDENTIFIER SEMICOLON
+
+    IDENTIFIER  shift, and go to state 109
+
+
+state 34
+
+   27 unary_expr: SIZEOF . unary_expr
+   28           | SIZEOF . OPEN_RND type_name CLOSE_RND
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 110
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr    go to state 52
+    string_seq      go to state 53
+    postfix_expr    go to state 54
+    unary_expr      go to state 111
+    unary_operator  go to state 56
+
+
+state 35
+
+    7 primary_expr: OPEN_RND . expression CLOSE_RND
+   19 postfix_expr: OPEN_RND . type_name CLOSE_RND OPEN_CURL initializer_list CLOSE_CURL
+   20             | OPEN_RND . type_name CLOSE_RND OPEN_CURL initializer_list COMMA CLOSE_CURL
+   36 cast_expr: OPEN_RND . type_name CLOSE_RND cast_expr
+
+    _BOOL           shift, and go to state 1
+    _COMPLEX        shift, and go to state 2
+    _IMAGINARY      shift, and go to state 3
+    CHAR            shift, and go to state 9
+    FLOAT           shift, and go to state 10
+    DOUBLE          shift, and go to state 11
+    INT             shift, and go to state 12
+    SHORT           shift, and go to state 13
+    LONG            shift, and go to state 14
+    UNSIGNED        shift, and go to state 15
+    SIGNED          shift, and go to state 16
+    VOID            shift, and go to state 17
+    CONST           shift, and go to state 18
+    VOLATILE        shift, and go to state 19
+    STRUCT          shift, and go to state 20
+    UNION           shift, and go to state 21
+    ENUM            shift, and go to state 22
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 112
+    STRING_LITERAL  shift, and go to state 47
+    RESTRICT        shift, and go to state 49
+
+    primary_expr               go to state 52
+    string_seq                 go to state 53
+    postfix_expr               go to state 54
+    unary_expr                 go to state 55
+    unary_operator             go to state 56
+    cast_expr                  go to state 57
+    multiplicative_expr        go to state 58
+    additive_expr              go to state 59
+    shift_expr                 go to state 60
+    relational_expr            go to state 61
+    equality_expr              go to state 62
+    AND_expr                   go to state 63
+    exclusive_OR_expr          go to state 64
+    inclusive_OR_expr          go to state 65
+    logical_AND_expr           go to state 66
+    logical_OR_expr            go to state 67
+    conditional_expr           go to state 68
+    assignment_expr            go to state 69
+    expression                 go to state 113
+    type_specifier             go to state 114
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    spec_qual_list             go to state 115
+    specifier_qualifier_list   go to state 116
+    enum_specifier             go to state 78
+    type_qualifier             go to state 117
+    type_name                  go to state 118
+    typedef_name               go to state 84
+
+
+state 36
+
+   31 unary_operator: ADD .
+
+    $default  reduce using rule 31 (unary_operator)
+
+
+state 37
+
+   32 unary_operator: MINUS .
+
+    $default  reduce using rule 32 (unary_operator)
+
+
+state 38
+
+   30 unary_operator: TIMES .
+  163 pointer: TIMES . type_qualifier_list_opt
+  164        | TIMES . type_qualifier_list_opt pointer
+
+    CONST     shift, and go to state 18
+    VOLATILE  shift, and go to state 19
+    RESTRICT  shift, and go to state 49
+
+    OPEN_RND    reduce using rule 30 (unary_operator)
+    OPEN_RND    [reduce using rule 147 (type_qualifier_list_opt)]
+    TIMES       reduce using rule 30 (unary_operator)
+    TIMES       [reduce using rule 147 (type_qualifier_list_opt)]
+    IDENTIFIER  reduce using rule 30 (unary_operator)
+    IDENTIFIER  [reduce using rule 147 (type_qualifier_list_opt)]
+    $default    reduce using rule 30 (unary_operator)
+
+    type_qualifier           go to state 119
+    type_qualifier_list_opt  go to state 120
+    type_qualifier_list      go to state 121
+
+
+state 39
+
+   29 unary_operator: AND .
+
+    $default  reduce using rule 29 (unary_operator)
+
+
+state 40
+
+   33 unary_operator: BITNEGATE .
+
+    $default  reduce using rule 33 (unary_operator)
+
+
+state 41
+
+   34 unary_operator: NOT .
+
+    $default  reduce using rule 34 (unary_operator)
+
+
+state 42
+
+   24 unary_expr: PLUSPLUS . unary_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 122
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr    go to state 52
+    string_seq      go to state 53
+    postfix_expr    go to state 54
+    unary_expr      go to state 123
+    unary_operator  go to state 56
+
+
+state 43
+
+   25 unary_expr: MINUSMINUS . unary_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 122
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr    go to state 52
+    string_seq      go to state 53
+    postfix_expr    go to state 54
+    unary_expr      go to state 124
+    unary_operator  go to state 56
+
+
+state 44
+
+  206 statement: OPEN_CURL .
+
+    $default  reduce using rule 206 (statement)
+
+
+state 45
+
+    5 primary_expr: CONSTANT .
+
+    $default  reduce using rule 5 (primary_expr)
+
+
+state 46
+
+    4 primary_expr: IDENTIFIER .
+  189 typedef_name: IDENTIFIER .
+  208 labeled_statement: IDENTIFIER . COLON statement
+
+    COLON  shift, and go to state 125
+
+    _BOOL       reduce using rule 189 (typedef_name)
+    _COMPLEX    reduce using rule 189 (typedef_name)
+    _IMAGINARY  reduce using rule 189 (typedef_name)
+    AUTO        reduce using rule 189 (typedef_name)
+    STATIC      reduce using rule 189 (typedef_name)
+    EXTERN      reduce using rule 189 (typedef_name)
+    REGISTER    reduce using rule 189 (typedef_name)
+    TYPEDEF     reduce using rule 189 (typedef_name)
+    CHAR        reduce using rule 189 (typedef_name)
+    FLOAT       reduce using rule 189 (typedef_name)
+    DOUBLE      reduce using rule 189 (typedef_name)
+    INT         reduce using rule 189 (typedef_name)
+    SHORT       reduce using rule 189 (typedef_name)
+    LONG        reduce using rule 189 (typedef_name)
+    UNSIGNED    reduce using rule 189 (typedef_name)
+    SIGNED      reduce using rule 189 (typedef_name)
+    VOID        reduce using rule 189 (typedef_name)
+    CONST       reduce using rule 189 (typedef_name)
+    VOLATILE    reduce using rule 189 (typedef_name)
+    STRUCT      reduce using rule 189 (typedef_name)
+    UNION       reduce using rule 189 (typedef_name)
+    ENUM        reduce using rule 189 (typedef_name)
+    OPEN_RND    reduce using rule 4 (primary_expr)
+    OPEN_RND    [reduce using rule 189 (typedef_name)]
+    TIMES       reduce using rule 4 (primary_expr)
+    TIMES       [reduce using rule 189 (typedef_name)]
+    SEMICOLON   reduce using rule 4 (primary_expr)
+    SEMICOLON   [reduce using rule 189 (typedef_name)]
+    IDENTIFIER  reduce using rule 189 (typedef_name)
+    INLINE      reduce using rule 189 (typedef_name)
+    RESTRICT    reduce using rule 189 (typedef_name)
+    $default    reduce using rule 4 (primary_expr)
+
+
+state 47
+
+    8 string_seq: STRING_LITERAL .
+
+    $default  reduce using rule 8 (string_seq)
+
+
+state 48
+
+  142 function_specifier: INLINE .
+
+    $default  reduce using rule 142 (function_specifier)
+
+
+state 49
+
+  140 type_qualifier: RESTRICT .
+
+    $default  reduce using rule 140 (type_qualifier)
+
+
+state 50
+
+    0 $accept: TU . $end
+
+    $end  shift, and go to state 126
+
+
+state 51
+
+    1 TU: translation_unit .
+
+    $default  reduce using rule 1 (TU)
+
+
+state 52
+
+   12 postfix_expr: primary_expr .
+
+    $default  reduce using rule 12 (postfix_expr)
+
+
+state 53
+
+    6 primary_expr: string_seq .
+    9 string_seq: string_seq . STRING_LITERAL
+
+    STRING_LITERAL  shift, and go to state 127
+
+    $default  reduce using rule 6 (primary_expr)
+
+
+state 54
+
+   13 postfix_expr: postfix_expr . OPEN_SQUARE expression CLOSE_SQUARE
+   14             | postfix_expr . OPEN_RND argument_expr_list_opt CLOSE_RND
+   15             | postfix_expr . DOT IDENTIFIER
+   16             | postfix_expr . DEREF IDENTIFIER
+   17             | postfix_expr . PLUSPLUS
+   18             | postfix_expr . MINUSMINUS
+   23 unary_expr: postfix_expr .
+
+    OPEN_RND     shift, and go to state 128
+    DOT          shift, and go to state 129
+    DEREF        shift, and go to state 130
+    PLUSPLUS     shift, and go to state 131
+    MINUSMINUS   shift, and go to state 132
+    OPEN_SQUARE  shift, and go to state 133
+
+    $default  reduce using rule 23 (unary_expr)
+
+
+state 55
+
+   35 cast_expr: unary_expr .
+   68 assignment_expr: unary_expr . assignment_operator assignment_expr
+
+    ASSIGN       shift, and go to state 134
+    PLUSASSIGN   shift, and go to state 135
+    MINUSASSIGN  shift, and go to state 136
+    TIMESASSIGN  shift, and go to state 137
+    LSASSIGN     shift, and go to state 138
+    RSASSIGN     shift, and go to state 139
+    ANDASSIGN    shift, and go to state 140
+    DIVASSIGN    shift, and go to state 141
+    REMASSIGN    shift, and go to state 142
+    ORASSIGN     shift, and go to state 143
+    XORASSIGN    shift, and go to state 144
+
+    $default  reduce using rule 35 (cast_expr)
+
+    assignment_operator  go to state 145
+
+
+state 56
+
+   26 unary_expr: unary_operator . cast_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr    go to state 52
+    string_seq      go to state 53
+    postfix_expr    go to state 54
+    unary_expr      go to state 102
+    unary_operator  go to state 56
+    cast_expr       go to state 146
+
+
+state 57
+
+   37 multiplicative_expr: cast_expr .
+
+    $default  reduce using rule 37 (multiplicative_expr)
+
+
+state 58
+
+   38 multiplicative_expr: multiplicative_expr . TIMES cast_expr
+   39                    | multiplicative_expr . DIVIDE cast_expr
+   40                    | multiplicative_expr . REMAINDER cast_expr
+   41 additive_expr: multiplicative_expr .
+
+    TIMES      shift, and go to state 147
+    REMAINDER  shift, and go to state 148
+    DIVIDE     shift, and go to state 149
+
+    $default  reduce using rule 41 (additive_expr)
+
+
+state 59
+
+   42 additive_expr: additive_expr . ADD multiplicative_expr
+   43              | additive_expr . MINUS multiplicative_expr
+   44 shift_expr: additive_expr .
+
+    ADD    shift, and go to state 150
+    MINUS  shift, and go to state 151
+
+    $default  reduce using rule 44 (shift_expr)
+
+
+state 60
+
+   45 shift_expr: shift_expr . LEFTSHIFT additive_expr
+   46           | shift_expr . RIGHTSHIFT additive_expr
+   47 relational_expr: shift_expr .
+
+    LEFTSHIFT   shift, and go to state 152
+    RIGHTSHIFT  shift, and go to state 153
+
+    $default  reduce using rule 47 (relational_expr)
+
+
+state 61
+
+   48 relational_expr: relational_expr . LT shift_expr
+   49                | relational_expr . GT shift_expr
+   50                | relational_expr . LE shift_expr
+   51                | relational_expr . GE shift_expr
+   52 equality_expr: relational_expr .
+
+    LT  shift, and go to state 154
+    LE  shift, and go to state 155
+    GE  shift, and go to state 156
+    GT  shift, and go to state 157
+
+    $default  reduce using rule 52 (equality_expr)
+
+
+state 62
+
+   53 equality_expr: equality_expr . EQUAL relational_expr
+   54              | equality_expr . NOTEQUAL relational_expr
+   55 AND_expr: equality_expr .
+
+    EQUAL     shift, and go to state 158
+    NOTEQUAL  shift, and go to state 159
+
+    $default  reduce using rule 55 (AND_expr)
+
+
+state 63
+
+   56 AND_expr: AND_expr . AND equality_expr
+   57 exclusive_OR_expr: AND_expr .
+
+    AND  shift, and go to state 160
+
+    $default  reduce using rule 57 (exclusive_OR_expr)
+
+
+state 64
+
+   58 exclusive_OR_expr: exclusive_OR_expr . XOR AND_expr
+   59 inclusive_OR_expr: exclusive_OR_expr .
+
+    XOR  shift, and go to state 161
+
+    $default  reduce using rule 59 (inclusive_OR_expr)
+
+
+state 65
+
+   60 inclusive_OR_expr: inclusive_OR_expr . OR exclusive_OR_expr
+   61 logical_AND_expr: inclusive_OR_expr .
+
+    OR  shift, and go to state 162
+
+    $default  reduce using rule 61 (logical_AND_expr)
+
+
+state 66
+
+   62 logical_AND_expr: logical_AND_expr . ANDTEST inclusive_OR_expr
+   63 logical_OR_expr: logical_AND_expr .
+
+    ANDTEST  shift, and go to state 163
+
+    $default  reduce using rule 63 (logical_OR_expr)
+
+
+state 67
+
+   64 logical_OR_expr: logical_OR_expr . ORTEST logical_AND_expr
+   65 conditional_expr: logical_OR_expr .
+   66                 | logical_OR_expr . QUESTION expression COLON conditional_expr
+
+    ORTEST    shift, and go to state 164
+    QUESTION  shift, and go to state 165
+
+    $default  reduce using rule 65 (conditional_expr)
+
+
+state 68
+
+   67 assignment_expr: conditional_expr .
+
+    $default  reduce using rule 67 (assignment_expr)
+
+
+state 69
+
+   80 expression: assignment_expr .
+
+    $default  reduce using rule 80 (expression)
+
+
+state 70
+
+   81 expression: expression . COMMA assignment_expr
+  215 expr_opt: expression .
+
+    COMMA  shift, and go to state 166
+
+    $default  reduce using rule 215 (expr_opt)
+
+
+state 71
+
+  225 external_declaration: declaration .
+
+    $default  reduce using rule 225 (external_declaration)
+
+
+state 72
+
+   89 declaration_specifiers: decl_specifier .
+
+    $default  reduce using rule 89 (declaration_specifiers)
+
+
+state 73
+
+   83 declaration: declaration_specifiers . SEMICOLON
+   84            | declaration_specifiers . init_declarator_list SEMICOLON
+   90 declaration_specifiers: declaration_specifiers . decl_specifier
+  228 function_header: declaration_specifiers . fndef_declarator declaration_list_opt OPEN_CURL
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    AUTO        shift, and go to state 4
+    STATIC      shift, and go to state 5
+    EXTERN      shift, and go to state 6
+    REGISTER    shift, and go to state 7
+    TYPEDEF     shift, and go to state 8
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    TIMES       shift, and go to state 167
+    SEMICOLON   shift, and go to state 168
+    IDENTIFIER  shift, and go to state 169
+    INLINE      shift, and go to state 48
+    RESTRICT    shift, and go to state 49
+
+    IDENTIFIER  [reduce using rule 143 (pointer_opt)]
+    $default    reduce using rule 143 (pointer_opt)
+
+    decl_specifier             go to state 170
+    init_declarator_list       go to state 171
+    init_declarator            go to state 172
+    storage_class_specifier    go to state 74
+    type_specifier             go to state 75
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    enum_specifier             go to state 78
+    type_qualifier             go to state 79
+    function_specifier         go to state 80
+    pointer_opt                go to state 173
+    declarator                 go to state 174
+    fndef_declarator           go to state 175
+    pointer                    go to state 83
+    typedef_name               go to state 84
+
+
+state 74
+
+   85 decl_specifier: storage_class_specifier .
+
+    $default  reduce using rule 85 (decl_specifier)
+
+
+state 75
+
+   86 decl_specifier: type_specifier .
+
+    $default  reduce using rule 86 (decl_specifier)
+
+
+state 76
+
+  112 type_specifier: struct_or_union_specifier .
+
+    $default  reduce using rule 112 (type_specifier)
+
+
+state 77
+
+  117 struct_or_union_specifier: struct_or_union . identifier_opt OPEN_CURL struct_declaration_list CLOSE_CURL
+  118                          | struct_or_union . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 176
+
+    $default  reduce using rule 115 (identifier_opt)
+
+    identifier_opt  go to state 177
+
+
+state 78
+
+  113 type_specifier: enum_specifier .
+
+    $default  reduce using rule 113 (type_specifier)
+
+
+state 79
+
+   87 decl_specifier: type_qualifier .
+
+    $default  reduce using rule 87 (decl_specifier)
+
+
+state 80
+
+   88 decl_specifier: function_specifier .
+
+    $default  reduce using rule 88 (decl_specifier)
+
+
+state 81
+
+  146 fndef_declarator: pointer_opt . fndef_direct_declarator
+
+    OPEN_RND    shift, and go to state 178
+    IDENTIFIER  shift, and go to state 179
+
+    direct_declarator        go to state 180
+    fndef_direct_declarator  go to state 181
+
+
+state 82
+
+  229 function_header: fndef_declarator . declaration_list_opt OPEN_CURL
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    AUTO        shift, and go to state 4
+    STATIC      shift, and go to state 5
+    EXTERN      shift, and go to state 6
+    REGISTER    shift, and go to state 7
+    TYPEDEF     shift, and go to state 8
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    IDENTIFIER  shift, and go to state 169
+    INLINE      shift, and go to state 48
+    RESTRICT    shift, and go to state 49
+
+    $default  reduce using rule 226 (declaration_list_opt)
+
+    declaration                go to state 182
+    decl_specifier             go to state 72
+    declaration_specifiers     go to state 183
+    storage_class_specifier    go to state 74
+    type_specifier             go to state 75
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    enum_specifier             go to state 78
+    type_qualifier             go to state 79
+    function_specifier         go to state 80
+    typedef_name               go to state 84
+    declaration_list_opt       go to state 184
+    declaration_list           go to state 185
+
+
+state 83
+
+  144 pointer_opt: pointer .
+
+    $default  reduce using rule 144 (pointer_opt)
+
+
+state 84
+
+  114 type_specifier: typedef_name .
+
+    $default  reduce using rule 114 (type_specifier)
+
+
+state 85
+
+    3 translation_unit: statement .
+
+    $default  reduce using rule 3 (translation_unit)
+
+
+state 86
+
+  202 statement: labeled_statement .
+
+    $default  reduce using rule 202 (statement)
+
+
+state 87
+
+  203 statement: expression_statement .
+
+    $default  reduce using rule 203 (statement)
+
+
+state 88
+
+  204 statement: selection_header .
+
+    $default  reduce using rule 204 (statement)
+
+
+state 89
+
+  211 expression_statement: expr_opt . SEMICOLON
+
+    SEMICOLON  shift, and go to state 186
+
+
+state 90
+
+  205 statement: iteration_header .
+
+    $default  reduce using rule 205 (statement)
+
+
+state 91
+
+  207 statement: jump_statement .
+
+    $default  reduce using rule 207 (statement)
+
+
+state 92
+
+    2 translation_unit: external_declaration .
+
+    $default  reduce using rule 2 (translation_unit)
+
+
+state 93
+
+  224 external_declaration: function_header .
+
+    $default  reduce using rule 224 (external_declaration)
+
+
+state 94
+
+  116 identifier_opt: IDENTIFIER .
+  134 enum_specifier: ENUM IDENTIFIER .
+
+    OPEN_CURL  reduce using rule 116 (identifier_opt)
+    $default   reduce using rule 134 (enum_specifier)
+
+
+state 95
+
+  132 enum_specifier: ENUM identifier_opt . OPEN_CURL enumerator_list CLOSE_CURL
+  133               | ENUM identifier_opt . OPEN_CURL enumerator_list COMMA CLOSE_CURL
+
+    OPEN_CURL  shift, and go to state 187
+
+
+state 96
+
+  212 selection_header: IF OPEN_RND . expression CLOSE_RND
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 69
+    expression           go to state 188
+
+
+state 97
+
+  216 iteration_header: WHILE OPEN_RND . expression CLOSE_RND
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 69
+    expression           go to state 189
+
+
+state 98
+
+  218 iteration_header: FOR OPEN_RND . expr_opt SEMICOLON expr_opt SEMICOLON expr_opt CLOSE_RND
+  219                 | FOR OPEN_RND . declaration expr_opt SEMICOLON expr_opt CLOSE_RND
+
+    _BOOL           shift, and go to state 1
+    _COMPLEX        shift, and go to state 2
+    _IMAGINARY      shift, and go to state 3
+    AUTO            shift, and go to state 4
+    STATIC          shift, and go to state 5
+    EXTERN          shift, and go to state 6
+    REGISTER        shift, and go to state 7
+    TYPEDEF         shift, and go to state 8
+    CHAR            shift, and go to state 9
+    FLOAT           shift, and go to state 10
+    DOUBLE          shift, and go to state 11
+    INT             shift, and go to state 12
+    SHORT           shift, and go to state 13
+    LONG            shift, and go to state 14
+    UNSIGNED        shift, and go to state 15
+    SIGNED          shift, and go to state 16
+    VOID            shift, and go to state 17
+    CONST           shift, and go to state 18
+    VOLATILE        shift, and go to state 19
+    STRUCT          shift, and go to state 20
+    UNION           shift, and go to state 21
+    ENUM            shift, and go to state 22
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 112
+    STRING_LITERAL  shift, and go to state 47
+    INLINE          shift, and go to state 48
+    RESTRICT        shift, and go to state 49
+
+    $default  reduce using rule 214 (expr_opt)
+
+    primary_expr               go to state 52
+    string_seq                 go to state 53
+    postfix_expr               go to state 54
+    unary_expr                 go to state 55
+    unary_operator             go to state 56
+    cast_expr                  go to state 57
+    multiplicative_expr        go to state 58
+    additive_expr              go to state 59
+    shift_expr                 go to state 60
+    relational_expr            go to state 61
+    equality_expr              go to state 62
+    AND_expr                   go to state 63
+    exclusive_OR_expr          go to state 64
+    inclusive_OR_expr          go to state 65
+    logical_AND_expr           go to state 66
+    logical_OR_expr            go to state 67
+    conditional_expr           go to state 68
+    assignment_expr            go to state 69
+    expression                 go to state 70
+    declaration                go to state 190
+    decl_specifier             go to state 72
+    declaration_specifiers     go to state 183
+    storage_class_specifier    go to state 74
+    type_specifier             go to state 75
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    enum_specifier             go to state 78
+    type_qualifier             go to state 79
+    function_specifier         go to state 80
+    typedef_name               go to state 84
+    expr_opt                   go to state 191
+
+
+state 99
+
+  213 selection_header: SWITCH OPEN_RND . expression CLOSE_RND
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 69
+    expression           go to state 192
+
+
+state 100
+
+   30 unary_operator: TIMES .
+
+    $default  reduce using rule 30 (unary_operator)
+
+
+state 101
+
+    4 primary_expr: IDENTIFIER .
+
+    $default  reduce using rule 4 (primary_expr)
+
+
+state 102
+
+   35 cast_expr: unary_expr .
+
+    $default  reduce using rule 35 (cast_expr)
+
+
+state 103
+
+   82 constant_expr: conditional_expr .
+
+    $default  reduce using rule 82 (constant_expr)
+
+
+state 104
+
+  209 labeled_statement: CASE constant_expr . COLON statement
+
+    COLON  shift, and go to state 193
+
+
+state 105
+
+  210 labeled_statement: DEFAULT COLON . statement
+
+    IF              shift, and go to state 23
+    WHILE           shift, and go to state 24
+    FOR             shift, and go to state 25
+    DO              shift, and go to state 26
+    SWITCH          shift, and go to state 27
+    CASE            shift, and go to state 28
+    DEFAULT         shift, and go to state 29
+    BREAK           shift, and go to state 30
+    CONTINUE        shift, and go to state 31
+    RETURN          shift, and go to state 32
+    GOTO            shift, and go to state 33
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    OPEN_CURL       shift, and go to state 44
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 194
+    STRING_LITERAL  shift, and go to state 47
+
+    $default  reduce using rule 214 (expr_opt)
+
+    primary_expr          go to state 52
+    string_seq            go to state 53
+    postfix_expr          go to state 54
+    unary_expr            go to state 55
+    unary_operator        go to state 56
+    cast_expr             go to state 57
+    multiplicative_expr   go to state 58
+    additive_expr         go to state 59
+    shift_expr            go to state 60
+    relational_expr       go to state 61
+    equality_expr         go to state 62
+    AND_expr              go to state 63
+    exclusive_OR_expr     go to state 64
+    inclusive_OR_expr     go to state 65
+    logical_AND_expr      go to state 66
+    logical_OR_expr       go to state 67
+    conditional_expr      go to state 68
+    assignment_expr       go to state 69
+    expression            go to state 70
+    statement             go to state 195
+    labeled_statement     go to state 86
+    expression_statement  go to state 87
+    selection_header      go to state 88
+    expr_opt              go to state 89
+    iteration_header      go to state 90
+    jump_statement        go to state 91
+
+
+state 106
+
+  222 jump_statement: BREAK SEMICOLON .
+
+    $default  reduce using rule 222 (jump_statement)
+
+
+state 107
+
+  221 jump_statement: CONTINUE SEMICOLON .
+
+    $default  reduce using rule 221 (jump_statement)
+
+
+state 108
+
+  223 jump_statement: RETURN expr_opt . SEMICOLON
+
+    SEMICOLON  shift, and go to state 196
+
+
+state 109
+
+  220 jump_statement: GOTO IDENTIFIER . SEMICOLON
+
+    SEMICOLON  shift, and go to state 197
+
+
+state 110
+
+    7 primary_expr: OPEN_RND . expression CLOSE_RND
+   19 postfix_expr: OPEN_RND . type_name CLOSE_RND OPEN_CURL initializer_list CLOSE_CURL
+   20             | OPEN_RND . type_name CLOSE_RND OPEN_CURL initializer_list COMMA CLOSE_CURL
+   28 unary_expr: SIZEOF OPEN_RND . type_name CLOSE_RND
+
+    _BOOL           shift, and go to state 1
+    _COMPLEX        shift, and go to state 2
+    _IMAGINARY      shift, and go to state 3
+    CHAR            shift, and go to state 9
+    FLOAT           shift, and go to state 10
+    DOUBLE          shift, and go to state 11
+    INT             shift, and go to state 12
+    SHORT           shift, and go to state 13
+    LONG            shift, and go to state 14
+    UNSIGNED        shift, and go to state 15
+    SIGNED          shift, and go to state 16
+    VOID            shift, and go to state 17
+    CONST           shift, and go to state 18
+    VOLATILE        shift, and go to state 19
+    STRUCT          shift, and go to state 20
+    UNION           shift, and go to state 21
+    ENUM            shift, and go to state 22
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 112
+    STRING_LITERAL  shift, and go to state 47
+    RESTRICT        shift, and go to state 49
+
+    primary_expr               go to state 52
+    string_seq                 go to state 53
+    postfix_expr               go to state 54
+    unary_expr                 go to state 55
+    unary_operator             go to state 56
+    cast_expr                  go to state 57
+    multiplicative_expr        go to state 58
+    additive_expr              go to state 59
+    shift_expr                 go to state 60
+    relational_expr            go to state 61
+    equality_expr              go to state 62
+    AND_expr                   go to state 63
+    exclusive_OR_expr          go to state 64
+    inclusive_OR_expr          go to state 65
+    logical_AND_expr           go to state 66
+    logical_OR_expr            go to state 67
+    conditional_expr           go to state 68
+    assignment_expr            go to state 69
+    expression                 go to state 113
+    type_specifier             go to state 114
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    spec_qual_list             go to state 115
+    specifier_qualifier_list   go to state 116
+    enum_specifier             go to state 78
+    type_qualifier             go to state 117
+    type_name                  go to state 198
+    typedef_name               go to state 84
+
+
+state 111
+
+   27 unary_expr: SIZEOF unary_expr .
+
+    $default  reduce using rule 27 (unary_expr)
+
+
+state 112
+
+    4 primary_expr: IDENTIFIER .
+  189 typedef_name: IDENTIFIER .
+
+    _BOOL        reduce using rule 189 (typedef_name)
+    _COMPLEX     reduce using rule 189 (typedef_name)
+    _IMAGINARY   reduce using rule 189 (typedef_name)
+    AUTO         reduce using rule 189 (typedef_name)
+    STATIC       reduce using rule 189 (typedef_name)
+    EXTERN       reduce using rule 189 (typedef_name)
+    REGISTER     reduce using rule 189 (typedef_name)
+    TYPEDEF      reduce using rule 189 (typedef_name)
+    CHAR         reduce using rule 189 (typedef_name)
+    FLOAT        reduce using rule 189 (typedef_name)
+    DOUBLE       reduce using rule 189 (typedef_name)
+    INT          reduce using rule 189 (typedef_name)
+    SHORT        reduce using rule 189 (typedef_name)
+    LONG         reduce using rule 189 (typedef_name)
+    UNSIGNED     reduce using rule 189 (typedef_name)
+    SIGNED       reduce using rule 189 (typedef_name)
+    VOID         reduce using rule 189 (typedef_name)
+    CONST        reduce using rule 189 (typedef_name)
+    VOLATILE     reduce using rule 189 (typedef_name)
+    STRUCT       reduce using rule 189 (typedef_name)
+    UNION        reduce using rule 189 (typedef_name)
+    ENUM         reduce using rule 189 (typedef_name)
+    OPEN_RND     reduce using rule 4 (primary_expr)
+    OPEN_RND     [reduce using rule 189 (typedef_name)]
+    CLOSE_RND    reduce using rule 4 (primary_expr)
+    CLOSE_RND    [reduce using rule 189 (typedef_name)]
+    TIMES        reduce using rule 4 (primary_expr)
+    TIMES        [reduce using rule 189 (typedef_name)]
+    SEMICOLON    reduce using rule 4 (primary_expr)
+    SEMICOLON    [reduce using rule 189 (typedef_name)]
+    OPEN_SQUARE  reduce using rule 4 (primary_expr)
+    OPEN_SQUARE  [reduce using rule 189 (typedef_name)]
+    IDENTIFIER   reduce using rule 189 (typedef_name)
+    INLINE       reduce using rule 189 (typedef_name)
+    RESTRICT     reduce using rule 189 (typedef_name)
+    $default     reduce using rule 4 (primary_expr)
+
+
+state 113
+
+    7 primary_expr: OPEN_RND expression . CLOSE_RND
+   81 expression: expression . COMMA assignment_expr
+
+    CLOSE_RND  shift, and go to state 199
+    COMMA      shift, and go to state 166
+
+
+state 114
+
+  124 spec_qual_list: type_specifier .
+
+    $default  reduce using rule 124 (spec_qual_list)
+
+
+state 115
+
+  126 specifier_qualifier_list: spec_qual_list .
+
+    $default  reduce using rule 126 (specifier_qualifier_list)
+
+
+state 116
+
+  127 specifier_qualifier_list: specifier_qualifier_list . spec_qual_list
+  178 type_name: specifier_qualifier_list . abstract_declarator_opt
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    TIMES       shift, and go to state 167
+    IDENTIFIER  shift, and go to state 169
+    RESTRICT    shift, and go to state 49
+
+    CLOSE_RND  reduce using rule 171 (abstract_declarator_opt)
+    $default   reduce using rule 143 (pointer_opt)
+
+    type_specifier             go to state 114
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    spec_qual_list             go to state 200
+    enum_specifier             go to state 78
+    type_qualifier             go to state 117
+    pointer_opt                go to state 201
+    pointer                    go to state 202
+    abstract_declarator_opt    go to state 203
+    abstract_declarator        go to state 204
+    typedef_name               go to state 84
+
+
+state 117
+
+  125 spec_qual_list: type_qualifier .
+
+    $default  reduce using rule 125 (spec_qual_list)
+
+
+state 118
+
+   19 postfix_expr: OPEN_RND type_name . CLOSE_RND OPEN_CURL initializer_list CLOSE_CURL
+   20             | OPEN_RND type_name . CLOSE_RND OPEN_CURL initializer_list COMMA CLOSE_CURL
+   36 cast_expr: OPEN_RND type_name . CLOSE_RND cast_expr
+
+    CLOSE_RND  shift, and go to state 205
+
+
+state 119
+
+  165 type_qualifier_list: type_qualifier .
+
+    $default  reduce using rule 165 (type_qualifier_list)
+
+
+state 120
+
+  163 pointer: TIMES type_qualifier_list_opt .
+  164        | TIMES type_qualifier_list_opt . pointer
+
+    TIMES  shift, and go to state 167
+
+    $default  reduce using rule 163 (pointer)
+
+    pointer  go to state 206
+
+
+state 121
+
+  148 type_qualifier_list_opt: type_qualifier_list .
+  166 type_qualifier_list: type_qualifier_list . type_qualifier
+
+    CONST     shift, and go to state 18
+    VOLATILE  shift, and go to state 19
+    RESTRICT  shift, and go to state 49
+
+    $default  reduce using rule 148 (type_qualifier_list_opt)
+
+    type_qualifier  go to state 207
+
+
+state 122
+
+    7 primary_expr: OPEN_RND . expression CLOSE_RND
+   19 postfix_expr: OPEN_RND . type_name CLOSE_RND OPEN_CURL initializer_list CLOSE_CURL
+   20             | OPEN_RND . type_name CLOSE_RND OPEN_CURL initializer_list COMMA CLOSE_CURL
+
+    _BOOL           shift, and go to state 1
+    _COMPLEX        shift, and go to state 2
+    _IMAGINARY      shift, and go to state 3
+    CHAR            shift, and go to state 9
+    FLOAT           shift, and go to state 10
+    DOUBLE          shift, and go to state 11
+    INT             shift, and go to state 12
+    SHORT           shift, and go to state 13
+    LONG            shift, and go to state 14
+    UNSIGNED        shift, and go to state 15
+    SIGNED          shift, and go to state 16
+    VOID            shift, and go to state 17
+    CONST           shift, and go to state 18
+    VOLATILE        shift, and go to state 19
+    STRUCT          shift, and go to state 20
+    UNION           shift, and go to state 21
+    ENUM            shift, and go to state 22
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 112
+    STRING_LITERAL  shift, and go to state 47
+    RESTRICT        shift, and go to state 49
+
+    primary_expr               go to state 52
+    string_seq                 go to state 53
+    postfix_expr               go to state 54
+    unary_expr                 go to state 55
+    unary_operator             go to state 56
+    cast_expr                  go to state 57
+    multiplicative_expr        go to state 58
+    additive_expr              go to state 59
+    shift_expr                 go to state 60
+    relational_expr            go to state 61
+    equality_expr              go to state 62
+    AND_expr                   go to state 63
+    exclusive_OR_expr          go to state 64
+    inclusive_OR_expr          go to state 65
+    logical_AND_expr           go to state 66
+    logical_OR_expr            go to state 67
+    conditional_expr           go to state 68
+    assignment_expr            go to state 69
+    expression                 go to state 113
+    type_specifier             go to state 114
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    spec_qual_list             go to state 115
+    specifier_qualifier_list   go to state 116
+    enum_specifier             go to state 78
+    type_qualifier             go to state 117
+    type_name                  go to state 208
+    typedef_name               go to state 84
+
+
+state 123
+
+   24 unary_expr: PLUSPLUS unary_expr .
+
+    $default  reduce using rule 24 (unary_expr)
+
+
+state 124
+
+   25 unary_expr: MINUSMINUS unary_expr .
+
+    $default  reduce using rule 25 (unary_expr)
+
+
+state 125
+
+  208 labeled_statement: IDENTIFIER COLON . statement
+
+    IF              shift, and go to state 23
+    WHILE           shift, and go to state 24
+    FOR             shift, and go to state 25
+    DO              shift, and go to state 26
+    SWITCH          shift, and go to state 27
+    CASE            shift, and go to state 28
+    DEFAULT         shift, and go to state 29
+    BREAK           shift, and go to state 30
+    CONTINUE        shift, and go to state 31
+    RETURN          shift, and go to state 32
+    GOTO            shift, and go to state 33
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    OPEN_CURL       shift, and go to state 44
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 194
+    STRING_LITERAL  shift, and go to state 47
+
+    $default  reduce using rule 214 (expr_opt)
+
+    primary_expr          go to state 52
+    string_seq            go to state 53
+    postfix_expr          go to state 54
+    unary_expr            go to state 55
+    unary_operator        go to state 56
+    cast_expr             go to state 57
+    multiplicative_expr   go to state 58
+    additive_expr         go to state 59
+    shift_expr            go to state 60
+    relational_expr       go to state 61
+    equality_expr         go to state 62
+    AND_expr              go to state 63
+    exclusive_OR_expr     go to state 64
+    inclusive_OR_expr     go to state 65
+    logical_AND_expr      go to state 66
+    logical_OR_expr       go to state 67
+    conditional_expr      go to state 68
+    assignment_expr       go to state 69
+    expression            go to state 70
+    statement             go to state 209
+    labeled_statement     go to state 86
+    expression_statement  go to state 87
+    selection_header      go to state 88
+    expr_opt              go to state 89
+    iteration_header      go to state 90
+    jump_statement        go to state 91
+
+
+state 126
+
+    0 $accept: TU $end .
+
+    $default  accept
+
+
+state 127
+
+    9 string_seq: string_seq STRING_LITERAL .
+
+    $default  reduce using rule 9 (string_seq)
+
+
+state 128
+
+   14 postfix_expr: postfix_expr OPEN_RND . argument_expr_list_opt CLOSE_RND
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    $default  reduce using rule 10 (argument_expr_list_opt)
+
+    primary_expr            go to state 52
+    string_seq              go to state 53
+    argument_expr_list_opt  go to state 210
+    postfix_expr            go to state 54
+    argument_expr_list      go to state 211
+    unary_expr              go to state 55
+    unary_operator          go to state 56
+    cast_expr               go to state 57
+    multiplicative_expr     go to state 58
+    additive_expr           go to state 59
+    shift_expr              go to state 60
+    relational_expr         go to state 61
+    equality_expr           go to state 62
+    AND_expr                go to state 63
+    exclusive_OR_expr       go to state 64
+    inclusive_OR_expr       go to state 65
+    logical_AND_expr        go to state 66
+    logical_OR_expr         go to state 67
+    conditional_expr        go to state 68
+    assignment_expr         go to state 212
+
+
+state 129
+
+   15 postfix_expr: postfix_expr DOT . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 213
+
+
+state 130
+
+   16 postfix_expr: postfix_expr DEREF . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 214
+
+
+state 131
+
+   17 postfix_expr: postfix_expr PLUSPLUS .
+
+    $default  reduce using rule 17 (postfix_expr)
+
+
+state 132
+
+   18 postfix_expr: postfix_expr MINUSMINUS .
+
+    $default  reduce using rule 18 (postfix_expr)
+
+
+state 133
+
+   13 postfix_expr: postfix_expr OPEN_SQUARE . expression CLOSE_SQUARE
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 69
+    expression           go to state 215
+
+
+state 134
+
+   69 assignment_operator: ASSIGN .
+
+    $default  reduce using rule 69 (assignment_operator)
+
+
+state 135
+
+   73 assignment_operator: PLUSASSIGN .
+
+    $default  reduce using rule 73 (assignment_operator)
+
+
+state 136
+
+   74 assignment_operator: MINUSASSIGN .
+
+    $default  reduce using rule 74 (assignment_operator)
+
+
+state 137
+
+   70 assignment_operator: TIMESASSIGN .
+
+    $default  reduce using rule 70 (assignment_operator)
+
+
+state 138
+
+   75 assignment_operator: LSASSIGN .
+
+    $default  reduce using rule 75 (assignment_operator)
+
+
+state 139
+
+   76 assignment_operator: RSASSIGN .
+
+    $default  reduce using rule 76 (assignment_operator)
+
+
+state 140
+
+   77 assignment_operator: ANDASSIGN .
+
+    $default  reduce using rule 77 (assignment_operator)
+
+
+state 141
+
+   71 assignment_operator: DIVASSIGN .
+
+    $default  reduce using rule 71 (assignment_operator)
+
+
+state 142
+
+   72 assignment_operator: REMASSIGN .
+
+    $default  reduce using rule 72 (assignment_operator)
+
+
+state 143
+
+   78 assignment_operator: ORASSIGN .
+
+    $default  reduce using rule 78 (assignment_operator)
+
+
+state 144
+
+   79 assignment_operator: XORASSIGN .
+
+    $default  reduce using rule 79 (assignment_operator)
+
+
+state 145
+
+   68 assignment_expr: unary_expr assignment_operator . assignment_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 216
+
+
+state 146
+
+   26 unary_expr: unary_operator cast_expr .
+
+    $default  reduce using rule 26 (unary_expr)
+
+
+state 147
+
+   38 multiplicative_expr: multiplicative_expr TIMES . cast_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr    go to state 52
+    string_seq      go to state 53
+    postfix_expr    go to state 54
+    unary_expr      go to state 102
+    unary_operator  go to state 56
+    cast_expr       go to state 217
+
+
+state 148
+
+   40 multiplicative_expr: multiplicative_expr REMAINDER . cast_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr    go to state 52
+    string_seq      go to state 53
+    postfix_expr    go to state 54
+    unary_expr      go to state 102
+    unary_operator  go to state 56
+    cast_expr       go to state 218
+
+
+state 149
+
+   39 multiplicative_expr: multiplicative_expr DIVIDE . cast_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr    go to state 52
+    string_seq      go to state 53
+    postfix_expr    go to state 54
+    unary_expr      go to state 102
+    unary_operator  go to state 56
+    cast_expr       go to state 219
+
+
+state 150
+
+   42 additive_expr: additive_expr ADD . multiplicative_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 220
+
+
+state 151
+
+   43 additive_expr: additive_expr MINUS . multiplicative_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 221
+
+
+state 152
+
+   45 shift_expr: shift_expr LEFTSHIFT . additive_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 222
+
+
+state 153
+
+   46 shift_expr: shift_expr RIGHTSHIFT . additive_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 223
+
+
+state 154
+
+   48 relational_expr: relational_expr LT . shift_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 224
+
+
+state 155
+
+   50 relational_expr: relational_expr LE . shift_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 225
+
+
+state 156
+
+   51 relational_expr: relational_expr GE . shift_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 226
+
+
+state 157
+
+   49 relational_expr: relational_expr GT . shift_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 227
+
+
+state 158
+
+   53 equality_expr: equality_expr EQUAL . relational_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 228
+
+
+state 159
+
+   54 equality_expr: equality_expr NOTEQUAL . relational_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 229
+
+
+state 160
+
+   56 AND_expr: AND_expr AND . equality_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 230
+
+
+state 161
+
+   58 exclusive_OR_expr: exclusive_OR_expr XOR . AND_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 231
+
+
+state 162
+
+   60 inclusive_OR_expr: inclusive_OR_expr OR . exclusive_OR_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 232
+
+
+state 163
+
+   62 logical_AND_expr: logical_AND_expr ANDTEST . inclusive_OR_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 233
+
+
+state 164
+
+   64 logical_OR_expr: logical_OR_expr ORTEST . logical_AND_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 234
+
+
+state 165
+
+   66 conditional_expr: logical_OR_expr QUESTION . expression COLON conditional_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 69
+    expression           go to state 235
+
+
+state 166
+
+   81 expression: expression COMMA . assignment_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 236
+
+
+state 167
+
+  163 pointer: TIMES . type_qualifier_list_opt
+  164        | TIMES . type_qualifier_list_opt pointer
+
+    CONST     shift, and go to state 18
+    VOLATILE  shift, and go to state 19
+    RESTRICT  shift, and go to state 49
+
+    $default  reduce using rule 147 (type_qualifier_list_opt)
+
+    type_qualifier           go to state 119
+    type_qualifier_list_opt  go to state 120
+    type_qualifier_list      go to state 121
+
+
+state 168
+
+   83 declaration: declaration_specifiers SEMICOLON .
+
+    $default  reduce using rule 83 (declaration)
+
+
+state 169
+
+  189 typedef_name: IDENTIFIER .
+
+    $default  reduce using rule 189 (typedef_name)
+
+
+state 170
+
+   90 declaration_specifiers: declaration_specifiers decl_specifier .
+
+    $default  reduce using rule 90 (declaration_specifiers)
+
+
+state 171
+
+   84 declaration: declaration_specifiers init_declarator_list . SEMICOLON
+   92 init_declarator_list: init_declarator_list . COMMA init_declarator
+
+    COMMA      shift, and go to state 237
+    SEMICOLON  shift, and go to state 238
+
+
+state 172
+
+   91 init_declarator_list: init_declarator .
+
+    $default  reduce using rule 91 (init_declarator_list)
+
+
+state 173
+
+  145 declarator: pointer_opt . direct_declarator
+  146 fndef_declarator: pointer_opt . fndef_direct_declarator
+
+    OPEN_RND    shift, and go to state 178
+    IDENTIFIER  shift, and go to state 179
+
+    direct_declarator        go to state 239
+    fndef_direct_declarator  go to state 181
+
+
+state 174
+
+   93 init_declarator: declarator .
+   94                | declarator . ASSIGN initializer
+
+    ASSIGN  shift, and go to state 240
+
+    $default  reduce using rule 93 (init_declarator)
+
+
+state 175
+
+  228 function_header: declaration_specifiers fndef_declarator . declaration_list_opt OPEN_CURL
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    AUTO        shift, and go to state 4
+    STATIC      shift, and go to state 5
+    EXTERN      shift, and go to state 6
+    REGISTER    shift, and go to state 7
+    TYPEDEF     shift, and go to state 8
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    IDENTIFIER  shift, and go to state 169
+    INLINE      shift, and go to state 48
+    RESTRICT    shift, and go to state 49
+
+    $default  reduce using rule 226 (declaration_list_opt)
+
+    declaration                go to state 182
+    decl_specifier             go to state 72
+    declaration_specifiers     go to state 183
+    storage_class_specifier    go to state 74
+    type_specifier             go to state 75
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    enum_specifier             go to state 78
+    type_qualifier             go to state 79
+    function_specifier         go to state 80
+    typedef_name               go to state 84
+    declaration_list_opt       go to state 241
+    declaration_list           go to state 185
+
+
+state 176
+
+  116 identifier_opt: IDENTIFIER .
+  118 struct_or_union_specifier: struct_or_union IDENTIFIER .
+
+    OPEN_CURL  reduce using rule 116 (identifier_opt)
+    $default   reduce using rule 118 (struct_or_union_specifier)
+
+
+state 177
+
+  117 struct_or_union_specifier: struct_or_union identifier_opt . OPEN_CURL struct_declaration_list CLOSE_CURL
+
+    OPEN_CURL  shift, and go to state 242
+
+
+state 178
+
+  154 direct_declarator: OPEN_RND . declarator CLOSE_RND
+
+    TIMES  shift, and go to state 167
+
+    $default  reduce using rule 143 (pointer_opt)
+
+    pointer_opt  go to state 243
+    declarator   go to state 244
+    pointer      go to state 83
+
+
+state 179
+
+  153 direct_declarator: IDENTIFIER .
+
+    $default  reduce using rule 153 (direct_declarator)
+
+
+state 180
+
+  155 direct_declarator: direct_declarator . OPEN_SQUARE type_qualifier_list_opt assignment_expr_opt CLOSE_SQUARE
+  156                  | direct_declarator . OPEN_SQUARE STATIC type_qualifier_list_opt assignment_expr CLOSE_SQUARE
+  157                  | direct_declarator . OPEN_SQUARE type_qualifier_list STATIC assignment_expr CLOSE_SQUARE
+  158                  | direct_declarator . OPEN_SQUARE type_qualifier_list_opt TIMES CLOSE_SQUARE
+  160 fndef_direct_declarator: direct_declarator . OPEN_RND parameter_type_list CLOSE_RND
+  161                        | direct_declarator . OPEN_RND OPEN_RND parameter_type_list CLOSE_RND CLOSE_RND
+  162                        | direct_declarator . OPEN_RND identifier_list_opt CLOSE_RND
+
+    OPEN_RND     shift, and go to state 245
+    OPEN_SQUARE  shift, and go to state 246
+
+
+state 181
+
+  146 fndef_declarator: pointer_opt fndef_direct_declarator .
+  159 direct_declarator: fndef_direct_declarator .
+
+    OPEN_RND     reduce using rule 159 (direct_declarator)
+    COMMA        reduce using rule 159 (direct_declarator)
+    SEMICOLON    reduce using rule 159 (direct_declarator)
+    OPEN_SQUARE  reduce using rule 159 (direct_declarator)
+    ASSIGN       reduce using rule 159 (direct_declarator)
+    $default     reduce using rule 146 (fndef_declarator)
+
+
+state 182
+
+  230 declaration_list: declaration .
+
+    $default  reduce using rule 230 (declaration_list)
+
+
+state 183
+
+   83 declaration: declaration_specifiers . SEMICOLON
+   84            | declaration_specifiers . init_declarator_list SEMICOLON
+   90 declaration_specifiers: declaration_specifiers . decl_specifier
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    AUTO        shift, and go to state 4
+    STATIC      shift, and go to state 5
+    EXTERN      shift, and go to state 6
+    REGISTER    shift, and go to state 7
+    TYPEDEF     shift, and go to state 8
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    TIMES       shift, and go to state 167
+    SEMICOLON   shift, and go to state 168
+    IDENTIFIER  shift, and go to state 169
+    INLINE      shift, and go to state 48
+    RESTRICT    shift, and go to state 49
+
+    IDENTIFIER  [reduce using rule 143 (pointer_opt)]
+    $default    reduce using rule 143 (pointer_opt)
+
+    decl_specifier             go to state 170
+    init_declarator_list       go to state 171
+    init_declarator            go to state 172
+    storage_class_specifier    go to state 74
+    type_specifier             go to state 75
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    enum_specifier             go to state 78
+    type_qualifier             go to state 79
+    function_specifier         go to state 80
+    pointer_opt                go to state 243
+    declarator                 go to state 174
+    pointer                    go to state 83
+    typedef_name               go to state 84
+
+
+state 184
+
+  229 function_header: fndef_declarator declaration_list_opt . OPEN_CURL
+
+    OPEN_CURL  shift, and go to state 247
+
+
+state 185
+
+  227 declaration_list_opt: declaration_list .
+  231 declaration_list: declaration_list . declaration
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    AUTO        shift, and go to state 4
+    STATIC      shift, and go to state 5
+    EXTERN      shift, and go to state 6
+    REGISTER    shift, and go to state 7
+    TYPEDEF     shift, and go to state 8
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    IDENTIFIER  shift, and go to state 169
+    INLINE      shift, and go to state 48
+    RESTRICT    shift, and go to state 49
+
+    $default  reduce using rule 227 (declaration_list_opt)
+
+    declaration                go to state 248
+    decl_specifier             go to state 72
+    declaration_specifiers     go to state 183
+    storage_class_specifier    go to state 74
+    type_specifier             go to state 75
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    enum_specifier             go to state 78
+    type_qualifier             go to state 79
+    function_specifier         go to state 80
+    typedef_name               go to state 84
+
+
+state 186
+
+  211 expression_statement: expr_opt SEMICOLON .
+
+    $default  reduce using rule 211 (expression_statement)
+
+
+state 187
+
+  132 enum_specifier: ENUM identifier_opt OPEN_CURL . enumerator_list CLOSE_CURL
+  133               | ENUM identifier_opt OPEN_CURL . enumerator_list COMMA CLOSE_CURL
+
+    IDENTIFIER  shift, and go to state 249
+
+    enumerator_list  go to state 250
+    enumerator       go to state 251
+
+
+state 188
+
+   81 expression: expression . COMMA assignment_expr
+  212 selection_header: IF OPEN_RND expression . CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 252
+    COMMA      shift, and go to state 166
+
+
+state 189
+
+   81 expression: expression . COMMA assignment_expr
+  216 iteration_header: WHILE OPEN_RND expression . CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 253
+    COMMA      shift, and go to state 166
+
+
+state 190
+
+  219 iteration_header: FOR OPEN_RND declaration . expr_opt SEMICOLON expr_opt CLOSE_RND
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    $default  reduce using rule 214 (expr_opt)
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 69
+    expression           go to state 70
+    expr_opt             go to state 254
+
+
+state 191
+
+  218 iteration_header: FOR OPEN_RND expr_opt . SEMICOLON expr_opt SEMICOLON expr_opt CLOSE_RND
+
+    SEMICOLON  shift, and go to state 255
+
+
+state 192
+
+   81 expression: expression . COMMA assignment_expr
+  213 selection_header: SWITCH OPEN_RND expression . CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 256
+    COMMA      shift, and go to state 166
+
+
+state 193
+
+  209 labeled_statement: CASE constant_expr COLON . statement
+
+    IF              shift, and go to state 23
+    WHILE           shift, and go to state 24
+    FOR             shift, and go to state 25
+    DO              shift, and go to state 26
+    SWITCH          shift, and go to state 27
+    CASE            shift, and go to state 28
+    DEFAULT         shift, and go to state 29
+    BREAK           shift, and go to state 30
+    CONTINUE        shift, and go to state 31
+    RETURN          shift, and go to state 32
+    GOTO            shift, and go to state 33
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    OPEN_CURL       shift, and go to state 44
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 194
+    STRING_LITERAL  shift, and go to state 47
+
+    $default  reduce using rule 214 (expr_opt)
+
+    primary_expr          go to state 52
+    string_seq            go to state 53
+    postfix_expr          go to state 54
+    unary_expr            go to state 55
+    unary_operator        go to state 56
+    cast_expr             go to state 57
+    multiplicative_expr   go to state 58
+    additive_expr         go to state 59
+    shift_expr            go to state 60
+    relational_expr       go to state 61
+    equality_expr         go to state 62
+    AND_expr              go to state 63
+    exclusive_OR_expr     go to state 64
+    inclusive_OR_expr     go to state 65
+    logical_AND_expr      go to state 66
+    logical_OR_expr       go to state 67
+    conditional_expr      go to state 68
+    assignment_expr       go to state 69
+    expression            go to state 70
+    statement             go to state 257
+    labeled_statement     go to state 86
+    expression_statement  go to state 87
+    selection_header      go to state 88
+    expr_opt              go to state 89
+    iteration_header      go to state 90
+    jump_statement        go to state 91
+
+
+state 194
+
+    4 primary_expr: IDENTIFIER .
+  208 labeled_statement: IDENTIFIER . COLON statement
+
+    COLON  shift, and go to state 125
+
+    $default  reduce using rule 4 (primary_expr)
+
+
+state 195
+
+  210 labeled_statement: DEFAULT COLON statement .
+
+    $default  reduce using rule 210 (labeled_statement)
+
+
+state 196
+
+  223 jump_statement: RETURN expr_opt SEMICOLON .
+
+    $default  reduce using rule 223 (jump_statement)
+
+
+state 197
+
+  220 jump_statement: GOTO IDENTIFIER SEMICOLON .
+
+    $default  reduce using rule 220 (jump_statement)
+
+
+state 198
+
+   19 postfix_expr: OPEN_RND type_name . CLOSE_RND OPEN_CURL initializer_list CLOSE_CURL
+   20             | OPEN_RND type_name . CLOSE_RND OPEN_CURL initializer_list COMMA CLOSE_CURL
+   28 unary_expr: SIZEOF OPEN_RND type_name . CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 258
+
+
+state 199
+
+    7 primary_expr: OPEN_RND expression CLOSE_RND .
+
+    $default  reduce using rule 7 (primary_expr)
+
+
+state 200
+
+  127 specifier_qualifier_list: specifier_qualifier_list spec_qual_list .
+
+    $default  reduce using rule 127 (specifier_qualifier_list)
+
+
+state 201
+
+  180 abstract_declarator: pointer_opt . direct_abstract_declarator
+
+    OPEN_RND  shift, and go to state 259
+
+    OPEN_RND  [reduce using rule 181 (direct_abstract_declarator_opt)]
+    $default  reduce using rule 181 (direct_abstract_declarator_opt)
+
+    direct_abstract_declarator_opt  go to state 260
+    direct_abstract_declarator      go to state 261
+
+
+state 202
+
+  144 pointer_opt: pointer .
+  179 abstract_declarator: pointer .
+
+    CLOSE_RND  reduce using rule 179 (abstract_declarator)
+    COMMA      reduce using rule 179 (abstract_declarator)
+    $default   reduce using rule 144 (pointer_opt)
+
+
+state 203
+
+  178 type_name: specifier_qualifier_list abstract_declarator_opt .
+
+    $default  reduce using rule 178 (type_name)
+
+
+state 204
+
+  172 abstract_declarator_opt: abstract_declarator .
+
+    $default  reduce using rule 172 (abstract_declarator_opt)
+
+
+state 205
+
+   19 postfix_expr: OPEN_RND type_name CLOSE_RND . OPEN_CURL initializer_list CLOSE_CURL
+   20             | OPEN_RND type_name CLOSE_RND . OPEN_CURL initializer_list COMMA CLOSE_CURL
+   36 cast_expr: OPEN_RND type_name CLOSE_RND . cast_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    OPEN_CURL       shift, and go to state 262
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr    go to state 52
+    string_seq      go to state 53
+    postfix_expr    go to state 54
+    unary_expr      go to state 102
+    unary_operator  go to state 56
+    cast_expr       go to state 263
+
+
+state 206
+
+  164 pointer: TIMES type_qualifier_list_opt pointer .
+
+    $default  reduce using rule 164 (pointer)
+
+
+state 207
+
+  166 type_qualifier_list: type_qualifier_list type_qualifier .
+
+    $default  reduce using rule 166 (type_qualifier_list)
+
+
+state 208
+
+   19 postfix_expr: OPEN_RND type_name . CLOSE_RND OPEN_CURL initializer_list CLOSE_CURL
+   20             | OPEN_RND type_name . CLOSE_RND OPEN_CURL initializer_list COMMA CLOSE_CURL
+
+    CLOSE_RND  shift, and go to state 264
+
+
+state 209
+
+  208 labeled_statement: IDENTIFIER COLON statement .
+
+    $default  reduce using rule 208 (labeled_statement)
+
+
+state 210
+
+   14 postfix_expr: postfix_expr OPEN_RND argument_expr_list_opt . CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 265
+
+
+state 211
+
+   11 argument_expr_list_opt: argument_expr_list .
+   22 argument_expr_list: argument_expr_list . COMMA assignment_expr
+
+    COMMA  shift, and go to state 266
+
+    $default  reduce using rule 11 (argument_expr_list_opt)
+
+
+state 212
+
+   21 argument_expr_list: assignment_expr .
+
+    $default  reduce using rule 21 (argument_expr_list)
+
+
+state 213
+
+   15 postfix_expr: postfix_expr DOT IDENTIFIER .
+
+    $default  reduce using rule 15 (postfix_expr)
+
+
+state 214
+
+   16 postfix_expr: postfix_expr DEREF IDENTIFIER .
+
+    $default  reduce using rule 16 (postfix_expr)
+
+
+state 215
+
+   13 postfix_expr: postfix_expr OPEN_SQUARE expression . CLOSE_SQUARE
+   81 expression: expression . COMMA assignment_expr
+
+    COMMA         shift, and go to state 166
+    CLOSE_SQUARE  shift, and go to state 267
+
+
+state 216
+
+   68 assignment_expr: unary_expr assignment_operator assignment_expr .
+
+    $default  reduce using rule 68 (assignment_expr)
+
+
+state 217
+
+   38 multiplicative_expr: multiplicative_expr TIMES cast_expr .
+
+    $default  reduce using rule 38 (multiplicative_expr)
+
+
+state 218
+
+   40 multiplicative_expr: multiplicative_expr REMAINDER cast_expr .
+
+    $default  reduce using rule 40 (multiplicative_expr)
+
+
+state 219
+
+   39 multiplicative_expr: multiplicative_expr DIVIDE cast_expr .
+
+    $default  reduce using rule 39 (multiplicative_expr)
+
+
+state 220
+
+   38 multiplicative_expr: multiplicative_expr . TIMES cast_expr
+   39                    | multiplicative_expr . DIVIDE cast_expr
+   40                    | multiplicative_expr . REMAINDER cast_expr
+   42 additive_expr: additive_expr ADD multiplicative_expr .
+
+    TIMES      shift, and go to state 147
+    REMAINDER  shift, and go to state 148
+    DIVIDE     shift, and go to state 149
+
+    $default  reduce using rule 42 (additive_expr)
+
+
+state 221
+
+   38 multiplicative_expr: multiplicative_expr . TIMES cast_expr
+   39                    | multiplicative_expr . DIVIDE cast_expr
+   40                    | multiplicative_expr . REMAINDER cast_expr
+   43 additive_expr: additive_expr MINUS multiplicative_expr .
+
+    TIMES      shift, and go to state 147
+    REMAINDER  shift, and go to state 148
+    DIVIDE     shift, and go to state 149
+
+    $default  reduce using rule 43 (additive_expr)
+
+
+state 222
+
+   42 additive_expr: additive_expr . ADD multiplicative_expr
+   43              | additive_expr . MINUS multiplicative_expr
+   45 shift_expr: shift_expr LEFTSHIFT additive_expr .
+
+    ADD    shift, and go to state 150
+    MINUS  shift, and go to state 151
+
+    $default  reduce using rule 45 (shift_expr)
+
+
+state 223
+
+   42 additive_expr: additive_expr . ADD multiplicative_expr
+   43              | additive_expr . MINUS multiplicative_expr
+   46 shift_expr: shift_expr RIGHTSHIFT additive_expr .
+
+    ADD    shift, and go to state 150
+    MINUS  shift, and go to state 151
+
+    $default  reduce using rule 46 (shift_expr)
+
+
+state 224
+
+   45 shift_expr: shift_expr . LEFTSHIFT additive_expr
+   46           | shift_expr . RIGHTSHIFT additive_expr
+   48 relational_expr: relational_expr LT shift_expr .
+
+    LEFTSHIFT   shift, and go to state 152
+    RIGHTSHIFT  shift, and go to state 153
+
+    $default  reduce using rule 48 (relational_expr)
+
+
+state 225
+
+   45 shift_expr: shift_expr . LEFTSHIFT additive_expr
+   46           | shift_expr . RIGHTSHIFT additive_expr
+   50 relational_expr: relational_expr LE shift_expr .
+
+    LEFTSHIFT   shift, and go to state 152
+    RIGHTSHIFT  shift, and go to state 153
+
+    $default  reduce using rule 50 (relational_expr)
+
+
+state 226
+
+   45 shift_expr: shift_expr . LEFTSHIFT additive_expr
+   46           | shift_expr . RIGHTSHIFT additive_expr
+   51 relational_expr: relational_expr GE shift_expr .
+
+    LEFTSHIFT   shift, and go to state 152
+    RIGHTSHIFT  shift, and go to state 153
+
+    $default  reduce using rule 51 (relational_expr)
+
+
+state 227
+
+   45 shift_expr: shift_expr . LEFTSHIFT additive_expr
+   46           | shift_expr . RIGHTSHIFT additive_expr
+   49 relational_expr: relational_expr GT shift_expr .
+
+    LEFTSHIFT   shift, and go to state 152
+    RIGHTSHIFT  shift, and go to state 153
+
+    $default  reduce using rule 49 (relational_expr)
+
+
+state 228
+
+   48 relational_expr: relational_expr . LT shift_expr
+   49                | relational_expr . GT shift_expr
+   50                | relational_expr . LE shift_expr
+   51                | relational_expr . GE shift_expr
+   53 equality_expr: equality_expr EQUAL relational_expr .
+
+    LT  shift, and go to state 154
+    LE  shift, and go to state 155
+    GE  shift, and go to state 156
+    GT  shift, and go to state 157
+
+    $default  reduce using rule 53 (equality_expr)
+
+
+state 229
+
+   48 relational_expr: relational_expr . LT shift_expr
+   49                | relational_expr . GT shift_expr
+   50                | relational_expr . LE shift_expr
+   51                | relational_expr . GE shift_expr
+   54 equality_expr: equality_expr NOTEQUAL relational_expr .
+
+    LT  shift, and go to state 154
+    LE  shift, and go to state 155
+    GE  shift, and go to state 156
+    GT  shift, and go to state 157
+
+    $default  reduce using rule 54 (equality_expr)
+
+
+state 230
+
+   53 equality_expr: equality_expr . EQUAL relational_expr
+   54              | equality_expr . NOTEQUAL relational_expr
+   56 AND_expr: AND_expr AND equality_expr .
+
+    EQUAL     shift, and go to state 158
+    NOTEQUAL  shift, and go to state 159
+
+    $default  reduce using rule 56 (AND_expr)
+
+
+state 231
+
+   56 AND_expr: AND_expr . AND equality_expr
+   58 exclusive_OR_expr: exclusive_OR_expr XOR AND_expr .
+
+    AND  shift, and go to state 160
+
+    $default  reduce using rule 58 (exclusive_OR_expr)
+
+
+state 232
+
+   58 exclusive_OR_expr: exclusive_OR_expr . XOR AND_expr
+   60 inclusive_OR_expr: inclusive_OR_expr OR exclusive_OR_expr .
+
+    XOR  shift, and go to state 161
+
+    $default  reduce using rule 60 (inclusive_OR_expr)
+
+
+state 233
+
+   60 inclusive_OR_expr: inclusive_OR_expr . OR exclusive_OR_expr
+   62 logical_AND_expr: logical_AND_expr ANDTEST inclusive_OR_expr .
+
+    OR  shift, and go to state 162
+
+    $default  reduce using rule 62 (logical_AND_expr)
+
+
+state 234
+
+   62 logical_AND_expr: logical_AND_expr . ANDTEST inclusive_OR_expr
+   64 logical_OR_expr: logical_OR_expr ORTEST logical_AND_expr .
+
+    ANDTEST  shift, and go to state 163
+
+    $default  reduce using rule 64 (logical_OR_expr)
+
+
+state 235
+
+   66 conditional_expr: logical_OR_expr QUESTION expression . COLON conditional_expr
+   81 expression: expression . COMMA assignment_expr
+
+    COMMA  shift, and go to state 166
+    COLON  shift, and go to state 268
+
+
+state 236
+
+   81 expression: expression COMMA assignment_expr .
+
+    $default  reduce using rule 81 (expression)
+
+
+state 237
+
+   92 init_declarator_list: init_declarator_list COMMA . init_declarator
+
+    TIMES  shift, and go to state 167
+
+    $default  reduce using rule 143 (pointer_opt)
+
+    init_declarator  go to state 269
+    pointer_opt      go to state 243
+    declarator       go to state 174
+    pointer          go to state 83
+
+
+state 238
+
+   84 declaration: declaration_specifiers init_declarator_list SEMICOLON .
+
+    $default  reduce using rule 84 (declaration)
+
+
+state 239
+
+  145 declarator: pointer_opt direct_declarator .
+  155 direct_declarator: direct_declarator . OPEN_SQUARE type_qualifier_list_opt assignment_expr_opt CLOSE_SQUARE
+  156                  | direct_declarator . OPEN_SQUARE STATIC type_qualifier_list_opt assignment_expr CLOSE_SQUARE
+  157                  | direct_declarator . OPEN_SQUARE type_qualifier_list STATIC assignment_expr CLOSE_SQUARE
+  158                  | direct_declarator . OPEN_SQUARE type_qualifier_list_opt TIMES CLOSE_SQUARE
+  160 fndef_direct_declarator: direct_declarator . OPEN_RND parameter_type_list CLOSE_RND
+  161                        | direct_declarator . OPEN_RND OPEN_RND parameter_type_list CLOSE_RND CLOSE_RND
+  162                        | direct_declarator . OPEN_RND identifier_list_opt CLOSE_RND
+
+    OPEN_RND     shift, and go to state 245
+    OPEN_SQUARE  shift, and go to state 246
+
+    $default  reduce using rule 145 (declarator)
+
+
+state 240
+
+   94 init_declarator: declarator ASSIGN . initializer
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    OPEN_CURL       shift, and go to state 270
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 271
+    initializer          go to state 272
+
+
+state 241
+
+  228 function_header: declaration_specifiers fndef_declarator declaration_list_opt . OPEN_CURL
+
+    OPEN_CURL  shift, and go to state 273
+
+
+state 242
+
+  117 struct_or_union_specifier: struct_or_union identifier_opt OPEN_CURL . struct_declaration_list CLOSE_CURL
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    IDENTIFIER  shift, and go to state 169
+    RESTRICT    shift, and go to state 49
+
+    type_specifier             go to state 114
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    struct_declaration_list    go to state 274
+    struct_declaration         go to state 275
+    spec_qual_list             go to state 115
+    specifier_qualifier_list   go to state 276
+    enum_specifier             go to state 78
+    type_qualifier             go to state 117
+    typedef_name               go to state 84
+
+
+state 243
+
+  145 declarator: pointer_opt . direct_declarator
+
+    OPEN_RND    shift, and go to state 178
+    IDENTIFIER  shift, and go to state 179
+
+    direct_declarator        go to state 239
+    fndef_direct_declarator  go to state 277
+
+
+state 244
+
+  154 direct_declarator: OPEN_RND declarator . CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 278
+
+
+state 245
+
+  160 fndef_direct_declarator: direct_declarator OPEN_RND . parameter_type_list CLOSE_RND
+  161                        | direct_declarator OPEN_RND . OPEN_RND parameter_type_list CLOSE_RND CLOSE_RND
+  162                        | direct_declarator OPEN_RND . identifier_list_opt CLOSE_RND
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    AUTO        shift, and go to state 4
+    STATIC      shift, and go to state 5
+    EXTERN      shift, and go to state 6
+    REGISTER    shift, and go to state 7
+    TYPEDEF     shift, and go to state 8
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    OPEN_RND    shift, and go to state 279
+    IDENTIFIER  shift, and go to state 280
+    INLINE      shift, and go to state 48
+    RESTRICT    shift, and go to state 49
+
+    $default  reduce using rule 151 (identifier_list_opt)
+
+    decl_specifier             go to state 72
+    declaration_specifiers     go to state 281
+    storage_class_specifier    go to state 74
+    type_specifier             go to state 75
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    enum_specifier             go to state 78
+    type_qualifier             go to state 79
+    function_specifier         go to state 80
+    identifier_list_opt        go to state 282
+    parameter_type_list        go to state 283
+    parameter_list             go to state 284
+    parameter_declaration      go to state 285
+    identifier_list            go to state 286
+    typedef_name               go to state 84
+
+
+state 246
+
+  155 direct_declarator: direct_declarator OPEN_SQUARE . type_qualifier_list_opt assignment_expr_opt CLOSE_SQUARE
+  156                  | direct_declarator OPEN_SQUARE . STATIC type_qualifier_list_opt assignment_expr CLOSE_SQUARE
+  157                  | direct_declarator OPEN_SQUARE . type_qualifier_list STATIC assignment_expr CLOSE_SQUARE
+  158                  | direct_declarator OPEN_SQUARE . type_qualifier_list_opt TIMES CLOSE_SQUARE
+
+    STATIC    shift, and go to state 287
+    CONST     shift, and go to state 18
+    VOLATILE  shift, and go to state 19
+    RESTRICT  shift, and go to state 49
+
+    $default  reduce using rule 147 (type_qualifier_list_opt)
+
+    type_qualifier           go to state 119
+    type_qualifier_list_opt  go to state 288
+    type_qualifier_list      go to state 289
+
+
+state 247
+
+  229 function_header: fndef_declarator declaration_list_opt OPEN_CURL .
+
+    $default  reduce using rule 229 (function_header)
+
+
+state 248
+
+  231 declaration_list: declaration_list declaration .
+
+    $default  reduce using rule 231 (declaration_list)
+
+
+state 249
+
+  137 enumerator: IDENTIFIER .
+  138           | IDENTIFIER . ASSIGN constant_expr
+
+    ASSIGN  shift, and go to state 290
+
+    $default  reduce using rule 137 (enumerator)
+
+
+state 250
+
+  132 enum_specifier: ENUM identifier_opt OPEN_CURL enumerator_list . CLOSE_CURL
+  133               | ENUM identifier_opt OPEN_CURL enumerator_list . COMMA CLOSE_CURL
+  136 enumerator_list: enumerator_list . COMMA enumerator
+
+    COMMA       shift, and go to state 291
+    CLOSE_CURL  shift, and go to state 292
+
+
+state 251
+
+  135 enumerator_list: enumerator .
+
+    $default  reduce using rule 135 (enumerator_list)
+
+
+state 252
+
+  212 selection_header: IF OPEN_RND expression CLOSE_RND .
+
+    $default  reduce using rule 212 (selection_header)
+
+
+state 253
+
+  216 iteration_header: WHILE OPEN_RND expression CLOSE_RND .
+
+    $default  reduce using rule 216 (iteration_header)
+
+
+state 254
+
+  219 iteration_header: FOR OPEN_RND declaration expr_opt . SEMICOLON expr_opt CLOSE_RND
+
+    SEMICOLON  shift, and go to state 293
+
+
+state 255
+
+  218 iteration_header: FOR OPEN_RND expr_opt SEMICOLON . expr_opt SEMICOLON expr_opt CLOSE_RND
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    $default  reduce using rule 214 (expr_opt)
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 69
+    expression           go to state 70
+    expr_opt             go to state 294
+
+
+state 256
+
+  213 selection_header: SWITCH OPEN_RND expression CLOSE_RND .
+
+    $default  reduce using rule 213 (selection_header)
+
+
+state 257
+
+  209 labeled_statement: CASE constant_expr COLON statement .
+
+    $default  reduce using rule 209 (labeled_statement)
+
+
+state 258
+
+   19 postfix_expr: OPEN_RND type_name CLOSE_RND . OPEN_CURL initializer_list CLOSE_CURL
+   20             | OPEN_RND type_name CLOSE_RND . OPEN_CURL initializer_list COMMA CLOSE_CURL
+   28 unary_expr: SIZEOF OPEN_RND type_name CLOSE_RND .
+
+    OPEN_CURL  shift, and go to state 262
+
+    $default  reduce using rule 28 (unary_expr)
+
+
+state 259
+
+  185 direct_abstract_declarator: OPEN_RND . abstract_declarator CLOSE_RND
+
+    TIMES  shift, and go to state 167
+
+    $default  reduce using rule 143 (pointer_opt)
+
+    pointer_opt          go to state 201
+    pointer              go to state 202
+    abstract_declarator  go to state 295
+
+
+state 260
+
+  186 direct_abstract_declarator: direct_abstract_declarator_opt . OPEN_SQUARE assignment_expr_opt CLOSE_SQUARE
+  187                           | direct_abstract_declarator_opt . OPEN_SQUARE TIMES CLOSE_SQUARE
+  188                           | direct_abstract_declarator_opt . OPEN_RND parameter_type_list_opt CLOSE_RND
+
+    OPEN_RND     shift, and go to state 296
+    OPEN_SQUARE  shift, and go to state 297
+
+
+state 261
+
+  180 abstract_declarator: pointer_opt direct_abstract_declarator .
+  182 direct_abstract_declarator_opt: direct_abstract_declarator .
+
+    OPEN_RND     reduce using rule 182 (direct_abstract_declarator_opt)
+    OPEN_SQUARE  reduce using rule 182 (direct_abstract_declarator_opt)
+    $default     reduce using rule 180 (abstract_declarator)
+
+
+state 262
+
+   19 postfix_expr: OPEN_RND type_name CLOSE_RND OPEN_CURL . initializer_list CLOSE_CURL
+   20             | OPEN_RND type_name CLOSE_RND OPEN_CURL . initializer_list COMMA CLOSE_CURL
+
+    DOT          shift, and go to state 298
+    OPEN_SQUARE  shift, and go to state 299
+
+    $default  reduce using rule 193 (designation_opt)
+
+    designation_opt   go to state 300
+    initializer_list  go to state 301
+    designation       go to state 302
+    designator_list   go to state 303
+    designator        go to state 304
+
+
+state 263
+
+   36 cast_expr: OPEN_RND type_name CLOSE_RND cast_expr .
+
+    $default  reduce using rule 36 (cast_expr)
+
+
+state 264
+
+   19 postfix_expr: OPEN_RND type_name CLOSE_RND . OPEN_CURL initializer_list CLOSE_CURL
+   20             | OPEN_RND type_name CLOSE_RND . OPEN_CURL initializer_list COMMA CLOSE_CURL
+
+    OPEN_CURL  shift, and go to state 262
+
+
+state 265
+
+   14 postfix_expr: postfix_expr OPEN_RND argument_expr_list_opt CLOSE_RND .
+
+    $default  reduce using rule 14 (postfix_expr)
+
+
+state 266
+
+   22 argument_expr_list: argument_expr_list COMMA . assignment_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 305
+
+
+state 267
+
+   13 postfix_expr: postfix_expr OPEN_SQUARE expression CLOSE_SQUARE .
+
+    $default  reduce using rule 13 (postfix_expr)
+
+
+state 268
+
+   66 conditional_expr: logical_OR_expr QUESTION expression COLON . conditional_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 306
+
+
+state 269
+
+   92 init_declarator_list: init_declarator_list COMMA init_declarator .
+
+    $default  reduce using rule 92 (init_declarator_list)
+
+
+state 270
+
+  191 initializer: OPEN_CURL . initializer_list CLOSE_CURL
+  192            | OPEN_CURL . initializer_list COMMA CLOSE_CURL
+
+    DOT          shift, and go to state 298
+    OPEN_SQUARE  shift, and go to state 299
+
+    $default  reduce using rule 193 (designation_opt)
+
+    designation_opt   go to state 300
+    initializer_list  go to state 307
+    designation       go to state 302
+    designator_list   go to state 303
+    designator        go to state 304
+
+
+state 271
+
+  190 initializer: assignment_expr .
+
+    $default  reduce using rule 190 (initializer)
+
+
+state 272
+
+   94 init_declarator: declarator ASSIGN initializer .
+
+    $default  reduce using rule 94 (init_declarator)
+
+
+state 273
+
+  228 function_header: declaration_specifiers fndef_declarator declaration_list_opt OPEN_CURL .
+
+    $default  reduce using rule 228 (function_header)
+
+
+state 274
+
+  117 struct_or_union_specifier: struct_or_union identifier_opt OPEN_CURL struct_declaration_list . CLOSE_CURL
+  122 struct_declaration_list: struct_declaration_list . struct_declaration
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    CLOSE_CURL  shift, and go to state 308
+    IDENTIFIER  shift, and go to state 169
+    RESTRICT    shift, and go to state 49
+
+    type_specifier             go to state 114
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    struct_declaration         go to state 309
+    spec_qual_list             go to state 115
+    specifier_qualifier_list   go to state 276
+    enum_specifier             go to state 78
+    type_qualifier             go to state 117
+    typedef_name               go to state 84
+
+
+state 275
+
+  121 struct_declaration_list: struct_declaration .
+
+    $default  reduce using rule 121 (struct_declaration_list)
+
+
+state 276
+
+  123 struct_declaration: specifier_qualifier_list . struct_declarator_list SEMICOLON
+  127 specifier_qualifier_list: specifier_qualifier_list . spec_qual_list
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    TIMES       shift, and go to state 167
+    COLON       shift, and go to state 310
+    IDENTIFIER  shift, and go to state 169
+    RESTRICT    shift, and go to state 49
+
+    IDENTIFIER  [reduce using rule 143 (pointer_opt)]
+    $default    reduce using rule 143 (pointer_opt)
+
+    type_specifier             go to state 114
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    spec_qual_list             go to state 200
+    struct_declarator_list     go to state 311
+    struct_declarator          go to state 312
+    enum_specifier             go to state 78
+    type_qualifier             go to state 117
+    pointer_opt                go to state 243
+    declarator                 go to state 313
+    pointer                    go to state 83
+    typedef_name               go to state 84
+
+
+state 277
+
+  159 direct_declarator: fndef_direct_declarator .
+
+    $default  reduce using rule 159 (direct_declarator)
+
+
+state 278
+
+  154 direct_declarator: OPEN_RND declarator CLOSE_RND .
+
+    $default  reduce using rule 154 (direct_declarator)
+
+
+state 279
+
+  161 fndef_direct_declarator: direct_declarator OPEN_RND OPEN_RND . parameter_type_list CLOSE_RND CLOSE_RND
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    AUTO        shift, and go to state 4
+    STATIC      shift, and go to state 5
+    EXTERN      shift, and go to state 6
+    REGISTER    shift, and go to state 7
+    TYPEDEF     shift, and go to state 8
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    IDENTIFIER  shift, and go to state 169
+    INLINE      shift, and go to state 48
+    RESTRICT    shift, and go to state 49
+
+    decl_specifier             go to state 72
+    declaration_specifiers     go to state 281
+    storage_class_specifier    go to state 74
+    type_specifier             go to state 75
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    enum_specifier             go to state 78
+    type_qualifier             go to state 79
+    function_specifier         go to state 80
+    parameter_type_list        go to state 314
+    parameter_list             go to state 284
+    parameter_declaration      go to state 285
+    typedef_name               go to state 84
+
+
+state 280
+
+  176 identifier_list: IDENTIFIER .
+  189 typedef_name: IDENTIFIER .
+
+    CLOSE_RND  reduce using rule 176 (identifier_list)
+    CLOSE_RND  [reduce using rule 189 (typedef_name)]
+    COMMA      reduce using rule 176 (identifier_list)
+    COMMA      [reduce using rule 189 (typedef_name)]
+    $default   reduce using rule 189 (typedef_name)
+
+
+state 281
+
+   90 declaration_specifiers: declaration_specifiers . decl_specifier
+  173 parameter_declaration: declaration_specifiers . declarator
+  174                      | declaration_specifiers .
+  175                      | declaration_specifiers . abstract_declarator
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    AUTO        shift, and go to state 4
+    STATIC      shift, and go to state 5
+    EXTERN      shift, and go to state 6
+    REGISTER    shift, and go to state 7
+    TYPEDEF     shift, and go to state 8
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    TIMES       shift, and go to state 167
+    IDENTIFIER  shift, and go to state 169
+    INLINE      shift, and go to state 48
+    RESTRICT    shift, and go to state 49
+
+    CLOSE_RND   reduce using rule 174 (parameter_declaration)
+    COMMA       reduce using rule 174 (parameter_declaration)
+    IDENTIFIER  [reduce using rule 143 (pointer_opt)]
+    $default    reduce using rule 143 (pointer_opt)
+
+    decl_specifier             go to state 170
+    storage_class_specifier    go to state 74
+    type_specifier             go to state 75
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    enum_specifier             go to state 78
+    type_qualifier             go to state 79
+    function_specifier         go to state 80
+    pointer_opt                go to state 315
+    declarator                 go to state 316
+    pointer                    go to state 202
+    abstract_declarator        go to state 317
+    typedef_name               go to state 84
+
+
+state 282
+
+  162 fndef_direct_declarator: direct_declarator OPEN_RND identifier_list_opt . CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 318
+
+
+state 283
+
+  160 fndef_direct_declarator: direct_declarator OPEN_RND parameter_type_list . CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 319
+
+
+state 284
+
+  167 parameter_type_list: parameter_list .
+  168                    | parameter_list . COMMA ELLIPSIS
+  170 parameter_list: parameter_list . COMMA parameter_declaration
+
+    COMMA  shift, and go to state 320
+
+    $default  reduce using rule 167 (parameter_type_list)
+
+
+state 285
+
+  169 parameter_list: parameter_declaration .
+
+    $default  reduce using rule 169 (parameter_list)
+
+
+state 286
+
+  152 identifier_list_opt: identifier_list .
+  177 identifier_list: identifier_list . COMMA IDENTIFIER
+
+    COMMA  shift, and go to state 321
+
+    $default  reduce using rule 152 (identifier_list_opt)
+
+
+state 287
+
+  156 direct_declarator: direct_declarator OPEN_SQUARE STATIC . type_qualifier_list_opt assignment_expr CLOSE_SQUARE
+
+    CONST     shift, and go to state 18
+    VOLATILE  shift, and go to state 19
+    RESTRICT  shift, and go to state 49
+
+    $default  reduce using rule 147 (type_qualifier_list_opt)
+
+    type_qualifier           go to state 119
+    type_qualifier_list_opt  go to state 322
+    type_qualifier_list      go to state 121
+
+
+state 288
+
+  155 direct_declarator: direct_declarator OPEN_SQUARE type_qualifier_list_opt . assignment_expr_opt CLOSE_SQUARE
+  158                  | direct_declarator OPEN_SQUARE type_qualifier_list_opt . TIMES CLOSE_SQUARE
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 323
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    $default  reduce using rule 149 (assignment_expr_opt)
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 324
+    assignment_expr_opt  go to state 325
+
+
+state 289
+
+  148 type_qualifier_list_opt: type_qualifier_list .
+  157 direct_declarator: direct_declarator OPEN_SQUARE type_qualifier_list . STATIC assignment_expr CLOSE_SQUARE
+  166 type_qualifier_list: type_qualifier_list . type_qualifier
+
+    STATIC    shift, and go to state 326
+    CONST     shift, and go to state 18
+    VOLATILE  shift, and go to state 19
+    RESTRICT  shift, and go to state 49
+
+    $default  reduce using rule 148 (type_qualifier_list_opt)
+
+    type_qualifier  go to state 207
+
+
+state 290
+
+  138 enumerator: IDENTIFIER ASSIGN . constant_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 103
+    constant_expr        go to state 327
+
+
+state 291
+
+  133 enum_specifier: ENUM identifier_opt OPEN_CURL enumerator_list COMMA . CLOSE_CURL
+  136 enumerator_list: enumerator_list COMMA . enumerator
+
+    CLOSE_CURL  shift, and go to state 328
+    IDENTIFIER  shift, and go to state 249
+
+    enumerator  go to state 329
+
+
+state 292
+
+  132 enum_specifier: ENUM identifier_opt OPEN_CURL enumerator_list CLOSE_CURL .
+
+    $default  reduce using rule 132 (enum_specifier)
+
+
+state 293
+
+  219 iteration_header: FOR OPEN_RND declaration expr_opt SEMICOLON . expr_opt CLOSE_RND
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    $default  reduce using rule 214 (expr_opt)
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 69
+    expression           go to state 70
+    expr_opt             go to state 330
+
+
+state 294
+
+  218 iteration_header: FOR OPEN_RND expr_opt SEMICOLON expr_opt . SEMICOLON expr_opt CLOSE_RND
+
+    SEMICOLON  shift, and go to state 331
+
+
+state 295
+
+  185 direct_abstract_declarator: OPEN_RND abstract_declarator . CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 332
+
+
+state 296
+
+  188 direct_abstract_declarator: direct_abstract_declarator_opt OPEN_RND . parameter_type_list_opt CLOSE_RND
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    AUTO        shift, and go to state 4
+    STATIC      shift, and go to state 5
+    EXTERN      shift, and go to state 6
+    REGISTER    shift, and go to state 7
+    TYPEDEF     shift, and go to state 8
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    IDENTIFIER  shift, and go to state 169
+    INLINE      shift, and go to state 48
+    RESTRICT    shift, and go to state 49
+
+    $default  reduce using rule 183 (parameter_type_list_opt)
+
+    decl_specifier             go to state 72
+    declaration_specifiers     go to state 281
+    storage_class_specifier    go to state 74
+    type_specifier             go to state 75
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    enum_specifier             go to state 78
+    type_qualifier             go to state 79
+    function_specifier         go to state 80
+    parameter_type_list        go to state 333
+    parameter_list             go to state 284
+    parameter_declaration      go to state 285
+    parameter_type_list_opt    go to state 334
+    typedef_name               go to state 84
+
+
+state 297
+
+  186 direct_abstract_declarator: direct_abstract_declarator_opt OPEN_SQUARE . assignment_expr_opt CLOSE_SQUARE
+  187                           | direct_abstract_declarator_opt OPEN_SQUARE . TIMES CLOSE_SQUARE
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 335
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    $default  reduce using rule 149 (assignment_expr_opt)
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 324
+    assignment_expr_opt  go to state 336
+
+
+state 298
+
+  201 designator: DOT . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 337
+
+
+state 299
+
+  200 designator: OPEN_SQUARE . constant_expr CLOSE_SQUARE
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 103
+    constant_expr        go to state 338
+
+
+state 300
+
+  195 initializer_list: designation_opt . initializer
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    OPEN_CURL       shift, and go to state 270
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 271
+    initializer          go to state 339
+
+
+state 301
+
+   19 postfix_expr: OPEN_RND type_name CLOSE_RND OPEN_CURL initializer_list . CLOSE_CURL
+   20             | OPEN_RND type_name CLOSE_RND OPEN_CURL initializer_list . COMMA CLOSE_CURL
+  196 initializer_list: initializer_list . COMMA designation_opt initializer
+
+    COMMA       shift, and go to state 340
+    CLOSE_CURL  shift, and go to state 341
+
+
+state 302
+
+  194 designation_opt: designation .
+
+    $default  reduce using rule 194 (designation_opt)
+
+
+state 303
+
+  197 designation: designator_list . ASSIGN
+  199 designator_list: designator_list . designator
+
+    DOT          shift, and go to state 298
+    OPEN_SQUARE  shift, and go to state 299
+    ASSIGN       shift, and go to state 342
+
+    designator  go to state 343
+
+
+state 304
+
+  198 designator_list: designator .
+
+    $default  reduce using rule 198 (designator_list)
+
+
+state 305
+
+   22 argument_expr_list: argument_expr_list COMMA assignment_expr .
+
+    $default  reduce using rule 22 (argument_expr_list)
+
+
+state 306
+
+   66 conditional_expr: logical_OR_expr QUESTION expression COLON conditional_expr .
+
+    $default  reduce using rule 66 (conditional_expr)
+
+
+state 307
+
+  191 initializer: OPEN_CURL initializer_list . CLOSE_CURL
+  192            | OPEN_CURL initializer_list . COMMA CLOSE_CURL
+  196 initializer_list: initializer_list . COMMA designation_opt initializer
+
+    COMMA       shift, and go to state 344
+    CLOSE_CURL  shift, and go to state 345
+
+
+state 308
+
+  117 struct_or_union_specifier: struct_or_union identifier_opt OPEN_CURL struct_declaration_list CLOSE_CURL .
+
+    $default  reduce using rule 117 (struct_or_union_specifier)
+
+
+state 309
+
+  122 struct_declaration_list: struct_declaration_list struct_declaration .
+
+    $default  reduce using rule 122 (struct_declaration_list)
+
+
+state 310
+
+  131 struct_declarator: COLON . constant_expr
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 102
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 103
+    constant_expr        go to state 346
+
+
+state 311
+
+  123 struct_declaration: specifier_qualifier_list struct_declarator_list . SEMICOLON
+  129 struct_declarator_list: struct_declarator_list . COMMA struct_declarator
+
+    COMMA      shift, and go to state 347
+    SEMICOLON  shift, and go to state 348
+
+
+state 312
+
+  128 struct_declarator_list: struct_declarator .
+
+    $default  reduce using rule 128 (struct_declarator_list)
+
+
+state 313
+
+  130 struct_declarator: declarator .
+
+    $default  reduce using rule 130 (struct_declarator)
+
+
+state 314
+
+  161 fndef_direct_declarator: direct_declarator OPEN_RND OPEN_RND parameter_type_list . CLOSE_RND CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 349
+
+
+state 315
+
+  145 declarator: pointer_opt . direct_declarator
+  180 abstract_declarator: pointer_opt . direct_abstract_declarator
+
+    OPEN_RND    shift, and go to state 350
+    IDENTIFIER  shift, and go to state 179
+
+    OPEN_RND  [reduce using rule 181 (direct_abstract_declarator_opt)]
+    $default  reduce using rule 181 (direct_abstract_declarator_opt)
+
+    direct_declarator               go to state 239
+    fndef_direct_declarator         go to state 277
+    direct_abstract_declarator_opt  go to state 260
+    direct_abstract_declarator      go to state 261
+
+
+state 316
+
+  173 parameter_declaration: declaration_specifiers declarator .
+
+    $default  reduce using rule 173 (parameter_declaration)
+
+
+state 317
+
+  175 parameter_declaration: declaration_specifiers abstract_declarator .
+
+    $default  reduce using rule 175 (parameter_declaration)
+
+
+state 318
+
+  162 fndef_direct_declarator: direct_declarator OPEN_RND identifier_list_opt CLOSE_RND .
+
+    $default  reduce using rule 162 (fndef_direct_declarator)
+
+
+state 319
+
+  160 fndef_direct_declarator: direct_declarator OPEN_RND parameter_type_list CLOSE_RND .
+
+    $default  reduce using rule 160 (fndef_direct_declarator)
+
+
+state 320
+
+  168 parameter_type_list: parameter_list COMMA . ELLIPSIS
+  170 parameter_list: parameter_list COMMA . parameter_declaration
+
+    _BOOL       shift, and go to state 1
+    _COMPLEX    shift, and go to state 2
+    _IMAGINARY  shift, and go to state 3
+    AUTO        shift, and go to state 4
+    STATIC      shift, and go to state 5
+    EXTERN      shift, and go to state 6
+    REGISTER    shift, and go to state 7
+    TYPEDEF     shift, and go to state 8
+    CHAR        shift, and go to state 9
+    FLOAT       shift, and go to state 10
+    DOUBLE      shift, and go to state 11
+    INT         shift, and go to state 12
+    SHORT       shift, and go to state 13
+    LONG        shift, and go to state 14
+    UNSIGNED    shift, and go to state 15
+    SIGNED      shift, and go to state 16
+    VOID        shift, and go to state 17
+    CONST       shift, and go to state 18
+    VOLATILE    shift, and go to state 19
+    STRUCT      shift, and go to state 20
+    UNION       shift, and go to state 21
+    ENUM        shift, and go to state 22
+    ELLIPSIS    shift, and go to state 351
+    IDENTIFIER  shift, and go to state 169
+    INLINE      shift, and go to state 48
+    RESTRICT    shift, and go to state 49
+
+    decl_specifier             go to state 72
+    declaration_specifiers     go to state 281
+    storage_class_specifier    go to state 74
+    type_specifier             go to state 75
+    struct_or_union_specifier  go to state 76
+    struct_or_union            go to state 77
+    enum_specifier             go to state 78
+    type_qualifier             go to state 79
+    function_specifier         go to state 80
+    parameter_declaration      go to state 352
+    typedef_name               go to state 84
+
+
+state 321
+
+  177 identifier_list: identifier_list COMMA . IDENTIFIER
+
+    IDENTIFIER  shift, and go to state 353
+
+
+state 322
+
+  156 direct_declarator: direct_declarator OPEN_SQUARE STATIC type_qualifier_list_opt . assignment_expr CLOSE_SQUARE
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 354
+
+
+state 323
+
+   30 unary_operator: TIMES .
+  158 direct_declarator: direct_declarator OPEN_SQUARE type_qualifier_list_opt TIMES . CLOSE_SQUARE
+
+    CLOSE_SQUARE  shift, and go to state 355
+
+    $default  reduce using rule 30 (unary_operator)
+
+
+state 324
+
+  150 assignment_expr_opt: assignment_expr .
+
+    $default  reduce using rule 150 (assignment_expr_opt)
+
+
+state 325
+
+  155 direct_declarator: direct_declarator OPEN_SQUARE type_qualifier_list_opt assignment_expr_opt . CLOSE_SQUARE
+
+    CLOSE_SQUARE  shift, and go to state 356
+
+
+state 326
+
+  157 direct_declarator: direct_declarator OPEN_SQUARE type_qualifier_list STATIC . assignment_expr CLOSE_SQUARE
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 357
+
+
+state 327
+
+  138 enumerator: IDENTIFIER ASSIGN constant_expr .
+
+    $default  reduce using rule 138 (enumerator)
+
+
+state 328
+
+  133 enum_specifier: ENUM identifier_opt OPEN_CURL enumerator_list COMMA CLOSE_CURL .
+
+    $default  reduce using rule 133 (enum_specifier)
+
+
+state 329
+
+  136 enumerator_list: enumerator_list COMMA enumerator .
+
+    $default  reduce using rule 136 (enumerator_list)
+
+
+state 330
+
+  219 iteration_header: FOR OPEN_RND declaration expr_opt SEMICOLON expr_opt . CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 358
+
+
+state 331
+
+  218 iteration_header: FOR OPEN_RND expr_opt SEMICOLON expr_opt SEMICOLON . expr_opt CLOSE_RND
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    $default  reduce using rule 214 (expr_opt)
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 69
+    expression           go to state 70
+    expr_opt             go to state 359
+
+
+state 332
+
+  185 direct_abstract_declarator: OPEN_RND abstract_declarator CLOSE_RND .
+
+    $default  reduce using rule 185 (direct_abstract_declarator)
+
+
+state 333
+
+  184 parameter_type_list_opt: parameter_type_list .
+
+    $default  reduce using rule 184 (parameter_type_list_opt)
+
+
+state 334
+
+  188 direct_abstract_declarator: direct_abstract_declarator_opt OPEN_RND parameter_type_list_opt . CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 360
+
+
+state 335
+
+   30 unary_operator: TIMES .
+  187 direct_abstract_declarator: direct_abstract_declarator_opt OPEN_SQUARE TIMES . CLOSE_SQUARE
+
+    CLOSE_SQUARE  shift, and go to state 361
+
+    $default  reduce using rule 30 (unary_operator)
+
+
+state 336
+
+  186 direct_abstract_declarator: direct_abstract_declarator_opt OPEN_SQUARE assignment_expr_opt . CLOSE_SQUARE
+
+    CLOSE_SQUARE  shift, and go to state 362
+
+
+state 337
+
+  201 designator: DOT IDENTIFIER .
+
+    $default  reduce using rule 201 (designator)
+
+
+state 338
+
+  200 designator: OPEN_SQUARE constant_expr . CLOSE_SQUARE
+
+    CLOSE_SQUARE  shift, and go to state 363
+
+
+state 339
+
+  195 initializer_list: designation_opt initializer .
+
+    $default  reduce using rule 195 (initializer_list)
+
+
+state 340
+
+   20 postfix_expr: OPEN_RND type_name CLOSE_RND OPEN_CURL initializer_list COMMA . CLOSE_CURL
+  196 initializer_list: initializer_list COMMA . designation_opt initializer
+
+    DOT          shift, and go to state 298
+    CLOSE_CURL   shift, and go to state 364
+    OPEN_SQUARE  shift, and go to state 299
+
+    $default  reduce using rule 193 (designation_opt)
+
+    designation_opt  go to state 365
+    designation      go to state 302
+    designator_list  go to state 303
+    designator       go to state 304
+
+
+state 341
+
+   19 postfix_expr: OPEN_RND type_name CLOSE_RND OPEN_CURL initializer_list CLOSE_CURL .
+
+    $default  reduce using rule 19 (postfix_expr)
+
+
+state 342
+
+  197 designation: designator_list ASSIGN .
+
+    $default  reduce using rule 197 (designation)
+
+
+state 343
+
+  199 designator_list: designator_list designator .
+
+    $default  reduce using rule 199 (designator_list)
+
+
+state 344
+
+  192 initializer: OPEN_CURL initializer_list COMMA . CLOSE_CURL
+  196 initializer_list: initializer_list COMMA . designation_opt initializer
+
+    DOT          shift, and go to state 298
+    CLOSE_CURL   shift, and go to state 366
+    OPEN_SQUARE  shift, and go to state 299
+
+    $default  reduce using rule 193 (designation_opt)
+
+    designation_opt  go to state 365
+    designation      go to state 302
+    designator_list  go to state 303
+    designator       go to state 304
+
+
+state 345
+
+  191 initializer: OPEN_CURL initializer_list CLOSE_CURL .
+
+    $default  reduce using rule 191 (initializer)
+
+
+state 346
+
+  131 struct_declarator: COLON constant_expr .
+
+    $default  reduce using rule 131 (struct_declarator)
+
+
+state 347
+
+  129 struct_declarator_list: struct_declarator_list COMMA . struct_declarator
+
+    TIMES  shift, and go to state 167
+    COLON  shift, and go to state 310
+
+    $default  reduce using rule 143 (pointer_opt)
+
+    struct_declarator  go to state 367
+    pointer_opt        go to state 243
+    declarator         go to state 313
+    pointer            go to state 83
+
+
+state 348
+
+  123 struct_declaration: specifier_qualifier_list struct_declarator_list SEMICOLON .
+
+    $default  reduce using rule 123 (struct_declaration)
+
+
+state 349
+
+  161 fndef_direct_declarator: direct_declarator OPEN_RND OPEN_RND parameter_type_list CLOSE_RND . CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 368
+
+
+state 350
+
+  154 direct_declarator: OPEN_RND . declarator CLOSE_RND
+  185 direct_abstract_declarator: OPEN_RND . abstract_declarator CLOSE_RND
+
+    TIMES  shift, and go to state 167
+
+    $default  reduce using rule 143 (pointer_opt)
+
+    pointer_opt          go to state 315
+    declarator           go to state 244
+    pointer              go to state 202
+    abstract_declarator  go to state 295
+
+
+state 351
+
+  168 parameter_type_list: parameter_list COMMA ELLIPSIS .
+
+    $default  reduce using rule 168 (parameter_type_list)
+
+
+state 352
+
+  170 parameter_list: parameter_list COMMA parameter_declaration .
+
+    $default  reduce using rule 170 (parameter_list)
+
+
+state 353
+
+  177 identifier_list: identifier_list COMMA IDENTIFIER .
+
+    $default  reduce using rule 177 (identifier_list)
+
+
+state 354
+
+  156 direct_declarator: direct_declarator OPEN_SQUARE STATIC type_qualifier_list_opt assignment_expr . CLOSE_SQUARE
+
+    CLOSE_SQUARE  shift, and go to state 369
+
+
+state 355
+
+  158 direct_declarator: direct_declarator OPEN_SQUARE type_qualifier_list_opt TIMES CLOSE_SQUARE .
+
+    $default  reduce using rule 158 (direct_declarator)
+
+
+state 356
+
+  155 direct_declarator: direct_declarator OPEN_SQUARE type_qualifier_list_opt assignment_expr_opt CLOSE_SQUARE .
+
+    $default  reduce using rule 155 (direct_declarator)
+
+
+state 357
+
+  157 direct_declarator: direct_declarator OPEN_SQUARE type_qualifier_list STATIC assignment_expr . CLOSE_SQUARE
+
+    CLOSE_SQUARE  shift, and go to state 370
+
+
+state 358
+
+  219 iteration_header: FOR OPEN_RND declaration expr_opt SEMICOLON expr_opt CLOSE_RND .
+
+    $default  reduce using rule 219 (iteration_header)
+
+
+state 359
+
+  218 iteration_header: FOR OPEN_RND expr_opt SEMICOLON expr_opt SEMICOLON expr_opt . CLOSE_RND
+
+    CLOSE_RND  shift, and go to state 371
+
+
+state 360
+
+  188 direct_abstract_declarator: direct_abstract_declarator_opt OPEN_RND parameter_type_list_opt CLOSE_RND .
+
+    $default  reduce using rule 188 (direct_abstract_declarator)
+
+
+state 361
+
+  187 direct_abstract_declarator: direct_abstract_declarator_opt OPEN_SQUARE TIMES CLOSE_SQUARE .
+
+    $default  reduce using rule 187 (direct_abstract_declarator)
+
+
+state 362
+
+  186 direct_abstract_declarator: direct_abstract_declarator_opt OPEN_SQUARE assignment_expr_opt CLOSE_SQUARE .
+
+    $default  reduce using rule 186 (direct_abstract_declarator)
+
+
+state 363
+
+  200 designator: OPEN_SQUARE constant_expr CLOSE_SQUARE .
+
+    $default  reduce using rule 200 (designator)
+
+
+state 364
+
+   20 postfix_expr: OPEN_RND type_name CLOSE_RND OPEN_CURL initializer_list COMMA CLOSE_CURL .
+
+    $default  reduce using rule 20 (postfix_expr)
+
+
+state 365
+
+  196 initializer_list: initializer_list COMMA designation_opt . initializer
+
+    SIZEOF          shift, and go to state 34
+    OPEN_RND        shift, and go to state 35
+    ADD             shift, and go to state 36
+    MINUS           shift, and go to state 37
+    TIMES           shift, and go to state 100
+    AND             shift, and go to state 39
+    BITNEGATE       shift, and go to state 40
+    NOT             shift, and go to state 41
+    PLUSPLUS        shift, and go to state 42
+    MINUSMINUS      shift, and go to state 43
+    OPEN_CURL       shift, and go to state 270
+    CONSTANT        shift, and go to state 45
+    IDENTIFIER      shift, and go to state 101
+    STRING_LITERAL  shift, and go to state 47
+
+    primary_expr         go to state 52
+    string_seq           go to state 53
+    postfix_expr         go to state 54
+    unary_expr           go to state 55
+    unary_operator       go to state 56
+    cast_expr            go to state 57
+    multiplicative_expr  go to state 58
+    additive_expr        go to state 59
+    shift_expr           go to state 60
+    relational_expr      go to state 61
+    equality_expr        go to state 62
+    AND_expr             go to state 63
+    exclusive_OR_expr    go to state 64
+    inclusive_OR_expr    go to state 65
+    logical_AND_expr     go to state 66
+    logical_OR_expr      go to state 67
+    conditional_expr     go to state 68
+    assignment_expr      go to state 271
+    initializer          go to state 372
+
+
+state 366
+
+  192 initializer: OPEN_CURL initializer_list COMMA CLOSE_CURL .
+
+    $default  reduce using rule 192 (initializer)
+
+
+state 367
+
+  129 struct_declarator_list: struct_declarator_list COMMA struct_declarator .
+
+    $default  reduce using rule 129 (struct_declarator_list)
+
+
+state 368
+
+  161 fndef_direct_declarator: direct_declarator OPEN_RND OPEN_RND parameter_type_list CLOSE_RND CLOSE_RND .
+
+    $default  reduce using rule 161 (fndef_direct_declarator)
+
+
+state 369
+
+  156 direct_declarator: direct_declarator OPEN_SQUARE STATIC type_qualifier_list_opt assignment_expr CLOSE_SQUARE .
+
+    $default  reduce using rule 156 (direct_declarator)
+
+
+state 370
+
+  157 direct_declarator: direct_declarator OPEN_SQUARE type_qualifier_list STATIC assignment_expr CLOSE_SQUARE .
+
+    $default  reduce using rule 157 (direct_declarator)
+
+
+state 371
+
+  218 iteration_header: FOR OPEN_RND expr_opt SEMICOLON expr_opt SEMICOLON expr_opt CLOSE_RND .
+
+    $default  reduce using rule 218 (iteration_header)
+
+
+state 372
+
+  196 initializer_list: initializer_list COMMA designation_opt initializer .
+
+    $default  reduce using rule 196 (initializer_list)

@@ -1,0 +1,13 @@
+ v++ ,, int ,, 54.0 ,, [ ,, unsigned char ,, 5.1
+ v-- ,, int ,, 52.5 ,, [ ,, other-types ,, 4.7
+ [ ,, * ,, 38.0 ,, [ ,, int ,, 4.1
+ v++ ,, * ,, 25.7 ,, v++ ,, unsigned long ,, 3.1
+ v-- ,, long ,, 15.9 ,, v-- ,, unsigned short ,, 2.7
+ [ ,, struct ,, 14.5 ,, v-- ,, unsigned char ,, 2.6
+ v++ ,, unsigned int ,, 13.3 ,, [ ,, const char ,, 2.4
+ [ ,, float ,, 12.0 ,, [ ,, unsigned long ,, 1.2
+ v-- ,, unsigned int ,, 11.5 ,, v++ ,, long ,, 1.1
+ [ ,, union ,, 10.2 ,, [ ,, unsigned int ,, 1.1
+ v-- ,, * ,, 7.1 ,, v++ ,, unsigned short ,, 1.0
+ [ ,, char ,, 6.8 ,, v++ ,, unsigned char ,, 1.0
+ v-- ,, unsigned long ,, 6.1 ,, v-- ,, short ,, 1.0

@@ -1,0 +1,2087 @@
+*
+*	errors		Lastmod	 4 Jun 00  DJ 
+*			Created	   Jul 87  SAC
+*
+******************************************************************************
+*
+*	Error message file for Knowledge Software portability checker
+*
+*	(c) 1989-2000 Knowledge Software Ltd, all rights reserved
+*
+*	-- date -- init -- modification --
+*	21 Jul 92  GH	Split out identifier errors
+*	 1 Jun 89  SAC  Added error level, #defines and comments
+*
+******************************************************************************
+*
+* The format of this file is as follows:
+*
+*	* star indicates a comment
+*
+*	#define name digit comment
+*		defines name as a mnemonic for the error level digit
+*
+*	errorno level message
+*		messages (only) may be continued over several lines
+*		by using the \ character
+
+* Leading whitespace (space and tab) is ignored on any line except a
+* continuation of a message.  Any amount of whitespace may separate the
+* level from the errorno and the message.  Similarly for the name in a
+* #define.  The first character of any message is considered to be the
+* first non-whitespace character after the level.
+
+#define info		0	very common, ignorable messages
+#define tranimpl	1	Translator behaviour errors
+#define implicit	2	standard specifies implicit action
+#define	warn		2
+#define limits		3	exceeding minimum limits
+#define codstn_sql	3	SQL coding standard problems
+#define impldef		4	implementation defined behaviour
+#define impundef	5	implicitly specified as undefined behaviour
+#define expundef	5	explicitly specified as undefined behaviour
+
+#define codestn    	4	Coding standard issues
+#define kandr    	5	KandR compatibility problem
+#define cppcompat	5	C++ compatibility problem
+#define javacompat	5	Java compatibility problem
+#define lint		5	lint like problem
+#define lint_sql	5	SQL lint like problem
+#define sql		5	SQL problems
+#define fips		5	Oracle problems
+#define oracle		5	Oracle problems
+#define ingres		5	Ingres problems
+#define sysextension	6	A system extension
+
+#define usercont	7	user error
+#define	recover		7	recoverable (semantic) error
+* In the following case we must not generate code, or mce gets upset
+#define constraint	8	standard constraint violations
+#define	syntax		8	syntax error
+#define expundef_err	8	explicitly undefined behaviour, but no code
+* The following errors are fatal, and halt execution immediately
+#define fatal		9	general fatal error
+#define userfatal	9	serious user error
+#define system		9	serious file errors - do not change
+#define internlimit	9	Internal implementation limit reached
+#define intern		9	internal compiler errors - do not change
+
+* Errors caused by bad input from the user
+  1	userfatal	Filename expected
+  2	usercont	Warning previous output filename overridden
+  5	usercont	Unknown directive
+  6	recover    	Argument out of range
+  8	userfatal	Invalid filename
+ 12	usercont	Parameter too long - truncated
+ 15	usercont	Filename too long, truncated to %d chars
+ 16	usercont	Comment exceeds line
+ 17	usercont	Extra characters after the comment
+ 18     usercont	Extra characters after number/bad characters in number
+ 19	usercont	Parameter much too large
+ 20	usercont	Illegal number format
+ 28	usercont	Unable to open configuration file
+ 29	fatal		Unexpected end of configuration file
+ 30	fatal		Maximum line length exceeded in config file
+ 31	fatal		Expected section '%s'
+ 32	usercont	Extra characters after number in config file
+ 33	usercont	String in config file too long : truncated
+ 34	warn		Characters truncated from filename '%s'
+ 39	usercont	Output path too long - ignoring it
+ 40	usercont	Profile '%s' contains a filename - ignored
+ 41	usercont	Cannot read platform profile '%s'
+ 42	usercont	Cannot read profile '%s'
+ 43	usercont	Platform profile '%s' (%s) contains a filename - ignored
+
+* System errors e.g. can't open file, out of memory 100-199
+*  IO 100-149  Mem 150-199
+
+100	system		Unable to open the via file
+101	system		Read past end of file
+102	system		Disk full
+103	system		Unable to open '%s'
+104	system		Could not open output file
+105	system		Could not open map file
+*106	system		Could not open the log/listing file
+107	usercont	Could not open the control file
+* could change the following to a non-fatal error
+108	system		File error reading hierarchy control file
+109	system		File error writing hierarchy file
+110	system		Could not open the map file
+111	system		Could not open the miscid file
+
+140	system		System file resource problem, errno=%s
+
+155	system		Out of Heap
+156	system		Out of nodes in memory manager
+157	system		Out of blocks in the memory manager
+
+180	usercont	Cannot open iddb file '%s', %s
+181	system		Write on binary file failed, disk full?
+182	system		Read past end of file
+183	system		Block read returned fewer bytes than requested, %s
+184	system		fseek to absolute position failed, %s
+185	system		fseek to relative position failed, %s
+
+200	usercont	'char' should have least strict alignment
+201	usercont	Bits in type cannot exceed 32
+202	usercont	'char' should be at least 8 bits wide
+203	usercont	'short' should be at least 16 bits wide
+204	usercont	'int' should be at least 16 bits wide
+205	usercont	'long' should be at least 32 bits wide
+206	usercont	'int' should be at least as big as 'short'
+207	usercont	'long' should be at least as big as 'int'
+208	usercont	Cannot specify single output file with multiple\
+ input files
+209	usercont	Cannot enable extensions in standard ISO mode
+210	userfatal	Currently, dataptr and codeptr cannot be changed
+211	usercont	Integral type size cannot exceed 4 bytes
+
+213	usercont	Floating type size cannot exceed 16 bytes
+214	usercont	Bit-field storage unit must be large enough\
+ to hold an 'int'
+215	usercont	Bad character constant mapping - require pad direction\
+ character
+216	usercont	More characters in character constant mapping than\
+ bytes in an int
+217	usercont	Bad character constant mapping
+218	usercont	Invalid value passed to limit option
+219	usercont	Limit value isn't numeric
+220	usercont	Unknown limit option
+221	usercont	No argument given to limit value
+222	usercont	Unknown charset option
+223	usercont	-TGTP option is not allowed in a source platform
+224	usercont	-SRCP option is not allowed in a target platform
+
+228	recover		Octal escape sequence not representable in range of\
+ unsigned char - assuming zero
+228	constraint	[C] Octal escape sequence not representable in range of\
+ unsigned char
+229	recover		Hex escape sequence not representable in range of\
+ unsigned char - assuming zero
+229	constraint	[C] Hex escape sequence not representable in range of\
+ unsigned char
+230	impldef		Hex escape sequence outside range of basic\
+ execution set
+231	impldef		Octal escape sequence outside range of basic\
+ execution set
+232	recover		Hex escape sequence value too big for 'unsigned char' -\
+ truncated
+232	constraint	[C] Hex escape sequence value must be in the\
+ representable range for 'unsigned char'\\
+\nREFERENCE - ISO-6.1.3.4 Constraints
+233	recover		Octal escape sequence value too big for 'unsigned\
+ char' - truncated
+233	constraint	[C] Octal escape sequence value must be in the\
+ representable range for 'unsigned char'\\
+\nREFERENCE - ISO-6.1.3.4 Constraints
+234	recover		Empty hex escape sequence - assumed to have the value\
+ zero
+234	syntax		[S] Hex escape sequence must have at least one hex\
+ digit\\
+\nREFERENCE - ISO-6.1.4, ISO-6.1.3.4 Syntax of hexadecimal-escape-sequence
+235	expundef	[U] Undefined escape sequence\\
+\nREFERENCE - ISO-6.1.3.4 Character constants
+236	recover		Cntrl-Z encountered, probably a DOS/Windows file,\
+ character skipped
+236	syntax		[S] Cntrl-Z encountered, not a conforming lexical\
+ character
+237	expundef	Using character outside of the standard source\
+ character set
+238	expundef	Escape sequence may have different value\
+ on source/target
+
+244	constraint	[C] Value of character constant is not representable\
+ as 'int'\\
+\nREFERENCE - ISO-6.1.3 Constraints
+245	constraint	[C] Illegal character constant\\
+\nREFERENCE - ISO-6.1.3.4 Character constants
+
+249	recover		Matching ' from character literal token missing
+249	syntax		[S] Character constant contains new-line character\\
+\nREFERENCE - ISO-6.1.3.4 Syntax of c-char
+
+259	recover		Missing " in string
+259	syntax		[S] String literal contains new-line character\\
+\nREFERENCE - ISO-6.1.4 Syntax of s-char
+
+261	recover		End of included file encountered inside comment\
+ - comment assumed to close
+261	constraint	[C] End of included file encountered inside comment
+262	expundef	New line missing from last line in file
+263	expundef	Last line of file may not end with a line-splice
+
+268	constraint	[C] End of file encountered inside comment
+269	constraint	[C] Premature end-of-file encountered
+
+271	recover		Signed left shift truncated
+271	constraint	[C] Result of left shift does not fit in type\\
+\nREFERENCE - ISO-6.3.7 Semantics, ISO-6.4 Constraints
+
+274	impldef		[I] Result of cast is implementation defined,\
+ value outside the representable range of the signed result type\\
+\nREFERENCE - ISO-6.2.1.2 Conversions (to Signed Integers)
+
+276	recover		Signed arithmetic wrapped
+276	constraint	[C] Result of + is not representable by type\\
+\nREFERENCE - ISO-6.3.6 Semantics, ISO-6.4 Constraints
+
+278	recover		Result of signed multiply truncated
+278	constraint	[C] Result of * is not representable\\
+\nREFERENCE - ISO-6.3.5 Semantics, ISO-6.4 Constraints
+
+280	impldef		[I] Result is outside of ISO defined range and is\
+ implementation defined\\
+\nREFERENCE - ISO-5.2.4.2.1 Numerical limits
+
+283	impldef		[I] Floating-point constant is outside representable\
+ range\\
+\nREFERENCE - ISO-6.1.3.1 Semantics
+284	impldef		[I] Multiple character constants have implementation\
+ defined values\\
+\nREFERENCE - ISO-6.1.3.4 Semantics
+
+290	impldef		Filename or directory name exceeds limits
+291	impldef		Illegal character in filename
+
+301	warn		[I] Dereference has possible byte sex dependency
+302	warn		[I] Assignment may cause a byte sex dependency
+303	warn		[I] Use of parameter may have a byte sex dependency
+304	expundef	[U] Taking the address of an array having\
+ 'register' storage class
+305	expundef	Cast to pointer with stricter alignment
+306	impldef		[I] Cast between pointer and integral type is\
+ implementation defined\\
+\nREFERENCE - ISO-6.3.4 Semantics
+307	impundef	[U] Only certain casts are defined for pointers\\
+\nREFERENCE - ISO-6.3.4 Semantics
+308	impldef		[I] Implementation defined cast between pointers\\
+\nREFERENCE - ISO-6.3.4 Semantics
+309	expundef	[U] Integral type is not large enough to hold a\
+ pointer value\\
+\nREFERENCE - ISO-6.3.4 Semantics
+310	expundef	[I] Integral value may not be exactly representable\
+ as a float
+311	expundef	[U] Integral constant does not fit in smaller\
+ integral type
+312	expundef	[U] Integral constant outside portable range of\
+ smaller int type
+313	expundef	[U] Double constant may not be exactly representable\
+ as an integral type
+314	expundef	[U] Double constant may not be portably representable\
+ as an integral type
+315	expundef	[U] Integral constant is outside range\
+ of smaller character type
+316	expundef	[U] Integral constant is outside portable range\
+ of character type
+317	expundef	[U] Integral constant outside range of\
+ bit-field type
+318	expundef	[U] Integral constant outside portable range of\
+ bit-field type
+319	expundef	[U] Result of integral constant expression outside\
+ representable range
+320	expundef	[U] Result of integral constant expression outside\
+ portable range
+
+337	expundef	[U] String literal has undefined value - probably\
+ as a result of using '#' on \\.\\
+\nREFERENCE - ISO-6.8.3.2 Semantics
+338	impldef		[I] Character constant in #if may give different\
+ results to expression\\
+\nREFERENCE - ISO-6.8.1 page 88 line 10
+
+**New: In 400-406 'expundef' Sean has changed to 'impundef' - could well be right
+400	expundef	[U] '%s' is modified more than once between sequence\
+ points - evaluation order undefined\\
+\nREFERENCE - ISO-5.1.2.3 Program Execution
+401	expundef	[U] '%s' may be modified more than once between\
+ sequence points - evaluation order undefined\\
+\nREFERENCE - ISO-5.1.2.3 Program Execution
+402	expundef	[U] '%s' is modified and accessed between sequence\
+ points - evaluation order undefined\\
+\nREFERENCE - ISO-5.1.2.3 Program Execution
+403	expundef	[U] '%s' may be modified and accessed between\
+ sequence points - evaluation order undefined\\
+\nREFERENCE - ISO-5.1.2.3 Program Execution
+404	expundef	[U] More than one data item may be updated between\
+ sequence points - unsafe if data overlaps\\
+\nREFERENCE - ISO-5.1.2.3 Program Execution
+405	expundef	[U] Data items are modified and accessed between\
+ sequence points - unsafe if data overlaps\\
+\nREFERENCE - ISO-5.1.2.3 Program Execution
+406	expundef	[U] Data items may be modified and accessed between\
+ sequence points - unsafe if data overlaps\\
+\nREFERENCE - ISO-5.1.2.3 Program Execution
+407	expundef	[U] '%s' used before it is set
+408	expundef	[U] '%s' may be used before it is set
+
+410	limits		[L] Nesting of parentheses exceeds 32\\
+\nREFERENCE - ISO-5.2.4.1 Translation limits.
+411	limits		[L] Number of externals exceeds 511\\
+\nREFERENCE - ISO-5.2.4.1 Translation limits.
+412	limits		[L] Number of macro definitions exceeds 1024\\
+\nREFERENCE - ISO-5.2.4.1 Translation limits.
+413	limits		[L] Number of block scope definitions exceeds 127\\
+\nREFERENCE - ISO-5.2.4.1 Translation limits.
+414	limits		[L] Nesting of struct definitions exceeds 15\\
+\nREFERENCE - ISO-5.2.4.1 Translation limits.
+415	limits		[L] Length of source line exceeds 509 characters\\
+\nREFERENCE - ISO-5.2.4.1 Translation limits.
+
+421	limits		[L] Number of function arguments exceeds 31\\
+\nREFERENCE - ISO-5.2.4.1 Translation limits
+422	constraint	[C] Function call contains fewer arguments than\
+ specified in prototype\\
+\nREFERENCE - ISO-6.3.2.2 Function calls
+423	constraint	[C] Function call contains more arguments than\
+ prototype specifies\\
+\nREFERENCE - ISO-6.3.2.2 Function calls
+426	constraint	[C] Called function has incomplete return type\\
+\nREFERENCE - ISO-6.3.2.2 Function calls
+427	constraint	[C] Function or pointer to function required in\
+ function call expression\\
+\nREFERENCE - ISO-6.3.2.2 Function calls
+429	recover		[C] Argument should be arithmetic type, recovering
+429	constraint	[C] Argument should be arithmetic type\\
+\nREFERENCE - ISO-6.3.2.2 Function calls
+430	constraint	[C] Argument should be compatible 'struct' /\
+ 'union' type\\
+\nREFERENCE - ISO-6.3.2.2 Function calls
+431	recover		Argument is differently qualified pointer type\\
+\nREFERENCE - ISO-6.3.2.2 Function calls
+431	constraint	[C] Pointer argument has differently qualified type\\
+\nREFERENCE - ISO-6.3.2.2 Function calls
+432	recover		Argument is not compatible pointer type\\
+\nREFERENCE - ISO-6.3.2.2 Function calls
+432	constraint	[C] Argument is not compatible pointer type\\
+\nREFERENCE - ISO-6.3.2.2 Function calls
+433	constraint	[C] Argument should be compatible type\\
+\nREFERENCE - ISO-6.3.2.2 Function calls
+434	recover		'%s' not declared - assumed 'extern int'
+434	constraint	[C] '%s' is not declared
+435	recover		'%s' is not present in this 'struct' or 'union' -\
+ added with type 'int'
+435	constraint	[C] Unknown struct/union member '%s'\\
+\nREFERENCE - ISO-6.3.2.3 Structure and union members
+436	constraint	[C] Left operand of '.' must be a 'struct' or\
+ 'union' type\\
+\nREFERENCE - ISO-6.3.2.3 Structure and union members
+437	constraint	[C] Left operand of '->' must be a pointer to\
+ a 'struct' or 'union' type\\
+\nREFERENCE - ISO-6.3.2.3 Structure and union members
+438	constraint	[C] Incompatible types, the * operator may be missing\
+ from the pointer expression\\
+\nREFERENCE - ISO-6.1.2.6
+
+440	expundef	Field `%s' of struct is not defined in the standard
+
+446	constraint	[C] Operand of ++/-- does not have scalar (arithmetic\
+ or pointer) type\\
+\nREFERENCE - ISO-6.3.2.4 Postfix increment and decrement operators,\
+ ISO-6.3.3.1 Prefix increment and decrement operators
+447	constraint	[C] Operand of ++/-- is not a modifiable lvalue\\
+\nREFERENCE - ISO-6.3.2.4 Postfix increment and decrement operators,\
+ ISO-6.3.3.1 Prefix increment and decrement operators
+448	constraint	[C] Cannot increment (decrement) a pointer to an\
+ object of unknown size\\
+\nREFERENCE - ISO-6.3.2.4, ISO-6.3.3.1 Constraints,\
+ also constraints for arithmetic operators
+449	constraint	[C] Cannot increment (decrement) a pointer to a\
+ function\\
+\nREFERENCE - ISO-6.3.2.4, ISO-6.3.3.1 Constraints
+450	constraint	[C] Array cannot be converted to pointer type because\
+ it is not an lvalue.  Context requires a pointer type
+451	constraint	[C] Subscripting requires a pointer, or array lvalue\\
+\nREFERENCE - ISO-6.3.2.1 Array subscripting
+452	constraint	[C] Cannot subscript a pointer to an object of unknown\
+ size (incomplete type)\\
+\nREFERENCE - ISO-6.3.2.1 Array subscripting
+453	constraint	[C] Subscript must have integral type\\
+\nREFERENCE - ISO-6.3.2.1 Array subscripting
+454	expundef	[U] Indexing array with out of bounds value\\
+ 3.3.2.1 Array subscripting
+
+458	recover		Address of 'register' variable illegal
+458	constraint	[C] The address of a variable declared with\
+ 'register' may not be taken\\
+\nREFERENCE - ISO-6.3.3.2 Address and indirection operators
+459	constraint	[C] Operand of & is not an lvalue\\
+\nREFERENCE - ISO-6.3.3.2 Address and indirection operators
+460	constraint	[C] The address of a bit-field cannot be taken\\
+\nREFERENCE - ISO-6.3.3.2 Address and indirection operators
+461	constraint	[C] Pointer required for dereferencing operation\
+ '[]', '*' or '->'\\
+\nREFERENCE - ISO-6.3.2.1, ISO-6.3.2.3, ISO-6.3.3.2 Constraints
+
+466	constraint	[C] Unary '+' requires arithmetic operand\\
+\nREFERENCE - ISO-6.3.3.3 Constraints
+467	constraint	[C] Logical not '!' requires scalar (arithmetic or\
+ pointer) operand\\
+\nREFERENCE - ISO-6.3.3.3 Constraints
+468	constraint	[C] Unary '-' requires arithmetic operand\\
+\nREFERENCE - ISO-6.3.3.3 Constraints
+469	constraint	[C] Bit-wise not '~' requires integral operand\\
+\nREFERENCE - ISO-6.3.3.3 Constraints
+
+473	constraint	[C] Result of 'sizeof' cannot be represented in\
+ 'size_t' type
+475	impundef	[u] Bit-field expression has undefined size
+476	constraint	[C] 'sizeof' cannot be applied to a bit-field\\
+\nREFERENCE - ISO-6.3.3.4 Constraints
+477	constraint	[C] 'sizeof' cannot be applied to a function\\
+\nREFERENCE - ISO-6.3.3.4 Constraints
+478	constraint	[C] 'sizeof' cannot be applied to an object of\
+ unknown size\\
+\nREFERENCE - ISO-6.3.3.4 Constraints
+
+481	constraint	[C] Only scalar expressions may be cast to other\
+ types\\
+\nREFERENCE - ISO-6.3.4 Cast operators
+482	constraint	[C] Scalar expressions may only be cast to other\
+ scalar types\\
+\nREFERENCE - ISO-6.3.4 Cast operators
+483	constraint	[C] Addition cannot be performed on a pointer to an\
+ object of unknown size (incomplete type)\\
+\nREFERENCE - ISO-6.3.6 Additive operators
+484	constraint	[C] Subtraction cannot be performed on a pointer to\
+ an object of unknown size (incomplete type)\\
+\nREFERENCE - ISO-6.3.6 Additive operators
+485	constraint	[C] Only integral expressions may be added to\
+ pointers\\
+\nREFERENCE - ISO-6.3.6 Additive operators
+486	constraint	[C] Only integral expressions may be subtracted\
+ from pointers\\
+\nREFERENCE - ISO-6.3.6 Additive operators
+487	constraint	[C] Only pointers to compatible object types may\
+ be subtracted\\
+\nREFERENCE - ISO-6.3.6 Additive operators
+
+493	constraint	[C] Left operand of '*' or '/' must have\
+ arithmetic type\\
+\nREFERENCE - ISO-6.3.5 	Multiplicative operators (* /)
+494	constraint	[C] Right operand of '*' or '/' must have\
+ arithmetic type\\
+\nREFERENCE - ISO-6.3.5 Multiplicative operators (* /)
+495	constraint	[C] Left operand of '%', '<<', '>>', '&', '^' or\
+ '|' must have integral type\\
+\nREFERENCE - ISO-6.3.5, ISO-6.3.7, ISO-6.3.10, ISO-6.3.11, ISO-6.3.12
+496	constraint	[C] Right operand of '%', '<<', '>>', '&', '^' or\
+ '|' must have integral type\\
+\nREFERENCE - ISO-6.3.5, ISO-6.3.7, ISO-6.3.10, ISO-6.3.11, ISO-6.3.12
+
+500	expundef	[U] Right operand of shift operator is negative -\
+ shift ignored\\
+\nREFERENCE - ISO-6.3.7 Bit-wise shift operators
+501	expundef	[U] Right operand of << >> exceeds width of left\
+ operand\\
+\nREFERENCE - ISO-6.3.7 Bit-wise shift operators
+502	impldef		[I] Right shift of a negative signed value is\
+ implementation defined\\
+\nREFERENCE - ISO-6.3.7 Bit-wise shift operators
+503	warn		[I] Right shift of a, possibly negative, signed value\
+ is implementation defined\\
+\nREFERENCE - ISO-6.3.7 Bit-wise shift operators
+
+510	constraint	[C] Left operand of comparison must have\
+ arithmetic or compatible pointer to object type\\
+\nREFERENCE - ISO-6.3.8 	Relational operators
+511	constraint	[C] Right operand of comparison must have\
+ arithmetic or compatible pointer to object type\\
+\nREFERENCE - ISO-6.3.8	Relational operators
+
+513	recover		Incompatible pointed to types in relational\
+ comparison\\
+\nREFERENCE - ISO-6.3.8 Relational operators
+513	constraint	[C] Compatible pointer types required in relational\
+ comparison\\
+\nREFERENCE - ISO-6.3.8 Relational operators
+514	recover		Incompatible pointer types in relational comparison
+514	constraint	[C] Only compatible pointer types may be compared\\
+\nREFERENCE - ISO-6.3.8 Relational operators ISO-6.3.9 Equality operators
+515	recover		Incompatible pointers in equality comparison
+515	constraint	[C] Compatible pointer types required in equality\
+ comparison\\
+\nREFERENCE - ISO-6.3.9 Equality operators
+516	impundef	Parameters to call do not match previous call\\
+\nREFERENCE - ISO-6.3.2.2 page 42 lines 1-6
+
+536	constraint	[C] Left operand of '&&', '||' or '?' must have\
+ arithmetic or pointer type\\
+\nREFERENCE - ISO-6.3.13, ISO-6.3.14, ISO-6.3.15 Constraints
+537	constraint	[C] Left operand of '&&' or  '||' must have\
+ arithmetic or pointer type\\
+\nREFERENCE - ISO-6.3.13, ISO-6.3.14 Constraints
+
+** Cannot always recover	e.g. int, struct => code is garbage.
+539	recover		Arms of conditional expression are incompatible\
+ pointers. Cast inserted
+539	constraint	[C] Arms of conditional expression must have\
+ compatible pointer types\\
+\nREFERENCE - ISO-6.3.15 Constraints
+
+** Cannot recover	e.g. int, struct => code is garbage.
+540	constraint	[C] Arms of conditional expression must have\
+ compatible types\\
+\nREFERENCE - ISO-6.3.15 Constraints
+541	expundef_err	[U] Argument no. %s does not have object type\\
+\nREFERENCE - ISO-6.2.2.1 lvalues  page 37 lines 13-14
+542	constraint	[C] Control expression must have scalar (arithmetic\
+ or pointer) type\\
+\nREFERENCE - ISO-6.6.4, ISO-6.6.5 Constraints
+543	expundef	[U] A 'void' expression has no value and may not be\
+ used an expression\\
+\nREFERENCE - ISO-6.2.2.2 void
+544	expundef_err	[U] The value of an incomplete 'union' may not be\
+ used\\
+\nREFERENCE - ISO-6.2.2.1 lvalues  page 37 lines 13-14 
+545	expundef_err	[U] The value of an incomplete 'struct' may not be\
+ used\\
+\nREFERENCE - ISO-6.2.2.1 lvalues  page 37 lines 13-14 
+
+546	impundef	[u] Use of enum with unknown content where size\
+ or alignment is required
+547	expundef	[U] Use of tag does not agree with it's declaration
+
+550	constraint	[C] Left operand of '+=' or '-=' is a pointer to an\
+ object of unknown size (incomplete or non-object type)\\
+\nREFERENCE - ISO-6.3.16.2 Constraints
+551	syntax		[S] Cast may not operate on the left operand\
+ of assignment operator\\
+\nREFERENCE - ISO-6.3.16.1 Syntax
+
+553	recover		File must contain at least one external\
+ declaration\\
+\nREFERENCE - ISO-6.7 Syntax
+553	syntax		[S] File must contain at least one external\
+ declaration\\
+\nREFERENCE - ISO-6.7 Syntax
+554	constraint	[C] static function '%s' referenced but not defined\
+ in translation unit\\
+\nREFERENCE - ISO-6.7 Constraints
+555	recover		Incompatible types in assignment\
+ - implicit cast performed
+555	constraint	[C] Assignment requires compatible types\\
+\nREFERENCE - ISO-6.3.16.1 Simple assignment, ISO-6.3.16.2 Compound assignment
+556	constraint	[C] Left operand of assignment must be a modifiable\
+ lvalue\\
+\nREFERENCE - ISO-6.3.16 Assignment operators
+557	constraint	[C] Right operand of assignment should have arithmetic\
+ types\\
+\nREFERENCE - ISO-6.3.16 Assignment operators
+558	constraint	[C] Right operand of '+=' or '-=' must have integral\
+ type\\
+\nREFERENCE - ISO-6.3.16.2 Compound assignment
+559	constraint	[C] Right operand of '<<=', '>>=', '&=', '|=', '^='\
+ or '%=' must have integral type\\
+\nREFERENCE - ISO-6.3.16.2 Compound assignment
+560	constraint	[C] Left operand of '<<=', '>>=', '&=', '|=', '^='\
+ or '%=' must have integral type\\
+\nREFERENCE - ISO-6.3.16.2 Compound assignment
+561	constraint	[C] Right operand of assignment is not\
+ compatible 'struct' or 'union' type\\
+\nREFERENCE - ISO-6.3.16.1 Simple assignment
+562	recover		Right operand of assignment is a differently\
+ qualified pointer.  Cast inserted
+562	constraint	[C] Right operand of assignment is a pointer to a\
+ differently qualified type\\
+\nREFERENCE - ISO-6.3.16.1 Simple assignment
+
+**The old message was this .....
+**562	constraint	[C] right operand of assignment is differently\
+** qualified pointer type\\
+**\nREFERENCE - ISO-6.3.16.1 Simple assignment
+563	recover		Right operand of assignment is not a compatible\
+ pointer.  Cast inserted
+563	constraint	[C] Right operand of assignment does not have\
+ compatible pointer type\\
+\nREFERENCE - ISO-6.3.16.1 Simple assignment
+564	constraint	[C] Left operand of assignment must be an lvalue (it\
+ must designate an object)\\
+\nREFERENCE - ISO-6.3.16 Assignment operators
+565	impldef	 	Suspicious enum/integral type compatibility required\\
+\nREFERENCE - ISO-6.5.2.2 Enumeration specifier
+566	constraint	[C] Incompatible pointer types, the * operator may be\
+ missing from the lhs\\
+\nREFERENCE - ISO-6.3.16 Assignment operators
+******************************************************************************
+*
+* Section 3.4
+*
+******************************************************************************
+580	recover		Constant truncated due to overflow
+580	constraint	[C] Constant does not fit it's storage size\\
+\nREFERENCE - ISO-6.4 Constraints
+581	recover		Floating-point constant is too small - replaced by\
+ zero
+581	constraint	[C] Floating-point constant is too small for it's\
+ type\\
+\nREFERENCE - ISO-6.4 Constraints
+586	expundef	[U] Constant expression involves division by zero
+******************************************************************************
+*
+* Section 3.5
+*
+******************************************************************************
+588	constraint	[C] Width of bit-field must be an integral constant\
+ expression\\
+\nREFERENCE- ISO-6.5.2.1 Constraints
+589	recover		[C] Enumeration constant must be an integral constant\
+ expression (assume previous value)\\
+\nREFERENCE - ISO-6.5.2.2 Constraints
+589	constraint	[C] Enumeration constant must be an integral constant\
+ expression\\
+\nREFERENCE - ISO-6.5.2.2 Constraints
+590	constraint	[C] Array bound must be an integral constant\
+ expression\\
+\nREFERENCE - ISO-6.5.4.2 Constraints
+591	constraint	[C] 'case' expression must be an integral constant\
+ expression\\
+\nREFERENCE - ISO-6.6.4.2 Constraints
+592	expundef	[U] Enumeration constant exceeds maximum portable\
+ value
+
+601	impundef	[U] 'main()' should have either type 'int (void)'\
+ or 'int (int, char *[])'\\
+\nREFERENCE - ISO-5.1.2.2 Hosted environment
+602	expundef	[U] The identifier '%s' is reserved for use by the\
+ library\\
+\nREFERENCE - ISO-7.1.3 Reserved Identifiers
+
+604	recover		Declarations should appear before statements in a\
+ compound statement\\
+\nREFERENCE - ISO-6.6.2 Syntax  page 76 line 36
+604	syntax		[S] Declarations must appear before statements in\
+ a compound statement\\
+\nREFERENCE - ISO-6.6.2 Syntax  page 76 line 36
+605	recover		Vacuous declaration ignored\\
+\nREFERENCE - ISO-6.5 Constraints
+605	constraint	[C] A declaration must declare a tag or an\
+ identifier\\
+\nREFERENCE - ISO-6.5 Constraints
+
+607	limits		[L] Local object exceeds 32767 bytes\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14 line 19
+608	limits		[L] Number of modifiers in declarator exceeds 12\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits
+609	limits		[L] Nesting of parentheses in declarator exceeds 31\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits page 14 line 6
+610	limits		[L] Nesting of 'struct' or 'union' types exceeds 15\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14 line 25
+611	limits		[L] Object '%s' exceeds 32767 bytes\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14 line 19
+612	limits		[L] Number of parameters exceeds 31\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14 line 14
+613	limits		[L] Number of block scope\n\
+identifiers exceeds 127 in one block\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14 line 11
+614	limits		[L] Number of external\n\
+identifiers exceeds 511 in one file\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14 line 10
+615	recover	    	Combination of long and other storage class\
+ specifiers\\
+\nREFERENCE - ISO-6.5.1, ISO-6.5.2 Constraints
+615	constraint	[C] Illegal combination of long and storage class\
+ specifiers\\
+\nREFERENCE - ISO-6.5.1, ISO-6.5.2 Constraints
+616	constraint	[C] Illegal combination of type and storage class\
+ specifiers\\
+\nREFERENCE - ISO-6.5.1, ISO-6.5.2 Constraints
+617	constraint	[C] Duplicate 'const' qualifier\\
+\nREFERENCE - ISO-6.5.3
+618	constraint	[C] Duplicate 'volatile' qualifier\\
+\nREFERENCE - ISO-6.5.3
+619	constraint	[C] ... must be preceded by parameter declarations
+620	constraint	[C] The variable '%s' cannot be implicitly\
+ initialized because it has unknown size\\
+\nREFERENCE - ISO-6.5.7 Constraints
+621	constraint	[C] Cannot initialise '%s' because it has unknown\
+ size (incomplete type)\\
+\nREFERENCE - ISO-6.5.7 Constraints
+622	constraint	[C] Identifier '%s' with no linkage has more than\
+ one declaration in the same scope and name space\\
+\nREFERENCE - ISO-6.5 Constraints  page 58, lines 17-19
+623	expundef_err	[U] '%s' has incomplete type and no linkage\\
+\nREFERENCE - ISO-6.5 Semantics  page 58, lines 30-31
+
+625	expundef	[U] '%s' appears with both internal and external\
+ linkage\\
+\nREFERENCE - ISO-6.1.2.2 Linkages of Identifiers
+626	impundef	[u] '%s' has different type to previous declaration,\
+ which is no longer in scope
+627	constraint	[C] '%s' has different type to previous declaration\
+ in the same scope\\
+\nREFERENCE - ISO-6.5 Constraints
+628	recover		'%s' redeclared with different type
+628	constraint	[C] '%s' has different type to previous in scope\
+ extern declaration
+629	constraint	[C] More than one definition of '%s' with internal\
+ linkage\\
+\nREFERENCE - ISO-6.7 Constraints  page 82, lines 12-13
+630	expundef	[U] More than one definition of '%s' with\
+ external linkage\\
+\nREFERENCE - ISO-6.7 Semantics  page 82, lines 24-25
+631	constraint	[C] More than one declaration of '%s' with no\
+ linkage\\
+\nREFERENCE - ISO-6.5 Constraints  page 58, lines 17-19
+632	expundef	[U] Tentative definition of '%s' with\
+ internal linkage cannot have unknown size\\
+\nREFERENCE - ISO-6.7.2 Semantics  page 84, lines 35-36
+633	syntax		[S] At least one member is required in a 'struct' or\
+ 'union' type\\
+\nREFERENCE - ISO-6.5.2.1 Syntax
+634	impldef		[I] Plain bit-fields maybe signed or unsigned\\
+\nREFERENCE - ISO-6.5.2.1 Semantics (line 31)
+635	expundef	[U] Bit-fields must be 'int', 'unsigned int' or\
+ 'signed int'\\
+\nREFERENCE - ISO-6.5.2.1 Semantics
+636	expundef	[U] There are no named members in this 'struct' or\
+ 'union'\\
+\nREFERENCE - ISO-6.5.2.1 Semantics
+637	syntax		[S] Storage class specifier is illegal on 'struct'\
+ or 'union' member\\
+\nREFERENCE - ISO-6.5.2.1 Syntax
+638	recover		Member '%s' redeclared in 'struct' or 'union' -\
+ second occurrence ignored
+638	constraint	[C] Duplicate member name '%s' in 'struct' or\
+ 'union'\\
+\nREFERENCE - ISO-6.5 Constraints  page 58, lines 17-19
+639	limits		[L] Number of members in 'struct' or 'union' exceeds\
+ 127\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14, line 23
+640	constraint	[C] Field '%s' in 'struct' or 'union' type may not have\
+ 'void' type\\
+\nREFERENCE - ISO-6.5.2.1 Constraints
+641	constraint	[C] Field '%s' in 'struct' or 'union' type may not have\
+ function type\\
+\nREFERENCE - ISO-6.5.2.1 Constraints
+642	constraint	[C] Field '%s' in 'struct' or 'union' type may not be\
+ an array of unknown size\\
+\nREFERENCE - ISO-6.5.2.1 Constraints
+643	constraint	[C] Field '%s' in 'struct' or 'union' type may not be a\
+ 'struct' or 'union' with unknown content\\
+\nREFERENCE - ISO-6.5.2.1 Constraints
+644	constraint	[C] Width of bit-field must be no bigger than the\
+ width of an 'int'\\
+\nREFERENCE - ISO-6.5.2.1 Constraints
+645	constraint	[C] A zero width bit-field cannot be given a name\\
+\nREFERENCE - ISO-6.5.2.1 Constraints
+646	constraint	[C] Enumeration constants too large - must have\
+ value representable as 'int'\\
+\nREFERENCE - ISO-6.5.2.2 Constraints
+647	limits		[L] Number of enumeration constants exceeds 127\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14, line 24
+648	syntax		[S] No function header - possibly caused by a\
+ semicolon ';' after the function declaration
+649	constraint	[C] K&R style declaration of parameters is not\
+ legal after a function header that includes a prototype list\\
+\nREFERENCE - ISO-6.7.1 Constraints
+650	recover		Storage class specifier ignored on parameter '%s' -\
+ only 'register' is legal
+650	constraint	[C] The only storage class specifier allowed on a\
+ function parameter is 'register'\\
+\nREFERENCE - ISO-6.5.4.3, ISO-6.7.1 Constraints
+651	recover		Parameter identifiers have been ignored in this\
+ function declaration
+651	constraint	[C] Parameter identifiers may only be given in a\
+ function definition\\
+\nREFERENCE - ISO-6.5.4.3 Constraints
+652	expundef	Identifiers should be given for all or none\
+ of the parameters in a function prototype
+653	constraint	[C] Duplicate definition of 'struct', 'union' or\
+ 'enum'\\
+\nREFERENCE - ISO-6.5 Constraints
+654	expundef	[U] Using 'const' or 'volatile' in a function return\
+ type is undefined\\
+\nREFERENCE - ISO-6.5.3 Semantics
+655	recover		Storage class specifier ignored on parameter - only\
+ 'register' is legal
+655	constraint	[C] The only legal storage class specifier on a\
+ function parameter is 'register'\\
+\nREFERENCE - ISO-6.5.4.3 Constraints
+656	constraint	[C] Function return type cannot be function or array\
+ type, or incomplete 'struct' or 'union' type (for function definition)\\
+\nREFERENCE - ISO-6.5.4.3, ISO-6.7.1 Constraints
+657	constraint	[C] No identifier is given in declaration of\
+ parameter no '%s'\\
+\nREFERENCE - ISO-6.7.1 Constraints
+658	expundef	[U] Parameter cannot have 'void' type\\
+\nREFERENCE - ISO-6.5   page 58, lines 30-31
+659	constraint	[C] The identifier '%s' was not given in the\
+ parameter list\\
+\nREFERENCE - ISO-6.7.1 Constraints
+660	recover		Identifier does not have function type
+660	constraint 	[C] Identifier does not have function type\\
+\nREFERENCE - ISO-6.7.1 Constraints
+661	expundef	[U] '%s()' may only have a storage class specifier of\
+ 'extern' when declared locally\\
+\nREFERENCE - ISO-6.5.1 Semantics
+
+664	recover		'(void)' parameter list seems to have extra parameters
+664	constraint	[C] Parameter cannot have 'void' type - was this\
+ supposed to be a '(void)' parameter list?\\
+\nREFERENCE - ISO-6.5.4.3 Semantics, ISO-6.5 Constraints
+665	constraint	[C] Duplicate parameter declaration for '%s'\\
+\nREFERENCE - ISO-6.5 Constraints  page 58, lines 17-19
+666	syntax		[S] Only the type qualifiers 'const' or 'volatile' are\
+ legal here in a pointer declaration
+******************************************************************************
+*
+* Section 3.5.6 Type definition
+*
+******************************************************************************
+667	expundef	[U] '%s' is declared as a typedef and may not\
+ be redeclared in an inner scope without a type specifier\\
+\nREFERENCE - ISO-6.5.6 Semantics
+668	expundef	[U] '%s' is declared as a typedef and may not\
+ be redeclared as a member of a 'struct' or 'union' without a type specifier\\
+\nREFERENCE - ISO-6.5.6 Semantics
+******************************************************************************
+*
+* Section 3.5.7 Initialization
+*
+******************************************************************************
+671	constraint	[C] Arithmetic object requires arithmetic\
+ initializer\\
+\nREFERENCE - ISO-6.5.7 Semantics, ISO-6.3.16.1 Constraints
+672	expundef	[U] The initializer for a 'struct', 'union' or array\
+ should be enclosed in braces\\
+\nREFERENCE - ISO-6.5.7 Semantics  page 73, lines 17-20
+673	recover		Pointer initializer has a differently qualified base\
+ type.  Cast inserted
+673	constraint	[C] Pointer initializer has a differently qualified\
+ type\\
+\nREFERENCE - ISO-6.5.7 Semantics, ISO-6.3.16.1 Constraints
+**New - could turn into recover
+**674	recover		Pointer initializer does not have compatible\
+ type.  Cast inserted
+674	constraint	[C] Pointer initializer does not have compatible\
+ type\\
+\nREFERENCE - ISO-6.5.7 Semantics, ISO-6.3.16.1 Constraints
+675	expundef	[U] Initializer for 'struct' or 'union' does not have\
+ compatible type\\
+\nREFERENCE - ISO-6.5.7 Semantics
+676	impundef	[u] Array base type cannot have function type -\
+ assuming array of pointer to function
+677	recover		 Array size must be positive, assuming 1 element
+677	constraint	[C] Array size must be a positive integral constant\
+ expression\\
+\nREFERENCE - ISO-6.5.4.2 Constraints
+678	impundef	[U] Array base is array of unknown size.  Arrays\
+ cannot be constructed from incomplete types
+
+680	impundef	[U] Arrays cannot be constructed from incomplete types
+
+682	recover		"string" initializer given for 'char' object - either\
+ the initializer should be 'c' or the object should have 'char *' type
+682	constraint	[C] "string" initializer given for 'char' object -\
+ either the initializer should be 'c' or the object should have 'char *'\
+ type\\
+\nREFERENCE - ISO-6.5.7 Semantics, ISO-6.3.16.1 Constraints
+683	recover		L"string" initializer given for 'wchar_t' object -\
+ either the initializer should be L'c' or the object should have 'wchar_t\
+ *' type
+683	constraint	[C] L"string" initializer given for 'wchar_t' object\
+ - either the initializer should be L'c' or the object should have 'wchar_t\
+ *' type\\
+\nREFERENCE - ISO-6.5.7 Semantics, ISO-6.3.16.1 Constraints
+684	recover		Too many initializers - surplus ignored
+684	constraint	[C] Too many initializers\\
+\nREFERENCE - ISO-6.5.7 Constraints
+685	recover		Initializer is not constant
+685	constraint	[C] Initializer for 'struct', 'union' or array type,\
+ or any object with static storage duration, must be a constant expression\\
+\nREFERENCE - ISO-6.5.7 Constraints, ISO-6.4 Constraints
+686	recover		Initializer is implementation defined constant
+686	constraint	[C] Initializer is implementation defined constant
+
+**Turn into recover?
+**690	portable		Too many characters in string literal\
+**initializer.
+690	constraint	[C] String contains too many characters to initialise\
+ this object\\
+\nREFERENCE - ISO-6.5.7 Constraints, Semantics
+698	constraint	[C] String literal initializing arithmetic object\\
+\nREFERENCE - ISO-6.5.7 Semantics, ISO-6.3.16.1 Constraints
+699	constraint	[C] String literal initializing\
+ non-pointer to char object\\
+\nREFERENCE - ISO-6.5.7 Semantics, ISO-6.3.16.1 Constraints
+
+706	impundef	[U] Label '%s' is not unique within this function
+
+708	constraint	[C] No definition found for the label '%s' in this\
+ function\\
+\nREFERENCE - ISO-6.6.6.1 Constraints
+709	constraint	[C] Initialization of locally declared 'extern %s'\
+ is illegal\\
+\nREFERENCE - ISO-6.5.7 Constraints
+
+715	limits		[L] Nesting of control structures (statements)\
+ exceeds 15\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14 line 1-2
+
+734	recover		Duplicate 'case' label on the same statement
+734	constraint	[C] 'case' label does not have unique value within\
+ current 'switch' statement\\
+\nREFERENCE - ISO-6.6.4.2 Constraints
+735	recover		More than one 'default' label found, on same\
+ statement in 'switch' statement
+735	constraint	[C] More than one 'default' label found in 'switch'\
+ statement\\
+\nREFERENCE - ISO-6.6.4.2 Constraints
+736	constraint	[C] 'case' label does not have unique value within\
+ this 'switch' statement\\
+\nREFERENCE - ISO-6.6.4.2 Constraints
+737	constraint	[C] More than one 'default' label found in 'switch'\
+ statement\\
+\nREFERENCE - ISO-6.6.4.2 Constraints
+738	constraint	[C] 'switch' control expression must have integral\
+ type\\
+\nREFERENCE - ISO-6.6.4.2 Constraints
+739	limits		[L] Number of 'case' labels exceeds 257\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14, line 21
+
+744	expundef	[U] 'return exp;' not found in function returning\
+ non-'void'
+745	expundef	[U] 'return;' found in function returning non-'void'
+746	constraint	[C] 'return exp;' found in function returning 'void'
+747	impundef	[U] 'return exp;' found in function returning\
+ qualified  'void' type
+**New and with %s
+**744	expundef	[U] '%s()' has a result type other than 'void' but no\
+** 'return' statement specifies an expression - the returned value is undefined.
+**745	expundef	[U] 'return;' found in '%s()' whose result type is\
+** not 'void'
+**746	constraint	[C] 'return exp;' found in '%s()' whose result type\
+** is 'void'.\\
+**\nREFERENCE - ISO-6.6.6.4 Constraints
+**747	impundef	[U] 'return exp;' found in '%s()' whose result has\
+** qualified 'void' type.  This is not prohibited by ISO but has no meaning.
+
+754	expundef	[U] Function contains both 'return;' and 'return exp;'
+755	constraint	[C] 'return' expression does not have arithmetic\
+ type\\
+\nREFERENCE - ISO-6.6.6.4 Semantics, ISO-6.3.16.1 Constraints
+756	constraint	[C] 'return' expression does not have 'struct' or\
+ 'union' type compatible with function result type\\
+\nREFERENCE - ISO-6.6.6.4 Semantics, ISO-6.3.16.1 Constraints
+757	recover		'return' expression has incorrectly qualified pointer\
+ type.  Cast inserted
+757	constraint	[C] 'return' expression is a pointer to a differently\
+ qualified type than the function return type\\
+\nREFERENCE - ISO-6.6.6.4 Semantics, ISO-6.3.16.1 Constraints
+758	recover		'return' expression does not have compatible pointer\
+ type.  Cast inserted
+758	constraint	[C] 'return' expression does not have pointer type\
+ compatible with function return type\\
+\nREFERENCE - ISO-6.6.6.4 Semantics, ISO-6.3.16.1 Constraints
+
+766	constraint	[C] 'continue' statement not contained within a loop\
+ statement\\
+\nREFERENCE - ISO-6.6.6.2 Constraints
+767	constraint	[C] 'break' statement not contained within a loop or\
+ 'switch' statement\\
+\nREFERENCE - ISO-6.6.6.3 Constraints
+768	constraint	[C] 'case' or 'default' not contained within a 'switch'\
+ statement\\
+\nREFERENCE - ISO-6.6.1 Constraints
+
+774	recover		'auto' ignored on file scope of '%s'
+774	constraint	[C] 'auto' may not be specified on file scope\
+ of '%s'\\
+\nREFERENCE - ISO-6.7 Constraints
+775	recover		'register' ignored on file scope of '%s'
+775	constraint	[C] 'register' may not be applied to file scope\
+ declaration of '%s'\\
+\nREFERENCE - ISO-6.7 Constraints
+776	limits		[L] External identifier has same initial significant\
+ (6) characters as '%s'\\
+\nREFERENCE - ISO-6.1.2 Implementation Limits
+**Should this still be here:
+777	info            [U] External identifier only differs in non-significant\
+ characters from '%s'
+777	expundef	[U] External identifier does not differ from '%s'\
+ within the specified number of significant characters\\
+\nREFERENCE - ISO-6.1.2 Implementation Limits
+778	limits		[L] Identifier matches '%s' in first 31 characters\\
+\nREFERENCE - ISO-6.1.2 Implementation Limits
+779	expundef	[U] Identifier does not differ from '%s' within the\
+ specified number of significant characters\\
+\nREFERENCE - ISO-6.1.2 Implementation Limits
+799	system		Illegal system call arguments
+
+800	recover		Only space and horizontal tab allowed between\
+ tokens in a preprocessing directive\\
+800	constraint	[C] Only space and horizontal tab allowed between\
+ tokens in a preprocessing directive\\
+\nREFERENCE - ISO-6.8 Constraints
+801	constraint	[C] The '##' operator may not be the first token in a\
+ macro body\\
+\nREFERENCE - ISO-6.8.3.2 Constraints
+802	constraint	[C] The '##' operator may not be the last token in a\
+ macro body\\
+\nREFERENCE - ISO-6.8.3.2 Constraints
+803	constraint	[C] The '#' operator may only appear before a macro\
+ parameter\\
+\nREFERENCE - 3.8.3.1 Constraints
+804	recover		Duplicate macro parameter '%s'
+804	constraint	[C] Macro parameter '%s' is not unique\\
+\nREFERENCE - ISO-6.8.3 Constraints
+805	syntax		[S] Identifier expected in macro parameter list\\
+\nREFERENCE - ISO-6.8.3 Semantics
+806	syntax		[S] Comma ',' expected in macro parameter list\\
+\nREFERENCE - ISO-6.8.3 Semantics
+807	syntax		[S] Identifier missing in macro parameter list\\
+\nREFERENCE - ISO-6.8.3 Semantics
+808	implicit	include file causes itself to be included\
+ recursively.  Ignored after 8 occurrences
+**808	implicit	'#include "%s"' causes itself to be included\
+** recursively.  Ignored after 8 occurrences
+809	expundef	[U] The '#include' preprocessor directive should be\
+ followed by <h-char-sequence> or "s-char-sequence"\\
+\nREFERENCE - ISO-6.8.2 Semantics
+810	limits		[L] '#include' causes nesting to exceed 8 levels\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14 line 20
+811	recover		The glue operator '##' may only appear in a\
+ '#define' preprocessor directive
+811	constraint	[C] The glue operator '##' may only appear in a\
+ '#define' preprocessor directive\\
+\nREFERENCE - ISO-6.1.5 Constraints
+812	constraint	[C] Header name token '<text>' found outside\
+ '#include' preprocessor directive\\
+\nREFERENCE - ISO-6.1.7 Constraints   page 33 lines 25-26
+**813	expundef	[U] Using any of ' " \\ or /* in '#include <%s>'\
+** gives.\\
+**\nREFERENCE - ISO-6.1.7 Header Names  page 33 lines 30-32
+**814	expundef	[U] Using any of ' \\ or /* in '#include "%s"'\
+** gives undefined behaviour.\\
+**\nREFERENCE - ISO-6.1.7 Header Names  page 33 lines 30-32
+**815	limits		[L] '#include <%s>' is non-conforming - it\
+** probably contains '/' or has more than six characters before the '.'\
+** character.\\
+**\nREFERENCE - ISO-6.8.2 Semantics
+**816	limits		[L] '#include "%s"' is\n\
+**non-conforming - see reference (ISO-6.8.2)\\
+**\nREFERENCE - ISO-6.8.2 Semantics\n\
+**ISO C limits filenames to: 1 to 6 alphabetic characters followed\
+**by a period '.' and one more alphabetic character.  All the letters\
+**must be in the same case.
+813	expundef	[U] ' " \\ /* in system header name causes undefined\
+ behaviour\\
+3.1.7 page 33 lines 30-32
+814	expundef	[U] ' " \\ /* in header name causes undefined\
+ behaviour\\
+ 3.1.7 page 33 lines 30-32
+815	limits		[L] '#include' system filename exceeds minimum\
+ required implementation support\\
+\nREFERENCE - ISO-6.8.2 Source file inclusion semantics
+816	limits		[L] '#include' filename exceeds minimum ISO C\
+ support\\
+\nREFERENCE - ISO-6.8.2 Source file inclusion semantics
+817	syntax		[S] Closing quote or bracket '>' missing from\
+ include filename
+818	recover		Could not find include file - directive ignored
+818	constraint	[C] Could not find include file
+819	recover		Could not open include file - directive ignored
+819	constraint	[C] Could not open include file
+**New (constraint only) messages have %s
+**818	constraint	[C] Cannot find %s - Perhaps the appropriate search\
+** path was not given?\\
+**\nREFERENCE - ISO-6.8.2 Constraints
+**819	constraint	[C] Cannot open %s - Perhaps the appropriate search\
+**path was not given?\\
+**\nREFERENCE - ISO-6.8.2 Constraints
+820	syntax		[S] '#include' requires a header name\\
+\nREFERENCE - ISO-6.8 Syntax
+821	constraint	[C] '#include' does not identify a header or source\
+ file that can be processed
+**Again note %s
+**821	constraint	[C] '#include %s' does not identify a header or source\
+** file that can be processed. Perhaps the appropriate search path was not given?\\
+**\nREFERENCE - ISO-6.8.2 Constraints
+
+823	recover		Unexpected '#else' or '#elif' found while '#else' arm
+823	syntax		[S] Unmatched '#else' and '#elif' are not legal in '#else'\
+ arm\\
+\nREFERENCE - ISO-6.8 Syntax
+824	recover		Unexpected '#else' or '#elif' preprocessor directive
+824	syntax		[S] Found '#else' or '#elif' without '#if..'\
+ preprocessor directive\\
+\nREFERENCE - ISO-6.8 Syntax
+825	recover		Unexpected '#endif'
+825	syntax		[S] Found '#endif' without '#if...' preprocessor\
+ directive\\
+\nREFERENCE - ISO-6.8 Syntax
+826	constraint	[S] Found ':' without '?' in '#if' expression
+827	constraint	[S] Missing ':' after '?' in '#if' expression
+828	limits		[L] Maximum '#if...' nesting exceeds 8\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14 line 3
+829	syntax		[S] Could not find '#endif' preprocessor directive\
+ to close '#if...'\\
+\nREFERENCE - ISO-6.8 Syntax
+830	recover		A preprocessor directive may only be followed\
+ by whitespace and new-line.  Ignoring following tokens\\
+\nREFERENCE - ISO-6.8 Syntax
+830	syntax		[S] A preprocessor directive may only be followed\
+ by whitespace and new-line\\
+\nREFERENCE - ISO-6.8 Syntax
+831	info		'#if...' pending at end of included file
+832	info		'#else'/'#elif'/'#endif' in included file matched\
+ '#if...' in parent file
+833	syntax		[S] '#ifdef' or '#ifndef' must be followed by an\
+ identifier\\
+\nREFERENCE - ISO-6.8 Syntax
+834	recover		Attempt to redefine a function macro as an object\
+ macro, without removing the previous definition
+**Note %s
+**834	constraint	[C] You cannot redefine '%s()' as an object-like\
+** macro.\\
+**\nREFERENCE - ISO-6.8.3 Constraints
+834	constraint	[C] Attempt to redefine a function macro as an\
+ object macro\\
+\nREFERENCE - ISO-6.8.3 Constraints
+**Change function macro to '%s()'
+835	recover		Attempt to redefine a function macro with different\
+ arguments, - remove the old definition first
+835	constraint	[C] Attempt to redefine macro with different arguments
+**Note %s again
+**835	constraint	[C] You cannot redefine '%s()' with different\
+ parameters\\
+**\nREFERENCE - ISO-6.8.3 Constraints
+836	expundef	[U] A macro called 'defined' may not be #define'd\\
+\nREFERENCE - ISO-6.8.8 Predefined Macro Names
+837	expundef	[U] '#undef' may not be used to remove the operator\
+ 'defined'\\
+\nREFERENCE - ISO-6.8.8 Predefined Macro Names
+838	expundef	#else/#elif encountered while processing #else\
+ arm of conditional
+
+840	expundef	Reached end of file before matching #endif found
+
+844	recover		Attempt to redefine macro with different body
+844	constraint	[C] Attempt to redefine macro with different body\\
+\nREFERENCE - ISO-6.8.3 Constraints
+**Note %s's
+**844	recover		Redefining macros without first removing the old\
+** definition is not portable. '%s' was defined with a different body.
+**844	constraint	[C] You cannot redefine '%s' with a different body.\\
+**\nREFERENCE - ISO-6.8.3 Constraints
+
+845	recover		Attempt to redefine object macro as function macro
+845	constraint	[C] Attempt to redefine object macro as function macro\\
+\nREFERENCE - ISO-6.8.3 Constraints
+**%s's
+**845	portable	Redefining macros without first removing the old\
+** definition is not portable. '%s' was defined as an object-like macro.
+**845	constraint	[C] You cannot redefine '%s' as a function-like\
+** macro.\\
+**\nREFERENCE - ISO-6.8.3 Constraints
+
+846	syntax		[S] '#define' must be followed by an identifier\\
+\nREFERENCE - ISO-6.8 Syntax
+847	syntax		[S] '#undef' must be followed by an identifier\\
+\nREFERENCE - ISO-6.8 Syntax
+848	expundef	[U] Attempt to '#undef' a predefined macro\\
+\nREFERENCE - ISO-6.8.8 Predefined Macro Names
+**%s
+**848	expundef	[U] You cannot use '#undef' to remove '%s' which\
+**is predefined by the compiler\\
+**\nREFERENCE - ISO-6.8.8 Predefined Macro Names
+849	recover		Only whitespace may appear on the same line before\
+ a preprocessor directive
+849	constraint	[C] A preprocessor directive may not be preceded\
+ by other tokens on the same line\\
+\nREFERENCE - ISO-6.8 Description
+850	expundef	[U] Macro argument is empty\\
+\nREFERENCE - ISO-6.8.3 Semantics
+851	recover		More arguments in macro call than required - surplus\
+ ignored
+851	constraint	[C] More arguments in macro call than specified in\
+ definition\\
+\nREFERENCE - ISO-6.8.3 Constraints
+852	constraint	[C] Unable to find the ')' that marks the end of\
+ the macro call\\
+\nREFERENCE - ISO-6.8.3 Constraints
+853	expundef	[U] Macro arguments contain a sequence of tokens\
+ that looks like a preprocessor directive\\
+\nREFERENCE - ISO-6.8.3 Semantics
+854	expundef	[U] Attempt to '#define' a predefined macro name
+**%s
+**854	expundef	[U] You cannot redefine '%s' which is predefined\
+** by the compiler\\
+\nREFERENCE - ISO-6.8.8 Predefine Macro Names
+855	implicit	The result of preprocessing the source is something\
+ that looks like a preprocessor directive - ISO says that this should not\
+ processed as such\\
+\nREFERENCE - ISO-6.8.3.4 Rescanning and Further Replacement
+856	constraint	[C] Fewer arguments in macro call than specified in\
+ definition\\
+\nREFERENCE - ISO-6.8.3 Constraints
+857	limits		[L] Number of macro definitions exceeds 1024\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14 line 12
+858	limits		[L] Number of macro parameters exceeds 31\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14 line 15
+859	limits		[L] Number of arguments in macro call exceeds 31\\
+\nREFERENCE - ISO-5.2.4.1 Translation Limits  page 14 line 16
+
+860	impldef		[I] Unknown #pragma option (supported on neither\
+ source nor target)
+861	impldef		[I] Target does not support this #pragma option
+863	syntax		[S] '#line' must be followed by preprocessing\
+ tokens\\
+\nREFERENCE - ISO-6.8 Syntax
+864	expundef	[U] '#line digit-sequence' should specify a line\
+ number in the range 1 to 32767\\
+\nREFERENCE - ISO-6.8.4 Semantics
+865	expundef	[U] '#line' directive does not match '#line\
+ digit-sequence "s-char-sequence"'\\
+\nREFERENCE - ISO-6.8.4 Semantics
+866	constraint	[C] The string literal in a '#line' directive\
+ must be a character string literal\\
+\nREFERENCE - ISO-6.8.4 Constraints
+867	expundef	[U] '#line' should be followed by a line number\\
+\nREFERENCE - ISO-6.8.4 Semantics
+869	recover		[u] '#error' directive: %s
+869	fatal		[u] '#error' directive: %s
+870	impldef		[I] '#pragma' directive: %s
+871	expundef	[U] Argument to # operator would produce illegal string\
+ literal - extra backslashes have been inserted
+872	expundef	[U] Result of '##' operator is not a legal\
+ preprocessing token
+873	constraint	[C] Preprocessing token cannot be converted to an\
+ actual token\\
+\nREFERENCE - ISO-6.1 Constraints
+874	expundef	[U] Character string literal adjacent to wide\
+ character.  The two strings concatenated anyway\\
+\nREFERENCE - ISO-6.1.4 Semantics  page 31 lines 42-43
+875	limits		[L] String literal exceeds 509 characters\\
+\nREFERENCE - ISO-5.2.4.1 Translation limits  page 14 line 18
+876	limits		[L] Logical line exceeds 509 characters\\
+\nREFERENCE - ISO-5.2.4.1 Translation limits  page 14 line 17
+877	constraint	[C] '#if' expressions may only contain integral\
+ constants\\
+\nREFERENCE - ISO-6.8.1 Constraints
+
+879	syntax		[S] Illegal operator in '#if' expression
+886	syntax		[S] '#if' requires a constant expression
+887	expundef	[U] Use of 'defined' must match either\
+ 'defined(identifier)' or 'defined identifier'\\
+\nREFERENCE - ISO-6.8.1 Semantics
+888	expundef	[U] 'defined' requires an identifier as an argument\\
+\nREFERENCE - ISO-6.8.1 Semantics
+896	syntax		[S] Missing operand in '#if' expression
+897	syntax		[S] Missing operator in '#if' expression
+898	syntax		[S] Unmatched ')' or missing '?' in '#if' expression
+899	recover		# token may only appear in a preprocessing directive\\
+\nREFERENCE - ISO-6.1.6 Constraints  page 32 line 38
+899	constraint	[C] The '#' token may appear only as a punctuator\
+ in a directive or operator in a '#define'\\
+\nREFERENCE - ISO-6.1.6 Constraints  page 32 line 38
+900	recover		Unable to make a token from '..' - '.' has been\
+ substituted
+901	recover		Source skipped to this point after error in top\
+ level declaration
+902	recover		Source skipped to this point after error in\
+ parameter declaration
+903	recover		Source skipped to this point after error in\
+ member declaration
+904	syntax		Syntax error: unexpected token
+905	constraint	[C] Illegal token\\
+\nREFERENCE - ISO-6.1 Lexical elements
+906	constraint	[C] # and ## are illegal except in #define directive
+907	syntax		[S] Unexpected token
+908	constraint	[C] Preprocessing token cannot be converted to a\
+ legal token\\
+\nREFERENCE - ISO-6.1 Lexical elements
+909	constraint	[C] The '#' and '##' operators are illegal except\
+ in a '#define' preprocessor directive
+
+911	recover		Inserted '%s' token in an attempt to continue parsing
+912	recover		Ignoring '%s' token in an attempt to  continue parsing
+913	recover		Source skipped to this point after error in 'case'\
+ label
+914	syntax		Unrecoverable syntax error
+915	internlimit	Parser stack overflow
+916	recover		Source skipped to this point after error in expression
+917	syntax		Syntax error: unexpected end of file
+918	syntax		Syntax error: expected%s
+919	syntax		Syntax error: unexpected right parenthesis
+920	syntax		Syntax error: missing comma
+921	recover		Trailing comma ignored after enumerator-list
+921	syntax		Trailing comma illegal after enumerator-list
+
+960	tranimpl        A system header may not include another system header
+
+970	system		Unable to create intermediate code file
+971	system		Unable to write intermediate code file
+972	system		Unable to read intermediate code file
+973	system		Unable to seek on intermediate code file
+974	system		Unable to create listing file
+975	system		Unable to write listing file
+976	system		Unable to create preprocessed file
+
+979	internlimit	Scope level exceeds range of unsigned char
+
+981	intern		Internal error in ADRESS
+982	intern		Internal error in CTLGRF
+983	intern		Internal error in GEN_FNC_CALL
+984	intern		Internal error too many different types in\
+ source program
+985	intern		Internal error unexpected incomplete types at\
+ end of program
+986	intern		Internal error in initializer generation
+987	intern		Internal error in backchain fixup
+988	intern		Internal error in EXP_GEN
+989	intern		Internal error in REF_GEN
+990	intern		Internal error in initialization: duplicate name\
+ installed in symbol table
+991	intern		Internal error str2num passed negative constant
+
+994	intern		Internal error in CSYNTAX
+995	intern		Internal error in DO_DEFINE
+996	intern		Internal error in MK_LEAF
+997	intern		Internal error in MK_TREE
+998	intern		Internal error in LEAVECOMPOUND
+999	intern		Internal error calculating struct return offset
+
+1000	intern		Internal error in get_tok_list
+1001	impldef		Expected ')' after token sequence
+1002	impldef		Predicate cannot have empty argument list
+1003	impldef		#assert must be followed by an identifier
+1004	impldef		#unassert must be followed by an identifier
+1005	impldef		Extra tokens after #assert directive
+1006	impldef		Extra tokens after #unassert directive
+1007	impldef		Expected a token sequence after the ( token
+1008	impldef		Using VMS extension to #include
+1009	impldef		Embedded assembler code is machine specific
+1010	recover		'attribute' is a gcc extension
+1010	syntax		[S] 'attribute' is a gcc extension
+1011	recover		Strings spanning new-line characters is a gcc extension
+1011	syntax		[S] Strings spanning new-line characters is a gcc extension\\
+\nREFERENCE - ISO-6.1.4 Syntax of s-char
+1012	recover		A LL suffix on literals is a gcc extension
+1012	syntax		[C] A LL suffix on literals is a gcc extension\\
+\nREFERENCE - ISO-6.1 Constraints
+1013	recover		typeof is a GCC extension
+1013	syntax		[S] typeof is a GCC extension
+1014	recover		Variable arguments in macro definition is a\
+ GCC extension
+1014	syntax		[S] Variable arguments in macro definition is a\
+ GCC extension\\
+\nREFERENCE - ISO-6.8.3 Semantics
+1015	recover		Statement expressions are a GCC extension\
+ replaced by zero
+1015	syntax		[S] Statement expressions are a GCC extension
+1016	recover		alignof is a GCC extension
+1016	syntax		[S] alignof is a GCC extension
+1017	recover		Unary && is a GCC extension
+1017	syntax		[S] Unary && is a GCC extension
+1018	recover		alignof a function not defined by GCC
+1018	syntax		[S] alignof a function not defined by GCC
+1019	recover		alignof an incomplete type not defined by GCC
+1019	syntax		[S] alignof an incomplete type not defined by GCC
+1020	recover		alignof a bit-field not defined by GCC
+1020	syntax		[S] alignof a bit-field not defined by GCC
+1021	recover		alignof a bit-field not defined by GCC
+1021	syntax		[S] alignof a bit-field not defined by GCC
+1022	recover		... notation in old style parameter list is a GCC\
+ extension
+1022	syntax		[S] ... notation in old style parameter list is a GCC\
+ extension
+
+1025	recover		Making use of an extension
+1025	syntax		[S] @ address is not in ISO C
+1026	recover		Making use of an extension
+1026	syntax		[S] @ identifier type qualifier is not in ISO C
+1027	impldef		#ident must be followed by a string literal
+1028	constraint	[C] String literal in a '#ident' directive\
+ must be a character string literal
+1029	constraint	#ident requires extra tokens
+
+1030	constraint	Expected a ( after predicate name
+1031	constraint	Expected a identifier after #
+
+1035	sysextension	#ident is a System V.4 extension
+1036	sysextension	#assert is a System V.4 extension
+1037	sysextension	#unassert is a System V.4 extension
+1038	sysextension	Testing assertions is a System V.4 extension
+
+1040	recover		Selecting a bit from a scalar is an extension
+1040	syntax		Selecting a bit from a scalar is non ISO standard
+
+1050	usercont	Should use the %s profile if you include this\
+ header
+1051	usercont	Should use one of the profiles (%s) if you include\
+ this header
+
+1201	expundef        [U] Taking offset of bit-field\\
+\nREFERENCE - ISO-7.1.5 page 99 line 29-30
+1202	expundef        [U] First parameter to offsetof is not struct type
+1203	expundef        [U] Array index out of bounds in address constant 
+1204	expundef        [U] Address constant given in offsetof not constant
+1205	expundef        [U] Non-constant address given in offsetof
+1206	expundef        [U] Member in offsetof does not belong to struct
+
+1208	recover         setjmp macro not allowed in this context\\
+\nREFERENCE - ISO-7.6.1.1 page 119 lines 24-30
+1208	constraint      [C] setjmp macro not allowed in this context\\
+\nREFERENCE - ISO-7.6.1.1 page 119 lines 24-30
+
+1210	impundef	Expected a pointer to an object
+1211	impundef	Amount being copied is not a multiple of the size of\
+ the pointed to type
+1212	recover		Target object is smaller than the number of bytes being\
+ copied
+1212	expundef_err	Target object is smaller than the number of bytes\
+ being copied
+1213	recover		Source object is smaller than the number of bytes\
+ being copied
+1213	expundef_err	Source object is smaller than the number of bytes\
+ being copied
+1214	impundef	Size being copied is less than the size of the\
+ pointed to type
+1215	impundef	Referencing memory via the NULL pointer constant
+1216	impundef	String literal being copied is smaller than the\
+ size specified
+
+1217	impundef	The assert macro has been suppressed to call a function of\
+ that name, undefined behaviour\\
+\nREFERENCE - ISO-7.2 Diagnostics <assert.h>
+1218	expundef	#undef the assert macro to call a function of\
+ that name causes undefined behaviour\\
+\nREFERENCE - ISO-7.2 Diagnostics <assert.h>
+
+1220	expundef	Using unsupported conversion specifier (no %s)
+1221	expundef	Unknown flags used with i/d conversion\
+ specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1222	expundef	Unknown flags used with o conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1223	expundef	Unknown flags used with u conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1224	expundef	Unknown flags used with x conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1225	expundef	Unknown flags used with X conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1226	expundef	Unknown flags used with f conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1227	expundef	Unknown flags used with e conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1228	expundef	Unknown flags used with E conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1229	expundef	Unknown flags used with g conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1230	expundef	Unknown flags used with G conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1231	expundef	Unknown flags used with c conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1232	expundef	Unknown flags used with %% conversion\
+ specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1233	expundef	Unknown flags used with s conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1234	expundef	Unknown flags used with n conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1235	expundef	Unknown flags used with p conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1236	expundef	Unknown conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1237    expundef	Field width exceeds 509 characters\\
+\nREFERENCE - ISO-7.9.6.1 Environmental limit
+1238    expundef	Precision width exceeds 509 characters\\
+\nREFERENCE - ISO-7.9.6.1 Environmental limit
+1239    expundef	Argument type does not match conversion\
+ specifier no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+
+1244    expundef	Insufficient arguments to satisfy conversion\
+ specifier, no %s\\
+\nREFERENCE - ISO-7.9.6 Formatted input/output functions
+1245    info    	Call contains more arguments than conversion\
+ specifiers
+1246    expundef	Call must contain at least one argument
+
+1250	expundef	Using unsupported conversion specifier (no %s)\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1251	expundef	Unknown flags used with d/i/n conversion\
+ specifier, no %s\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1252	expundef	Unknown flags used with o conversion specifier, no\
+ %s\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1253	expundef	Unknown flags used with u conversion specifier, no\
+ %s\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1254	expundef	Unknown flags used with x/X conversion specifier, no\
+ %s\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1255	expundef	Unknown flags used with e/E/f/g/G conversion\
+ specifier, no %s\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1256	expundef	Unknown flags used with s conversion specifier, no\
+ %s\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1257	expundef	Unknown flags used with p conversion specifier, no\
+ %s\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1258	expundef	Unknown flags used with %% conversion\
+ specifier, no %s\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1259	expundef	Unknown flags used with [ conversion specifier, no\
+ %s\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1260	expundef	Unknown flags used with c conversion specifier, no\
+ %s\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1261	expundef	Unknown conversion specifier, no %s\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1262	expundef	'-' character in [] conversion specification\
+ is implementation defined\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1263	expundef	Value of character prior to - in [] is greater than\
+ following character\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1264    expundef	Field width exceeds 509 characters\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1265    expundef	Precision width exceeds 509 characters\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1266    expundef	Argument type does not match conversion\
+ specifier no %s\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1267	expundef	scanf expects address of object being stored into\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+1268	expundef	Same character occurs in scanset more than once\\
+\nREFERENCE - ISO-7.9.6.2 Formatted input/output functions
+
+1280	expundef	Call to va_start preceded by another call va_start\\
+\nREFERENCE - ISO-7.8.1.1 The va_start macro
+1281	expundef	Call to va_end not preceded by call to va_start\\
+\nREFERENCE - ISO-7.8.1.3 The va_end macro
+1282	expundef	Call to va_end preceded by another call to va_end\\
+\nREFERENCE - ISO-7.8.1.3 The va_end macro
+1283	expundef	Call to va_arg not preceded by call to va_start\\
+\nREFERENCE - ISO-7.8.1.2 The va_arg macro
+1284	expundef	Call to va_arg preceded by call to va_end\\
+\nREFERENCE - ISO-7.8.1.2 The va_arg macro
+1285	expundef	Function returning without matching call to va_end\\
+\nREFERENCE - ISO-7.8.1.3 The va_end macro
+1286	expundef	Argument to va_start may not have the register\
+ storage class\\
+\nREFERENCE - ISO-7.8.1.1 The va_start macro
+1287	expundef	Argument to va_start may not have array type\\
+\nREFERENCE - ISO-7.8.1.1 The va_start macro
+1288	expundef	Argument to va_start may not have function type\\
+\nREFERENCE - ISO-7.8.1.1 The va_start macro
+1289	expundef	Argument to va_start not the last named identifier\\
+\nREFERENCE - ISO-7.8.1.1 The va_start macro
+1290	expundef	Argument to va_start not compatible with its promoted\
+ type\\
+\nREFERENCE - ISO-7.8.1.1 The va_start macro
+1291	expundef	Argument to va_arg not compatible with its promoted\
+ type\\
+\nREFERENCE - ISO-7.8.1.2 The va_arg macro
+1292	expundef	va_start may not be used in a function defined\
+ without a prototype\\
+\nREFERENCE - ISO-7.8.1.1 The va_start macro
+1293	expundef	va_start may not be used in a function defined\
+ without an ellipsis\\
+\nREFERENCE - ISO-7.8.1.1 The va_start macro
+1294	expundef	Argument to va_start must be the last named\
+ parameter\\
+\nREFERENCE - ISO-7.8.1.1 The va_start macro
+
+1350	codestn		Control variable, %s, does not have block scope
+1351	codestn		Control variable, %s, does not appear in the\
+ initialisation expression
+1352	codestn		Control variable, %s, does not appear in the increment\
+ expression
+1353	codestn		Control variable, %s, modified outside of loop header
+1354	codestn		Control variable, %s, not modified inside loop
+1355	codestn		Taking address of loop control variable, %s
+1356	codestn		Control variable, %s, modified twice in loop header
+1357	codestn		Initial and final loop control values are identical
+1358	codestn		Control variable values suggest no iterations\
+ will occur
+1359	codestn		Control variable, %s, with file scope, not modified\
+ inside loop
+1360	codestn		Declaring function taking variable number of\
+ arguments
+1361	codestn		Calling function taking variable number of\
+ arguments
+1362	codestn		Calling function that has no prototype in scope
+1363	codestn		Parameter of function call has side effects
+1364	codestn		Control variable has floating point type
+1365	codestn		'for' loop has no obvious control variable
+1366	codestn		'for' loop has more than one potential\
+ control variable
+
+1369	codestn		Index may take a value greater than number of\
+ elements
+1370	codestn		Possible out of bounds array index
+
+1376	codestn		Non-portable implicit conversion involving\
+ plain 'int' bit-field
+1377	codestn		Implicit cast of floating point type to integral\
+ type
+1378	impundef	Implicit cast to smaller type uses different number\
+ of bits on source/target cpu
+1379	impundef	Implicit cast to smaller type changes sign
+1380	codestn		Non-portable implicit conversion involving\
+ plain 'char' type
+1381	codestn		Implicit conversion of unsigned to signed\
+ may lose information
+1382	codestn		Implicit conversion of signed to unsigned may lose\
+ information
+1383	codestn		Implicit conversion to narrower type may lose\
+ information
+1384	impundef	Left shifted constant expression uses more bits on\
+ source cpu
+1385	impundef	Addition of constant expression uses more bits on\
+ source cpu
+1386	impundef	Multiplication of constant expression uses more bits\
+ on source cpu
+1387	impundef	Cast of constant expression uses more bits on\
+ source cpu
+
+1390	codestn		if not preceded by a comment
+1391	codestn		else not preceded by a comment
+1392	codestn		for not preceded by a comment
+1393	codestn		while not preceded by a comment
+1394	codestn		do not preceded by a comment
+1395	codestn		switch not preceded by a comment
+1396	codestn		function header not preceded by a comment
+1397	codestn		if (macro expanded) not preceded by a comment
+1398	codestn		else (macro expanded) not preceded by a comment
+1399	codestn		for (macro expanded) not preceded by a comment
+1400	codestn		while (macro expanded) not preceded by a comment
+1401	codestn		do (macro expanded) not preceded by a comment
+1402	codestn		switch (macro expanded) not preceded by a comment
+1403	codestn		anonymous compound statement not preceded by a\
+ comment
+1404	codestn		anonymous compound statement (macro expanded) not\
+ preceded by a comment
+
+1405	codestn		#include filename uses absolute path, make relative
+1406	codestn		#include not at file scope
+1407	codestn		#include appears after user declarations
+
+1409	codestn		{ ... }, possibly macro derived, not preceded by\
+ statement header
+1410	codestn		Declaration on same line as previous declaration
+1411	codestn		Embedded SQL in compound statement context\
+ but not bracketed within { }
+1412	codestn		Indentation inconsistent with previous statements
+1413	codestn		{ ... } not preceded by statement header
+1414	codestn		Different indentation styles in same function
+1415	codestn		Different indentation styles in different functions
+1416	codestn		Indentation inconsistent with opening scope
+1417	codestn		'case' indentation inconsistent with previous labels
+1418	codestn		More than one statement on the same line
+1419	codestn		Statement after if body on same line as that body
+1420	codestn		Compound header should start on a new-line
+1421	codestn		Statement after compound header not bracketed within { }
+1422	codestn		Recursive call to function containing this call
+1423	codestn		Expression statement on same line as compound header
+1424	codestn		{ ... } on same line
+1425	codestn		More than one 'case' label on the same line
+
+1430	codestn		Blank line between compound header and statement
+
+1450	codestn		'return;' found in function with elided return\
+ type specifier - function returns 'int' type
+1451	codestn		'return exp;' not found in function with elided\
+ return type specifier - function returns 'int' type
+1452	codestn		default missing from switch statement
+1453	codestn		Falling through into another case label
+1454	codestn		Label is target of goto from outside initialized block
+1455	codestn		Target of 'goto' is in nested initialized block
+1456	codestn		Unreachable code
+1457	codestn		Use of break in an if statement
+1458	codestn		Function contains more than one exit point
+1459	codestn		Using a goto statement
+1460	codestn		Using a goto statement (via a macro expansion)
+1461	codestn		Function called via pointer to function
+1462	codestn		Initializer is jumped over and does not occur
+
+1463	lint		File scope static '%s' only referenced in one\
+ function
+
+1470	lint		#undef'ing an identifier that has already been #undef'ed
+1471	lint		#ifdef'ing an identifier that has been #undef'ed
+1472	lint		#ifdef'ing an identifier that has been #undef'ed (in\
+ nested #if)
+
+1474	lint		Adjacent strings being concatenated in initializer,\
+ has a comma been omitted?
+1475	lint		Size being malloc'ed is less than size of pointed to\
+ type
+1476	lint		Size being malloc'ed is not an integral multiple of\
+ the pointed to type
+1477	lint		Type given in sizeof is not compatible with the\
+ pointed to type used to cast malloc
+1478	lint		Enumeration argument to parameter taking non-enum\
+ type
+1479	lint		Argument of enumeration type passed to old\
+ style function declaration
+1480	lint		Literal argument not listed in the enumeration type
+1481	lint		Enumeration constant being passed belongs to a\
+ different enum type
+1482	lint		Enumeration constant used as label belongs to a\
+ different enum type
+1483	lint		Literal, not enumeration constant, being used with\
+ switch expression of enum type
+1484	lint		Enumeration constant being returned belongs to a\
+ different enum type
+1485	lint		Non-enumeration value returned from function\
+ declared to return an enum type
+1486	lint		Enumeration constant being compared belongs to a\
+ different enum type
+1487	lint		Non-enumeration value being compared against an object\
+ of enum type
+1488	lint		Enumeration constant being assigned belongs to a\
+ different enum type
+1489	lint		Non-enumeration value being assigned to an object\
+ of enum type
+1490	lint		Unary operator being applied to enum type
+1491	lint		Assigning value not in the enumeration type
+1492	lint		Literal in equality comparison not listed in the\
+ enumeration type
+1493	lint		Literal in relational comparison not listed in the\
+ enumeration type
+1494	lint		Literal value and range of possible enum values\
+ suggests this test is always true
+1495	lint		Literal value and range of possible enum values\
+ suggests this test is always false
+1496	lint		Object of enum type being implicitly compared\
+ against zero, a non symbolic name
+1497	lint		Object, of enum type not having a zero value, is\
+ being implicitly compared against zero
+1498	lint		Enumeration constant being returned from a function\
+ not having that enum type
+1499	lint		Arithmetic being performed on enumerated object
+
+1530	impundef	Left shifted object type has different size on\
+ source/target cpu
+1531	impundef	Folded constant expression uses more bits on\
+ target cpu
+1532	impundef	Literal has different signed type on source/target cpu
+1533	impundef	Type of return expr has different size on source/target cpu
+1534	kandr   	Using K&R style token pasting
+1534	constraint   	Using K&R style token pasting
+
+1537	kandr   	Non-ISO preprocessor directive
+1537	constraint   	Non-ISO preprocessor directive
+1538	kandr   	Using extended directive
+1538	constraint   	Using extended directive
+1539	kandr   	Missing matching #asm to #endasm
+1539	constraint   	Use of #asm not ISO, also #endasm is missing
+
+1540	lint		Nonportable bit-field comparison
+1541	lint		Nonportable negation of plain char type
+1542	lint		Nonportable negation of plain bit-field type
+1543	lint		Negated expression cast to an unsigned type
+
+1545	lint		switch contains code that is not preceded by a case label
+
+1549	lint		struct/union/enum defined with this tag in an\
+ outer scope
+1550	lint		Address of local object being returned
+
+1570	limits		Nesting of control statements exceeds user limit
+1571	limits		Nesting of conditional includes exceeds user limit
+1574	limits		Nesting of expression parenthesis exceeds user limit
+1576	limits		Number of external declarations exceeds user limit
+1577	limits		Number of block scope definitions exceeds user limit
+1578	limits		Number of macros defined exceeds user limit
+1580	limits		Number of arguments in call exceeds user limit
+1581	limits		Number of arguments in macro invocation\
+ exceeds user limit
+1582	limits		Number of characters source line exceeds user limit
+1583	limits		Number of characters in string exceeds user limit
+1584	limits		Size of object exceeds user limit
+1585	limits		#include of system header exceeds user limit
+1586	limits		#include of user header exceeds user limit
+1587	limits		Number of case labels exceeds user limit
+1588	limits		Number of enumerators exceeds user limit
+1589	limits		Number of struct members exceeds user limit
+1590	limits		Nesting of struct definitions exceeds user limit
+
+1600	recover		Using C++ ref operator, ignored
+1600	constraint	Using C++ ref operator
+1601	cppcompat      	Declaration using empty parenthesis not allowed in\
+ C++
+1602	cppcompat	Declaration with arguments only not allowed in C++
+1603	cppcompat	This is a C++ style comment
+1604	cppcompat	Enums are not compatible with integral types in C++
+1605	cppcompat	The ++ and -- operators may not be applied to objects\
+ of type enum in C++
+1606	cppcompat	const qualifier without explicit extern storage class\
+ has internal linkage in C++
+1607	cppcompat	The null terminator may not be ignored in C++ string\
+ initializers
+1608	cppcompat	__STDC__ is not required to be defined in C++
+1609	cppcompat	C++ does not implicitly cast from * void
+1610	cppcompat	C++ does not implicitly cast to * void
+1611	cppcompat	C++ requires that functions be defined before\
+ they are referenced
+1612	cppcompat	C++ does not allow storage class to be given on purely\
+ struct/union/enum definitions
+1613	cppcompat	Tag, %s, must not have the same name as a type in the\
+ same scope in C++
+1614	cppcompat	typedef, %s, must not have the same name as a tag in the\
+ same scope in C++
+1615	cppcompat	Calling main is not supported in C++
+1616	cppcompat	Taking the address of main is not supported in C++
+1617	cppcompat	sizeof enum is not guaranteed to be the same as sizeof\
+ int in C++
+1618	cppcompat	Making use of a tag defined within a struct/union\
+ in C++ these are not visible
+1619	cppcompat	C++ does not allow types to be declared within\
+ a parameter declaration
+1620	cppcompat	C++ does not allow types to be declared within\
+ a function return type
+1621	cppcompat	'%s' cannot be a duplicate, tentative definition\
+ in C++
+1622	cppcompat	Character constants have type char in C++, so\
+ sizeof will give a different result
+
+1650	javacompat	This keyword is not available in Java
+1651	javacompat	Replace const keyword by final in Java
+
+1701	lint		Degenerate unsigned comparison with zero
+1702	lint		Line splicing inside a comment is suspicious
+1703	lint		Degenerate unsigned comparison with negative constant
+1704	lint		Argument in macro invocation contains a side-effect
+1705	lint		Subtraction of unsigned quantities wraps
+1706	lint		Side effect in operand of sizeof will not occur
+1707	lint		Applying unary minus to unsigned quantity
+1708	lint		Equality comparison on real datatypes may not be exact
+1709	lint		Comments do not nest
+1710	lint		Null statement
+1711	lint		Left operand of comma has no side effects
+1712	lint		Possible missing element/extraneous comma in\
+ initializer
+1713	lint		Expression statement has no side effect
+1714	lint		Previous declaration uses the static storage class
+1715	lint		Previous file scope declaration hidden by local\
+ declaration
+1716	lint		Declaration using extern storage class also contains\
+ an initialiser
+1717	lint		Unknown directive encountered while skipping
+1718	lint		Expected 'on' or 'off' after '#pragma' flag
+1719	lint		Macro parameter not enclosed in ()
+1720	lint		Spaces not used to separate operators
+1721	lint		Function causes possible side-effect on rhs of logical\
+ operator expression
+1722	lint		Expression statement contains redundant operator at top\
+ level
+1723	lint		Right hand side of logical operator has no side effect
+1724	lint		One side of comma expression has no side effect
+1725	lint		One side of ':' expression has no side effect
+1726	lint		*p++ means *(p++) not (*p)++
+1727	lint		Perhaps a logical operator rather than a bit-wise\
+ operator intended
+1728	lint		Expression statement contains redundant cast at top\
+ level
+1729	lint		Bits were lost off end of left shift
+1730	lint		Possible side-effect occurs on rhs of logical\
+ operator expression
+1731	lint		Single object in macro body not enclosed in ()
+1732	lint		Macro body not enclosed in ()
+1733	lint		Declaration in different scope on same line
+1734	lint		Contents of <%s> not referenced within source
+1735	lint		Contents of "%s" not referenced within source
+1736	lint		File has already been included at top level
+1737	lint		File was included from within a previous include
+1738	lint		static function '%s' declared but not defined
+1739	lint		switch has constant control expression
+1740	lint		'struct'/'union' used before defined
+1741	lint		Single number macro body not enclosed in ()
+1742	lint		Single literal macro body not enclosed in ()
+1743	lint		'struct' or 'union' %s is not defined in it's scope
+1744	lint		Control expression contains an assignment
+1745	lint		No 'case' labels in 'switch' statement
+1746	lint		Function expression probably missing a ()
+1747	lint		case label inside a compound statement
+1748	lint		Comparison against string literal, strcmp intended?
+1749	lint		Logical not being performed on one operand of a\
+ comparison 
+1750	lint		Number of arguments differs from definition
+1751	lint		Argument type in call differs from definition
+1752	lint		Label '%s' not used in function
+1753	lint		Constant argument to NOT, inside macro
+1754	lint		'%s' is set but never used
+1755	lint		'%s' is only assigned once
+1756	lint		'%s' unused in scope
+1757	lint		Argument '%s' unused in function
+1758	lint		Constant argument to NOT
+1759	lint		Constant in conditional context
+1760	lint		Static '%s' never used
+1761	lint		New type defined in an non-declaration context
+1762	lint		'%s' called with variable number of arguments
+1763	lint		'%s' returns a value which is sometimes ignored
+1764	lint		'%s' returns a value which is always ignored
+1765	lint		Result of '%s' is used, but none is returned
+1766	lint		Identifier '%s' replaced by zero in #if
+1767	lint		Explicit cast is implicitly cast to another type
+1768	lint		Declaration of '%s' hides earlier one
+1769	lint		Default declaration of '%s' as 'extern int ()'
+1770	lint		'enum' used before defined
+1771	lint		Implicit initialization of '%s': array of unknown size\
+ defines size to be 1 element
+1772	lint		unsigned literal being truncated
+1773	lint		extern function declaration, %s, not referred to
+1774	lint		extern object declaration, %s, not referred to
+1775	lint		extern object definition, %s, not referred to
+1776	lint		Possible precedence confusion: parenthesize!
+1777	lint		Nested if-else within unbalanced if without braces\
+ looks confusing
+1778	lint		'%s' is externally visible but not declared in a header
+1779	lint		'%s' is also declared in a different file
+1780	lint		Parameter in macro call not parenthesized
+1781	lint		Casting left shifted expression to larger type
+1782	lint		Casting right shifted, expression to larger type
+1783	lint		switch contains a suspicious gap, %s, in the label\
+ values
+1784	lint		switch, with default, contains a suspicious gap,\
+ %s, in the label values
+1785	lint		switch contains a suspicious island, %s, in the label\
+ values
+1786	lint		switch, with default, contains a suspicious island,\
+ %s, in the label values
+1787	lint		Enumeration constant, %s, not handled in switch
+1788	lint		Enumeration constant, %s, not handled in switch, with\
+ default
+1789	lint		switch label, %s, not contained in enum type
+1790	lint		Macro definition hides previously declared identifier
+1791	lint		Elements of char array being implicitly\
+ initialized with zeroes
+1792	lint		Fields of struct being implicitly\
+ initialized with zeroes
+1793	lint		Status flag '%s' may not appear in a bit-wise\
+ expression
+1794	lint		Status flag '%s' not checked immediately after call
+1795	lint		Status flag '%s' not checked after call
+1796	lint		Calls set same status flag '%s'
+1797	lint		Status flag '%s' not checked immediately after call
+1798	lint		Status flag '%s' assigned to
+1799	lint		Status flag checked on rhs of logical operator
+1800	lint		Parenthesised expression in macro invocation\
+ contains a side-effect
+1801	lint		Null terminator in string literal not being copied
+
+1803	lint		Very suspicious NULL pointer constant
+
+1805	lint		Line splicing inside a comment, inside skipped\
+ directives, is suspicious
+
+1810	lint		Value of argument may not be in the listed enumerated\
+ type
+1811	lint		Enumerated constant, not literal, expected as\
+ argument
+1812	lint		Value in equality expression may not be in the listed\
+ enumerated type
+1813	lint		Enumerated constant, not literal, expected in\
+ equality
+1814	lint		Enumeration constant in equality expression belongs to\
+ a different enum type
+1815	lint		return value may not be in the listed enumerated\
+ type
+1816	lint		Enumerated constant, not literal, expected as\
+ return value
+1817	lint		Enumerated constant, not literal, expected in\
+ relational
+1818	lint		Expression cast to enumeration type may not have a\
+ value represented in that type
+
+1825	lint		Opening brace omitted from struct initializer
+1826	lint		Opening brace omitted from union initializer
+1827	lint		Opening brace omitted from array initializer
+
+1830	lint		Redeclaring identifier '%s', from another file, with\
+ different storage class
+1831	lint		Function that defines a type in parameter type\
+ list may be uncallable
+
+1835	lint		#include file also exists on the nested path %s
+1836	lint		#include file also exists on the -I option path %s
+
+1840	lint		Previous case labels were given as character\
+ constants
+1841	lint		Source/target character sets may give different\
+result for this relational operator
+
+1845	lint		Value analysis suggests condition is always\
+ TRUE
+1846	lint		Value analysis suggests condition is always\
+ FALSE
+1847	lint		Value analysis suggests do while condition is always\
+ FALSE
+1848	lint		Value analysis suggests do while condition is always\
+ TRUE
+1849	lint		Value analysis suggests while condition is always\
+ FALSE
+1850	lint		Value analysis suggests for loop condition is always\
+ FALSE
+
+1860	lint		Unsuffixed literal causes implicit cast of\
+ other operand
+1861	lint		Suffixed literal causes implicit cast of\
+ other operand
+1862	lint		Suffixed literal promoted to another type
+1863	lint		Unsuffixed literal promoted to another type
+1864	lint		Suffixed literal has different type to\
+ root suffix
+1865	lint		Unsuffixed literal has type other than signed\
+ int
+1866	lint		Suffixed literal cast before assignment
+1867	lint		Suffixed literal cast, to smaller type,\
+ before assignment
+1868	lint		Suffixed literal is cast to another type
+1869	lint		Unsuffixed literal is cast to another type
+1870	lint		Integral literal promoted to floating type
+1871	lint		Suffixed floating literal promoted to\
+ another type
+1872	lint		Unsuffixed floating literal promoted to\
+ another type
+1873	lint		Floating literal causes implicit cast of\
+ other, integral, operand
+1874	lint		Suffixed floating literal promoted before\
+ assignment
+1875	lint		Unsuffixed floating literal promoted before\
+ assignment
+1876	lint		Floating literal cast to integral type\
+ before assignment
+1877	lint		Suffixed floating literal cast to another\
+ type
+1878	lint		Unsuffixed floating literal cast to another\
+ type
+1879	lint		Floating literal cast to integral type
+
+1882	lint		Using a suffixed literal does not alter the\
+ type of the enum constant
+1883	lint		Having leading zeroes on a numeric literal\
+ does not affect its type
+1884	lint		Leading zeroes on numeric literal
+
+1886	lint		Casting left shifted expression to smaller type
+1887	lint		Casting right shifted, expression to smaller type
+1888	lint		Redundant cast
+1889	lint		Operands of bitwise operator are\
+ different enum types
+1890	lint		Operands of : operator are\
+ different enum types
+1891	lint		Performing bitwise operation on enum\
+ values
+1892	lint		Assigned value is the bitwise or of\
+ enumeration constants
+1894	lint		Argument value is the bitwise or of\
+ enumeration constants
+1894	lint		Returned value is the bitwise or of\
+ enumeration constants
+1895	lint		Compared value is the bitwise or of\
+ enumeration constants
+1896	lint		Assigning object of different enum type
+1897	lint		Comparing objects of different enum type
+1898	lint		Returning object of different enum type
+1899	lint		Argument has different enum type from\
+ function declaration
+

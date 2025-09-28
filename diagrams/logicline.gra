@@ -1,0 +1,35 @@
+
+.ps 8
+
+.G1
+
+# logicline.g,  9 Mar 02
+# built on: Thu Jan 24 01:48:18 GMT 2008
+
+graph Q_1
+
+frame invis ht 1.5 wid 2.2*1.2 left solid bot solid
+
+coord x 0,320 y 0.9,1857300 log y
+
+label bot "Characters"
+# using left shift the graph underneath
+label left "Lines" "" "" ""
+ticks left out at 1, 10 "10", 100 "100", 1000 "1,000", 10000 "10,000", 100000 "100,000", 1000000 "1,000,000"
+
+ticks bot out at 0, 50 "", 100, 150 "", 200, 250 "", 300
+
+copy "physlinelen.d" thru {
+   times size -2 at $1, $2
+}
+copy "physlinelen.dh" thru {
+   bullet size -2 at $1, $2
+}
+
+times  at 240,1857300/2
+".c files" ljust at 250,1857300/2
+bullet  at 240,1857300/6
+".h files" ljust at 250,1857300/6
+
+.G2
+

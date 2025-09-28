@@ -1,0 +1,9 @@
+  IDENT ,, 15.9 ,,  IDENT > INT_CONST ,, 1.9
+  IDENT == IDENT ,, 9.1 ,,  IDENT != INT_CONST ,, 1.6
+  ! IDENT ,, 7.5 ,,  FUNC == IDENT ,, 1.6
+  FUNC ,, 7.3 ,,  IDENT > IDENT ,, 1.5
+  EXPR ,, 5.6 ,,  FUNC == INT_CONST ,, 1.2
+  IDENT == INT_CONST ,, 5.0 ,,  IDENT < IDENT ,, 1.1
+  IDENT != IDENT ,, 4.4 ,,  ! EXPR ,, 1.0
+  ! FUNC ,, 3.8 ,, others ,, 29.2
+  IDENT < INT_CONST ,, 2.3 ,,   ,, 

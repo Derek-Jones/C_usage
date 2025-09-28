@@ -1,0 +1,67 @@
+.FILE t4.c
+.DATE Dec  9 2003
+.TIME 13:50:40
+.VERSION 1.4
+#
+.START t4.c
+.ERR     1   7 9500 6 0 "S1"
+.ERR     1  16 9506 6 0 "mem1"
+.ERR     1  27 9506 6 0 "mem2"
+.STRUCT 8 0
+.MEMBER mem1 int 0
+.MEMBER mem2 char 4
+.ERR     2  16 9504 6 0 "s1_obj"
+.ERR     2  16 9523 6 0 "s1_obj"
+.ERR     4  13 9506 6 0 "mem3"
+.ERR     4  24 9506 6 0 "mem4"
+.STRUCT 8 0
+.MEMBER mem3 int 0
+.MEMBER mem4 char 4
+.ERR     4  39 9504 6 0 "anon_obj"
+.ERR     4  39 9523 6 0 "anon_obj"
+.ERR     5   7 9500 6 0 "S2"
+.ERR     5  22 9506 6 0 "mem5"
+.ERR     5  33 9506 6 0 "mem6"
+.STRUCT 12 0
+.MEMBER mem5 struct 0
+.MEMBER mem6 char 8
+.ERR     7   7 9500 6 0 "S3"
+.ERR     7  19 9500 6 0 "S4"
+.ERR     7  23 9506 6 0 "mem7"
+.ERR     7  40 1521 6 1
+.ERR     7  40 634 4 0
+.ERR     7  40 9506 6 0 "mem8"
+.STRUCT 8 0
+.MEMBER mem7 ptr_tostruct 0
+.MEMBER mem8 int 4
+.ERR     9  16 9506 6 0 "mem9"
+.ERR    10  19 9500 6 0 "S5"
+.ERR    10  28 9506 6 0 "mem10"
+.STRUCT 1 1
+.MEMBER mem10 char 0
+.ERR    10  36 9506 6 0 "mem11"
+.STRUCT 8 0
+.MEMBER mem9 int 0
+.MEMBER mem11 struct 4
+.GLOBAL
+anon_obj EXTERNAL defined 0 used 0 set 0 size 8 IDENT struct
+s1_obj EXTERNAL defined 0 used 0 set 0 size 8 IDENT struct
+S4 used 0 TAG
+S1 used 0 TAG
+S5 used 0 TAG
+S2 used 0 TAG
+S3 used 0 TAG
+.METRICS
+CHARS 252 B_CHARS 62 LINES 11 B_LINES 4 
+.PPTOKS
+STAR 1 COLON 1 SEMICOLON 17 OPEN_CURL 6 
+CLOSE_CURL 6 IDENTIFIER 38 EOLN 13 PP_NUMBER 1 
+.TOKS
+CHAR 4 INT 4 STRUCT 9 STAR 1 
+COLON 1 SEMICOLON 17 OPEN_CURL 6 CLOSE_CURL 6 
+LITERAL 1 IDENTIFIER 21 
+.END t4.c
+.ERR    11   0 1778 5 0 "anon_obj"
+.ERR    11   0 1775 5 0 "anon_obj"
+.ERR    11   0 1778 5 0 "s1_obj"
+.ERR    11   0 1775 5 0 "s1_obj"

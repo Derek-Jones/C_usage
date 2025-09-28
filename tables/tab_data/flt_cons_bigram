@@ -1,0 +1,7 @@
+ , FLOAT_CONST ,, 0.0 ,, 20.4 ,, FLOAT_CONST / ,, 5.8 ,, 1.8
+ = FLOAT_CONST ,, 0.1 ,, 15.7 ,, *= FLOAT_CONST ,, 6.3 ,, 1.6
+ * FLOAT_CONST ,, 0.2 ,, 12.5 ,, FLOAT_CONST * ,, 6.8 ,, 0.1
+ ( FLOAT_CONST ,, 0.0 ,, 8.8 ,, FLOAT_CONST ; ,, 26.5 ,, 0.1
+ + FLOAT_CONST ,, 0.4 ,, 7.7 ,, FLOAT_CONST ) ,, 25.9 ,, 0.1
+ -v FLOAT_CONST ,, 0.3 ,, 6.7 ,, FLOAT_CONST , ,, 25.8 ,, 0.1
+ / FLOAT_CONST ,, 2.0 ,, 6.4 ,,   ,,  ,, 

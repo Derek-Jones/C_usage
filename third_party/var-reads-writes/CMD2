@@ -1,0 +1,13 @@
+#!/bin/csh
+./CMD ~/brass/profile/apps/mediabench/adpcm/exec/prof.rawcaudio > rawcaudio
+./CMD ~/brass/profile/apps/mediabench/adpcm/exec/prof.rawdaudio > rawdaudio
+./CMD ~/brass/profile/apps/mediabench/epic/exec/prof.epic > epic
+./CMD ~/brass/profile/apps/mediabench/epic/exec/prof.unepic > unepic
+./CMD ~/brass/profile/apps/mediabench/g721/exec/prof.g721encode > g721_encode
+./CMD ~/brass/profile/apps/mediabench/g721/exec/prof.g721decode > g721_decode
+./CMD ~/brass/profile/apps/mediabench/gsm/exec/prof.gsmencode > gsm_toast
+./CMD ~/brass/profile/apps/mediabench/gsm/exec/prof.gsmdecode > gsm_untoast
+./CMD ~/brass/profile/apps/mediabench/jpeg/exec/prof.cjpeg > cjpeg
+./CMD ~/brass/profile/apps/mediabench/jpeg/exec/prof.djpeg > djpeg
+./CMD ~/brass/profile/apps/mediabench/mpeg2/exec/prof.mpeg2encode > mpeg2encode
+./CMD ~/brass/profile/apps/mediabench/mpeg2/exec/prof.mpeg2decode > mpeg2decode

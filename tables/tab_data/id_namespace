@@ -1,0 +1,6 @@
+ block scope objects ,, 23.7 ,, file scope objects ,, 4.4
+ macro definitions ,, 19.3 ,, macro parameters ,, 4.3
+ function parameters ,, 16.8 ,, enumeration constants ,, 2.1
+ struct/union members ,, 9.6 ,, typedef names ,, 1.2
+ function declarations ,, 8.6 ,, tag names ,, 1.0
+ function definitions ,, 8.1 ,, label names ,, 0.9

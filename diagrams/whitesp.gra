@@ -1,0 +1,33 @@
+
+.ps 8
+
+.G1
+
+# whitesp.g,  9 Mar 02
+# built on: Thu Jan 24 01:48:18 GMT 2008
+
+graph Q_1
+
+frame invis ht 1.5 wid 2.2*1.2 left solid bot solid
+
+coord x 0.9,110 y 0.9,18005952 log log
+
+label bot "Whitespace characters between preprocessing tokens"
+# using left shift the graph underneath
+label left "Preprocessing token pairs" "" "" "" ""
+ticks left out at 1, 10 "10", 100 "100", 1000 "1,000", 10000 "10,000", 100000 "100,000", 1000000 "1,000,000", 10000000 "10,000,000"
+
+copy "whitespace.d" thru {
+   times size -1 at $1, $2
+}
+copy "whitespace.dh" thru {
+   bullet size -1 at $1, $2
+}
+
+times  at 30,18005952/2
+".c files" ljust at 35,18005952/2
+bullet  at 30,18005952/7
+".h files" ljust at 35,18005952/7
+
+.G2
+

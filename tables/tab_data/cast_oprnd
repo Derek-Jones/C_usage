@@ -1,0 +1,9 @@
+ ( other-types ) ,, other-types ,, 40.1 ,, ( char * ) ,, const char * ,, 1.6
+ ( void * ) ,, _ int ,, 18.9 ,, ( union * ) ,, void * ,, 1.5
+ ( struct * ) ,, struct * ,, 11.2 ,, ( void ) ,, long ,, 1.3
+ ( struct * ) ,, _ int ,, 4.2 ,, ( unsigned long ) ,, unsigned long ,, 1.3
+ ( char * ) ,, char * ,, 4.0 ,, ( int ) ,, int ,, 1.3
+ ( char * ) ,, struct * ,, 3.9 ,, ( unsigned int ) ,, int ,, 1.2
+ ( struct * ) ,, void * ,, 2.8 ,, ( enum ) ,, int:8 24 ,, 1.2
+ ( unsigned char ) ,, int ,, 1.7 ,, ( char ) ,, _ int ,, 1.2
+ ( struct * ) ,, char * ,, 1.7 ,, ( unsigned long ) ,, ptr-to * ,, 1.0

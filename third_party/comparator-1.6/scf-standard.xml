@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+    "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY home          "http://www.catb.org/~esr/">
+]>
+
+<article id="index">
+<articleinfo>
+<title>Source Comparison Formats Standard</title>
+
+<author>
+  <firstname>Eric</firstname>
+  <othername>Steven</othername>
+  <surname>Raymond</surname>
+  <affiliation>
+    <orgname><ulink url="&home;">Thyrsus Enterprises</ulink></orgname> 
+  </affiliation>
+</author>
+
+<revhistory> 
+   <revision>
+      <revnumber>1.3</revnumber>
+      <date>2003-12-07</date>
+      <authorinitials>esr</authorinitials>
+       <revremark>
+	 SCF format goes to 1.1; line count is added.
+       </revremark>
+  </revision>
+   <revision>
+      <revnumber>1.2</revnumber>
+      <date>2003-11-07</date>
+      <authorinitials>esr</authorinitials>
+       <revremark>
+	 Added remove-braces.
+       </revremark>
+  </revision>
+  <revision>
+      <revnumber>1.1</revnumber>
+      <date>2003-10-07</date>
+      <authorinitials>esr</authorinitials>
+       <revremark>
+	 Added remove-braces.
+       </revremark>
+  </revision>
+  <revision>
+      <revnumber>1.0</revnumber>
+      <date>2003-09-07</date>
+      <authorinitials>esr</authorinitials>
+       <revremark>
+	 Initial release.
+       </revremark>
+   </revision>
+</revhistory>
+
+<abstract>
+
+<para>This document describes interchange formats for tools
+designed to find common code segments in large source trees.</para>
+
+</abstract>
+</articleinfo>
+
+<sect1 id="introduction"><title>Introduction</title>
+
+<para>As of September 2003 there are several individuals and research
+groups engaged in building tools for doing analysis of similarities
+among source-code trees.  The immediate motivation for these projects
+is to verify or refute assertions that the source code of the Linux
+kernel contains code copied from various proprietary Unixes, but the
+techniques should be of general use in code auditing and historical
+analysis.</para>
+
+<para>It is desirable that different research groups be able to compare and 
+cross-check each others' results.  It is also desirable that it be 
+possible to do similarity checks between source trees without having
+direct access to the sources, which may be hedged about with proprietary
+restrictions.</para>
+
+<para>Because many groups are using variations on the shred algorithm[1], both
+goals are achievable by adopting interchange formats for the intermediate
+computations.  Conceptually, these techniques break down into the following
+steps:</para>
+
+<procedure><title>Comparison Steps</title>
+
+<step>
+<para>Normalization: Normalize the source code</para>
+
+<para>This step consists of transformations on the source trees which
+are intended to ignore trivial differences &mdash; for example,
+removing whitespace so that variations in indent style don't lead to
+false negatives.  The normalization step varies significantly among
+programs.</para>
+</step>
+
+<step>
+<para>Hashing: Compute a sliding-window hash</para>
+
+<para>Chop the source into shreds, overlapping segments of N lines where N
+is a parameter of the technique.  A shred begins on each line of the
+source code except the last N-1 lines of each file.  Hash each shred
+into a signature with a technique such as MD5.  The hashing serves two
+purposes: to reduce the cost of comparing segments, and to make it 
+possible to do comparisons without seeing the original code.</para>
+
+<para>The result of this stage is a list of pairs consisting of a hash and a
+range, which is in turn a triple consisting of a filename, a start line
+number, and an an end line number.</para>
+</step>
+
+<step>
+<para>Reduction: Throw out non-duplicate hashes</para>
+
+<para>Shreds that don't match any other shred in the list can be thrown out.
+In the original shred algorithm, duplicates within any of the trees are
+thrown out, leaving a list only of hashes duplicated between trees but
+unique within trees.  In some variations, all duplicates are retained.</para>
+
+<para>The output of this stage is a list of matches.  Each match consists
+of two or more ranges corresponding to a given hash, but the hash can
+be omitteed from the list.</para>
+</step>
+
+<step>
+<para>Merging: Merge overlapping matches</para>
+
+<para>Two matches (A1, A2,...An) and (B1, B2,...Bn) are mergeable if there
+is some overlap value k such that the kth line in A[i] is the same as
+the first line in B[i] for every i.  If just two trees are being 
+compared, the usual case, then n = 2.</para>
+
+<para>In this stage, mergeable pairs of matches are replaced with a single 
+match in the obvious way.  For later stages, the shred size N is no longer
+a parameter.</para>
+
+<para>The input of this stage is a list of matches.  The output of this
+stage is a list of matches.</para>
+</step>
+
+<step>
+<para>Filtering: Throw out uninteresting matches</para>
+
+<para>Some matches aren't interesting.  For example, a match
+consisting entirely of blank lines is almost certainly uninteresting.
+Filtering logic cooperates with normalization to implement some theory
+of what similarities are interesting.</para>
+
+<para>The input of this stage is a list of matches.  The output of this
+stage is a list of matches.</para>
+</step>
+
+<step>
+<para>Reporting: Report generation.</para>
+
+<para>The list of interesting matches may be rendered as a list of
+overlapping code segments, or as statistics, or in other ways.</para>
+
+<para>Most of the variation among source-comparison methods is in 
+normalization and filtering.  Hashing, merging, and reduction don't
+vary a great deal, and the variation they do have can be captured
+by simple parameters and switches.</para>
+</step>
+</procedure>
+
+<para>Accordingly, it will be useful to define interchange standards for
+the following intermediate results:</para>
+
+<sect2><title>A: After hashing.</title>
+
+<para>First, we need a common format for a list of the hashes associated
+with a given source tree after normalization.  This one is
+particularly important, because it will allow groups of analysts to
+do comparisons on trees even though some groups might not have
+legal access to the original source code.</para>
+</sect2>
+
+<sect2><title>B: After reduction, merging, and filtering</title>
+
+<para>We also need a common format for match lists.  The format should be 
+able to describe what reduction and filtering steps were performed.</para>
+
+</sect2>
+</sect1>
+<sect1><title>File Formats</title>
+
+<para>The remainder of this document describes file formats to fill
+these needs.  These formats will be known as SCF (source Comparison
+Interchange Format) files, pronounced "skiff".</para>
+
+<para>Each format consists of four sections: an identification line,
+metadata, hash data, and (optionally) a statistics trailer.  The
+identification line consists of a hash sign, a format identifier, a
+space, and a revision level.  The metadata section consists of lines
+in the format of an RFC-822 header (a tag, followed by a colon and
+whitespace, followed by a value).  The data section consists of the
+line "%%\n" followed by data.  Metadata is encoded in UTF-8.</para>
+
+<para>For each format, we describe the format identifier, the metadata tags
+and their semantics, and the format of the data section.  Some metadata
+tags are optional, but it is recommended that they always be written out.
+Metadata tags short be written out in ASCII sort order of the tag.</para>
+
+<para>In the format descriptions, a 'ushort' is a two-byte unsigned
+integer in network byte order; a 'uint' is a four-byte unsigned
+integer in network byte order.</para>
+
+<para>The ordering rules give every data-set a canonical form so that
+operations like diff(1) or comm(1) can give meaningful results.</para>
+
+<sect2><title>SCF-A:</title>
+
+<para>This is the format for hash lists.  The identifier is 'SCF-A'.
+At version 1.1, the following metadata tags are defined:</para>
+
+<variablelist>
+<varlistentry>
+<term>Normalization: (mandatory)</term>
+<listitem>
+<para>A series of comma-separated tokens describing normalization steps.  These
+may include the following:</para>
+
+<itemizedlist>
+<listitem>
+<para><emphasis>none</emphasis>: No normalization.</para>
+</listitem>
+
+<listitem>
+<para><emphasis>remove-whitespace</emphasis>: All whitespace 
+(spaces, tabs, and linefeeds) has been stripped out.</para>
+</listitem>
+
+<listitem>
+<para><emphasis>remove-braces</emphasis>: Remove { and }.</para>
+</listitem>
+
+<listitem>
+<para><emphasis>remove-comments</emphasis>: When used with 
+<emphasis>remove-braces</emphasis>, also remove /* and */</para>
+</listitem>
+
+</itemizedlist>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><emphasis>Shred-Size</emphasis>: (mandatory)</term>
+<listitem><para>The shred size as a decimal integer.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><emphasis>Hash-Method</emphasis>: (optional)</term>
+<listitem><para>The hashing method.  Defaults to MD5</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><emphasis>Generator-Program</emphasis>: (optional)</term>
+<listitem><para>Name and version of the generating program.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><emphasis>Comment</emphasis>: (optional)</term>
+<listitem><para>Arbitrary comment text for human eyes.</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>The data section consists of a uint file count, followed by a
+series of file sections.  Each section consists of a filename line,
+terminated by a newline, followed by a ushort filename line length,
+followed by a ushort shred count, followed by a sequence of shred
+records.  The length of the data section is drtivable from the data
+lengths.</para>
+
+<para>A shred record consists of ushorts (start and end line numbers)
+followed by a fixed-length block of hash data.  For the default MD5
+hash the data is 16 bytes.</para>
+
+<para>Shreds should be ordered by start line number.  Empty files should be
+skipped, and nonempty files should always have at least one shred.
+Files should be listed in sort order by name.</para>
+
+<para>This format has a statistics trailer.  At level 1.1 it consists
+of a single uint, a count of lines for the associated source
+tree.</para>
+
+<para>This unpleasant binary format has been chosen to make processing as
+fast as possible, because shred data sets are quite large and holding
+down I/O is an important consideration.</para>
+</sect2>
+
+<sect2><title>SCF-B:</title>
+
+<para>This is the format for match lists. The identifier is 'SCF-B'.
+At version 1.0, the following metadata tags are defined:</para>
+
+<variablelist>
+<varlistentry>
+<term><emphasis>Filtering</emphasis>: (optional)</term>
+<listitem>
+<para>May have the following values. If the Filtering header is absent, treat
+as "Filtering: none".</para>
+
+<itemizedlist>
+<listitem>
+<para><emphasis>none</emphasis>: No filtering has been performed.</para>
+</listitem>
+
+<listitem>
+<para><emphasis>language</emphasis>: Any chunk consisting
+entirely of whitespace, language keywords, syntax, and certain common
+constants (thus,with no references to variables or functions) has been
+discarded.</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><emphasis>Merge-Program</emphasis>: (optional)</term>
+<listitem>
+<para>Name and version of the program used to merge hashes and do
+comparisons.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Comment: (optional)</term>
+<listitem><para>Arbitrary comment text for human eyes.</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>The data section consists of a statistics block followed by a
+sequence of range sets.  The statistics block consists of ant number 
+of count lines followed by a %%\n section marker. Each linecount line
+consists of two colon-separated fields, a tree name and a line count.</para>
+
+<para>Each range set consists of two or more ranges followed by a line
+containing a %%\n section marker.  A range is represented as four
+tab-separated fields: filename, start line, end line, and length of
+file in lines.  Line numbers are 1-origin.</para>
+
+<para>The natural sort order for range sets is by filename, then by
+start line, then by end line.  Ranges within range sets should be
+sorted by natural order.  Range sets should be sorted by the natural
+order of their first member.</para>
+
+<para>This format has no statistics trailer.</para>
+
+<para>It is strongly recommended that when a SCF-B file is generated from
+SCF-A files, the Normalization and Shred-Size headers should be copied
+into the result.</para>
+</sect2>
+</sect1>
+</article>
+

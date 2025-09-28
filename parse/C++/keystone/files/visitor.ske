@@ -1,0 +1,618 @@
+$$SEPARATOR$$
+/// S.B
+void
+$$NAME$$::visit ($$CONST$$ cAsgNode* $$PARAMETER$$ ) // abstract
+{
+  // String   mFilename
+  // int      mStartLine
+  // int      mEndLine
+  // unsigned mNodeNumber
+}
+$$SEPARATOR$$
+/// S.B.1
+void
+$$NAME$$::visit ($$CONST$$ cLinkage* $$PARAMETER$$ ) // : cAsgNode
+{
+  // String        mLinkType
+  // bool          mIsBlock
+  // AsgNodeList_t mContents
+}
+$$SEPARATOR$$
+/// S.B.2
+void
+$$NAME$$::visit ($$CONST$$ cUsing* $$PARAMETER$$ ) // : cAsgNode
+{
+  // bool            mIsNamespace
+  // cNameReference* mNameReference
+}
+$$SEPARATOR$$
+/// S.B.3
+void
+$$NAME$$::visit ($$CONST$$ cAsmDefinition* $$PARAMETER$$ ) // : cAsgNode
+{
+  // String mAsm
+}
+$$SEPARATOR$$
+/// S.TA.L
+void
+$$NAME$$::visit ($$CONST$$ cTemplateArgumentList* $$PARAMETER$$ ) // : cAsgNode
+{
+  // TemplateArgumentList_t mArguments
+}
+$$SEPARATOR$$
+/// S.I
+void
+$$NAME$$::visit ($$CONST$$ cIdentifier* $$PARAMETER$$ ) // abstract : cAsgNode
+{
+  // String           mName
+  // eAccessSpecifier mAccessSpecifier
+  // cIdentifier*     mDefinedIn
+}
+$$SEPARATOR$$
+/// S.I.1
+void
+$$NAME$$::visit ($$CONST$$ cEnumerator* $$PARAMETER$$ ) // : cIdentifier
+{
+  // cExpression* mValue
+}
+$$SEPARATOR$$
+/// S.OBJ
+void
+$$NAME$$::visit ($$CONST$$ cObject* $$PARAMETER$$ ) // : cIdentifier
+{
+  // cTemplateArgumentList* mTemplateArguments
+  // cExpression*           mBits
+  // cExpressionBase*       mInitialValue
+  // cType*                 mType
+  // cNameReference*        mNamedNamespace
+  // bool                   mIsAuto
+  // bool                   mIsRegister
+  // bool                   mIsStatic
+  // bool                   mIsExtern
+  // bool                   mIsMutable
+}
+$$SEPARATOR$$
+/// S.OBJ.L
+void
+$$NAME$$::visit ($$CONST$$ cObjectList* $$PARAMETER$$ ) // : cIdentifier
+{
+  // AsgNodeList_t mObjects
+}
+$$SEPARATOR$$
+/// S.FP
+void
+$$NAME$$::visit ($$CONST$$ cFunctionParameter* $$PARAMETER$$ ) // : cFunctionParameterBase
+{
+  // bool                   mIsAuto
+  // bool                   mIsRegister
+  // cType*                 mType
+  // cTemplateArgumentList* mTemplateArguments
+  // cNameReference*        mNamedNamespace
+  // cExpressionBase*       mDefault
+}
+$$SEPARATOR$$
+/// S.FP.L
+void
+$$NAME$$::visit ($$CONST$$ cFunctionParameterList* $$PARAMETER$$ ) // : cFunctionParameterBase
+{
+  // FunctionParameterList_t mParameters
+}
+$$SEPARATOR$$
+/// S.T
+void
+$$NAME$$::visit ($$CONST$$ cType* $$PARAMETER$$ ) // abstract : cIdentifier
+{
+  // bool mIsConst
+  // bool mIsVolatile
+}
+$$SEPARATOR$$
+/// S.T.1
+void
+$$NAME$$::visit ($$CONST$$ cBuiltInType* $$PARAMETER$$ ) // : cType
+{
+}
+$$SEPARATOR$$
+/// S.T.2
+void
+$$NAME$$::visit ($$CONST$$ cAliasType* $$PARAMETER$$ ) // : cType
+{
+  // cType* mAliasedType
+}
+$$SEPARATOR$$
+/// S.T.3
+void
+$$NAME$$::visit ($$CONST$$ cFunctionType* $$PARAMETER$$ ) // : cType
+{
+  // cFunctionParameterList* mParameters
+  // cType*                  mReturnType
+}
+$$SEPARATOR$$
+/// S.T.4
+void
+$$NAME$$::visit ($$CONST$$ cEnumerationType* $$PARAMETER$$ ) // : cType
+{
+  // EnumeratorList_t mEnumerators
+}
+$$SEPARATOR$$
+/// S.IT
+void
+$$NAME$$::visit ($$CONST$$ cIndirectType* $$PARAMETER$$ ) // abstract : cType
+{
+  // cType* mBaseType
+}
+$$SEPARATOR$$
+/// S.IT.1
+void
+$$NAME$$::visit ($$CONST$$ cArrayType* $$PARAMETER$$ ) // : cIndirectType
+{
+  // cExpressionBase* mDimension
+}
+$$SEPARATOR$$
+/// S.IT.2
+void
+$$NAME$$::visit ($$CONST$$ cPointerType* $$PARAMETER$$ ) // : cIndirectType
+{
+}
+$$SEPARATOR$$
+/// S.IT.3
+void
+$$NAME$$::visit ($$CONST$$ cReferenceType* $$PARAMETER$$ ) // : cIndirectType
+{
+}
+$$SEPARATOR$$
+/// I.CTI
+$$NAME$$::visit ($$CONST$$ cClassTypeInterface* $$PARAMETER$$ ) // abstract : cType
+{
+  // BaseClassList_t    mBaseClasses
+  // FriendList_t       mFriends
+  // MemberList_t       mMembers
+  // eClassKey          mClassKey
+  // DerivedClassList_t mDerivedClasses
+}
+$$SEPARATOR$$
+/// S.CTI.1
+void
+$$NAME$$::visit ($$CONST$$ cTemplateClassType* $$PARAMETER$$ ) // : cClassTypeInterface
+{
+  // cTemplateParameterList* mTemplateParameters
+}
+$$SEPARATOR$$
+/// S.CTI.2
+void
+$$NAME$$::visit ($$CONST$$ cSpecializedClassType* $$PARAMETER$$ ) // : cClassTypeInterface
+{
+  // cTemplateParameterList* mTemplateParameters
+  // cTemplateArgumentList*  mTemplateArguments
+}
+$$SEPARATOR$$
+/// S.CTI.3
+void
+$$NAME$$::visit ($$CONST$$ cClassType* $$PARAMETER$$ ) // : cClassTypeInterface
+{
+}
+$$SEPARATOR$$
+/// S.CTI.4
+void
+$$NAME$$::visit ($$CONST$$ cInstantiatedClassType* $$PARAMETER$$ ) // : cClassTypeInterface
+{
+  // cTemplateArgumentList* mTemplateArguments
+}
+$$SEPARATOR$$
+/// I.FTI
+$$NAME$$::visit ($$CONST$$ cForwardTypeInterface* $$PARAMETER$$ ) // abstract : cType
+{
+  // cNameReference* mNamedNamespace
+  // cType*          mTypeDeclaration
+}
+$$SEPARATOR$$
+/// S.FTI.1
+void
+$$NAME$$::visit ($$CONST$$ cTemplateForwardType* $$PARAMETER$$ ) // : cForwardTypeInterface
+{
+  // cTemplateParameterList* mTemplateParameters
+}
+$$SEPARATOR$$
+/// S.FTI.2
+void
+$$NAME$$::visit ($$CONST$$ cSpecializedForwardType* $$PARAMETER$$ ) // : cForwardTypeInterface
+{
+  // cTemplateParameterList* mTemplateParameters
+  // cTemplateArgumentList*  mTemplateArguments
+}
+$$SEPARATOR$$
+/// S.FTI.3
+void
+$$NAME$$::visit ($$CONST$$ cForwardType* $$PARAMETER$$ ) // : cForwardTypeInterface
+{
+}
+$$SEPARATOR$$
+/// S.FTI.4
+void
+$$NAME$$::visit ($$CONST$$ cInstantiatedForwardType* $$PARAMETER$$ ) // : cForwardTypeInterface
+{
+  // cTemplateArgumentList* mTemplateArguments
+}
+$$SEPARATOR$$
+/// S.L
+void
+$$NAME$$::visit ($$CONST$$ cLabel* $$PARAMETER$$ ) // : cIdentifier
+{
+  // cAsgNode* mLabeledStatement
+}
+$$SEPARATOR$$
+/// S.L.1
+void
+$$NAME$$::visit ($$CONST$$ cCaseLabel* $$PARAMETER$$ ) // : cLabel
+{
+  // cExpression* mConstantExpression
+}
+$$SEPARATOR$$
+/// S.L.2
+void
+$$NAME$$::visit ($$CONST$$ cDefaultLabel* $$PARAMETER$$ ) // : cLabel
+{
+}
+$$SEPARATOR$$
+/// S.FI
+void
+$$NAME$$::visit ($$CONST$$ cFunctionInterface* $$PARAMETER$$ ) // abstract : cIdentifier
+{
+  // eFunctionKey             mFunctionKey
+  // bool                     mIsPureVirtual
+  // cNameReference*          mNamedNamespace
+  // cFunctionType*           mType
+  // cExceptionSpecification* mThrows
+  // cCtorInitializerBlock*   mInit
+  // cBlock*                  mBlock
+  // bool                     mIsStatic
+  // bool                     mIsExtern
+  // bool                     mIsInline
+  // bool                     mIsVirtual
+  // bool                     mIsExplicit
+}
+$$SEPARATOR$$
+/// S.FI.1
+void
+$$NAME$$::visit ($$CONST$$ cTemplateFunction* $$PARAMETER$$ ) // : cFunctionInterface
+{
+  // cTemplateParameterList* mTemplateParameters
+}
+$$SEPARATOR$$
+/// S.FI.2
+void
+$$NAME$$::visit ($$CONST$$ cSpecializedFunction* $$PARAMETER$$ ) // : cFunctionInterface
+{
+  // cTemplateParameterList* mTemplateParameters
+  // cTemplateArgumentList*  mTemplateArguments
+}
+$$SEPARATOR$$
+/// S.FI.3
+void
+$$NAME$$::visit ($$CONST$$ cFunction* $$PARAMETER$$ ) // : cFunctionInterface
+{
+}
+$$SEPARATOR$$
+/// S.FI.4
+void
+$$NAME$$::visit ($$CONST$$ cInstantiatedFunction* $$PARAMETER$$ ) // : cFunctionInterface
+{
+  // cTemplateArgumentList* mTemplateArguments
+}
+$$SEPARATOR$$
+/// S.S
+void
+$$NAME$$::visit ($$CONST$$ cScope* $$PARAMETER$$ ) // abstract : cIdentifier
+{
+  // AsgNodeList_t mContents
+}
+$$SEPARATOR$$
+/// S.S.1
+void
+$$NAME$$::visit ($$CONST$$ cGlobalScope* $$PARAMETER$$ ) // : cScope
+{
+}
+$$SEPARATOR$$
+/// S.S.2
+void
+$$NAME$$::visit ($$CONST$$ cCompilationScope* $$PARAMETER$$ ) // : cScope
+{
+}
+$$SEPARATOR$$
+/// S.S.3
+void
+$$NAME$$::visit ($$CONST$$ cNamespace* $$PARAMETER$$ ) // : cScope
+{
+  // cNameReference* mAliases
+}
+$$SEPARATOR$$
+/// S.BLK
+void
+$$NAME$$::visit ($$CONST$$ cBlock* $$PARAMETER$$ ) // : cScope
+{
+}
+$$SEPARATOR$$
+/// S.BLK.1
+void
+$$NAME$$::visit ($$CONST$$ cCtorInitializerBlock* $$PARAMETER$$ ) // : cBlock
+{
+}
+$$SEPARATOR$$
+/// S.TP
+void
+$$NAME$$::visit ($$CONST$$ cTemplateParameter* $$PARAMETER$$ ) // abstract : cTemplateParameterBase
+{
+}
+$$SEPARATOR$$
+/// S.TP.1
+void
+$$NAME$$::visit ($$CONST$$ cTypeTemplateParameter* $$PARAMETER$$ ) // : cTemplateParameter
+{
+  // cType* mDefault
+}
+$$SEPARATOR$$
+/// S.TP.2
+void
+$$NAME$$::visit ($$CONST$$ cTemplateTemplateParameter* $$PARAMETER$$ ) // : cTemplateParameter
+{
+  // cTemplateParameterList* mTemplateParameters
+  // cNameReference*         mDefault
+}
+$$SEPARATOR$$
+/// S.TP.3
+void
+$$NAME$$::visit ($$CONST$$ cNonTypeTemplateParameter* $$PARAMETER$$ ) // : cTemplateParameter
+{
+  // bool                   mIsAuto
+  // bool                   mIsRegister
+  // cType*                 mType
+  // cTemplateArgumentList* mTemplateArguments
+  // cNameReference*        mNamedNamespace
+  // cExpressionBase*       mDefault
+}
+$$SEPARATOR$$
+/// S.TP.L
+void
+$$NAME$$::visit ($$CONST$$ cTemplateParameterList* $$PARAMETER$$ ) // : cTemplateParameterBase
+{
+  // TemplateParameterList_t mParameters
+}
+$$SEPARATOR$$
+/// S.EXP
+void
+$$NAME$$::visit ($$CONST$$ cExpression* $$PARAMETER$$ ) // abstract : cExpressionBase
+{
+  // cType* mType
+}
+$$SEPARATOR$$
+/// S.EXP.1
+void
+$$NAME$$::visit ($$CONST$$ cNameReference* $$PARAMETER$$ ) // : cExpression
+{
+  // String                 mName
+  // cTemplateArgumentList* mTemplateArguments
+  // cNameReference*        mNamedNamespace
+  // bool                   mIsPseudoDestructor
+  // cIdentifier*           mObjectDeclaration
+}
+$$SEPARATOR$$
+/// S.EXP.2
+void
+$$NAME$$::visit ($$CONST$$ cLiteral* $$PARAMETER$$ ) // : cExpression
+{
+  // String mValue
+}
+$$SEPARATOR$$
+/// S.EXP.3
+void
+$$NAME$$::visit ($$CONST$$ cNewExpression* $$PARAMETER$$ ) // : cExpression
+{
+  // cExpressionBase*       mInitializer
+  // cFunctionArgumentList* mPlacement
+}
+$$SEPARATOR$$
+/// S.EXP.4
+void
+$$NAME$$::visit ($$CONST$$ cDeleteExpression* $$PARAMETER$$ ) // : cExpression
+{
+  // cExpression* mToDelete
+  // bool         mIsArray
+}
+$$SEPARATOR$$
+/// S.EXP.5
+void
+$$NAME$$::visit ($$CONST$$ cConditionDeclarator* $$PARAMETER$$ ) // : cExpression
+{
+  // cObject* mObject
+}
+$$SEPARATOR$$
+/// S.EXP.6
+void
+$$NAME$$::visit ($$CONST$$ cEmptyExpression* $$PARAMETER$$ ) // : cExpression
+{
+}
+$$SEPARATOR$$
+/// S.EXP.L
+void
+$$NAME$$::visit ($$CONST$$ cExpressionList* $$PARAMETER$$ ) // : cExpressionBase
+{
+  // cType* mType
+}
+$$SEPARATOR$$
+/// S.EXP.L.1
+void
+$$NAME$$::visit ($$CONST$$ cFunctionArgumentList* $$PARAMETER$$ ) // : cExpressionList
+{
+  // ArgumentList_t mArguments
+}
+$$SEPARATOR$$
+/// S.EXP.L.2
+void
+$$NAME$$::visit ($$CONST$$ cInitializerList* $$PARAMETER$$ ) // : cExpressionList
+{
+  // ArgumentList_t mInitializers
+}
+$$SEPARATOR$$
+/// S.O
+void
+$$NAME$$::visit ($$CONST$$ cOperator* $$PARAMETER$$ ) // abstract : cExpression
+{
+  // eOperator mOperator
+}
+$$SEPARATOR$$
+/// S.O.1
+void
+$$NAME$$::visit ($$CONST$$ cUnaryOperator* $$PARAMETER$$ ) // : cOperator
+{
+  // cAsgNode* mOperand
+}
+$$SEPARATOR$$
+/// S.O.2
+void
+$$NAME$$::visit ($$CONST$$ cBinaryOperator* $$PARAMETER$$ ) // : cOperator
+{
+  // cAsgNode*        mLhs
+  // cExpressionBase* mRhs
+}
+$$SEPARATOR$$
+/// S.O.3
+void
+$$NAME$$::visit ($$CONST$$ cTernaryOperator* $$PARAMETER$$ ) // : cOperator
+{
+  // cExpression* mCondition
+  // cExpression* mTrueExpression
+  // cExpression* mFalseExpression
+}
+$$SEPARATOR$$
+/// S.CS
+void
+$$NAME$$::visit ($$CONST$$ cControlStatement* $$PARAMETER$$ ) // abstract : cAsgNode
+{
+}
+$$SEPARATOR$$
+/// S.SS
+void
+$$NAME$$::visit ($$CONST$$ cSelectionStatement* $$PARAMETER$$ ) // abstract : cControlStatement
+{
+  // cExpression* mCondition
+}
+$$SEPARATOR$$
+/// S.SS.1
+void
+$$NAME$$::visit ($$CONST$$ cIfStatement* $$PARAMETER$$ ) // : cSelectionStatement
+{
+  // cBlock* mTrueBlock
+  // cBlock* mFalseBlock
+}
+$$SEPARATOR$$
+/// S.SS.2
+void
+$$NAME$$::visit ($$CONST$$ cSwitchStatement* $$PARAMETER$$ ) // : cSelectionStatement
+{
+  // cBlock* mBlock
+}
+$$SEPARATOR$$
+/// S.IS
+void
+$$NAME$$::visit ($$CONST$$ cIterationStatement* $$PARAMETER$$ ) // abstract : cControlStatement
+{
+  // cExpression* mCondition
+  // cBlock*      mBlock
+}
+$$SEPARATOR$$
+/// S.IS.1
+void
+$$NAME$$::visit ($$CONST$$ cWhileLoop* $$PARAMETER$$ ) // : cIterationStatement
+{
+}
+$$SEPARATOR$$
+/// S.IS.2
+void
+$$NAME$$::visit ($$CONST$$ cDoWhileLoop* $$PARAMETER$$ ) // : cIterationStatement
+{
+}
+$$SEPARATOR$$
+/// S.IS.3
+void
+$$NAME$$::visit ($$CONST$$ cForLoop* $$PARAMETER$$ ) // : cIterationStatement
+{
+  // AsgNodeList_t mForInitStatement
+  // cExpression*  mIncrement
+}
+$$SEPARATOR$$
+/// S.JS
+void
+$$NAME$$::visit ($$CONST$$ cJumpStatement* $$PARAMETER$$ ) // abstract : cControlStatement
+{
+  // cExpression* mDestination
+}
+$$SEPARATOR$$
+/// S.JS.1
+void
+$$NAME$$::visit ($$CONST$$ cBreak* $$PARAMETER$$ ) // : cJumpStatement
+{
+}
+$$SEPARATOR$$
+/// S.JS.2
+void
+$$NAME$$::visit ($$CONST$$ cContinue* $$PARAMETER$$ ) // : cJumpStatement
+{
+}
+$$SEPARATOR$$
+/// S.JS.3
+void
+$$NAME$$::visit ($$CONST$$ cReturn* $$PARAMETER$$ ) // : cJumpStatement
+{
+  // cExpression* mValue
+}
+$$SEPARATOR$$
+/// S.JS.4
+void
+$$NAME$$::visit ($$CONST$$ cGoto* $$PARAMETER$$ ) // : cJumpStatement
+{
+}
+$$SEPARATOR$$
+/// S.EXC.1
+void
+$$NAME$$::visit ($$CONST$$ cTryBlock* $$PARAMETER$$ ) // : cBlock
+{
+  // HandlerList_t mHandlers
+}
+$$SEPARATOR$$
+/// S.EXC.2
+void
+$$NAME$$::visit ($$CONST$$ cFunctionTryBlock* $$PARAMETER$$ ) // : cTryBlock
+{
+  // cCtorInitializerBlock* mInit
+}
+$$SEPARATOR$$
+/// S.EXC.3
+void
+$$NAME$$::visit ($$CONST$$ cHandler* $$PARAMETER$$ ) // : cAsgNode
+{
+  // cExceptionDeclaration* mParameters
+  // cBlock*                mStatements
+}
+$$SEPARATOR$$
+/// S.EXC.4
+void
+$$NAME$$::visit ($$CONST$$ cExceptionDeclaration* $$PARAMETER$$ ) // : cIdentifier
+{
+  // cType*                 mType
+  // cNameReference*        mNamedNamespace
+  // cTemplateArgumentList* mTemplateArguments
+}
+$$SEPARATOR$$
+/// S.EXC.5
+void
+$$NAME$$::visit ($$CONST$$ cThrowExpression* $$PARAMETER$$ ) // : cExpression
+{
+  // cExpression* mArgument
+}
+$$SEPARATOR$$
+/// S.EXC.6
+void
+$$NAME$$::visit ($$CONST$$ cExceptionSpecification* $$PARAMETER$$ ) // : cAsgNode
+{
+  // ThrowList_t mException
+}
+$$SEPARATOR$$

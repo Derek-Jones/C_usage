@@ -1,0 +1,8 @@
+
+/* ../programs/gcc-2.95/gcc/ch/decl.c */
+int
+complete_array_type (type, initial_value, do_default)
+     tree type ATTRIBUTE_UNUSED, initial_value ATTRIBUTE_UNUSED;
+{
+}
+

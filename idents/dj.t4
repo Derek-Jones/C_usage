@@ -1,0 +1,56 @@
+all a flag variable?
+amount another word for size or length?
+answer another word for return value?
+arg2 the second argument?
+arg3 the third argument
+attrib abbreviation for attribute.  But an attribute of what?
+avail abbreviation for available.  Perhaps a flag indicating availability?
+b4 the fourth buffer of some kind???
+bottom the bottom of what?
+cache storage for data likely to be reused again soon
+change a flag indicating something has to change, the difference between two quantities?
+child a child process perhaps?
+chunk a subdivision of a data buffer?
+closedir library function, should not be included
+colon a variable holding the character :?
+comment flag indicating we are in a comment?
+count2 the second count of something?
+current the current what?
+d0 the bottom byte of a unioned data structure?
+day the day of the month or week?
+db abbreviation for data base
+dec abbreviation for decrement?  but decrement what (yaji: decimal, not thought of this case base 10 perhaps?)
+def abbreviation for definition, or define?
+destination where some data has to be sent
+directory pointer to some file system directory?
+DWORD abbreviation for double word
+events events as in signals and interupts?
+ex example (I think not) (yaji: exit not encountered that usage before)
+F_GETFL looks like a macro from a system header
+fields a buffer treated as a data structure holding particular values
+finished a flag indicating we are done
+F_SETFL looks like a macro from a system header
+good good data?
+HighPart the high part of memory, or a word of storage
+HIWORD abbreviation for high word (the most singificant bits of a word), perhaps bits to AND out the least significant bits
+indent abbreviation for indentation? or flag indicating that indentation should occur?
+index2 the second index of something
+infile abbreviation for input file (yaji: in the file, used as a flag, could be)
+initialized flag indicating that something has been initialized
+items what kind of items?
+j1 no idea
+junk flag indicating that something is junk?
+kill kill a process?
+LARGE_INTEGER some constant indicating a maximum quantity?
+len1 abbreviation for length, but why the 1?
+location what kind of location?
+LOWORD abbreviation for the low part of a word (other end of HIWORD)
+LowPart opposite of HighPart above
+marker plenty of possibilities, nothing feels obvious
+mask2 a bit mask?  why the 2?
+memory some representation of storage contents?
+month month of the year, probably numeric?
+n1 no idea
+name2 why the 2?
+names plural, an array of names?
+needed flag indicating something is needed

@@ -1,0 +1,11 @@
+#SCF-B 1.1
+Hash-Method: MD5
+Merge-Program: comparator 1.6
+Normalization: remove-whitespace
+Shred-Size: 3
+%%
+../../programs/openafs-1.2.2a:1416408
+../../programs/openafs-1.2.2a:1416408
+../../programs/postgresql-6.5.3:707477
+../../programs/postgresql-6.5.3:707477
+%%

@@ -1,0 +1,222 @@
+/*
+ *  TypeOperations.tc
+ *
+ *  Copyright (C) 2000-2004 by
+ *
+ *    Department of Computer Science, Clemson University,
+ *    Department of Computer Science, National University of Ireland, Maynooth.
+ * 
+ *  http://keystone.sourceforge.net
+ *
+ *  <keystone@cs.clemson.edu>
+ *
+ *  Keystone is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Keystone is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ */
+
+%operation %virtual cType* getType ( [cIdentifier*] )
+%operation %virtual void   setType ( [cIdentifier*], cType* aType )
+
+%operation %virtual bool equalToType ( [cType*], cType* aType )
+
+%operation %virtual bool isBuiltIn ( [cType*] )
+
+
+////////////////////////////////////////////////////////////////////////////////
+/// getType
+////////////////////////////////////////////////////////////////////////////////
+
+getType( cType                 ),
+getType( cBuiltInType          ),
+getType( cEnumerationType      ),
+getType( cArrayType            ),
+getType( cPointerType          ),
+getType( cReferenceType        ),
+getType( cFunctionType         ),
+getType( cAliasType            ),
+getType( cClassTypeInterface   ),
+getType( cForwardTypeInterface )
+{
+  return this;
+}
+
+getType( cObject                   ),
+getType( cFunctionInterface        ),
+getType( cExceptionDeclaration     ),
+getType( cFunctionParameter        ),
+getType( cNonTypeTemplateParameter )
+{
+  return mType;
+}
+
+getType( cObjectList )
+{
+  if ( mObjects.size() )
+  {
+    if ( cObject* obj = dynamic_cast<cObject*>( mObjects.front() ) )
+    {
+      return obj->mType;
+    }
+  }
+
+  return 0;
+}
+  
+getType( cLabel                     ),
+getType( cEnumerator                ),
+getType( cScope                     ),
+getType( cGlobalScope               ),
+getType( cCompilationScope          ),
+getType( cNamespace                 ),
+getType( cBlock                     ),
+getType( cTemplateParameterList     ),
+getType( cFunctionParameterList     ),
+getType( cTypeTemplateParameter     ),
+getType( cTemplateTemplateParameter )
+{
+  return 0;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+/// setType
+////////////////////////////////////////////////////////////////////////////////
+
+setType( cObject                   ),
+setType( cExceptionDeclaration     ),
+setType( cFunctionParameter        ),
+setType( cNonTypeTemplateParameter )
+{
+  mType = aType;
+}
+
+setType( cFunctionInterface )
+{
+  mType->mReturnType = aType;
+}
+
+setType( cFunctionParameterList     ),
+setType( cTemplateParameterList     ),
+setType( cType                      ),
+setType( cObjectList                ),
+setType( cScope                     ),
+setType( cGlobalScope               ),
+setType( cCompilationScope          ),
+setType( cLabel                     ),
+setType( cEnumerator                ),
+setType( cTypeTemplateParameter     ),
+setType( cTemplateTemplateParameter )
+{
+  return;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+/// equalToType
+////////////////////////////////////////////////////////////////////////////////
+
+equalToType ( cBuiltInType )
+{
+  if ( ( ! aType ) || ( getKind() != aType->getKind() ) )
+  {
+    return false;
+  }
+
+  bool fSame = ( mName == aType->mName ) &&
+               ( mIsConst == aType->mIsConst ) &&
+               ( mIsVolatile == aType->mIsVolatile );
+
+  return fSame;
+}
+
+equalToType ( cArrayType )
+{
+  if ( ! aType->isA( cArrayType_kind ) )
+  {
+    return false;
+  }
+
+//mName
+//mIsConst
+//mIsVolatile
+//mBaseType
+//mDimension
+
+  return false;
+}
+
+equalToType ( cPointerType   ),
+equalToType ( cReferenceType )
+{
+  if ( ( ! aType ) || ( getKind() != aType->getKind() ) )
+  {
+    return false;
+  }
+
+  cIndirectType *it = static_cast<cIndirectType *>( aType );
+
+  bool fSame = ( mIsConst == it->mIsConst ) &&
+               ( mIsVolatile == it->mIsVolatile ) &&
+               ( mBaseType->equalToType( it->mBaseType ) );
+
+  return fSame;
+}
+
+equalToType ( cAliasType               ),
+equalToType ( cQualifierType           ),
+equalToType ( cEnumerationType         ),
+equalToType ( cFunctionType            ),
+equalToType ( cFunctionTypeInformation ),
+equalToType ( cClassTypeInterface      ),
+equalToType ( cForwardTypeInterface    )
+{
+  // Not implemented - may not be needed
+  return false;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+/// isBuiltIn
+////////////////////////////////////////////////////////////////////////////////
+
+isBuiltIn ( cBuiltInType )
+{
+  return true;
+}
+
+isBuiltIn ( cIndirectType )
+{
+  return mBaseType->isBuiltIn();
+}
+
+isBuiltIn ( cAliasType               ),
+isBuiltIn ( cQualifierType           ),
+isBuiltIn ( cEnumerationType         ),
+isBuiltIn ( cFunctionType            ),
+isBuiltIn ( cFunctionTypeInformation ),
+isBuiltIn ( cClassTypeInterface      ),
+isBuiltIn ( cForwardTypeInterface    )
+{
+  return false;
+}
+
+
+
+
+
+
+
+
+

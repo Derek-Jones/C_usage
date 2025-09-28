@@ -1,0 +1,19 @@
+
+#ifndef __STD_IOMANIP
+#define __STD_IOMANIP
+
+#include <ios>
+
+namespace std 
+{
+
+   unsigned int resetiosflags(ios_base::fmtflags mask);
+   unsigned int setiosflags(ios_base::fmtflags mask);
+   unsigned int setbase(int base);
+   unsigned int setfill(char c);
+   unsigned setprecision(int n);
+   unsigned setw(int n);
+}
+
+#endif
+

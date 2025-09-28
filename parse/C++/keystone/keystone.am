@@ -1,0 +1,18 @@
+
+AM_CPPFLAGS = \
+  -I$(top_srcdir)/src \
+  -I$(top_srcdir)/src/schema \
+  -I$(top_srcdir)/src/syntax-analyzer \
+  -I$(top_srcdir)/src/syntax-analyzer/ast \
+  -I$(top_srcdir)/src/syntax-analyzer/parser \
+  -I$(top_srcdir)/src/syntax-analyzer/symboltable \
+  -I$(top_srcdir)/src/syntax-analyzer/symboltable/scopes \
+  -I$(top_srcdir)/src/syntax-analyzer/symboltable/types \
+  -I$(top_srcdir)/src/syntax-analyzer/symboltable/validation \
+  -I$(top_srcdir)/src/syntax-analyzer/utility \
+  -I$(top_srcdir)/src/asg
+
+AM_CXXFLAGS = $(KEY_CXXFLAGS)
+AM_LDFLAGS  = $(KEY_LDFLAGS)
+
+

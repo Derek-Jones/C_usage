@@ -1,0 +1,16 @@
+
+cInstantiationRelationship : cInstantiatedClassType cTemplateClass
+cInstantiationRelationship : cInstantiatedClassType cSpecializedClass
+
+cInstantiationRelationship : cInstantiatedFunction cTemplateFunction
+cInstantiationRelationship : cInstantiatedFunction cSpecializedFunction
+
+cInvocationRelationship : cBinaryOperator cFunction 
+
+cTypeRelationship : cExpression cType
+
+################
+
+cHandlerRelationship : cThrowExpression cHandler
+cMemoryAllocation : cNewExpression cDeleteExpression
+

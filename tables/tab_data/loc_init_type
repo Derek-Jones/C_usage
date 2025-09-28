@@ -1,0 +1,7 @@
+ struct * ,, 39.5 ,, long ,, 2.6
+ int ,, 22.6 ,, char ,, 2.5
+ other-types ,, 9.1 ,, unsigned short ,, 2.4
+ unsigned int ,, 4.5 ,, unsigned char ,, 1.5
+ union * ,, 4.3 ,, unsigned char * ,, 1.4
+ char * ,, 4.0 ,, unsigned int * ,, 1.2
+ unsigned long ,, 3.4 ,, enum ,, 1.1

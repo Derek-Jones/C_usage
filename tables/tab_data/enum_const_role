@@ -1,0 +1,4 @@
+All value assigned implicitly ,, 60.1
+All values are bitwise distinct and zero is not used ,, 8.6
+One or more constants share the same value ,, 2.9
+All values are continuous , i.e. , number of enumeration constants equals maximum value minus minimum value plus 1 ,, 80.4

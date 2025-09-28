@@ -1,0 +1,210 @@
+.FILE t1.c
+.DATE Feb  9 2004
+.TIME 00:32:08
+.VERSION 1.4
+#
+.START t1.c
+.ERR     2   4 1766 5 0 "BLAH"
+.ERR     5  17 9508 6 0 "f_proto"
+.ERR     5  17 9525 6 0 "f_proto"
+.ERR     6  12 9508 6 0 "f_old"
+.ERR     6  12 9525 6 0 "f_old"
+.ERR     8   7 9500 6 0 "s_tag"
+.ERR     8  19 9506 6 0 "mem"
+.STRUCT 4 0
+.MEMBER mem int 0
+.ERR    10  27 9508 6 0 "f_struct"
+.ERR    10  27 9525 6 0 "f_struct"
+.ERR    12  24 9508 6 0 "f_int1"
+.ERR    12  24 9522 6 0 "f_int1"
+.ERR    13  24 9508 6 0 "f_int1"
+.ERR    13  24 9522 6 0 "f_int1"
+.ERR    15  18 9504 6 0 "ext_int"
+.ERR    15  18 9523 6 0 "ext_int"
+.ERR    16  19 9504 6 0 "glob_int"
+.ERR    16  19 9520 6 0 "glob_int"
+.ERR    18  21 9502 6 0 "glob_type"
+.ERR    19   7 9500 6 0 "glob_tag"
+.ERR    19  22 9506 6 0 "mem"
+.STRUCT 4 0
+.MEMBER mem int 0
+.ERR    22  15 9504 6 0 "a3"
+.ERR    22  15 9523 6 0 "a3"
+.ERR    24  17 9505 6 0 "p"
+.ERR    25   1 9508 6 0 "g_proto"
+.ERR    25   1 9525 6 0 "g_proto"
+#
+.FUNC g_proto 25
+.ERR    26   4 9505 6 0 "init_loc"
+.ACC EXTERN ext_int 26
+.INIT init_loc 26
+.ERR    27   5 9505 6 0 "a"
+.ERR    27   5 1504 6 1
+.INIT a 27
+.ERR    28   5 9505 6 0 "ptr"
+.ACC EXTERN ext_int 28
+.INIT ptr 28
+.ERR    30  13 9503 6 0 "I"
+.ERR    31  16 9505 6 0 "sv"
+.ERR    32  17 9505 6 0 "svp"
+.ERR    33  20 9505 6 0 "sva"
+.LABEL goto Label 35
+.ERR    35   5 1459 4 0
+.MOD NONE svp 37
+.CAST EXPLICIT ptr_tostruct int 37
+.ERR    37   0 1456 4 0
+.ERR    38   2 454 5 0
+.MOD NONE a 38
+.CAST IMPLICIT char int 38
+.CAST IMPLICIT int char 39
+.MOD NONE a 39
+.ACC NONE a 39
+.ACC NONE ptr 40
+.ERR    41   0 1362 4 0
+.CALL f_old 41 void int int int
+.ACC EXTERN ext_int 41
+.MOD STATIC glob_int 41
+.ACC STATIC glob_int 41
+.ERR    41   0 1363 4 0
+.CAST IMPLICIT int char 42
+.ACC NONE a 42
+.CAST IMPLICIT int char 43
+.MOD NONE a 43
+.CAST IMPLICIT int char 43
+.ACC NONE a 43
+.ACC EXTERN ext_int 43
+.ACC NONE a 43
+.CAST IMPLICIT int char 43
+.ACC NONE a 43
+.ACC EXTERN ext_int 43
+.ERR    45   0 9510 6 0 "Label"
+.LABEL define Label 45
+.ERR    45   6 1710 5 0
+.LABEL goto Label 47
+.ERR    47   5 1459 4 0
+.MOD STATIC glob_int 49
+.ERR    49   0 1456 4 0
+.MOD EXTERN ext_int 50
+.ACC EXTERN ext_int 50
+.MOD NONE sv.mem 51
+.MOD NONE svp->.mem 52
+.ERR    53   4 454 5 0
+.MOD NONE sva[]->.mem 53
+.CALL f_struct 54 struct
+.MOD STATIC glob_int 54
+.ACC EXTERN f_struct().mem 54
+.SCOPE start 3 56
+.ERR    57   3 1502 5 1 "enum"
+.ERR    57   8 1549 5 0
+.ERR    57   8 9501 6 0 "et"
+.ERR    57  12 9513 6 0 "E1"
+.ERR    57  16 9513 6 0 "E2"
+.ERR    57  22 9505 6 0 "ev"
+.MOD NONE ev 58
+.CAST IMPLICIT enum int 58
+.LABEL goto Label 59
+.ERR    59   8 1459 4 0
+.ERR    60   3 1754 5 0 "ev"
+.LOCAL ev scope 3  used 1 set 1 size 4 IDENT enum
+.ERR    60   3 1756 5 0 "E2"
+.LOCAL E2 scope 3  used 0 set 0 size 0 IDENT econst
+.LOCAL E1 scope 3  used 1 set 0 size 0 IDENT econst
+.LOCAL et scope 3  used 0 set 0 TAG
+.SCOPE end 3 60
+.ERR    61   0 1754 5 0 "sva"
+.LOCAL sva scope 2  used 1 set 1 size 8 IDENT arraystruct
+.ERR    61   0 1755 5 0 "svp"
+.LOCAL svp scope 2  used 1 set 1 size 4 IDENT ptr_tostruct
+.ERR    61   0 1754 5 0 "sv"
+.LOCAL sv scope 2  used 1 set 1 size 4 IDENT struct
+.ERR    61   0 1756 5 0 "I"
+.LOCAL I scope 2  used 0 set 0 size 4 TYPEDEF int
+.ERR    61   0 1755 5 0 "ptr"
+.LOCAL ptr scope 2  used 1 set 1 size 4 IDENT ptr_toint
+.LOCAL a scope 2  used 1 set 2 size 3 IDENT arraychar
+.ERR    61   0 1756 5 0 "init_loc"
+.LOCAL init_loc scope 2  used 0 set 1 size 4 IDENT int
+.ERR    61   0 1757 5 0 "p"
+.ARG p scope 2  used 0 set 0 size 4 IDENT long
+.METRICS
+STMTS 19 LABELS 1 UNIQ_PPLITS 5 UNIQ_LITS 5 
+UNIQ_PPIDS 25 UNIQ_IDS 10 GOTO_FRWD 1 GOTO_BACK 2 
+LINES 36 B_LINES 7 CHARS 442 B_CHARS 95 
+EXPR_COMPLEX 8 E_IDENT_COUNT 21 E_LIT_COUNT 18 E_OP_COUNT 48 
+UNIQ_OPS 11 EDGES 4 NODES 4 
+.PPTOKS
+OPEN_RND 5 PLUS 1 STAR 4 AND 1 
+EQUAL 1 COLON 1 CLOSE_RND 5 DOT 3 
+DEREF 1 PLUSPLUS 3 MINUSMINUS 1 COMMA 5 
+SEMICOLON 25 OPEN_CURL 3 CLOSE_CURL 3 OPEN_SQUARE 8 
+CLOSE_SQUARE 8 ASSIGN 12 IDENTIFIER 59 EOLN 36 
+PP_NUMBER 18 
+.TOKS
+TYPEDEF 1 CHAR 1 INT 3 STRUCT 4 
+ENUM 1 IF 1 GOTO 3 OPEN_RND 5 
+PLUS 1 STAR 4 AND 1 EQUAL 1 
+COLON 1 CLOSE_RND 5 DOT 3 DEREF 1 
+PLUSPLUS 3 MINUSMINUS 1 COMMA 5 SEMICOLON 25 
+OPEN_CURL 3 CLOSE_CURL 3 OPEN_SQUARE 8 CLOSE_SQUARE 8 
+ASSIGN 12 LITERAL 18 IDENTIFIER 45 
+.END 61
+.ERR    63  11 9505 6 0 "a"
+.ERR    65   4 9508 6 0 "g_old"
+.ERR    65   4 9525 6 0 "g_old"
+#
+.FUNC g_old 65
+.ERR    66   0 1757 5 0 "a"
+.ARG a scope 2  used 0 set 0 size 4 IDENT int
+.METRICS
+LINES 1 CHARS 2 B_CHARS 1 EDGES 1 
+NODES 2 
+.PPTOKS
+EOLN 1 
+.TOKS
+
+.END 66
+.GLOBAL
+f_int1 INTERNAL defined 0 used 0 set 0 FUNC
+g_old EXTERNAL defined 1 used 1 set 0 FUNC
+glob_int INTERNAL defined 0 used 1 set 2 size 4 IDENT int
+f_proto EXTERNAL defined 0 used 0 set 0 FUNC
+ext_int EXTERNAL defined 0 used 1 set 1 size 4 IDENT int
+a3 EXTERNAL defined 0 used 0 set 0 size 96 IDENT arrayarrayarrayint
+f_struct EXTERNAL defined 0 used 1 set 0 FUNC
+f_old EXTERNAL defined 0 used 1 set 0 FUNC
+g_proto EXTERNAL defined 1 used 1 set 0 FUNC
+glob_type size 4 INTERNAL defined 1 used 0 TYPEDEF int
+s_tag used 0 TAG
+glob_tag used 0 TAG
+.METRICS
+CHARS 767 B_CHARS 153 LINES 67 B_LINES 18 
+.PPTOKS
+OPEN_RND 12 PLUS 1 STAR 4 AND 1 
+EQUAL 1 COLON 1 CLOSE_RND 12 DOT 3 
+DEREF 1 PLUSPLUS 3 MINUSMINUS 1 COMMA 5 
+SEMICOLON 39 OPEN_CURL 7 CLOSE_CURL 7 OPEN_SQUARE 11 
+CLOSE_SQUARE 11 ASSIGN 12 IDENTIFIER 107 EOLN 69 
+HASH 4 PPIF 1 PPENDIF 1 PP_NUMBER 21 
+.TOKS
+STATIC 3 EXTERN 1 TYPEDEF 2 CHAR 1 
+INT 12 LONG 1 VOID 8 STRUCT 7 
+ENUM 1 IF 1 GOTO 3 OPEN_RND 12 
+PLUS 1 STAR 4 AND 1 EQUAL 1 
+COLON 1 CLOSE_RND 12 DOT 3 DEREF 1 
+PLUSPLUS 3 MINUSMINUS 1 COMMA 5 SEMICOLON 39 
+OPEN_CURL 7 CLOSE_CURL 7 OPEN_SQUARE 11 CLOSE_SQUARE 11 
+ASSIGN 12 LITERAL 21 IDENTIFIER 64 
+.END t1.c
+.ERR    67   0 1738 5 0 "f_int1"
+.ERR    67   0 1773 5 0 "f_int1"
+.ERR    67   0 1778 5 0 "g_old"
+.ERR    67   0 1463 5 0 "glob_int"
+.ERR    67   0 1778 5 0 "f_proto"
+.ERR    67   0 1773 5 0 "f_proto"
+.ERR    67   0 1778 5 0 "ext_int"
+.ERR    67   0 1778 5 0 "a3"
+.ERR    67   0 1775 5 0 "a3"
+.ERR    67   0 1778 5 0 "f_struct"
+.ERR    67   0 1778 5 0 "f_old"
+.ERR    67   0 1778 5 0 "g_proto"
+.ERR    67   0 1756 5 0 "glob_type"

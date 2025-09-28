@@ -1,0 +1,6 @@
+ int ,, 29.5 ,, bit-field ,, 3.1
+ unsigned long ,, 18.7 ,, unsigned short ,, 2.8
+ enum ,, 14.6 ,, short ,, 2.5
+ unsigned char ,, 12.4 ,, long ,, 0.9
+ unsigned int ,, 10.0 ,, other-types ,, 0.2
+ char ,, 5.1 ,,   ,, 

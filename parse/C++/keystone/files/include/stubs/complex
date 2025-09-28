@@ -1,0 +1,110 @@
+
+#ifndef _STL_COMPLEX_
+#define _STL_COMPLEX_
+
+namespace std
+{
+   template<class T>
+   class complex
+   {
+   public:
+      typedef T value_type;
+
+      complex(const T& = T(), const T& = T());
+      complex(const complex&);
+      template<class X> complex(const complex<X>&);
+
+      T real() const;
+      T imag() const;
+
+      complex<T>& operator=(const T&);
+      complex<T>& operator+=(const T&);
+      complex<T>& operator-=(const T&);
+      complex<T>& operator*=(const T&);
+      complex<T>& operator/=(const T&);
+
+      complex& operator=(const complex&);
+      template<class X> complex<T>& operator+=(const complex<X>&);
+      template<class X> complex<T>& operator-=(const complex<X>&);
+      template<class X> complex<T>& operator*=(const complex<X>&);
+      template<class X> complex<T>& operator/=(const complex<X>&);
+   };
+
+   // 26.2.6, operators:
+   template<class T> complex<T> operator+
+      (const complex<T>&, const complex<T>&);
+   template<class T> complex<T> operator+(const complex<T>&, const T&);
+   template<class T> complex<T> operator+(const T&, const complex<T>&);
+
+   template<class T> complex<T> operator-
+      (const complex<T>&, const complex<T>&);
+   template<class T> complex<T> operator-(const complex<T>&, const T&);
+   template<class T> complex<T> operator-(const T&, const complex<T>&);
+
+   template<class T> complex<T> operator*
+      (const complex<T>&, const complex<T>&);
+   template<class T> complex<T> operator*(const complex<T>&, const T&);
+   template<class T> complex<T> operator*(const T&, const complex<T>&);
+
+   template<class T> complex<T> operator/
+      (const complex<T>&, const complex<T>&);
+   template<class T> complex<T> operator/(const complex<T>&, const T&);
+   template<class T> complex<T> operator/(const T&, const complex<T>&);
+
+   template<class T> complex<T> operator+(const complex<T>&);
+   template<class T> complex<T> operator-(const complex<T>&);
+
+   template<class T> bool operator==(const complex<T>&, const complex<T>&);
+   template<class T> bool operator==(const complex<T>&, const T&);
+   template<class T> bool operator==(const T&, const complex<T>&);
+
+   template<class T> bool operator!=(const complex<T>&, const complex<T>&);
+   template<class T> bool operator!=(const complex<T>&, const T&);
+   template<class T> bool operator!=(const T&, const complex<T>&);
+
+}  // end namespace std
+
+#include <iosfwd>
+
+namespace std
+{
+   template<class T, class charT, class traits>
+   basic_istream<charT, traits>&
+   operator>>(basic_istream<charT, traits>&, complex<T>&);
+
+   template<class T, class charT, class traits>
+   basic_ostream<charT, traits>&
+   operator<<(basic_ostream<charT, traits>&, complex<T>&);
+
+   // 26.2.7, values:
+   template<class T> T real(const complex<T>&);
+   template<class T> T imag(const complex<T>&);
+
+   template<class T> T abs(const complex<T>&);
+   template<class T> T arg(const complex<T>&);
+   template<class T> T norm(const complex<T>&);
+
+   template<class T> complex<T> conj(const complex<T>&);
+   template<class T> complex<T> polar(const T&, const T&);
+
+   // 26.2.8, transcendentals:
+   template<class T> complex<T> cos(const complex<T>&);
+   template<class T> complex<T> cosh(const complex<T>&);
+   template<class T> complex<T> exp(const complex<T>&);
+   template<class T> complex<T> log(const complex<T>&);
+   template<class T> complex<T> log10(const complex<T>&);
+
+   template<class T> complex<T> pow(const complex<T>&, int);
+   template<class T> complex<T> pow(const complex<T>&, const T&);
+   template<class T> complex<T> pow(const complex<T>&, const complex<T>&);
+   template<class T> complex<T> pow(const T&, const complex<T>&);
+
+   template<class T> complex<T> sin(const complex<T>&);
+   template<class T> complex<T> sinh(const complex<T>&);
+   template<class T> complex<T> sqrt(const complex<T>&);
+   template<class T> complex<T> tan(const complex<T>&);
+   template<class T> complex<T> tanh(const complex<T>&);
+   
+}  // end namespace std
+
+#endif

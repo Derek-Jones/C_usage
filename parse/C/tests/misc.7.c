@@ -1,0 +1,13 @@
+int i;
+type i;
+const int i;
+extern int i;
+int *i;
+int ***i;
+int * volatile i;
+int i[];
+int i[3+1];
+int i[3+1][];
+int (i);
+int i();
+int i(j);

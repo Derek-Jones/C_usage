@@ -1,0 +1,1216 @@
+/*
+ *  ApplyPreorder.tc
+ *
+ *  Copyright (C) 2000-2004 by
+ *
+ *    Department of Computer Science, Clemson University,
+ *    Department of Computer Science, National University of Ireland, Maynooth.
+ * 
+ *  http://keystone.sourceforge.net
+ *
+ *  <keystone@cs.clemson.edu>
+ *
+ *  Keystone is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Keystone is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ */
+
+%decls
+%{
+  // .h file
+  #include "Schema.h"
+
+  namespace key
+  {
+    void applyPreorderBaseClasses ( unsigned long&, const BaseClassList_t& );
+
+    template < typename T >
+    void applyPreorderChildPointer ( unsigned long&, T* );
+
+    template < typename T >
+    void applyPreorderChildPointerVector ( unsigned long&, const std::vector<T*>& );
+  }
+%}
+
+%{
+  // .cpp file
+
+#define NUMBERED_CHECK \
+  if ( true ) \
+  { \
+    if ( isNumbered() ) \
+    { \
+      return; \
+    } \
+  } \
+  else \
+    (void)0
+%}
+
+////////////////////////////////////////////////////////////////////////////////
+/// applyPreorder
+////////////////////////////////////////////////////////////////////////////////
+
+%operation %virtual void applyPreorder ( cAsgNode*, unsigned long& counter )
+
+///-----------------------------------------------------------------------------
+/// S.B
+applyPreorder( cAsgNode )
+{
+  // String        mFilename
+  // int           mStartLine
+  // int           mEndLine
+  // unsigned long mNodeNumber
+
+  NUMBERED_CHECK;
+
+  mNodeNumber = ++counter;
+}
+
+///-----------------------------------------------------------------------------
+/// S.B.1
+applyPreorder( cLinkage ) // cAsgNode
+{
+  // String        mLinkType
+  // bool          mIsBlock
+  // AsgNodeList_t mContents
+
+  NUMBERED_CHECK;
+
+  mNodeNumber = ++counter;
+  key::applyPreorderChildPointerVector( counter, mContents );
+}
+
+///-----------------------------------------------------------------------------
+/// S.B.2
+applyPreorder( cUsing ) //cAsgNode
+{
+  // bool            mIsNamespace
+  // cNameReference* mNameReference
+
+  NUMBERED_CHECK;
+
+  mNodeNumber = ++counter;
+  key::applyPreorderChildPointer( counter, mNameReference );
+}
+
+///-----------------------------------------------------------------------------
+/// S.B.3
+applyPreorder( cAsmDefinition ) //cAsgNode
+{
+  // String mAsm
+
+  NUMBERED_CHECK;
+
+  cAsgNode::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.TA.L
+applyPreorder( cTemplateArgumentList ) //cAsgNode
+{
+  // TemplateArgumentList_t mArguments
+
+  NUMBERED_CHECK;
+
+  cAsgNode::applyPreorder( counter );
+
+  key::applyPreorderChildPointerVector( counter, mArguments );
+}
+
+///-----------------------------------------------------------------------------
+/// S.I
+applyPreorder( cIdentifier ) //cAsgNode
+{
+  // String           mName
+  // eAccessSpecifier mAccessSpecifier
+  // cIdentifier*     mDefinedIn
+
+  NUMBERED_CHECK;
+
+  cAsgNode::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.I.1
+applyPreorder( cEnumerator ) //cIdentifier
+{
+  // cExpression* mValue
+
+  NUMBERED_CHECK;
+
+  cIdentifier::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mValue );
+}
+
+///-----------------------------------------------------------------------------
+/// S.OBJ
+applyPreorder( cObject ) //cIdentifier
+{
+  // cTemplateArgumentList* mTemplateArguments
+  // cExpression*           mBits
+  // cExpression*           mInitialValue
+  // cType*                 mType
+  // cNameReference*        mNamedNamespace
+  // bool                   mIsAuto
+  // bool                   mIsRegister
+  // bool                   mIsStatic
+  // bool                   mIsExtern
+  // bool                   mIsMutable
+
+  NUMBERED_CHECK;
+
+  mNodeNumber = ++counter;
+
+  key::applyPreorderChildPointer( counter, mType );
+  key::applyPreorderChildPointer( counter, mTemplateArguments );
+  key::applyPreorderChildPointer( counter, mNamedNamespace );
+  key::applyPreorderChildPointer( counter, mInitialValue );
+  key::applyPreorderChildPointer( counter, mBits );
+}
+
+///-----------------------------------------------------------------------------
+/// S.OBJ.L
+applyPreorder( cObjectList ) // cIdentifier
+{
+  // AsgNodeList_t mObjects
+
+  NUMBERED_CHECK;
+
+  mNodeNumber = ++counter;
+
+  key::applyPreorderChildPointerVector( counter, mObjects );
+}
+
+///-----------------------------------------------------------------------------
+/// S.FP
+applyPreorder( cFunctionParameterBase ) //cIdentifier
+{
+  NUMBERED_CHECK;
+
+  cIdentifier::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.FP
+applyPreorder( cFunctionParameter ) //cFunctionParameterBase
+{
+  // bool                   mIsAuto
+  // bool                   mIsRegister
+  // cType*                 mType
+  // cTemplateArgumentList* mTemplateArguments
+  // cNameReference*        mNamedNamespace
+  // cExpression*           mDefault
+
+  NUMBERED_CHECK;
+
+  cFunctionParameterBase::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mType );
+  key::applyPreorderChildPointer( counter, mTemplateArguments );
+  key::applyPreorderChildPointer( counter, mNamedNamespace );
+  key::applyPreorderChildPointer( counter, mDefault );
+}
+
+///-----------------------------------------------------------------------------
+/// S.FP.L
+applyPreorder( cFunctionParameterList ) //cFunctionParameterBase
+{
+  // FunctionParameterList_t mParameters
+
+  NUMBERED_CHECK;
+
+  cFunctionParameterBase::applyPreorder( counter );
+
+  key::applyPreorderChildPointerVector( counter, mParameters );
+}
+
+///-----------------------------------------------------------------------------
+/// S.T
+applyPreorder( cType ) //cIdentifier
+{
+  // bool mIsConst
+  // bool mIsVolatile
+
+  NUMBERED_CHECK;
+
+  cIdentifier::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.T.1
+applyPreorder( cBuiltInType ) // cType
+{
+  NUMBERED_CHECK;
+
+  cType::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.T.2
+applyPreorder( cAliasType ) // cType
+{
+  // cType* mAliasedType
+
+  NUMBERED_CHECK;
+
+  cType::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mAliasedType );
+}
+
+///-----------------------------------------------------------------------------
+/// S.T.3
+applyPreorder( cFunctionType ) // cType
+{
+  // cParameterList* mParameters
+  // cType*          mReturnType
+
+  NUMBERED_CHECK;
+
+  cType::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mReturnType );
+  key::applyPreorderChildPointer( counter, mParameters );
+}
+
+///-----------------------------------------------------------------------------
+/// S.T.4
+applyPreorder( cEnumerationType ) // cType
+{
+  // EnumeratorList_t mEnumerators
+
+  NUMBERED_CHECK;
+
+  cType::applyPreorder( counter );
+
+  key::applyPreorderChildPointerVector( counter, mEnumerators );
+}
+
+///-----------------------------------------------------------------------------
+/// S.IT
+applyPreorder( cIndirectType ) // cType
+{
+  NUMBERED_CHECK;
+
+  cType::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mBaseType );
+}
+
+///-----------------------------------------------------------------------------
+/// S.IT.1
+applyPreorder( cArrayType ) // cIndirectType
+{
+  // cExpression* mDimension
+
+  NUMBERED_CHECK;
+
+  cIndirectType::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mDimension );
+}
+
+///-----------------------------------------------------------------------------
+/// S.IT.2
+applyPreorder( cPointerType ) // cIndirectType
+{
+  NUMBERED_CHECK;
+
+  cIndirectType::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.IT.3
+applyPreorder( cReferenceType ) // cIndirectType
+{
+  NUMBERED_CHECK;
+
+  cIndirectType::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// I.CTI
+applyPreorder( cClassTypeInterface ) // cType
+{
+  // BaseClassList_t    mBaseClasses
+  // FriendList_t       mFriends
+  // MemberList_t       mMembers
+  // eClassKey          mClassKey
+  // DerivedClassList_t mDerivedClasses
+
+  NUMBERED_CHECK;
+
+  cType::applyPreorder( counter );
+
+  key::applyPreorderBaseClasses( counter, mBaseClasses );
+
+  key::applyPreorderChildPointerVector( counter, mFriends );
+  key::applyPreorderChildPointerVector( counter, mMembers );
+}
+
+///-----------------------------------------------------------------------------
+/// S.CTI.1
+applyPreorder( cTemplateClassType ) // cClassTypeInterface
+{
+  // cTemplateParameterList* mTemplateParameters
+
+  NUMBERED_CHECK;
+
+  cClassTypeInterface::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mTemplateParameters );
+}
+
+///-----------------------------------------------------------------------------
+/// S.CTI.2
+applyPreorder( cSpecializedClassType ) // cClassTypeInterface
+{
+  // cTemplateParameterList* mTemplateParameters
+  // cTemplateArgumentList*  mTemplateArguments
+
+  NUMBERED_CHECK;
+
+  cClassTypeInterface::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mTemplateParameters );
+  key::applyPreorderChildPointer( counter, mTemplateArguments );
+}
+
+///-----------------------------------------------------------------------------
+/// S.CTI.3
+applyPreorder( cClassType ) // cClassTypeInterface
+{
+  NUMBERED_CHECK;
+
+  cClassTypeInterface::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.CTI.4
+applyPreorder( cInstantiatedClassType ) // cClassTypeInterface
+{
+  // cTemplateArgumentList* mTemplateArguments
+
+  NUMBERED_CHECK;
+
+  cClassTypeInterface::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mTemplateArguments );
+}
+
+///-----------------------------------------------------------------------------
+/// I.FTI
+applyPreorder( cForwardTypeInterface ) // cType
+{
+  // cNameReference* mNamedNamespace
+  // cType*          mTypeDeclaration
+
+  NUMBERED_CHECK;
+
+  cType::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mNamedNamespace );
+}
+
+///-----------------------------------------------------------------------------
+/// S.FTI.1
+applyPreorder( cTemplateForwardType ) // cForwardTypeInterface
+{
+  // cTemplateParameterList* mTemplateParameters
+
+  NUMBERED_CHECK;
+
+  cForwardTypeInterface::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mTemplateParameters );
+}
+
+///-----------------------------------------------------------------------------
+/// S.FTI.2
+applyPreorder( cSpecializedForwardType ) // cForwardTypeInterface
+{
+  // cTemplateParameterList* mTemplateParameters
+  // cTemplateArgumentList*  mTemplateArguments
+
+  NUMBERED_CHECK;
+
+  cForwardTypeInterface::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mTemplateParameters );
+  key::applyPreorderChildPointer( counter, mTemplateArguments );
+}
+
+///-----------------------------------------------------------------------------
+/// S.FTI.4
+applyPreorder( cForwardType ) // cForwardTypeInterface
+{
+  NUMBERED_CHECK;
+
+  cForwardTypeInterface::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.FTI.4
+applyPreorder( cInstantiatedForwardType ) // cForwardTypeInterface
+{
+  // cTemplateArgumentList* mTemplateArguments
+
+  NUMBERED_CHECK;
+
+  cForwardTypeInterface::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mTemplateArguments );
+}
+
+///-----------------------------------------------------------------------------
+/// S.L
+applyPreorder( cLabel ) //cIdentifier
+{
+  // cAsgNode* mLabeledStatement
+
+  NUMBERED_CHECK;
+
+  cIdentifier::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mLabeledStatement );
+}
+
+///-----------------------------------------------------------------------------
+/// S.L.1
+applyPreorder( cCaseLabel ) //cLabel
+{
+  // cExpression* mConstantExpression
+
+  NUMBERED_CHECK;
+
+  cLabel::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mConstantExpression );
+}
+
+///-----------------------------------------------------------------------------
+/// S.L.2
+applyPreorder( cDefaultLabel ) // cLabel
+{
+  NUMBERED_CHECK;
+
+  cLabel::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.FI
+applyPreorder( cFunctionInterface ) //cIdentifier
+{
+  // eFunctionKey             mFunctionKey
+  // bool                     mIsPureVirtual
+  // cNameReference*          mNamedNamespace
+  // cFunctionType*           mType
+  // cExceptionSpecification* mThrows
+  // cCtorInitializerBlock*   mInit
+  // cBlock*                  mBlock
+  // bool                     mIsStatic
+  // bool                     mIsExtern
+  // bool                     mIsInline
+  // bool                     mIsVirtual
+  // bool                     mIsExplicit
+
+  NUMBERED_CHECK;
+
+  cIdentifier::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mNamedNamespace );
+  key::applyPreorderChildPointer( counter, mType );
+  key::applyPreorderChildPointer( counter, mThrows );
+  key::applyPreorderChildPointer( counter, mInit );
+  key::applyPreorderChildPointer( counter, mBlock );
+}
+
+///-----------------------------------------------------------------------------
+/// S.FI.1
+applyPreorder( cTemplateFunction ) //cFunctionInterface
+{
+  // cTemplateParameterList* mTemplateParameters
+
+  NUMBERED_CHECK;
+
+  cFunctionInterface::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mTemplateParameters );
+}
+
+///-----------------------------------------------------------------------------
+/// S.FI.2
+applyPreorder( cSpecializedFunction ) //cFunctionInterface
+{
+  // cTemplateParameterList* mTemplateParameters
+  // cTemplateArgumentList*  mTemplateArguments
+
+  NUMBERED_CHECK;
+
+  cFunctionInterface::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mTemplateParameters );
+  key::applyPreorderChildPointer( counter, mTemplateArguments );
+}
+
+///-----------------------------------------------------------------------------
+/// S.FI.3
+applyPreorder( cFunction ) //cFunctionInterface
+{
+  NUMBERED_CHECK;
+
+  cFunctionInterface::applyPreorder( counter );
+}
+
+
+///-----------------------------------------------------------------------------
+/// S.FI.4
+applyPreorder( cInstantiatedFunction ) //cFunctionInterface
+{
+  // cTemplateArgumentList* mTemplateArguments
+
+  NUMBERED_CHECK;
+
+  cFunctionInterface::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mTemplateArguments );
+}
+
+///-----------------------------------------------------------------------------
+/// S.S
+applyPreorder( cScope ) //cIdentifier
+{
+  // AsgNodeList_t mContents
+
+  NUMBERED_CHECK;
+
+  cIdentifier::applyPreorder( counter );
+
+  key::applyPreorderChildPointerVector( counter, mContents );
+}
+
+///-----------------------------------------------------------------------------
+/// S.S.1
+applyPreorder( cGlobalScope ) //cScope
+{
+  NUMBERED_CHECK;
+
+  cScope::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.S.2
+applyPreorder( cCompilationScope ) //cScope
+{
+  NUMBERED_CHECK;
+
+  cScope::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.S.3
+applyPreorder( cNamespace ) //cScope
+{
+  // cNameReference* mAliases
+
+  NUMBERED_CHECK;
+
+  cScope::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mAliases );
+}
+
+///-----------------------------------------------------------------------------
+/// S.BLK
+applyPreorder( cBlock ) //cScope
+{
+  NUMBERED_CHECK;
+
+  cScope::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.BLK.1
+applyPreorder( cCtorInitializerBlock ) //cBlock
+{
+  NUMBERED_CHECK;
+
+  cBlock::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.TP.B
+applyPreorder( cTemplateParameterBase ) //cIdentifier
+{
+  NUMBERED_CHECK;
+
+  cIdentifier::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.TP
+applyPreorder( cTemplateParameter ) //cTemplateParameterBase
+{
+  NUMBERED_CHECK;
+
+  cTemplateParameterBase::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.TP.1
+applyPreorder( cTypeTemplateParameter ) //cTemplateParameter
+{
+  // cType* mDefault
+
+  NUMBERED_CHECK;
+
+  cTemplateParameter::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mDefault );
+}
+
+///-----------------------------------------------------------------------------
+/// S.TP.2
+applyPreorder( cTemplateTemplateParameter ) //cTemplateParameter
+{
+  // cTemplateParameterList* mTemplateParameters
+  // cNameReference*         mDefault
+
+  NUMBERED_CHECK;
+
+  cTemplateParameter::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mTemplateParameters );
+  key::applyPreorderChildPointer( counter, mDefault );
+}
+
+///-----------------------------------------------------------------------------
+/// S.TP.3
+applyPreorder( cNonTypeTemplateParameter ) //cTemplateParameter
+{
+  // bool                   mIsAuto
+  // bool                   mIsRegister
+  // cType*                 mType
+  // cTemplateArgumentList* mTemplateArguments
+  // cNameReference*        mNamedNamespace
+  // cExpression*           mDefault
+
+  NUMBERED_CHECK;
+
+  cTemplateParameter::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mType );
+  key::applyPreorderChildPointer( counter, mTemplateArguments );
+  key::applyPreorderChildPointer( counter, mNamedNamespace );
+  key::applyPreorderChildPointer( counter, mDefault );
+}
+
+///-----------------------------------------------------------------------------
+/// S.TP.L
+applyPreorder( cTemplateParameterList ) //cTemplateParameterBase
+{
+  // TemplateParameterList_t mParameters
+
+  NUMBERED_CHECK;
+
+  cTemplateParameterBase::applyPreorder( counter );
+
+  key::applyPreorderChildPointerVector( counter, mParameters );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXP.B
+applyPreorder( cExpressionBase ) //cAsgNode
+{
+  // cType* mType
+
+  NUMBERED_CHECK;
+
+  cAsgNode::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mType );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXP
+applyPreorder( cExpression ) //cExpressionBase
+{
+  NUMBERED_CHECK;
+
+  cExpressionBase::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXP.1
+applyPreorder( cNameReference ) //cExpression
+{
+  // String                 mName
+  // cTemplateArgumentList* mTemplateArguments
+  // cNameReference*        mNamedNamespace
+  // bool                   mIsPseudoDestructor
+  // cIdentifier*           mObjectDeclaration
+
+  NUMBERED_CHECK;
+
+  cExpression::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mNamedNamespace );
+  key::applyPreorderChildPointer( counter, mTemplateArguments );
+  key::applyPreorderChildPointer( counter, mObjectDeclaration );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXP.2
+applyPreorder( cLiteral ) //cExpression
+{
+  // String mValue
+
+  NUMBERED_CHECK;
+
+  cExpression::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mType );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXP.3
+applyPreorder( cNewExpression ) //cExpression
+{
+  // cExpression*           mInitializer
+  // cFunctionArgumentList* mPlacement
+
+  NUMBERED_CHECK;
+
+  cExpression::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mPlacement );
+  key::applyPreorderChildPointer( counter, mInitializer );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXP.4
+applyPreorder( cDeleteExpression ) //cExpression
+{
+  // cExpression* mToDelete
+  // bool         mIsArray
+
+  NUMBERED_CHECK;
+
+  cExpression::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mToDelete );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXP.5
+applyPreorder( cConditionDeclarator ) //cExpression
+{
+  // cObject* mObject
+
+  NUMBERED_CHECK;
+
+  cExpression::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mObject );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXP.6
+applyPreorder( cEmptyExpression ) //cExpression
+{
+  NUMBERED_CHECK;
+
+  cExpression::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXP.L
+applyPreorder( cExpressionList ) //cExpressionBase
+{
+  NUMBERED_CHECK;
+
+  cExpressionBase::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXP.L.1
+applyPreorder( cFunctionArgumentList ) //cExpressionList
+{
+  // ArgumentList_t mArguments
+
+  NUMBERED_CHECK;
+
+  cExpressionList::applyPreorder( counter );
+
+  key::applyPreorderChildPointerVector( counter, mArguments );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXP.L.2
+applyPreorder( cInitializerList ) //cExpressionList
+{
+  // ArgumentList_t mInitializers
+
+  NUMBERED_CHECK;
+
+  cExpressionList::applyPreorder( counter );
+
+  key::applyPreorderChildPointerVector( counter, mInitializers );
+}
+
+///-----------------------------------------------------------------------------
+/// S.O
+applyPreorder( cOperator ) //cExpression
+{
+  // eOperator mOperator
+
+  NUMBERED_CHECK;
+
+  cExpression::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.O.1
+applyPreorder( cUnaryOperator ) //cOperator
+{
+  // cExpression* mOperand
+
+  NUMBERED_CHECK;
+
+  cOperator::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mOperand );
+}
+
+///-----------------------------------------------------------------------------
+/// S.O.2
+applyPreorder( cBinaryOperator ) //cOperator
+{
+  // cExpression* mLhs
+  // cExpression* mRhs
+
+  NUMBERED_CHECK;
+
+  cOperator::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mLhs );
+  key::applyPreorderChildPointer( counter, mRhs );
+}
+
+///-----------------------------------------------------------------------------
+/// S.O.3
+applyPreorder( cTernaryOperator ) //cOperator
+{
+  // cExpression* mCondition
+  // cExpression* mTrueExpression
+  // cExpression* mFalseExpression
+
+  NUMBERED_CHECK;
+
+  cOperator::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mCondition );
+  key::applyPreorderChildPointer( counter, mTrueExpression );
+  key::applyPreorderChildPointer( counter, mFalseExpression );
+}
+
+///-----------------------------------------------------------------------------
+/// S.CS
+applyPreorder( cControlStatement ) //cAsgNode
+{
+  NUMBERED_CHECK;
+
+  cAsgNode::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.SS
+applyPreorder( cSelectionStatement ) //cControlStatement
+{
+  // cExpression* mCondition
+
+  NUMBERED_CHECK;
+
+  cControlStatement::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mCondition );
+}
+
+///-----------------------------------------------------------------------------
+/// S.SS.1
+applyPreorder( cIfStatement ) //cSelectionStatement
+{
+  // cBlock* mTrueBlock
+  // cBlock* mFalseBlock
+
+  NUMBERED_CHECK;
+
+  cSelectionStatement::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mTrueBlock );
+  key::applyPreorderChildPointer( counter, mFalseBlock );
+}
+
+///-----------------------------------------------------------------------------
+/// S.SS.2
+applyPreorder( cSwitchStatement ) //cSelectionStatement
+{
+  // cBlock* mBlock
+
+  NUMBERED_CHECK;
+
+  cSelectionStatement::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mBlock );
+}
+
+///-----------------------------------------------------------------------------
+/// S.IS
+applyPreorder( cIterationStatement ) //cControlStatement
+{
+  // cExpression* mCondition
+  // cBlock*      mBlock
+
+  NUMBERED_CHECK;
+
+  cControlStatement::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mCondition );
+  key::applyPreorderChildPointer( counter, mBlock );
+}
+
+///-----------------------------------------------------------------------------
+/// S.IS.1
+applyPreorder( cWhileLoop ) //cIterationStatement
+{
+  NUMBERED_CHECK;
+
+  cIterationStatement::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.IS.2
+applyPreorder( cDoWhileLoop ) //cIterationStatement
+{
+  NUMBERED_CHECK;
+
+  cIterationStatement::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.IS.3
+applyPreorder( cForLoop ) //cIterationStatement
+{
+  // AsgNodeList_t mForInitStatement
+  // cExpression*  mCondition
+  // cExpression*  mIncrement
+  // cBlock*       mBlock
+
+  NUMBERED_CHECK;
+
+  cIterationStatement::applyPreorder( counter );
+
+  key::applyPreorderChildPointerVector( counter, mForInitStatement );
+  key::applyPreorderChildPointer( counter, mIncrement );
+}
+
+///-----------------------------------------------------------------------------
+/// S.JS
+applyPreorder( cJumpStatement ) //cControlStatement
+{
+  NUMBERED_CHECK;
+
+  cControlStatement::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mDestination );
+}
+
+///-----------------------------------------------------------------------------
+/// S.JS.1
+applyPreorder( cBreak ) //cJumpStatement
+{
+  NUMBERED_CHECK;
+
+  cJumpStatement::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.JS.2
+applyPreorder( cContinue ) //cJumpStatement
+{
+  NUMBERED_CHECK;
+
+  cJumpStatement::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.JS.3
+applyPreorder( cReturn ) //cJumpStatement
+{
+  // cExpression* mValue
+
+  NUMBERED_CHECK;
+
+  cJumpStatement::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mValue );
+}
+
+///-----------------------------------------------------------------------------
+/// S.JS.4
+applyPreorder( cGoto ) //cJumpStatement
+{
+  NUMBERED_CHECK;
+
+  cJumpStatement::applyPreorder( counter );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXC.1
+applyPreorder( cTryBlock ) //cBlock
+{
+  // HandlerList_t mHandlers
+
+  NUMBERED_CHECK;
+
+  cBlock::applyPreorder( counter );
+
+  key::applyPreorderChildPointerVector( counter, mHandlers );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXC.2
+applyPreorder( cFunctionTryBlock ) //cTryBlock
+{
+  // cCtorInitializerBlock* mInit
+
+  NUMBERED_CHECK;
+
+  cTryBlock::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mInit );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXC.3
+applyPreorder( cHandler ) //cAsgNode
+{
+  // cExceptionDeclaration* mParameters
+  // cBlock*                mStatements
+
+  NUMBERED_CHECK;
+
+  cAsgNode::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mParameters );
+  key::applyPreorderChildPointer( counter, mStatements );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXC.4
+applyPreorder( cExceptionDeclaration ) //cIdentifier
+{
+  // cType*                 mType
+  // cNameReference*        mNamedNamespace
+  // cTemplateArgumentList* mTemplateArguments
+
+  NUMBERED_CHECK;
+
+  cIdentifier::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mType );
+  key::applyPreorderChildPointer( counter, mNamedNamespace );
+  key::applyPreorderChildPointer( counter, mTemplateArguments );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXC.5
+applyPreorder( cThrowExpression ) //cExpression
+{
+  // cExpression* mArgument
+
+  NUMBERED_CHECK;
+
+  cExpression::applyPreorder( counter );
+
+  key::applyPreorderChildPointer( counter, mArgument );
+}
+
+///-----------------------------------------------------------------------------
+/// S.EXC.6
+applyPreorder( cExceptionSpecification ) //cAsgNode
+{
+  // ThrowList_t mException
+
+  NUMBERED_CHECK;
+
+  cAsgNode::applyPreorder( counter );
+
+  key::applyPreorderChildPointerVector( counter, mException );
+}
+
+%end
+%{
+
+///-----------------------------------------------------------------------------
+
+namespace key
+{
+  ///---------------------------------------------------------------------------
+  ///
+  void applyPreorderBaseClasses ( unsigned long&         counter
+                                , const BaseClassList_t& aList
+                                )
+  {
+    for ( BaseClassList_t::const_iterator ptr = aList.begin();
+          ptr != aList.end();
+          ++ptr
+        )
+    {
+      if ( ptr->first )
+      {
+        ptr->first->applyPreorder( counter );
+      }
+    }
+  }
+
+  ///---------------------------------------------------------------------------
+  ///
+  template < typename T >
+  void applyPreorderChildPointer ( unsigned long& counter, T* child )
+  {
+    if ( child )
+    {
+      child->applyPreorder( counter );
+    }
+  }
+
+  ///---------------------------------------------------------------------------
+  ///
+  template < typename T >
+  void applyPreorderChildPointerVector ( unsigned long& counter, const std::vector<T*>& v )
+  {
+    for ( typename std::vector<T*>::const_iterator ptr = v.begin();
+          ptr != v.end();
+          ++ptr
+        )
+    {
+      key::applyPreorderChildPointer( counter, *ptr );
+    }
+  }
+}
+
+%}

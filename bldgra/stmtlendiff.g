@@ -1,0 +1,39 @@
+
+__PRELUDE
+
+.G1
+
+# stmtlendiff.gra, 22 Mar 03
+# built on: __DATE
+
+frame invis ht __HT wid __WID*1.5 left solid bot solid
+
+coord x -102,102 y 0.9,__MAXY log y
+
+label bot "Line length difference"
+label left "Lines" "" "" ""
+
+ticks bot out at -100, -75, -50, -25, 0, 25, 50, 75, 100
+#ticks left out at 1, 10, 100, 1000, 10000, 100000, 287000 "287,000"
+__LEFT_TICK_NUM
+
+"\s-1all statements\s+1" ljust at 5,__MAXY/2.0
+draw un solid
+copy "stmtlendiff.d" thru {
+   next un at $1-100, $2
+}
+
+"\s-1previous longer than 59 characters\s+1" ljust at 0,3
+draw un solid
+copy "lstmtlendiff.d" thru {
+   next un at $1-100, $2
+}
+
+"\s-1previous shorter than 20 characters\s+1" ljust at -68,200
+draw un dashed
+copy "sstmtlendiff.d" thru {
+   next un at $1-100, $2
+}
+
+.G2
+

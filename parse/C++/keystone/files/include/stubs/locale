@@ -1,0 +1,709 @@
+
+#ifndef _STL_LOCALE_
+#define _STL_LOCALE_
+
+#include <cstddef>
+#include <string>
+
+namespace std
+{
+   // 22.1.1, locale:
+
+   struct locale
+   {
+      // types:
+      class facet
+      {
+      protected:
+         explicit facet(size_t = 0);
+         virtual ~facet();
+      private:
+         facet(const facet&);
+         void operator=(const facet&);
+      };
+
+      class id
+      {
+      public:
+         id();
+      private:
+         void operator=(const id&);
+         id(const id&);
+      };
+
+      typedef int category;
+
+      static const category
+         none = 0,
+         collate  = 0x010, ctype    = 0x020,
+         monetary = 0x040, numeric  = 0x080,
+         time     = 0x100, messages = 0x200,
+         all = collate | ctype | monetary | numeric | time | messages;
+
+      // construct/copy/destroy
+      locale() throw();
+      locale(const locale&) throw();
+      explicit locale(const char*);
+      locale(const locale*, const char*, category);
+      template <class Facet> locale(const locale&, Facet*);
+      locale(const locale&, const locale&, category);
+      ~locale() throw();
+      const locale& operator=(const locale&) throw();
+      template<class Facet> locale combine(const locale&);
+
+      // locale operations:
+      basic_string<char> name() const;
+
+      bool operator==(const locale&) const;
+      bool operator!=(const locale&) const;
+
+      template<class C, class T, class A>
+      bool operator()(const basic_string<C, T, A>&, const basic_string<C, T, A>) const;
+
+      // global locale objects:
+      static locale global(const locale&);
+      static const locale& classic();
+   };
+
+
+   template<class Facet>
+   const Facet& use_facet(const locale&);
+
+   template<class Facet>
+   bool has_facet(const locale&) throw();
+
+   // 22.1.3, convenience interfaces
+
+   template<class charT> bool isspace(charT c, const locale&);
+   template<class charT> bool isprint(charT c, const locale&);
+   template<class charT> bool iscntrl(charT c, const locale&);
+   template<class charT> bool isupper(charT c, const locale&);
+   template<class charT> bool islower(charT c, const locale&);
+   template<class charT> bool isalpha(charT c, const locale&);
+   template<class charT> bool isdigit(charT c, const locale&);
+   template<class charT> bool ispunct(charT c, const locale&);
+   template<class charT> bool isxdigit(charT c, const locale&);
+   template<class charT> bool isalnum(charT c, const locale&);
+   template<class charT> bool isgraph(charT c, const locale&);
+   template<class charT> charT toupper(charT c, const locale&);
+   template<class charT> charT tolower(charT c, const locale&);
+
+   // 22.2.1 and 22.2.1.3, ctype:
+
+   struct ctype_base
+   {
+      enum mask
+      {
+         space = 1 << 0, print = 1 << 1, cntrl = 1 << 2, upper = 1 << 3,
+         lower = 1 << 4, alpha = 1 << 5, digit = 1 << 6, punct = 1 << 7,
+         xdigit = 1 << 8, alnum = alpha | digit, graph = alnum | punct
+      };
+   };
+
+   template<class charT>
+   struct ctype : public locale::facet, public ctype_base
+   {
+      typedef charT char_type;
+      explicit ctype(size_t = 0);
+
+      bool is(mask, charT) const;
+      const charT* is(const charT*, const charT*, mask*) const;
+      const charT* scan_is(mask, const charT*, const charT*) const;
+      const charT* scan_not(mask, const charT*, const charT*) const;
+      charT toupper(charT) const;
+      const charT* tolower(charT*, const charT*) const;
+      charT tolower(charT) const;
+
+      charT widen(char) const;
+      const char* widen(const char*, const char*, charT*) const;
+      charT narrow(char) const;
+      const char* narrow(const charT*, const charT*, char, char*) const;
+      
+      static locale::id id;
+
+   protected:
+      
+      ~ctype();
+      virtual bool do_is(mask, charT) const;
+      virtual const charT* do_is(const charT*, const charT*, mask*) const;
+
+      virtual const charT* do_scan_is(mask, const charT*, const charT*) const;
+      virtual const charT* do_scan_not(mask, const charT*, const charT*) const;
+
+      virtual charT do_toupper(charT) const;
+      virtual const charT* do_toupper(charT*, const charT*) const;
+
+      virtual charT do_tolower(charT) const;
+      virtual const charT* do_tolower(charT*, const charT*) const;
+
+      virtual charT do_widen(char) const;
+      virtual const char* do_widen(const char*, const char*, charT*) const;
+
+      virtual char do_narrow(charT, char) const;
+      virtual const charT* do_narrow(const charT*, const charT*, char, char*) const;
+   };
+
+   template< >
+   struct ctype<char> : public locale::facet, public ctype_base
+   {
+      typedef char char_type;
+
+      explicit ctype(const mask* = 0, bool = false, size_t = 0);
+
+      bool is(mask, char) const;
+      const char* is(const char*, const char*, mask*) const;
+      const char* scan_is(mask, const char*, const char*) const;
+      const char* scan_not(mask, const char*, const char*) const;
+      char toupper(char) const;
+      const char* tolower(char*, const char*) const;
+      char tolower(char) const;
+
+      char widen(char) const;
+      const char* widen(const char*, const char*, char*) const;
+      char narrow(char) const;
+      const char* narrow(const char*, const char*, char, char*) const;
+
+      static locale::id id;
+      static const size_t table_size = 1; // implementation defined
+
+   protected:
+      const mask* table() const throw();
+      static const mask* classic_table() throw();
+
+      ~ctype();
+      virtual char do_toupper(char) const;
+      virtual const char* do_toupper(char*, const char*) const;
+
+      virtual char do_tolower(char) const;
+      virtual const char* do_tolower(char*, const char*) const;
+
+      virtual char do_widen(char) const;
+      virtual const char* do_widen(const char*, const char*, char*) const;
+
+      virtual char do_narrow(char, char) const;
+      virtual const char* do_narrow(const char*, const char*, char, char*) const;
+   };
+
+   template<class charT>
+   struct ctype_byname : public ctype<charT>
+   {
+      typedef typename ctype<charT>::mask mask;
+      explicit ctype_byname(const char*, size_t = 0);
+   protected:
+      ~ctype_byname();
+
+      virtual bool do_is(mask, charT) const;
+      virtual const charT* do_is(const charT*, const charT*, mask*) const;
+
+      virtual const charT* do_scan_is(mask, const charT*, const charT*) const;
+      virtual const charT* do_scan_not(mask, const charT*, const charT*) const;
+
+      virtual charT do_toupper(charT) const;
+      virtual const charT* do_toupper(charT*, const charT*) const;
+
+      virtual charT do_tolower(charT) const;
+      virtual const charT* do_tolower(charT*, const charT*) const;
+
+      virtual charT do_widen(char) const;
+      virtual const char* do_widen(const char*, const char*, charT*) const;
+
+      virtual char do_narrow(charT, char) const;
+      virtual const charT* do_narrow(const charT*, const charT*, char, char*) const;
+   };
+
+   template< >
+   struct ctype_byname<char> : public ctype<char>
+   {
+      explicit ctype_byname(const char*, size_t = 0);
+   protected:
+      ~ctype_byname();
+
+      virtual char do_toupper(char) const;
+      virtual const char* do_toupper(char*, const char*) const;
+
+      virtual char do_tolower(char) const;
+      virtual const char* do_tolower(char*, const char*) const;
+
+      virtual char do_widen(char) const;
+      virtual const char* do_widen(char*, const char*, char*) const;
+
+      //virtual char do_widen(char) const;
+      // standard has it twice ??
+      virtual const char* do_widen(char*, const char*) const;
+   };
+
+
+   struct codecvt_base
+   {
+      enum result { ok, partial, error, noconv };
+   };
+
+   template<class internT, class externT, class stateT>
+   struct codecvt : public locale::facet, public codecvt_base
+   {
+      typedef internT intern_type;
+      typedef externT extern_type;
+      typedef stateT  state_type;
+
+      explicit codecvt(size_t = 0);
+
+      result out(stateT&, const internT*, const internT*, const internT*&,
+                 externT*, externT*, externT*&);
+      result unshift(stateT&, externT*, externT*, externT*&);
+      result in(stateT&, const externT*, const externT*, const externT*&,
+                 internT*, internT*, internT*&);
+      int encoding() const throw();
+      bool always_noconv() const throw();
+      int length(const stateT&, const externT*, const externT*, size_t) const;
+      int max_length() const throw();
+
+      static locale::id id;
+      
+   protected:
+      virtual result do_out(stateT&, const internT*, const internT*, const internT*&,
+                 externT*, externT*, externT*&);
+      virtual result do_unshift(stateT&, externT*, externT*, externT*&);
+      virtual result do_in(stateT&, const externT*, const externT*, const externT*&,
+                 internT*, internT*, internT*&);
+      virtual int do_encoding() const throw();
+      virtual bool do_always_noconv() const throw();
+      virtual int do_length(const stateT&, const externT*, const externT*, size_t) const;
+      virtual int do_max_length() const throw();
+   };
+
+   template<class internT, class externT, class stateT>
+   struct codecvt_byname : public codecvt<internT, externT, stateT>
+   {
+      explicit codecvt_byname(const char*, size_t = 0);
+   protected:
+      ~codecvt_byname();
+      virtual typename codecvt<internT, externT, stateT>::result
+           do_out(stateT&, const internT*, const internT*, const internT*&,
+                  externT*, externT*, externT*&);
+      virtual typename codecvt<internT, externT, stateT>::result
+         do_unshift(stateT&, externT*, externT*, externT*&);
+      virtual typename codecvt<internT, externT, stateT>::result
+           do_in(stateT&, const externT*, const externT*, const externT*&,
+                 internT*, internT*, internT*&);
+      virtual int do_encoding() const throw();
+      virtual bool do_always_noconv() const throw();
+      virtual int do_length(const stateT&, const externT*, const externT*, size_t) const;
+      virtual int do_max_length() const throw();
+   };
+
+} // end namespace std
+
+#include <ios>
+
+namespace std
+{
+   // 22.2.2 and 22.2.3, numeric
+
+   template<class charT, class InputIterator>
+   struct num_get : public locale::facet
+   {
+      typedef charT char_type;
+      typedef InputIterator iter_type;
+
+      explicit num_get(size_t = 0);
+
+      iter_type get(iter_type, iter_type, ios_base&, ios_base::iostate&, bool&) const;
+      iter_type get(iter_type, iter_type, ios_base&, ios_base::iostate&, long&) const;
+      iter_type get(iter_type, iter_type, ios_base&, ios_base::iostate&, unsigned short&) const;
+      iter_type get(iter_type, iter_type, ios_base&, ios_base::iostate&, unsigned int&) const;
+      iter_type get(iter_type, iter_type, ios_base&, ios_base::iostate&, unsigned long&) const;
+      iter_type get(iter_type, iter_type, ios_base&, ios_base::iostate&, float&) const;
+      iter_type get(iter_type, iter_type, ios_base&, ios_base::iostate&, double&) const;
+      iter_type get(iter_type, iter_type, ios_base&, ios_base::iostate&, long double&) const;
+      iter_type get(iter_type, iter_type, ios_base&, ios_base::iostate&, void*&) const;
+
+      static locale::id id;
+
+   protected:
+      ~num_get();
+
+      virtual iter_type do_get(iter_type, iter_type, ios_base&, ios_base::iostate&, bool&) const;
+      virtual iter_type do_get(iter_type, iter_type, ios_base&, ios_base::iostate&, long&) const;
+      virtual iter_type do_get(iter_type, iter_type, ios_base&, ios_base::iostate&, unsigned short&) const;
+      virtual iter_type do_get(iter_type, iter_type, ios_base&, ios_base::iostate&, unsigned int&) const;
+      virtual iter_type do_get(iter_type, iter_type, ios_base&, ios_base::iostate&, unsigned long&) const;
+      virtual iter_type do_get(iter_type, iter_type, ios_base&, ios_base::iostate&, float&) const;
+      virtual iter_type do_get(iter_type, iter_type, ios_base&, ios_base::iostate&, double&) const;
+      virtual iter_type do_get(iter_type, iter_type, ios_base&, ios_base::iostate&, long double&) const;
+      virtual iter_type do_get(iter_type, iter_type, ios_base&, ios_base::iostate&, void*&) const;
+   };
+
+   template<class charT, class OutputIterator>
+   struct num_put : public locale::facet
+   {
+      typedef charT char_type;
+      typedef OutputIterator iter_type;
+
+      explicit num_put(size_t = 0);
+
+      iter_type put(iter_type, ios_base&, char_type, bool) const;
+      iter_type put(iter_type, ios_base&, char_type, long) const;
+      iter_type put(iter_type, ios_base&, char_type, unsigned short) const;
+      iter_type put(iter_type, ios_base&, char_type, unsigned int) const;
+      iter_type put(iter_type, ios_base&, char_type, unsigned long) const;
+      iter_type put(iter_type, ios_base&, char_type, float) const;
+      iter_type put(iter_type, ios_base&, char_type, double) const;
+      iter_type put(iter_type, ios_base&, char_type, long double) const;
+      iter_type put(iter_type, ios_base&, char_type, const void*) const;
+
+      static locale::id id;
+
+   protected:
+      ~num_put();
+      virtual iter_type do_put(iter_type, ios_base&, char_type, bool) const;
+      virtual iter_type do_put(iter_type, ios_base&, char_type, long) const;
+      virtual iter_type do_put(iter_type, ios_base&, char_type, unsigned short) const;
+      virtual iter_type do_put(iter_type, ios_base&, char_type, unsigned int) const;
+      virtual iter_type do_put(iter_type, ios_base&, char_type, unsigned long) const;
+      virtual iter_type do_put(iter_type, ios_base&, char_type, float) const;
+      virtual iter_type do_put(iter_type, ios_base&, char_type, double) const;
+      virtual iter_type do_put(iter_type, ios_base&, char_type, long double) const;
+      virtual iter_type do_put(iter_type, ios_base&, char_type, const void*) const;
+   };
+
+   template<class charT>
+   struct numpunct : public locale::facet
+   {
+      typedef charT char_type;
+      typedef basic_string<charT> string_type;
+
+      explicit numpunct(size_t = 0);
+
+      char_type decimal_point() const;
+      char_type thousands_sep() const;
+      string grouping() const;
+      string_type truename() const;
+      string_type falsename() const;
+
+      static locale::id id;
+
+   protected:
+      ~numpunct();
+      virtual char_type do_decimal_point() const;
+      virtual char_type do_thousands_sep() const;
+      virtual string do_grouping() const;
+      virtual string_type do_truename() const;
+      virtual string_type do_falsename() const;
+   };
+
+   template<class charT>
+   struct numpunct_byname : public numpunct<charT>
+   {
+      typedef charT char_type;
+      typedef basic_string<charT> string_type;
+
+      explicit numpunct_byname(const char*, size_t = 0);
+
+   protected:
+      ~numpunct_byname();
+      virtual char_type do_decimal_point() const;
+      virtual char_type do_thousands_sep() const;
+      virtual string do_grouping() const;
+      virtual string_type do_truename() const;
+      virtual string_type do_falsename() const;
+   };
+
+   // 22.2.4, collation
+
+   template<class charT>
+   struct collate : public locale::facet
+   {
+      typedef charT char_type;
+      typedef basic_string<charT> string_type;
+
+      explicit collate(size_t = 0);
+
+      int compare(const charT*, const charT*, const charT*, const charT*) const;
+      string_type transform(const charT*, const charT*) const;
+      long hash(const charT*, const charT*) const;
+
+      static locale::id id;
+
+   protected:
+      ~collate();
+
+      virtual int do_compare(const charT*, const charT*, const charT*, const charT*) const;
+      virtual string_type do_transform(const charT*, const charT*) const;
+      virtual long do_hash(const charT*, const charT*) const;
+   };
+
+   template<class charT>
+   struct collate_byname : public collate<charT>
+   {
+      typedef basic_string<charT> string_type;
+
+      explicit collate_byname(size_t = 0);
+
+   protected:
+      ~collate_byname();
+
+      virtual int do_compare(const charT*, const charT*, const charT*, const charT*) const;
+      virtual string_type do_transform(const charT*, const charT*) const;
+      virtual long do_hash(const charT*, const charT*) const;
+   };
+
+} // end namespace std
+
+struct tm;
+
+namespace std
+{
+   // 22.2.5, date and time
+
+   struct time_base
+   {
+      enum dateorder { no_order, dmy, mdy, ymd, ydm };
+   };
+
+   template<class charT, class InputIterator>
+   struct time_get : public locale::facet, public time_base
+   {
+      typedef charT char_type;
+      typedef InputIterator iter_type;
+
+      explicit time_get(size_t = 0);
+
+      dateorder date_order() const;
+      iter_type get_time(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+      iter_type get_date(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+      iter_type get_weekday(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+      iter_type get_monthname(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+      iter_type get_year(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+
+      static locale::id id;
+
+   protected:
+      ~time_get();
+
+      virtual dateorder date_order() const;
+      virtual iter_type do_get_time(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+      virtual iter_type do_get_date(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+      virtual iter_type do_get_weekday(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+      virtual iter_type do_get_monthname(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+      virtual iter_type do_get_year(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+   };
+
+   template<class charT, class InputIterator>
+   struct time_get_byname : public time_get<charT, InputIterator>
+   {
+      typedef time_base::dateorder dateorder;
+      typedef InputIterator iter_type;
+
+      explicit time_get_byname(const char*, size_t = 0);
+
+   protected:
+      ~time_get_byname();
+
+      virtual dateorder date_order() const;
+      virtual iter_type do_get_time(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+      virtual iter_type do_get_date(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+      virtual iter_type do_get_weekday(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+      virtual iter_type do_get_monthname(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+      virtual iter_type do_get_year(iter_type, iter_type, ios_base&, ios_base::iostate&, tm*) const;
+   };
+
+   template<class charT, class OutputIterator>
+   struct time_put : public locale::facet
+   {
+      typedef charT char_type;
+      typedef OutputIterator iter_type;
+
+      explicit time_put(size_t = 0);
+
+      iter_type put(iter_type, ios_base&, char_type, const tm*,
+                     const charT*, const charT*);
+      iter_type put(iter_type, ios_base&, char_type, const tm*, char, char = 0) const;
+
+      static locale::id id;
+
+   protected:
+      ~time_put();
+
+      virtual iter_type do_put(iter_type, ios_base&, char_type, const tm*, char, char);
+   };
+
+   template<class charT, class OutputIterator>
+   struct time_put_byname : public time_put<charT, OutputIterator>
+   {
+      typedef charT char_type;
+      typedef OutputIterator iter_type;
+
+      explicit time_put_byname(const char*, size_t = 0);
+
+   protected:
+      ~time_put_byname();
+      virtual iter_type do_put(iter_type, ios_base&, char_type, const tm*, char, char) const;
+   };
+
+   // 22.2.6, money:
+
+   template
+   <
+      class charT,
+      class InputIterator = istreambuf_iterator<charT>
+   >
+   struct money_get : public locale::facet
+   {
+      typedef charT char_type;
+      typedef InputIterator iter_type;
+      typedef basic_string<charT> string_type;
+
+      explicit money_get(size_t = 0);
+
+      iter_type get(iter_type, iter_type, bool, ios_base&, ios_base::iostate&,
+                     long double&) const;
+      iter_type get(iter_type, iter_type, bool, ios_base&, ios_base::iostate&, string_type&) const;
+
+      static locale::id id;
+
+   protected:
+      ~money_get();
+
+      virtual iter_type do_get(iter_type, iter_type, bool, ios_base&, ios_base::iostate&,
+                     long double&) const;
+      virtual iter_type do_get(iter_type, iter_type, bool, ios_base&, ios_base::iostate&,
+                     string_type&) const;
+   };
+
+   template<class charT, class OutputIterator>
+   struct money_put : public locale::facet
+   {
+      typedef charT char_type;
+      typedef OutputIterator iter_type;
+      typedef basic_string<charT> string_type;
+
+      explicit money_put(size_t = 0);
+
+      iter_type put(iter_type, bool, ios_base&, char_type, long double) const;
+      iter_type put(iter_type, bool, ios_base&, char_type, const string_type&) const;
+
+      static locale::id id;
+
+   protected:
+      ~money_put();
+      
+      virtual iter_type do_put(iter_type, bool, ios_base&, char_type, long double) const;
+      virtual iter_type do_put(iter_type, bool, ios_base&, char_type, const string_type&) const;
+   };
+
+   struct money_base
+   {
+      enum part { none, space, symbol, sign, value };
+      struct pattern { char field[4]; };
+   };
+
+   template
+   <
+      class charT,
+      bool International = false
+   >
+   struct moneypunct : public money_base
+   {
+      typedef charT char_type;
+      typedef basic_string<charT> string_type;
+
+      explicit moneypunct(size_t = 0);
+
+      charT decimal_point() const;
+      charT thousands_sep() const;
+      string grouping() const;
+      string_type curr_symbol() const;
+      string_type positive_sign() const;
+      string_type negative_sign() const;
+      int frac_digit() const;
+      pattern pos_format() const;
+      pattern neg_format() const;
+      
+      static locale::id id;
+      static const bool intl = International;
+
+   protected:
+      ~moneypunct();
+
+      virtual charT do_decimal_point() const;
+      virtual charT do_thousands_sep() const;
+      virtual string do_grouping() const;
+      virtual string_type do_curr_symbol() const;
+      virtual string_type do_positive_sign() const;
+      virtual string_type do_negative_sign() const;
+      virtual int do_frac_digit() const;
+      virtual pattern do_pos_format() const;
+      virtual pattern do_neg_format() const;
+   };
+
+   template<class charT, bool Intl>
+   struct moneypunct_byname : public moneypunct<charT, Intl>
+   {
+      typedef money_base::pattern pattern;
+      typedef basic_string<charT> string_type;
+
+      explicit moneypunct_byname(const char*, size_t = 0);
+
+   protected:
+      ~moneypunct_byname();
+
+      virtual charT do_decimal_point() const;
+      virtual charT do_thousands_sep() const;
+      virtual string do_grouping() const;
+      virtual string_type do_curr_symbol() const;
+      virtual string_type do_positive_sign() const;
+      virtual string_type do_negative_sign() const;
+      virtual int do_frac_digit() const;
+      virtual pattern do_pos_format() const;
+      virtual pattern do_neg_format() const;
+   };
+
+   // 22.2.7, message retrieval
+
+   struct message_base
+   {  
+      typedef int catalog;
+   };
+
+   template<class charT>
+   struct messages : public locale::facet, public message_base
+   {
+      typedef charT char_type;
+      typedef basic_string<charT> string_type;
+
+      explicit messages(size_t = 0);
+
+      catalog open(const basic_string<char>&, const locale&) const;
+      string_type get(catalog, int, int, const string_type&) const;
+      void close(catalog) const;
+
+      static locale::id id;
+
+   protected:
+      ~messages();
+
+      virtual catalog do_open(const basic_string<char>&, const locale&) const;
+      virtual string_type do_get(catalog, int, int, const string_type&) const;
+      virtual void do_close(catalog) const;
+   };
+   
+   template<class charT>
+   struct messages_byname : messages<charT>
+   {
+      typedef message_base::catalog catalog;
+      typedef basic_string<charT> string_type;
+
+      explicit messages_byname(const char*, size_t = 0);
+
+   protected:
+      ~messages_byname();
+
+      virtual catalog do_open(const basic_string<char>&, const locale&) const;
+      virtual string_type do_get(catalog, int, int, const string_type&) const;
+      virtual void do_close(catalog) const;
+   };
+   
+} // end namespace std
+
+#endif
+

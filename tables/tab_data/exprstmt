@@ -1,0 +1,4 @@
+ FUNC ,, 37 ,, IDENT = EXPR ,,  4
+ IDENT = IDENT ,, 16 ,, IDENT v++ ,,  2
+ IDENT = FUNC ,, 10 ,, EXPR ,,  1
+ IDENT = constant ,,  7 ,, other-expr-stmt ,, 22

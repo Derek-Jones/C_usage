@@ -1,0 +1,108 @@
+
+#ifndef _STL_VECTOR_
+#define _STL_VECTOR_
+
+#include "allocator.h"
+#include <cstddef>
+
+namespace std
+{
+   template
+   <
+      typename T,
+      class Alloc = allocator<T>
+   >
+   struct vector
+   {
+      typedef T               value_type;
+      typedef value_type*     pointer;
+      typedef const T*        const_pointer;
+      typedef T*              iterator;
+      typedef const T*        const_iterator;
+      typedef T*              reverse_iterator;
+      typedef const T*        const_reverse_iterator;
+      typedef value_type&     reference;
+      typedef const T&        const_reference;
+      typedef size_t          size_type;
+      typedef ptrdiff_t       difference_type;
+      typedef Alloc           allocator_type;
+
+      explicit vector(const allocator_type& = allocator_type());
+      vector(size_type, const_reference,
+         const allocator_type& = allocator_type());
+      explicit vector(size_type);
+      vector(const vector<T, Alloc>&);
+
+      template<class Iter>
+      vector(Iter, Iter, const allocator_type& = allocator_type());
+
+      vector<T, Alloc>& operator=(const vector<T, Alloc>&);
+
+      ~vector();
+
+      iterator begin();
+      const_iterator begin() const;
+      iterator end();
+      const_iterator end() const;
+      reverse_iterator rbegin();
+      const_reverse_iterator rbegin() const;
+      reverse_iterator rend();
+      const_reverse_iterator rend() const;
+
+      size_type size() const;
+      size_type max_size() const;
+      size_type capacity() const;
+      bool empty() const;
+
+      reference operator[](size_type);
+      const_reference at(size_type) const;
+      reference at(size_type);
+      const_reference operator[](size_type) const;
+
+      void reserve(size_type);
+
+      void assign(size_type, const_reference);
+
+      template<class Iter>
+      void assign(Iter, Iter);
+
+      reference front();
+      const_reference front() const;
+      reference back();
+      const_reference font() const;
+
+      void swap(vector<T, Alloc>&);
+
+      void push_back(const_reference);
+      iterator insert(iterator, const_reference);
+      iterator insert(iterator);
+      template<class Iter>
+      void insert(iterator, Iter, Iter);
+      void insert(iterator, size_type, const_reference);
+
+      void pop_back();
+      iterator erase(iterator);
+      iterator erase(iterator, iterator);
+
+      void resize(size_type, const_reference);
+      void resize(size_type);
+      void clear();
+   };
+
+   template<typename T, class A>
+   bool swap(const vector<T,A>&, const vector<T,A>&);
+   template<typename T, class A>
+   bool operator==(const vector<T,A>&, const vector<T,A>&);
+   template<typename T, class A>
+   bool operator<(const vector<T,A>&, const vector<T,A>&);
+   template<typename T, class A>
+   bool operator!=(const vector<T,A>&, const vector<T,A>&);
+   template<typename T, class A>
+   bool operator>(const vector<T,A>&, const vector<T,A>&);
+   template<typename T, class A>
+   bool operator<=(const vector<T,A>&, const vector<T,A>&);
+   template<typename T, class A>
+   bool operator>=(const vector<T,A>&, const vector<T,A>&);
+}
+
+#endif

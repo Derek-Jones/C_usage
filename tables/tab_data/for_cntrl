@@ -1,0 +1,10 @@
+ 33.2 ,,  OBJECT < OBJECT  ,, 1.4 ,,  OBJECT < OBJECT 
+ 11.3 ,,  OBJECT < INT_CONST  ,, 23.7 ,,  OBJECT < OBJECT 
+ 7.0 ,,  OBJECT  ,, 11.2 ,,  OBJECT < INT_CONST 
+ 3.3 ,,  OBJECT < EXPR  ,, 5.2 ,,  OBJECT < OBJECT -> OBJECT 
+ 2.7 ,,  OBJECT < OBJECT  ,, 2.5 ,,  
+ 2.5 ,,   ,, 2.3 ,,  OBJECT < OBJECT 
+ 2.5 ,,  OBJECT != OBJECT  ,, 1.6 ,,  OBJECT 
+ 2.2 ,,  OBJECT <= OBJECT  ,, 1.5 ,,  OBJECT 
+ 1.6 ,,  OBJECT >= INT_CONST  ,, 1.1 ,,  OBJECT <= OBJECT 
+ 1.4 ,,  OBJECT < FUNC  ,, 82.1 ,, other-expr

@@ -1,0 +1,35 @@
+inc_depth 1 
+inc_depth 10 
+inc_depth 11 
+inc_depth 12 
+inc_depth 2 
+inc_depth 3 
+inc_depth 4 
+inc_depth 5 
+inc_depth 6 
+inc_depth 7 
+inc_depth 8 
+inc_depth 9 
+1300 __ 3071
+1300 _[A-Z] 10255
+1300 wcs[a-z] 1
+1301 # 6832
+1302 assert 2
+1302 EXIT_FAILURE 1
+1302 EXIT_SUCCESS 1
+1302 MB_CUR_MAX 1
+1302 RAND_MAX 1
+1303 # 144
+1305 E[A-Z] 339
+1305 SIG[A-Z] 2
+1306 is[a-z] 47
+1306 mem[a-z] 108
+1306 str[a-z] 904
+1306 to[a-z] 338
+1307 # 12
+1308 is[a-z] 33
+1308 mem[a-z] 7
+1308 str[a-z] 28
+1308 to[a-z] 62
+1310 div_t 1
+1310 ldiv_t 1

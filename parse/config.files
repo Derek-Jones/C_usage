@@ -1,0 +1,67 @@
+#
+# config.files,  5 Mar 12
+#
+# Default names of various directories and data files
+
+NGRAM_DIR="../.."				: export NGRAM_DIR
+PROG_DIR="$NGRAM_DIR/programs"			; export PROG_DIR
+SRC_DIR="$PROG_DIR/*"				; export SRC_DIR
+
+INDIV_PROG="not_all"				; export INDIV_PROG
+GEN_DATA="0"					; export GEN_DATA
+#GEN_DATA="1"					; export GEN_DATA
+
+PARENT_DIR=".."					; export PARENT_DIR
+C_CNT_FILE="$NGRAM_DIR/c.cnt"			; export C_CNT_FILE
+H_CNT_FILE="$NGRAM_DIR/h.cnt"			; export H_CNT_FILE
+PP_DIR="$NGRAM_DIR/prepro"			; export PP_DIR
+MCC_DIR="$NGRAM_DIR/mcclog"			; export MCC_DIR
+BLD_GRA_DIR="$NGRAM_DIR/bldgra"			; export BLD_GRA_DIR
+BLD_TAB_DIR="$NGRAM_DIR/bldtab"			; export BLD_TAB_DIR
+IDENT_DIR="$NGRAM_DIR/idents"			; export IDENT_DIR
+MET_DIR="$NGRAM_DIR/met"			; export MET_DIR
+STMT_DIR="$NGRAM_DIR/statements"		; export STMT_DIR
+STMT_TAB="$STMT_DIR/tab_data"			; export STMT_TAB
+
+MKGRA="$NGRAM_DIR/bldgra/bldgra.sh"		; export MKGRA
+
+GLOB_SCRIPTS="$NGRAM_DIR/scripts"		; export GLOB_SCRIPTS
+
+GLOB_TAB_DIR="$NGRAM_DIR/tables/tab_data"	; export GLOB_TAB_DIR
+GLOB_DIA_DIR="$NGRAM_DIR/diagrams"		; export GLOB_DIR_DIR
+LOC_TAB_DIR="tab_data"				; export LOC_TAB_DIR
+LOC_DIA_DIR="dia_data"				; export LOC_DIR_DIR
+
+EXPRST_SUFF=".exprst.gz"			; export EXPRST_SUFF
+CNTRL_SUFF=".cntrl.gz"				; export CNTRL_SUFF
+C_DIRECT_SUFF="c.ppdirect.gz"			; export C_DIRECT_SUFF
+C_BODY_SUFF=".c.ppbody.gz"			; export C_BODY_SUFF
+H_DIRECT_SUFF=".h.ppdirect.gz"			; export H_DIRECT_SUFF
+H_BODY_SUFF=".h.ppbody.gz"			; export H_BODY_SUFF
+C_ID_SUFFIX=".c.id.gz"				; export C_ID_SUFFIX
+H_ID_SUFFIX=".h.id.gz"				; export H_ID_SUFFIX
+FOR_SUFF=".for.gz"				; export FOR_SUFF
+MCC_SUFF=".mcc.gz"				; export MCC_SUFF
+MET_SUFF=".MET.gz"				; export MET_SUFF
+
+PPALLDIRECT="$PP_DIR/all_prog.ppdirect.t"	; export PPALLDIRECT
+PPALLCNTRL_LINES="$PP_DIR/all_prog.ppbody.t"	; export PPALLCNTRL_LINES
+ALLCNTRL_LINES="$STMT_TAB/all_prog.cntrl.t"	; export ALLCNTRL_LINES
+ALLFOR_LINES="$STMT_TAB/all_prog.for.t"		; export ALLFOR_LINES
+
+TEMP_FILE="$$.tmp"				; export TEMP_FILE
+MAX_DEC="max_dec_t"				; export MAX_DEC
+
+WORD_LIST="$NGRAM_DIR/idents/words.65.gz"	; export WORD_LIST
+STDID_LIST="$NGRAM_DIR/idents/std_ident.txt.gz"	; export STDID_LIST
+
+EXTRTWOCOLS="$GLOB_SCRIPTS/extrtwocols.awk"	; export EXTRTWOCOLS
+EXTRTABLE="$GLOB_SCRIPTS/extrtable.awk"		; export EXTRTABLE
+PPISWCNTRL="$GLOB_SCRIPTS/ppiswcntrl.awk"		; export PPISWCNTRL
+MERGETWOCOL="awk -f $GLOB_SCRIPTS/mergetwocol.awk"	; export MERGETWOCOL
+MERGE_C_H="awk -f $GLOB_SCRIPTS/merge_c_h.awk"		; export MERGE_C_H
+MKTWOCOL="awk -f $GLOB_SCRIPTS/mktwocol.awk"		; export MKTWOCOL
+MKTHREECOL="awk -f $GLOB_SCRIPTS/mkthreecol.awk"	; export MKTHREECOL
+MKFOURCOL="awk -f $GLOB_SCRIPTS/mkfourcol.awk"		; export MKFOURCOL
+SORTLASTCOL="awk -f $GLOB_SCRIPTS/sortlastcol.awk"	; export SORTLASTCOL
+

@@ -1,0 +1,130 @@
+Id length= 5, num words= 2686, num patterns= 7230
+center offset= -0.5, num patterns= 2479, ambig= 1.083501
+center offset= 0.5, num patterns= 2566, ambig= 1.046765
+center offset= 1.5, num patterns= 2185, ambig= 1.229291
+Id length= 6, num words= 2710, num patterns= 9484
+center offset= -1.0, num patterns= 2423, ambig= 1.118448
+center offset= 0.0, num patterns= 2561, ambig= 1.058180
+center offset= 1.0, num patterns= 2477, ambig= 1.094065
+center offset= 2.0, num patterns= 2023, ambig= 1.339595
+Id length= 7, num words= 2341, num patterns= 9978
+center offset= -1.5, num patterns= 1983, ambig= 1.180535
+center offset= -0.5, num patterns= 2182, ambig= 1.072869
+center offset= 0.5, num patterns= 2121, ambig= 1.103725
+center offset= 1.5, num patterns= 2003, ambig= 1.168747
+center offset= 2.5, num patterns= 1689, ambig= 1.386027
+Id length= 8, num words= 1806, num patterns= 9312
+center offset= -2.0, num patterns= 1483, ambig= 1.217802
+center offset= -1.0, num patterns= 1622, ambig= 1.113440
+center offset= 0.0, num patterns= 1699, ambig= 1.062978
+center offset= 1.0, num patterns= 1640, ambig= 1.101220
+center offset= 2.0, num patterns= 1549, ambig= 1.165913
+center offset= 3.0, num patterns= 1319, ambig= 1.369219
+Id length= 9, num words= 1316, num patterns= 7976
+center offset= -2.5, num patterns= 1095, ambig= 1.201826
+center offset= -1.5, num patterns= 1165, ambig= 1.129614
+center offset= -0.5, num patterns= 1191, ambig= 1.104954
+center offset= 0.5, num patterns= 1221, ambig= 1.077805
+center offset= 1.5, num patterns= 1189, ambig= 1.106812
+center offset= 2.5, num patterns= 1128, ambig= 1.166667
+center offset= 3.5, num patterns= 987, ambig= 1.333333
+Id length= 10, num words= 947, num patterns= 6499
+center offset= -3.0, num patterns= 774, ambig= 1.223514
+center offset= -2.0, num patterns= 812, ambig= 1.166256
+center offset= -1.0, num patterns= 835, ambig= 1.134132
+center offset= 0.0, num patterns= 848, ambig= 1.116745
+center offset= 1.0, num patterns= 874, ambig= 1.083524
+center offset= 2.0, num patterns= 847, ambig= 1.118064
+center offset= 3.0, num patterns= 805, ambig= 1.176398
+center offset= 4.0, num patterns= 704, ambig= 1.345170
+Id length= 11, num words= 545, num patterns= 4350
+center offset= -3.5, num patterns= 456, ambig= 1.195175
+center offset= -2.5, num patterns= 481, ambig= 1.133056
+center offset= -1.5, num patterns= 497, ambig= 1.096579
+center offset= -0.5, num patterns= 512, ambig= 1.064453
+center offset= 0.5, num patterns= 514, ambig= 1.060311
+center offset= 1.5, num patterns= 501, ambig= 1.087824
+center offset= 2.5, num patterns= 484, ambig= 1.126033
+center offset= 3.5, num patterns= 468, ambig= 1.164530
+center offset= 4.5, num patterns= 437, ambig= 1.247140
+Id length= 12, num words= 392, num patterns= 3529
+center offset= -4.0, num patterns= 313, ambig= 1.252396
+center offset= -3.0, num patterns= 325, ambig= 1.206154
+center offset= -2.0, num patterns= 346, ambig= 1.132948
+center offset= -1.0, num patterns= 358, ambig= 1.094972
+center offset= 0.0, num patterns= 373, ambig= 1.050938
+center offset= 1.0, num patterns= 377, ambig= 1.039788
+center offset= 2.0, num patterns= 372, ambig= 1.053763
+center offset= 3.0, num patterns= 367, ambig= 1.068120
+center offset= 4.0, num patterns= 362, ambig= 1.082873
+center offset= 5.0, num patterns= 336, ambig= 1.166667
+Id length= 13, num words= 274, num patterns= 2755
+center offset= -4.5, num patterns= 220, ambig= 1.245455
+center offset= -3.5, num patterns= 224, ambig= 1.223214
+center offset= -2.5, num patterns= 227, ambig= 1.207048
+center offset= -1.5, num patterns= 255, ambig= 1.074510
+center offset= -0.5, num patterns= 263, ambig= 1.041825
+center offset= 0.5, num patterns= 268, ambig= 1.022388
+center offset= 1.5, num patterns= 267, ambig= 1.026217
+center offset= 2.5, num patterns= 268, ambig= 1.022388
+center offset= 3.5, num patterns= 265, ambig= 1.033962
+center offset= 4.5, num patterns= 255, ambig= 1.074510
+center offset= 5.5, num patterns= 243, ambig= 1.127572
+Id length= 14, num words= 199, num patterns= 2146
+center offset= -5.0, num patterns= 152, ambig= 1.309211
+center offset= -4.0, num patterns= 157, ambig= 1.267516
+center offset= -3.0, num patterns= 160, ambig= 1.243750
+center offset= -2.0, num patterns= 175, ambig= 1.137143
+center offset= -1.0, num patterns= 192, ambig= 1.036458
+center offset= 0.0, num patterns= 193, ambig= 1.031088
+center offset= 1.0, num patterns= 193, ambig= 1.031088
+center offset= 2.0, num patterns= 194, ambig= 1.025773
+center offset= 3.0, num patterns= 189, ambig= 1.052910
+center offset= 4.0, num patterns= 186, ambig= 1.069892
+center offset= 5.0, num patterns= 181, ambig= 1.099448
+center offset= 6.0, num patterns= 174, ambig= 1.143678
+Id length= 15, num words= 130, num patterns= 1537
+center offset= -5.5, num patterns= 101, ambig= 1.287129
+center offset= -4.5, num patterns= 105, ambig= 1.238095
+center offset= -3.5, num patterns= 108, ambig= 1.203704
+center offset= -2.5, num patterns= 113, ambig= 1.150442
+center offset= -1.5, num patterns= 124, ambig= 1.048387
+center offset= -0.5, num patterns= 128, ambig= 1.015625
+center offset= 0.5, num patterns= 126, ambig= 1.031746
+center offset= 1.5, num patterns= 128, ambig= 1.015625
+center offset= 2.5, num patterns= 127, ambig= 1.023622
+center offset= 3.5, num patterns= 126, ambig= 1.031746
+center offset= 4.5, num patterns= 121, ambig= 1.074380
+center offset= 5.5, num patterns= 117, ambig= 1.111111
+center offset= 6.5, num patterns= 113, ambig= 1.150442
+Id length= 16, num words= 95, num patterns= 1205
+center offset= -6.0, num patterns= 74, ambig= 1.283784
+center offset= -5.0, num patterns= 76, ambig= 1.250000
+center offset= -4.0, num patterns= 77, ambig= 1.233766
+center offset= -3.0, num patterns= 80, ambig= 1.187500
+center offset= -2.0, num patterns= 83, ambig= 1.144578
+center offset= -1.0, num patterns= 84, ambig= 1.130952
+center offset= 0.0, num patterns= 94, ambig= 1.010638
+center offset= 1.0, num patterns= 94, ambig= 1.010638
+center offset= 2.0, num patterns= 93, ambig= 1.021505
+center offset= 3.0, num patterns= 92, ambig= 1.032609
+center offset= 4.0, num patterns= 92, ambig= 1.032609
+center offset= 5.0, num patterns= 89, ambig= 1.067416
+center offset= 6.0, num patterns= 89, ambig= 1.067416
+center offset= 7.0, num patterns= 88, ambig= 1.079545
+Id length= 17, num words= 84, num patterns= 1052
+center offset= -6.5, num patterns= 55, ambig= 1.527273
+center offset= -5.5, num patterns= 56, ambig= 1.500000
+center offset= -4.5, num patterns= 57, ambig= 1.473684
+center offset= -3.5, num patterns= 59, ambig= 1.423729
+center offset= -2.5, num patterns= 63, ambig= 1.333333
+center offset= -1.5, num patterns= 64, ambig= 1.312500
+center offset= -0.5, num patterns= 65, ambig= 1.292308
+center offset= 0.5, num patterns= 81, ambig= 1.037037
+center offset= 1.5, num patterns= 81, ambig= 1.037037
+center offset= 2.5, num patterns= 81, ambig= 1.037037
+center offset= 3.5, num patterns= 80, ambig= 1.050000
+center offset= 4.5, num patterns= 78, ambig= 1.076923
+center offset= 5.5, num patterns= 76, ambig= 1.105263
+center offset= 6.5, num patterns= 79, ambig= 1.063291
+center offset= 7.5, num patterns= 77, ambig= 1.090909

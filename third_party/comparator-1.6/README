@@ -1,0 +1,15 @@
+	comparator -- code for finding common sections in source trees
+
+comparator is a program for rapidly finding common segments in large
+source-code trees.  See the manual page for instructions.  It comes
+with a filtering postprecessor, filterator.
+
+Besides the production C code, the distribution also includes 
+working Python versions.  These were used to prototype the concept.
+
+The document scf-standard.xml describes file interchange formata
+for programs that wish to interoperate with comparator.
+
+See the NEWS file for recent developmets.
+
+

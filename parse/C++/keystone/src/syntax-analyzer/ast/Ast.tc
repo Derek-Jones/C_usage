@@ -1,0 +1,957 @@
+/*
+ *  Ast.tc
+ *
+ *  Copyright (C) 2000-2004 by
+ *
+ *    Department of Computer Science, Clemson University,
+ *    Department of Computer Science, National University of Ireland, Maynooth.
+ * 
+ *  http://keystone.sourceforge.net
+ *
+ *  <keystone@cs.clemson.edu>
+ *
+ *  Keystone is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Keystone is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ */
+
+%option lang = "C++"
+%option reentrant
+%option no_track_lines
+
+%header "Ast.h"
+%output "Ast.cpp"
+
+%decls
+%{
+// These declarations will be placed at the top of the ".h" file.
+
+  #include <cstddef>
+  #include <string>
+  #include <utility>
+  #include <vector>
+
+  #include "Schema.h"
+
+  #include "NameDeclaration.h"
+
+  class Type;
+  class BasicType;
+  class EnumType;
+  class FunctionType;
+  class IndirectType;
+
+  #define CONST_ACCEPT(a)  accept ( a ) const
+  #define NON_CONST_ACCEPT accept
+%}
+
+%{
+// These declarations will be placed at the top of the ".cpp" file.
+
+  #include "Ast.h"
+
+  // Parser ADTs
+  #include "NameDeclaration.h"
+  #include "Type.h"
+  #include "BasicType.h"
+  #include "ClassType.h"
+  #include "EnumType.h"
+  #include "FunctionType.h"
+  #include "IndirectType.h"
+  #include "NamespaceType.h"
+  #include "TemplateParameterType.h"
+  #include "TemplateTemplateParameterType.h"
+%}
+
+///-------------------
+/// Types
+///-------------------
+/// Schema         S
+/// Implementation I
+/// Internal       N
+///-------------------
+
+/// e.g. Type.Level.#
+
+////////////////////////////////////////////////////////////////////////////////
+// Base Node
+////////////////////////////////////////////////////////////////////////////////
+
+/// S.B
+%node cAsgNode %abstract %typedef =
+{
+  String mFilename;
+  int    mStartLine;
+  int    mEndLine;
+
+  %nocreate unsigned long mNodeNumber = {0};
+}
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Misc Nodes : cAsgNode
+  //////////////////////////////////////////////////////////////////////////////
+
+  /// S.B.1
+  %node cLinkage cAsgNode =
+  {
+    String        mLinkType;
+    bool          mIsBlock;
+    AsgNodeList_t mContents; ///< cOwnershipEdge
+  }
+
+  /// S.B.2
+  %node cUsing cAsgNode =
+  {
+    bool            mIsNamespace;
+    cNameReference* mNameReference; ///< cReferenceEdge
+  }
+
+  /// S.B.3
+  %node cAsmDefinition cAsgNode =
+  {
+    String mAsm;
+  }
+
+  /// S.TA.L
+  %node cTemplateArgumentList cAsgNode =
+  {
+    TemplateArgumentList_t mArguments; ///< cOwnershipEdge
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Identifier Node : cAsgNode
+  //////////////////////////////////////////////////////////////////////////////
+
+  /// S.I
+  %node cIdentifier cAsgNode %abstract %typedef =
+  {
+    String           mName;
+    eAccessSpecifier mAccessSpecifier;
+    NameDeclaration* mNameDeclaration;       ///< For use during parse only.
+
+    %nocreate cIdentifier* mDefinedIn = {0}; ///< cDefinitionLocationEdge
+  }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Misc Nodes : cIdentifier
+    ////////////////////////////////////////////////////////////////////////////
+
+    /// S.I.1
+    %node cEnumerator cIdentifier =
+    {
+      cExpression* mValue; ///< cValueEdge
+    }
+
+    /// S.OBJ
+    %node cObject cIdentifier =
+    {
+      cTemplateArgumentList* mTemplateArguments; ///< cTemplateArgumentListEdge
+      cExpression*           mBits;              ///< cBitDimensionEdge
+      cExpressionBase*       mInitialValue;      ///< cInitialValueEdge
+      cType*                 mType;              ///< cInstanceEdge
+      cNameReference*        mNamedNamespace;    ///< cScopeResolutionEdge
+    
+      // propogate information when identifying conversion_operators and casts
+      %nocreate cType* mOperatorType = {0};
+    
+      %nocreate bool mIsAuto     = {false};
+      %nocreate bool mIsRegister = {false};
+      %nocreate bool mIsStatic   = {false};
+      %nocreate bool mIsExtern   = {false};
+      %nocreate bool mIsMutable  = {false};
+    }
+
+    /// S.OBJ.L
+    %node cObjectList cIdentifier =
+    {
+    // This is actually used two ways.
+    // As part of the schema (NAK), and as a sloppy implementation hack (THG).
+    // The final tree contains only the schema version of this node.
+      //%nocreate ObjectList_t mObjects; ///< cOwnershipEdge
+      AsgNodeList_t mObjects; ///< cOwnershipEdge
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Function Parameter Nodes : cIdentifier
+    ////////////////////////////////////////////////////////////////////////////
+
+    /// S.FP.B
+    %node cFunctionParameterBase cIdentifier %abstract = { }
+
+    /// S.FP
+    %node cFunctionParameter cFunctionParameterBase =
+    {
+      bool                   mIsAuto;
+      bool                   mIsRegister;
+      cType*                 mType;              ///< cInstanceEdge
+      cTemplateArgumentList* mTemplateArguments; ///< cTemplateArgumentListEdge
+      cNameReference*        mNamedNamespace;    ///< cScopeResolutionEdge
+      cExpressionBase*       mDefault;           ///< cDefaultValueEdge
+    }
+
+    /// S.FP.L
+    %node cFunctionParameterList cFunctionParameterBase =
+    {
+      FunctionParameterList_t mParameters; ///< cOwnershipEdge
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Type Nodes : cIdentifier
+    ////////////////////////////////////////////////////////////////////////////
+
+    /// S.T
+    %node cType cIdentifier %abstract %typedef =
+    {
+      %nocreate bool mIsConst    = {false};
+      %nocreate bool mIsVolatile = {false};
+    }
+
+      /// N.T.1
+      %node cQualifierType cType =
+      {
+        int mCvSum;
+      }
+
+      /// N.T.2
+      %node cFunctionTypeInformation cType =
+      {
+        // The cExceptionSpecification is not part of the cFunctionType,
+        // but we need to get it up the tree to make it part of the cFunction.
+        FunctionType*            mFunctionType;
+        cFunctionParameterList*  mParameters;
+        cExceptionSpecification* mExceptionSpec;
+        cType*                   mReturnType;
+      }
+
+      /// S.T.1
+      %node cBuiltInType cType =
+      {
+        BasicType* mBasicType; ///< For use during parse only.
+      }
+
+      /// S.T.2
+      %node cAliasType cType =
+      {
+        cType* mAliasedType; ///< cTypeEdge
+      }
+
+      /// S.T.3
+      %node cFunctionType cType =
+      {
+        FunctionType*           mFunctionType; ///< For use during parse only.
+        cFunctionParameterList* mParameters;   ///< cFunctionParameterListEdge
+        cType*                  mReturnType;   ///< cTypeEdge
+      }
+
+      /// S.T.4
+      %node cEnumerationType cType =
+      {
+        EnumType*         mEnumType;    ///< For use during parse only.
+        EnumeratorList_t  mEnumerators; ///< cOwnershipEdge
+      }
+
+      /// S.IT
+      %node cIndirectType cType %abstract %typedef =
+      {
+        IndirectType* mIndirectType; ///< For use during parse only.
+        cType*        mBaseType;     ///< cTypeEdge
+      }
+
+        /// S.IT.1
+        %node cArrayType cIndirectType =
+        {
+          cExpressionBase* mDimension; ///< cArrayDimensionEdge
+        }
+
+        /// S.IT.2
+        %node cPointerType cIndirectType
+
+        /// S.IT.3
+        %node cReferenceType cIndirectType
+
+      /// I.CTI
+      %node cClassTypeInterface cType %abstract %typedef =
+      {
+        BaseClassList_t mBaseClasses;                 ///< cInheritanceEdge
+        FriendList_t    mFriends;                     ///< cFriendEdge
+        MemberList_t    mMembers;                     ///< cOwnershipEdge
+        eClassKey       mClassKey;
+
+        %nocreate DerivedClassList_t mDerivedClasses; ///< Delete me.
+      }
+
+        /// S.CTI.1
+        %node cTemplateClassType cClassTypeInterface =
+        {
+          cTemplateParameterList* mTemplateParameters; ///< cTemplateParameterListEdge
+        }
+
+        /// S.CTI.2
+        %node cSpecializedClassType cClassTypeInterface =
+        {
+          cTemplateArgumentList* mTemplateArguments;             ///< cTemplateArgumentListEdge
+
+          %nocreate cTemplateParameterList* mTemplateParameters; ///< cTemplateParameterListEdge
+        }
+
+        /// S.CTI.3
+        %node cClassType cClassTypeInterface
+
+        /// S.CTI.4
+        %node cInstantiatedClassType cClassTypeInterface =
+        {
+          %nocreate cTemplateArgumentList* mTemplateArguments; ///< cTemplateArgumentListEdge
+        }
+
+      /// I.FTI
+      %node cForwardTypeInterface cType %abstract %typedef =
+      {
+        cNameReference* mNamedNamespace;         ///< cScopeResolutionEdge
+      
+        %nocreate cType* mTypeDeclaration = {0}; ///< cTypeEdge
+      }
+
+        /// S.FTI.1
+        %node cTemplateForwardType cForwardTypeInterface =
+        {
+          cTemplateParameterList* mTemplateParameters; ///< cTemplateParameterListEdge
+        }
+
+        /// S.FTI.2
+        %node cSpecializedForwardType cForwardTypeInterface =
+        {
+          cTemplateArgumentList* mTemplateArguments;             ///< cTemplateArgumentListEdge
+
+          %nocreate cTemplateParameterList* mTemplateParameters; ///< cTemplateParameterListEdge
+        }
+
+        /// S.FTI.3
+        %node cForwardType cForwardTypeInterface
+
+        /// S.FTI.4
+        %node cInstantiatedForwardType cForwardTypeInterface =
+        {
+          cTemplateArgumentList* mTemplateArguments; ///< cTemplateArgumentListEdge
+        }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Label Nodes : cIdentifier
+    ////////////////////////////////////////////////////////////////////////////
+
+    /// S.L
+    %node cLabel cIdentifier =
+    {
+      cAsgNode* mLabeledStatement; ///< cOwnershipEdge
+    }
+
+      /// S.L.1
+      %node cCaseLabel cLabel =
+      {
+        cExpression* mConstantExpression; ///< cValueEdge
+      }
+
+      /// S.L.2
+      %node cDefaultLabel cLabel
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Function Nodes : cIdentifier
+    ////////////////////////////////////////////////////////////////////////////
+
+    /// S.FI
+    %node cFunctionInterface cIdentifier %abstract %typedef =
+    {
+      eFunctionKey             mFunctionKey;
+      bool                     mIsPureVirtual;
+      cNameReference*          mNamedNamespace; ///< cScopeResolutionEdge
+      cFunctionType*           mType;           ///< cTypeEdge
+      cExceptionSpecification* mThrows;         ///< cThrowsEdge
+      cCtorInitializerBlock*   mInit;           ///< cCtorInitializerEdge
+      cBlock*                  mBlock;          ///< cOwnershipEdge
+
+      %nocreate bool mIsStatic   = {false};
+      %nocreate bool mIsExtern   = {false};
+      %nocreate bool mIsInline   = {false};
+      %nocreate bool mIsVirtual  = {false};
+      %nocreate bool mIsExplicit = {false};
+    }
+
+      /// S.FI.1
+      %node cTemplateFunction cFunctionInterface =
+      {
+        cTemplateParameterList* mTemplateParameters; ///< cTemplateParameterListEdge
+      }
+
+      /// S.FI.2
+      %node cSpecializedFunction cFunctionInterface =
+      {
+        cTemplateArgumentList* mTemplateArguments;             ///< cTemplateArgumentListEdge
+
+        %nocreate cTemplateParameterList* mTemplateParameters; ///< cTemplateParameterListEdge
+      }
+
+      /// S.FI.3
+      %node cFunction cFunctionInterface
+
+      /// S.FI.4
+      %node cInstantiatedFunction cFunctionInterface =
+      {
+        cTemplateArgumentList* mTemplateArguments; ///< cTemplateArgumentListEdge
+      }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Scope Nodes : cIdentifier
+    ////////////////////////////////////////////////////////////////////////////
+
+    /// S.S
+    %node cScope cIdentifier %abstract %typedef =
+    {
+      AsgNodeList_t mContents; ///< cOwnershipEdge
+    }
+
+      /// S.S.1
+      %node cGlobalScope cScope
+
+      /// S.S.2
+      %node cCompilationScope cScope
+
+      /// S.S.3
+      %node cNamespace cScope =
+      {
+        %nocreate cNameReference* mAliases = {0}; ///< cReferenceEdge
+      }
+
+      /// S.BLK
+      %node cBlock cScope
+
+        /// S.BLK.1
+        %node cCtorInitializerBlock cBlock
+
+    //////////////////////////////////////////////////////////////////////////////
+    // Template Parameter Nodes : cIdentifier
+    //////////////////////////////////////////////////////////////////////////////
+
+    /// S.TP.B
+    %node cTemplateParameterBase cIdentifier %abstract
+
+    /// S.TP
+    %node cTemplateParameter cTemplateParameterBase %abstract
+
+      /// S.TP.1
+      %node cTypeTemplateParameter cTemplateParameter =
+      {
+        cType* mDefault; ///< cDefaultTypeEdge
+      }
+
+      /// S.TP.2
+      %node cTemplateTemplateParameter cTemplateParameter =
+      {
+        cTemplateParameterList* mTemplateParameters; ///< cTemplateParameterListEdge
+        cNameReference*         mDefault;            ///< cDefaultTypeEdge
+      }
+
+      /// S.TP.3
+      %node cNonTypeTemplateParameter cTemplateParameter =
+      {
+        bool                   mIsAuto;
+        bool                   mIsRegister;
+        cType*                 mType;              ///< cInstanceEdge
+        cTemplateArgumentList* mTemplateArguments; ///< cTemplateArgumentListEdge
+        cNameReference*        mNamedNamespace;    ///< cScopeResolutionEdge
+        cExpressionBase*       mDefault;           ///< cDefaultValueEdge
+      }
+
+    /// S.TP.L
+    %node cTemplateParameterList cTemplateParameterBase =
+    {
+      TemplateParameterList_t mParameters; ///< cOwnershipEdge
+    }
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Expression Nodes : cAsgNode
+  //////////////////////////////////////////////////////////////////////////////
+
+  /// S.EXP.B
+  %node cExpressionBase cAsgNode %abstract %typedef =
+  {
+    %nocreate cType* mType = {0}; ///< cTypeEdge
+  }
+
+  /// S.EXP
+  %node cExpression cExpressionBase %abstract
+
+    /// S.EXP.1
+    %node cNameReference cExpression =
+    {
+      String                 mName;
+      NameDeclaration*       mNameDeclaration;   ///< For use during parse only.
+      cTemplateArgumentList* mTemplateArguments; ///< cTemplateArgumentListEdge
+      cNameReference*        mNamedNamespace;    ///< cScopeResolutionEdge
+    
+      %nocreate bool mIsPseudoDestructor = {false};
+
+      // propogate information when identifying conversion_operators and casts
+      %nocreate cType* mOperatorType = {0};
+
+      %nocreate cIdentifier* mObjectDeclaration = {0}; ///< cInstanceEdge
+    }
+
+    /// S.EXP.2
+    %node cLiteral cExpression =
+    {
+      String mValue;
+    }
+
+    /// S.EXP.3
+    %node cNewExpression cExpression =
+    {
+      cExpressionBase*       mInitializer; ///< cInitialValueEdge
+      cFunctionArgumentList* mPlacement;   ///< cPlacementEdge
+    }
+
+    /// S.EXP.4
+    %node cDeleteExpression cExpression =
+    {
+      cExpression* mToDelete; ///< cOwnershipEdge
+      bool         mIsArray;
+    }
+
+    /// S.EXP.5
+    %node cConditionDeclarator cExpression =
+    {
+      cObject* mObject; ///< cOwnershipEdge
+    }
+
+    /// S.EXP.6
+    %node cEmptyExpression cExpression
+
+  /// S.EXP.L
+  %node cExpressionList cExpressionBase %abstract
+
+    /// S.EXP.L.1
+    %node cFunctionArgumentList cExpressionList =
+    {
+      ArgumentList_t mArguments; ///< cOwnershipEdge
+    }
+
+    /// S.EXP.L.2
+    %node cInitializerList cExpressionList =
+    {
+      ArgumentList_t mInitializers; ///< cOwnershipEdge
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Operator Nodes : cExpression
+    ////////////////////////////////////////////////////////////////////////////
+
+    /// S.O
+    %node cOperator cExpression %abstract %typedef =
+    {
+      eOperator mOperator;
+    }
+
+      /// S.O.1
+      %node cUnaryOperator cOperator =
+      {
+        cAsgNode *mOperand; ///< cOperandEdge
+      }
+
+      /// S.O.2
+      %node cBinaryOperator cOperator =
+      {
+        //cExpression*     mLhs; ///< cOperandEdge
+        cAsgNode*        mLhs; ///< cOperandEdge
+        cExpressionBase* mRhs; ///< cOperandEdge
+      }
+
+      /// S.O.3
+      %node cTernaryOperator cOperator =
+      {
+        cExpression* mCondition;       ///< cConditionEdge
+        cExpression* mTrueExpression;  ///< cTrueBranchEdge
+        cExpression* mFalseExpression; ///< cFalseBranchEdge
+      }
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Control Statement Nodes : cAsgNode
+  //////////////////////////////////////////////////////////////////////////////
+
+  /// S.CS
+  %node cControlStatement cAsgNode %abstract %typedef
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Selection Statement Nodes : cControlStatement
+    ////////////////////////////////////////////////////////////////////////////
+
+    /// S.SS
+    %node cSelectionStatement cControlStatement %abstract %typedef =
+    {
+      cExpression* mCondition; ///< cConditionEdge
+    }
+
+      /// S.SS.1
+      %node cIfStatement cSelectionStatement =
+      {
+        cBlock* mTrueBlock;  ///< cTrueBranchEdge
+        cBlock* mFalseBlock; ///< cFalseBranchEdge
+      }
+
+      /// S.SS.2
+      %node cSwitchStatement cSelectionStatement =
+      {
+        cBlock* mBlock; ///< cOwnershipEdge
+      }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Iteration Statement Nodes : cControlStatement
+    ////////////////////////////////////////////////////////////////////////////
+
+    /// S.IS
+    %node cIterationStatement cControlStatement %abstract %typedef =
+    {
+      cExpression* mCondition; ///< cConditionEdge
+      cBlock*      mBlock;     ///< cOwnershipEdge
+    }
+
+      /// S.IS.1
+      %node cWhileLoop cIterationStatement
+
+      /// S.IS.2
+      %node cDoWhileLoop cIterationStatement
+
+      /// S.IS.3
+      %node cForLoop cIterationStatement =
+      {
+        AsgNodeList_t mForInitStatement; ///< cForInitEdge
+        cExpression*  mIncrement;        ///< cForIncrementEdge
+      }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Jump Statement Nodes : cControlStatement
+    ////////////////////////////////////////////////////////////////////////////
+
+    /// S.JS
+    %node cJumpStatement cControlStatement %abstract %typedef =
+    {
+      cExpression* mDestination; ///< cDestinationEdge
+    }
+
+      /// S.JS.1
+      %node cBreak cJumpStatement
+
+      /// S.JS.2
+      %node cContinue cJumpStatement
+
+      /// S.JS.3
+      %node cReturn cJumpStatement =
+      {
+        cExpression* mValue; ///< cValueEdge
+      }
+
+      /// S.JS.4
+      %node cGoto cJumpStatement
+
+  //////////////////////////////////////////////////////////////////////////////
+  // Exception Nodes
+  //////////////////////////////////////////////////////////////////////////////
+
+  /// S.EXC.1
+  %node cTryBlock cBlock =
+  {
+    HandlerList_t mHandlers; ///< cOwnershipEdge
+  }
+
+  /// S.EXC.2
+  %node cFunctionTryBlock cTryBlock =
+  {
+    cCtorInitializerBlock* mInit; ///< cCtorInitializerEdge
+  }
+
+  /// S.EXC.3
+  %node cHandler cAsgNode =
+  {
+    cExceptionDeclaration* mParameters; ///< cExceptionDeclarationEdge
+    cBlock*                mStatements; ///< cOwnershipEdge
+  }
+
+  /// S.EXC.4
+  %node cExceptionDeclaration cIdentifier =
+  {
+    cType*                 mType;              ///< cInstanceEdge
+    cNameReference*        mNamedNamespace;    ///< cScopeResolutionEdge
+    cTemplateArgumentList* mTemplateArguments; ///< cTemplateArgumentListEdge
+  }
+
+  /// S.EXC.5
+  %node cThrowExpression cExpression =
+  {
+    cExpression* mArgument; ///< cOwnershipEdge
+  }
+
+  /// S.EXC.6
+  %node cExceptionSpecification cAsgNode =
+  {
+    ThrowList_t mException; ///< cOwnershipEdge
+  }
+
+
+//////////////////////////////////////////////////////////////////////////////
+// CONST_ACCEPT
+//////////////////////////////////////////////////////////////////////////////
+
+%operation %virtual void CONST_ACCEPT ( [cAsgNode*], SchemaConstVisitor* visitor )
+
+CONST_ACCEPT( cFunctionParameterBase ),
+CONST_ACCEPT( cTemplateParameterBase ),
+CONST_ACCEPT( cExpressionBase )
+{
+  // These are all abstract, and since the attributes of the regular classes
+  // and the collection classes are disjoint visiting them doesn't make sense.
+}
+
+CONST_ACCEPT( cAsgNode ),
+CONST_ACCEPT( cLinkage ),
+CONST_ACCEPT( cUsing ),
+CONST_ACCEPT( cAsmDefinition ),
+CONST_ACCEPT( cTemplateArgumentList ),
+CONST_ACCEPT( cIdentifier ),
+CONST_ACCEPT( cEnumerator ),
+CONST_ACCEPT( cObject ),
+CONST_ACCEPT( cObjectList ),
+CONST_ACCEPT( cFunctionParameter ),
+CONST_ACCEPT( cFunctionParameterList ),
+CONST_ACCEPT( cType ),
+CONST_ACCEPT( cBuiltInType ),
+CONST_ACCEPT( cAliasType ),
+CONST_ACCEPT( cFunctionType ),
+CONST_ACCEPT( cEnumerationType ),
+CONST_ACCEPT( cIndirectType ),
+CONST_ACCEPT( cArrayType ),
+CONST_ACCEPT( cPointerType ),
+CONST_ACCEPT( cReferenceType ),
+CONST_ACCEPT( cClassTypeInterface ),
+CONST_ACCEPT( cTemplateClassType ),
+CONST_ACCEPT( cSpecializedClassType ),
+CONST_ACCEPT( cClassType ),
+CONST_ACCEPT( cInstantiatedClassType ),
+CONST_ACCEPT( cForwardTypeInterface ),
+CONST_ACCEPT( cTemplateForwardType ),
+CONST_ACCEPT( cSpecializedForwardType ),
+CONST_ACCEPT( cForwardType ),
+CONST_ACCEPT( cInstantiatedForwardType ),
+CONST_ACCEPT( cLabel ),
+CONST_ACCEPT( cCaseLabel ),
+CONST_ACCEPT( cDefaultLabel ),
+CONST_ACCEPT( cFunctionInterface ),
+CONST_ACCEPT( cTemplateFunction ),
+CONST_ACCEPT( cSpecializedFunction ),
+CONST_ACCEPT( cFunction ),
+CONST_ACCEPT( cInstantiatedFunction ),
+CONST_ACCEPT( cScope ),
+CONST_ACCEPT( cGlobalScope ),
+CONST_ACCEPT( cCompilationScope ),
+CONST_ACCEPT( cNamespace ),
+CONST_ACCEPT( cBlock ),
+CONST_ACCEPT( cCtorInitializerBlock ),
+CONST_ACCEPT( cTemplateParameter ),
+CONST_ACCEPT( cTypeTemplateParameter ),
+CONST_ACCEPT( cTemplateTemplateParameter ),
+CONST_ACCEPT( cNonTypeTemplateParameter ),
+CONST_ACCEPT( cTemplateParameterList ),
+CONST_ACCEPT( cExpression ),
+CONST_ACCEPT( cNameReference ),
+CONST_ACCEPT( cLiteral ),
+CONST_ACCEPT( cNewExpression ),
+CONST_ACCEPT( cDeleteExpression ),
+CONST_ACCEPT( cConditionDeclarator ),
+CONST_ACCEPT( cEmptyExpression ),
+CONST_ACCEPT( cExpressionList ),
+CONST_ACCEPT( cFunctionArgumentList ),
+CONST_ACCEPT( cInitializerList ),
+CONST_ACCEPT( cOperator ),
+CONST_ACCEPT( cUnaryOperator ),
+CONST_ACCEPT( cBinaryOperator ),
+CONST_ACCEPT( cTernaryOperator ),
+CONST_ACCEPT( cControlStatement ),
+CONST_ACCEPT( cSelectionStatement ),
+CONST_ACCEPT( cIfStatement ),
+CONST_ACCEPT( cSwitchStatement ),
+CONST_ACCEPT( cIterationStatement ),
+CONST_ACCEPT( cWhileLoop ),
+CONST_ACCEPT( cDoWhileLoop ),
+CONST_ACCEPT( cForLoop ),
+CONST_ACCEPT( cJumpStatement ),
+CONST_ACCEPT( cBreak ),
+CONST_ACCEPT( cContinue ),
+CONST_ACCEPT( cReturn ),
+CONST_ACCEPT( cGoto ),
+CONST_ACCEPT( cTryBlock ),
+CONST_ACCEPT( cFunctionTryBlock ),
+CONST_ACCEPT( cHandler ),
+CONST_ACCEPT( cExceptionDeclaration ),
+CONST_ACCEPT( cThrowExpression ),
+CONST_ACCEPT( cExceptionSpecification )
+{
+  visitor->visit( this );
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// NON_CONST_ACCEPT
+//////////////////////////////////////////////////////////////////////////////
+
+%operation %virtual void NON_CONST_ACCEPT ( [cAsgNode*], SchemaNonConstVisitor* visitor )
+
+NON_CONST_ACCEPT( cFunctionParameterBase ),
+NON_CONST_ACCEPT( cTemplateParameterBase ),
+NON_CONST_ACCEPT( cExpressionBase )
+{
+  // These are all abstract, and since the attributes of the regular classes
+  // and the collection classes are disjoint visiting them doesn't make sense.
+}
+
+NON_CONST_ACCEPT( cAsgNode ),
+NON_CONST_ACCEPT( cLinkage ),
+NON_CONST_ACCEPT( cUsing ),
+NON_CONST_ACCEPT( cAsmDefinition ),
+NON_CONST_ACCEPT( cTemplateArgumentList ),
+NON_CONST_ACCEPT( cIdentifier ),
+NON_CONST_ACCEPT( cEnumerator ),
+NON_CONST_ACCEPT( cObject ),
+NON_CONST_ACCEPT( cObjectList ),
+NON_CONST_ACCEPT( cFunctionParameter ),
+NON_CONST_ACCEPT( cFunctionParameterList ),
+NON_CONST_ACCEPT( cType ),
+NON_CONST_ACCEPT( cBuiltInType ),
+NON_CONST_ACCEPT( cAliasType ),
+NON_CONST_ACCEPT( cFunctionType ),
+NON_CONST_ACCEPT( cEnumerationType ),
+NON_CONST_ACCEPT( cIndirectType ),
+NON_CONST_ACCEPT( cArrayType ),
+NON_CONST_ACCEPT( cPointerType ),
+NON_CONST_ACCEPT( cReferenceType ),
+NON_CONST_ACCEPT( cClassTypeInterface ),
+NON_CONST_ACCEPT( cTemplateClassType ),
+NON_CONST_ACCEPT( cSpecializedClassType ),
+NON_CONST_ACCEPT( cClassType ),
+NON_CONST_ACCEPT( cInstantiatedClassType ),
+NON_CONST_ACCEPT( cForwardTypeInterface ),
+NON_CONST_ACCEPT( cTemplateForwardType ),
+NON_CONST_ACCEPT( cSpecializedForwardType ),
+NON_CONST_ACCEPT( cForwardType ),
+NON_CONST_ACCEPT( cInstantiatedForwardType ),
+NON_CONST_ACCEPT( cLabel ),
+NON_CONST_ACCEPT( cCaseLabel ),
+NON_CONST_ACCEPT( cDefaultLabel ),
+NON_CONST_ACCEPT( cFunctionInterface ),
+NON_CONST_ACCEPT( cTemplateFunction ),
+NON_CONST_ACCEPT( cSpecializedFunction ),
+NON_CONST_ACCEPT( cFunction ),
+NON_CONST_ACCEPT( cInstantiatedFunction ),
+NON_CONST_ACCEPT( cScope ),
+NON_CONST_ACCEPT( cGlobalScope ),
+NON_CONST_ACCEPT( cCompilationScope ),
+NON_CONST_ACCEPT( cNamespace ),
+NON_CONST_ACCEPT( cBlock ),
+NON_CONST_ACCEPT( cCtorInitializerBlock ),
+NON_CONST_ACCEPT( cTemplateParameter ),
+NON_CONST_ACCEPT( cTypeTemplateParameter ),
+NON_CONST_ACCEPT( cTemplateTemplateParameter ),
+NON_CONST_ACCEPT( cNonTypeTemplateParameter ),
+NON_CONST_ACCEPT( cTemplateParameterList ),
+NON_CONST_ACCEPT( cExpression ),
+NON_CONST_ACCEPT( cNameReference ),
+NON_CONST_ACCEPT( cLiteral ),
+NON_CONST_ACCEPT( cNewExpression ),
+NON_CONST_ACCEPT( cDeleteExpression ),
+NON_CONST_ACCEPT( cConditionDeclarator ),
+NON_CONST_ACCEPT( cEmptyExpression ),
+NON_CONST_ACCEPT( cExpressionList ),
+NON_CONST_ACCEPT( cFunctionArgumentList ),
+NON_CONST_ACCEPT( cInitializerList ),
+NON_CONST_ACCEPT( cOperator ),
+NON_CONST_ACCEPT( cUnaryOperator ),
+NON_CONST_ACCEPT( cBinaryOperator ),
+NON_CONST_ACCEPT( cTernaryOperator ),
+NON_CONST_ACCEPT( cControlStatement ),
+NON_CONST_ACCEPT( cSelectionStatement ),
+NON_CONST_ACCEPT( cIfStatement ),
+NON_CONST_ACCEPT( cSwitchStatement ),
+NON_CONST_ACCEPT( cIterationStatement ),
+NON_CONST_ACCEPT( cWhileLoop ),
+NON_CONST_ACCEPT( cDoWhileLoop ),
+NON_CONST_ACCEPT( cForLoop ),
+NON_CONST_ACCEPT( cJumpStatement ),
+NON_CONST_ACCEPT( cBreak ),
+NON_CONST_ACCEPT( cContinue ),
+NON_CONST_ACCEPT( cReturn ),
+NON_CONST_ACCEPT( cGoto ),
+NON_CONST_ACCEPT( cTryBlock ),
+NON_CONST_ACCEPT( cFunctionTryBlock ),
+NON_CONST_ACCEPT( cHandler ),
+NON_CONST_ACCEPT( cExceptionDeclaration ),
+NON_CONST_ACCEPT( cThrowExpression ),
+NON_CONST_ACCEPT( cExceptionSpecification )
+{
+  visitor->visit( this );
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+// isNumbered
+//
+// I wanted this to be inlined, but in the generated code it was not declared
+// inline.  Since I didn't want this to be global, especially if not inlined,
+// I was forced to make it virtual.
+//////////////////////////////////////////////////////////////////////////////
+
+%operation %virtual bool isNumbered ( [cAsgNode*] )
+
+isNumbered( cAsgNode )
+{
+  return mNodeNumber != 0;
+}
+
+%include "ParserOperations.tc"
+%include "TypeOperations.tc"
+%include "ExpressionOperations.tc"
+%include "ApplyPreorder.tc"
+
+%end %decls
+%{
+// This code will be included at the end of the ".h" file.
+
+namespace key
+{
+  typedef YYNODESTATE NodeState;
+  extern NodeState* gNodeState;
+}
+
+  #define STATE key::gNodeState
+%}
+
+%end
+%{
+// This code will be included at the end of the ".cpp" file.
+
+namespace key
+{
+  NodeState* gNodeState;
+
+  void getNewTC ( void )
+  {
+    gNodeState = new NodeState;
+  }
+}
+
+%}

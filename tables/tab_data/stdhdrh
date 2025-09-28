@@ -1,0 +1,12 @@
+ stdio.h ,, 1424 ,, 175 ,, signal.h ,, 213 ,, 10
+ stdlib.h ,, 860 ,, 100 ,, locale.h ,, 23 ,, 7
+ stddef.h ,, 107 ,, 90 ,, stdint.h ,, 0 ,, 3
+ string.h ,, 828 ,, 83 ,, inttypes.h ,, 1 ,, 1
+ errno.h ,, 481 ,, 82 ,, float.h ,, 25 ,, 1
+ setjmp.h ,, 81 ,, 80 ,, wctype.h ,, 1 ,, 0
+ stdarg.h ,, 167 ,, 54 ,, wchar.h ,, 2 ,, 0
+ time.h ,, 185 ,, 47 ,, tgmath.h ,, 0 ,, 0
+ ctype.h ,, 291 ,, 35 ,, stdbool.h ,, 0 ,, 0
+ limits.h ,, 88 ,, 32 ,, iso646.h ,, 0 ,, 0
+ assert.h ,, 91 ,, 26 ,, fenv.h ,, 1 ,, 0
+ math.h ,, 246 ,, 21 ,, complex.h ,, 0 ,, 0

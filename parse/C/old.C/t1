@@ -1,0 +1,210 @@
+Starting parse
+Entering state 0
+Reading a token: Next token is token IDENTIFIER ()
+Stack 0 Entering state 0
+Splitting off stack 1 from 0.
+Reduced stack 1 by rule #143; action deferred. Now in state 81.
+Stack 1 Entering state 81
+On stack 1, shifting token IDENTIFIER ()
+, now in state #179
+On stack 0, shifting token IDENTIFIER ()
+, now in state #46
+Stack 0 Entering state 46
+Reading a token: Next token is token OPEN_RND ()
+Splitting off stack 2 from 0.
+Reduced stack 2 by rule #189; action deferred. Now in state 84.
+Stack 2 Entering state 84
+Reduced stack 2 by rule #114; action deferred. Now in state 75.
+Stack 2 Entering state 75
+Reduced stack 2 by rule #86; action deferred. Now in state 72.
+Stack 2 Entering state 72
+Reduced stack 2 by rule #89; action deferred. Now in state 73.
+Stack 2 Entering state 73
+Reduced stack 2 by rule #143; action deferred. Now in state 173.
+Stack 2 Entering state 173
+On stack 2, shifting token OPEN_RND ()
+, now in state #178
+Reduced stack 0 by rule #4; action deferred. Now in state 52.
+Stack 0 Entering state 52
+Reduced stack 0 by rule #12; action deferred. Now in state 54.
+Stack 0 Entering state 54
+On stack 0, shifting token OPEN_RND ()
+, now in state #128
+Stack 1 Entering state 179
+Reduced stack 1 by rule #153; action deferred. Now in state 180.
+Stack 1 Entering state 180
+On stack 1, shifting token OPEN_RND ()
+, now in state #245
+Stack 0 Entering state 128
+Reading a token: Next token is token IDENTIFIER ()
+On stack 0, shifting token IDENTIFIER ()
+, now in state #101
+Stack 1 Entering state 245
+On stack 1, shifting token IDENTIFIER ()
+, now in state #280
+Stack 2 Entering state 178
+Reduced stack 2 by rule #143; action deferred. Now in state 243.
+Stack 2 Entering state 243
+On stack 2, shifting token IDENTIFIER ()
+, now in state #179
+Stack 0 Entering state 101
+Reduced stack 0 by rule #4; action deferred. Now in state 52.
+Stack 0 Entering state 52
+Reduced stack 0 by rule #12; action deferred. Now in state 54.
+Stack 0 Entering state 54
+Reading a token: Next token is token CLOSE_RND ()
+Reduced stack 0 by rule #23; action deferred. Now in state 55.
+Stack 0 Entering state 55
+Reduced stack 0 by rule #35; action deferred. Now in state 57.
+Stack 0 Entering state 57
+Reduced stack 0 by rule #37; action deferred. Now in state 58.
+Stack 0 Entering state 58
+Reduced stack 0 by rule #41; action deferred. Now in state 59.
+Stack 0 Entering state 59
+Reduced stack 0 by rule #44; action deferred. Now in state 60.
+Stack 0 Entering state 60
+Reduced stack 0 by rule #47; action deferred. Now in state 61.
+Stack 0 Entering state 61
+Reduced stack 0 by rule #52; action deferred. Now in state 62.
+Stack 0 Entering state 62
+Reduced stack 0 by rule #55; action deferred. Now in state 63.
+Stack 0 Entering state 63
+Reduced stack 0 by rule #57; action deferred. Now in state 64.
+Stack 0 Entering state 64
+Reduced stack 0 by rule #59; action deferred. Now in state 65.
+Stack 0 Entering state 65
+Reduced stack 0 by rule #61; action deferred. Now in state 66.
+Stack 0 Entering state 66
+Reduced stack 0 by rule #63; action deferred. Now in state 67.
+Stack 0 Entering state 67
+Reduced stack 0 by rule #65; action deferred. Now in state 68.
+Stack 0 Entering state 68
+Reduced stack 0 by rule #67; action deferred. Now in state 212.
+Stack 0 Entering state 212
+Reduced stack 0 by rule #21; action deferred. Now in state 211.
+Stack 0 Entering state 211
+Reduced stack 0 by rule #11; action deferred. Now in state 210.
+Stack 0 Entering state 210
+On stack 0, shifting token CLOSE_RND ()
+, now in state #265
+Stack 1 Entering state 280
+Splitting off stack 3 from 1.
+Reduced stack 3 by rule #189; action deferred. Now in state 84.
+Stack 3 Entering state 84
+Reduced stack 3 by rule #114; action deferred. Now in state 75.
+Stack 3 Entering state 75
+Reduced stack 3 by rule #86; action deferred. Now in state 72.
+Stack 3 Entering state 72
+Reduced stack 3 by rule #89; action deferred. Now in state 281.
+Stack 3 Entering state 281
+Reduced stack 3 by rule #174; action deferred. Now in state 285.
+Stack 3 Entering state 285
+Reduced stack 3 by rule #169; action deferred. Now in state 284.
+Stack 3 Entering state 284
+Reduced stack 3 by rule #167; action deferred. Now in state 283.
+Stack 3 Entering state 283
+On stack 3, shifting token CLOSE_RND ()
+, now in state #319
+Reduced stack 1 by rule #176; action deferred. Now in state 286.
+Stack 1 Entering state 286
+Reduced stack 1 by rule #152; action deferred. Now in state 282.
+Stack 1 Entering state 282
+On stack 1, shifting token CLOSE_RND ()
+, now in state #318
+Stack 2 Entering state 179
+Reduced stack 2 by rule #153; action deferred. Now in state 239.
+Stack 2 Entering state 239
+Reduced stack 2 by rule #145; action deferred. Now in state 244.
+Stack 2 Entering state 244
+On stack 2, shifting token CLOSE_RND ()
+, now in state #278
+Stack 0 Entering state 265
+Reduced stack 0 by rule #14; action deferred. Now in state 54.
+Stack 0 Entering state 54
+Reading a token: Next token is token SEMICOLON ()
+Reduced stack 0 by rule #23; action deferred. Now in state 55.
+Stack 0 Entering state 55
+Reduced stack 0 by rule #35; action deferred. Now in state 57.
+Stack 0 Entering state 57
+Reduced stack 0 by rule #37; action deferred. Now in state 58.
+Stack 0 Entering state 58
+Reduced stack 0 by rule #41; action deferred. Now in state 59.
+Stack 0 Entering state 59
+Reduced stack 0 by rule #44; action deferred. Now in state 60.
+Stack 0 Entering state 60
+Reduced stack 0 by rule #47; action deferred. Now in state 61.
+Stack 0 Entering state 61
+Reduced stack 0 by rule #52; action deferred. Now in state 62.
+Stack 0 Entering state 62
+Reduced stack 0 by rule #55; action deferred. Now in state 63.
+Stack 0 Entering state 63
+Reduced stack 0 by rule #57; action deferred. Now in state 64.
+Stack 0 Entering state 64
+Reduced stack 0 by rule #59; action deferred. Now in state 65.
+Stack 0 Entering state 65
+Reduced stack 0 by rule #61; action deferred. Now in state 66.
+Stack 0 Entering state 66
+Reduced stack 0 by rule #63; action deferred. Now in state 67.
+Stack 0 Entering state 67
+Reduced stack 0 by rule #65; action deferred. Now in state 68.
+Stack 0 Entering state 68
+Reduced stack 0 by rule #67; action deferred. Now in state 69.
+Stack 0 Entering state 69
+Reduced stack 0 by rule #80; action deferred. Now in state 70.
+Stack 0 Entering state 70
+Reduced stack 0 by rule #215; action deferred. Now in state 89.
+Stack 0 Entering state 89
+On stack 0, shifting token SEMICOLON ()
+, now in state #186
+Stack 1 Entering state 318
+Reduced stack 1 by rule #162; action deferred. Now in state 181.
+Stack 1 Entering state 181
+Reduced stack 1 by rule #159; action deferred. Now in state 180.
+Stack 1 Entering state 180
+Stack 1 dies.
+Stack 2 Entering state 278
+Reduced stack 2 by rule #154; action deferred. Now in state 239.
+Stack 2 Entering state 239
+Reduced stack 2 by rule #145; action deferred. Now in state 174.
+Stack 2 Entering state 174
+Reduced stack 2 by rule #93; action deferred. Now in state 172.
+Stack 2 Entering state 172
+Reduced stack 2 by rule #91; action deferred. Now in state 171.
+Stack 2 Entering state 171
+On stack 2, shifting token SEMICOLON ()
+, now in state #238
+Stack 3 Entering state 319
+Reduced stack 3 by rule #160; action deferred. Now in state 181.
+Stack 3 Entering state 181
+Reduced stack 3 by rule #159; action deferred. Now in state 180.
+Stack 3 Entering state 180
+Stack 3 dies.
+Removing dead stacks.
+Rename stack 2 -> 1.
+Stack 0 Entering state 186
+Reduced stack 0 by rule #211; action deferred. Now in state 87.
+Stack 0 Entering state 87
+Reduced stack 0 by rule #203; action deferred. Now in state 85.
+Stack 0 Entering state 85
+Reduced stack 0 by rule #3; action deferred. Now in state 51.
+Stack 0 Entering state 51
+Reduced stack 0 by rule #1; action deferred. Now in state 50.
+Stack 0 Entering state 50
+Reading a token: Next token is token $end ()
+On stack 0, shifting token $end ()
+, now in state #126
+Stack 1 Entering state 238
+Reduced stack 1 by rule #84; action deferred. Now in state 71.
+Stack 1 Entering state 71
+Reduced stack 1 by rule #225; action deferred. Now in state 92.
+Stack 1 Entering state 92
+Reduced stack 1 by rule #2; action deferred. Now in state 51.
+Stack 1 Entering state 51
+Reduced stack 1 by rule #1; action deferred. Now in state 50.
+Merging stack 1 into stack 0.
+Removing dead stacks.
+Returning to deterministic operation.
+Entering state 126
+>2 IDENT< IDENT ( IDENT ) ; pref 3
+ES
+statement

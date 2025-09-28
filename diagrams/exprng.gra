@@ -1,0 +1,35 @@
+
+.ps 8
+
+.G1
+
+# exprng.g, 10 Mar 02
+# built on: Thu Jan 24 01:48:18 GMT 2008
+
+graph Q_1
+
+frame invis ht 1.5 wid 2.2*1.5 left solid bot solid
+
+coord x -102,102 y 0.9,48 log y
+
+label bot "Exponent value"
+# using left shift the graph underneath
+label left "\fIfloating-constant\fRs"
+
+#ticks bot out at -40, -30 "", -20, -10 "", 0, 10 "", 20, 30 "", 40
+ticks left out at 1, 10 "10"
+
+copy "exprng.d" thru {
+   times size -1 at $1, $2
+}
+copy "exprng.dh" thru {
+   bullet at $1, $2
+}
+
+times  at 70,48/2
+".c files" ljust at 75,48/2
+bullet  at 70,48/3
+".h files" ljust at 75,48/3
+
+.G2
+

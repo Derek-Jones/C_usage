@@ -1,0 +1,225 @@
+
+#ifndef __STD_IOS
+#define __STD_IOS
+
+#include <iosfwd>
+#include "ios_types.h"
+
+#ifndef HAVE_FPOS
+#define HAVE_FPOS
+namespace std
+{
+   template <class> class fpos;
+	typedef long _STATE;
+   typedef fpos <_STATE> streampos;
+   typedef fpos <_STATE> wstreampos;
+   //typedef fpos <char_traits<char>::state_type>    streampos;
+   //typedef fpos <char_traits<wchar_t>::state_type> wstreampos;
+}   
+
+#endif
+
+namespace std
+{
+
+   class ios_base;
+   //class basic_ios;
+
+   // 27.4.5, manipulators:
+
+   ios_base& boolalpha(ios_base&);
+   ios_base& noboolalpha(ios_base&);
+
+   ios_base& showbase(ios_base&);
+   ios_base& noshowbase(ios_base&);
+
+   ios_base& showpoint(ios_base&);
+   ios_base& noshowpoint(ios_base&);
+
+   ios_base& showpos(ios_base&);
+   ios_base& noshowpos(ios_base&);
+
+   ios_base& skipws(ios_base&);
+   ios_base& noskipws(ios_base&);
+
+   ios_base& uppercase(ios_base&);
+   ios_base& nouppercase(ios_base&);
+
+   // 27.4.5.2, adjustfield:
+
+   ios_base& internal(ios_base&);
+   ios_base& left(ios_base&);
+   ios_base& right(ios_base&);
+
+   // 27.4.5.3, basefield:
+
+   ios_base& dec(ios_base&);
+   ios_base& hex(ios_base&);
+   ios_base& oct(ios_base&);
+
+   // 27.4.5.4, floatfield:
+
+   ios_base& fixed(ios_base&);
+   ios_base& scientific(ios_base&);
+
+} // end namespace std
+
+//#include <locale>
+
+namespace std
+{
+   class locale;
+
+   class ios_base
+   {
+   public:
+      class failure;
+
+      typedef unsigned fmtflags;
+      static const fmtflags boolalpha;
+      static const fmtflags dec;
+      static const fmtflags fixed;
+      static const fmtflags hex;
+      static const fmtflags internal;
+      static const fmtflags left;
+      static const fmtflags oct;
+      static const fmtflags right;
+      static const fmtflags scientific;
+      static const fmtflags showbase;
+      static const fmtflags showpoint;
+      static const fmtflags showpos;
+      static const fmtflags skipws;
+      static const fmtflags unitbuf;
+      static const fmtflags uppercase;
+      static const fmtflags adjustfield;
+      static const fmtflags basefield;
+      static const fmtflags floatfield;
+
+      typedef unsigned iostate;
+      static const iostate badbit;
+      static const iostate eofbit;
+      static const iostate failbit;
+      static const iostate goodbit;
+
+      typedef unsigned openmode;
+      static const openmode app;
+      static const openmode ate;
+      static const openmode binary;
+      static const openmode in;
+      static const openmode out;
+      static const openmode trunc;
+
+      typedef unsigned seekdir;
+      static const seekdir beg;
+      static const seekdir cur;
+      static const seekdir end;
+
+      class Init;
+
+      fmtflags flags() const;
+      fmtflags flags(fmtflags);
+      fmtflags setf(fmtflags);
+      fmtflags setf(fmtflags, fmtflags);
+      void unsetf(fmtflags);
+
+      streamsize precision() const;
+      streamsize precision(streamsize) const;
+      streamsize width() const;
+      streamsize width(streamsize) const;
+
+      locale imbue(const locale& loc);
+      locale getloc() const;
+
+      static int xalloc();
+      long& iword(int);
+      void*& pword(int);
+
+      virtual ~ios_base();
+
+      enum event { erase_event, imbue_event, copyfmt_event };
+      typedef void (*event_callback)(event, ios_base&, int);
+      void register_callback(event_callback, int);
+
+      static bool sync_with_stdio(bool = true);
+
+   protected:
+      ios_base();
+   };
+
+   template<class charT, class traits>
+   class basic_ios : public ios_base
+   {
+   public:
+      
+      typedef charT char_type;
+      typedef typename traits::int_type int_type;
+      typedef typename traits::pos_type pos_type;
+      typedef typename traits::off_type off_type;
+      typedef traits traits_type;
+
+
+      operator void*() const;
+      bool operator!() const;
+      iostate rdstate() const;
+      void clear(iostate state = goodbit);
+      void setstate(iostate);
+      bool good() const;
+      bool eof() const;
+      bool fail() const;
+      bool bad() const;
+
+      iostate exceptions() const;
+      void exceptions(iostate);
+
+      explicit basic_ios(basic_streambuf<charT,traits>*);
+      virtual ~basic_ios();
+
+      basic_ostream<charT,traits>* tie() const;
+      basic_ostream<charT,traits>* tie(basic_ostream<charT,traits>*);
+
+      basic_streambuf<charT,traits>* rdbuf() const;
+      basic_streambuf<charT,traits>* rdbuf(basic_streambuf<charT,traits>*);
+
+      basic_ios& copyfmt(const basic_ios&);
+ 
+      char_type fill() const;
+      char_type fill(char_type);
+
+      locale imbue(const locale&);
+
+      char narrow(char_type, char) const;
+      char_type widen(char) const;
+
+   protected:
+      basic_ios();
+      void init(basic_streambuf<charT,traits>*);
+
+   private:
+      basic_ios(const basic_ios&);
+      basic_ios& operator=(const basic_ios&);
+   };
+
+} // end namespace std
+
+#include <exception>
+#include <string>
+
+namespace std
+{
+   class ios_base::failure : public exception
+   {
+   public:
+      explicit failure(const string& msg);
+      virtual ~failure() throw();
+      virtual const char* what() const throw();
+   };
+
+   class ios_base::Init
+   {
+   public:
+      Init();
+      ~Init();
+   };
+}
+
+#endif

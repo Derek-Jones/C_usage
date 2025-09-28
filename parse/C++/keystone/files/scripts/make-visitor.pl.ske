@@ -1,0 +1,214 @@
+#!/usr/bin/perl -w
+
+use strict;
+use File::Spec::Functions qw(rel2abs);
+use File::Basename;
+
+#
+# Global Variables
+#
+  #
+  # User Options
+  #
+  my $visitParameter = "aNode";
+  my $visitSeparator = "//-----------------------------------------------------------------------------";
+
+  #
+  # Visitor base class header and skeleton
+  #
+  # ac_pkgincludedir and ac_pkgdatadir are substituted during the build
+  #
+  my $constVisitor    = "ac_pkgincludedir/SchemaConstVisitor.h";
+  my $nonconstVisitor = "ac_pkgincludedir/SchemaNonConstVisitor.h";
+  my $skeleton        = "ac_pkgdatadir/visitor.ske";
+
+  #
+  # Enforced naming conventions
+  #
+  my $filePrefix = "[Vv]isit";
+  my $fileSuffix = "[Vv]isit(?:or)?";
+
+
+#
+# Subprocedures
+#
+
+  sub makeIncludeGuard
+  {
+    my $name = shift;
+
+    $name =~ s/([a-z0-9A-Z])([A-Z])([a-z0-9])/$1_$2$3/g;
+    $name =~ tr/a-z/A-Z/;
+    $name = "_${name}_H_";
+  }
+
+
+#
+# Main
+#
+
+  open IFILE, $nonconstVisitor or die "Could not open $nonconstVisitor: $!\n";
+
+  #
+  # Query: name of visitor
+  #
+  print "Enter a name for the visitor: ";
+  my $name = <>;
+  chomp $name;
+
+  #
+  # Add fileSuffix if filePrefix or fileSuffix not found
+  #
+  if ( $name !~ /^$filePrefix|$fileSuffix$/ )
+  {
+    $name .= "Visitor";
+  }
+
+  #
+  # Const: const parameter methods
+  #
+  print "Should visit methods of $name have const parameters? [Y/N]: ";
+  my $constResponse = <>;
+  chomp $constResponse;
+
+  my $const = "";
+  if ( $constResponse =~ /^Y$|^y$/ )
+  {
+    $const = "const";
+  }
+
+  #
+  # Query: virtual visit methods
+  #
+  print "Should visit methods of $name be declared virtual? [Y/N]: ";
+  my $virtualResponse = <>;
+  chomp $virtualResponse;
+
+  my $virtual = "";
+  if ( $virtualResponse =~ /^Y$|^y$/ )
+  {
+    $virtual = "virtual";
+  }
+
+  #
+  # Query: member comments
+  #
+  print "Should extra comments be included? [Y/N]: ";
+  my $commentsResponse = <>;
+  chomp $commentsResponse;
+
+  my $comments = "none";
+  if ( $commentsResponse =~ /^Y$|^y$/ )
+  {
+    $comments = "skeleton";
+  }
+
+
+  #
+  # Open the generated visitor header and source files for writing
+  #
+  open HFILE,   ">$name.h"   or die "Could not open $name.h: $!\n";
+  open CPPFILE, ">$name.cpp" or die "Could not open $name.cpp: $!\n";
+
+  my $separator = "\n\n" . $visitSeparator . "\n\n";
+
+  my $constString   = ( length( $const   ) ? " " . $const : ""   );
+  my $virtualString = ( length( $virtual ) ? $virtual . " " : "" );
+
+  #
+  # Always generate header file
+  #
+  print HFILE '#ifndef ' . makeIncludeGuard( $name ) . "\n";
+  print HFILE '#define ' . makeIncludeGuard( $name ) . "\n\n";
+
+  if ( length( $constString ) )
+  {
+    print HFILE '#include "SchemaConstVisitor.h"' . "\n\n";
+    print HFILE "class $name : public SchemaConstVisitor\n{\n";
+  }
+  else
+  {
+    print HFILE '#include "SchemaNonConstVisitor.h"' . "\n\n";
+    print HFILE "class $name : public SchemaNonConstVisitor\n{\n";
+  }
+
+  print HFILE "public:\n";
+  print HFILE "  $name ( );\n";
+
+  while( <IFILE> )
+  {
+    #if( /virtual void visit \(\s*(\S+?)\s*\*\s\)/ )
+    if ( /virtual void visit \(\s*(c[A-Z][\w]+)\*\s*\)/ )
+    {
+      print HFILE   "  " . $virtualString . "void visit ($constString $1 * );\n";
+    }
+  }
+  print HFILE "};\n\n";
+  print HFILE "#endif\n";
+
+  #
+  # Output the beginning of the source file
+  #
+  print CPPFILE '#include "Ast.h"' . "\n";
+  print CPPFILE "#include \"$name.h\"";
+  print CPPFILE "${separator}";
+  print CPPFILE "${name}::${name} ( )\n{ }";
+  print CPPFILE "${separator}";
+
+  #
+  # Adjust separator if comments
+  #
+  if ( $comments ne "none" )
+  {
+    $separator = "\n" . $visitSeparator;
+  }
+
+  #
+  # Generate skeleton bodies or use skeleton file depending on comment level
+  #
+  if ( $comments eq "none" )
+  {
+    print CPPFILE "${separator}";
+
+    #
+    # Generate skeleton bodies
+    #
+    seek( IFILE, 0, 0 );
+    while( <IFILE> ) {
+      #if( /virtual void visit \(\s*(\S+?)\s*\*\s\)/ )
+      if ( /virtual void visit \(\s*(c[A-Z][\w]+)\*\s*\)/ )
+      {
+        print CPPFILE "void\n${name}::visit ($constString $1 *${visitParameter} )\n{\n}";
+        print CPPFILE "${separator}";
+      }
+    }
+  }
+  elsif ( $comments eq "skeleton" )
+  {
+    print CPPFILE "\n";
+
+    #
+    # Use Skeleton file
+    #
+    open SKELETON, $skeleton or die "Could not open $skeleton: $!\n";
+    my @skeleton = <SKELETON>;
+
+    foreach my $line ( @skeleton )
+    {
+      $line =~ s/\$\$NAME\$\$/$name/;
+      $line =~ s/\$\$PARAMETER\$\$/$visitParameter/;
+      $line =~ s/\$\$SEPARATOR\$\$/$separator/;
+      $line =~ s/\$\$CONST\$\$/$constString/;
+      print CPPFILE $line;
+    }
+  }
+
+  print "Generated: $name.h and $name.cpp\n";
+
+  #
+  # Close files
+  #
+  close IFILE;
+  close HFILE;
+  close CPPFILE;
+

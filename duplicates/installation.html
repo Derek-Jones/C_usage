@@ -1,0 +1,194 @@
+<html>
+    <head>
+        <title>Simian: Installation</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style"/>
+    </head>
+
+    <body>
+        <h3>Installation</h3>
+        <p>Simian is written using the Java programming language and thus requires a
+        <a href="http://www.java.com/en/index.jsp" target="_blank">Java Virtual Machine (JVM)</a> (version 1.3+) in
+        order to run.</p>
+
+        <p>To install, simply unzip the contents of the distribution zip file into a directory and choose one of the
+        various methods for running Simian:
+        <ul>
+            <li><a href="#checkstyle">Checkstyle plugin</a></li>
+            <li><a href="#ant">Ant task</a></li>
+            <li><a href="#cli">Command line interface</a></li>
+            <li><a href="#intelliJ">IntelliJ integration</a></li>
+            <li><a href="http://www.maven.org" target="_blank">Maven</a></li>
+            <li><a href="http://www.integility.com/simianui.html" target="_blank">Eclipse plugin</a></li>
+        </ul></p>
+
+        <a name="checkstyle"/>
+        <h3>Checkstyle Plugin</h3>
+        <p>This method allows you to integrate Simian with
+        <a href="http://checkstyle.sourceforge.net" target="_blank">Checkstyle 3+</a>. A remarkable java based code
+        checker.</p>
+
+        <p>First, ensure the simian.jar file is on the classpath. Next, add the check to your configuiration file.
+        (Note: The plugin runs as a FileSetCheck):
+        <pre>    &lt;module name="Checker"&gt;
+        ...
+
+        &lt;module name="au.com.redhillconsulting.simian.SimianCheck"/&gt;
+    &lt;/module&gt;</pre></p>
+
+        <p>To change the minimum number of lines that is considered a match:
+        <pre>    &lt;module name="au.com.redhillconsulting.simian.SimianCheck"/&gt;
+        &lt;property name="threshold" value="6"/&gt;
+    &lt;module/&gt;</pre></p>
+
+        <p>To force the language used for processing:
+        <pre>    &lt;module name="au.com.redhillconsulting.simian.SimianCheck"/&gt;
+        &lt;property name="language" value="java"/&gt;
+    &lt;module/&gt;</pre></p>
+
+        <a name="ant"/>
+        <h3>Ant Task</h3>
+        <p>This method allows you to integrate Simian with the <a href="http://ant.apache.org" target="_blank">Ant</a>,
+        a java based build tool.</p>
+
+        <p>Somewhere in your build.xml file, define the task:
+        <pre>    &lt;taskdef resource="simiantask.properties" classpath="simian.jar"/&gt;</pre></p>
+
+        <p>And finally, create a target to run the checker. For all defaults:
+        <pre>    &lt;simian&gt;
+        &lt;fileset dir="${src.main.dir}" includes="**/*.java"/&gt;
+    &lt;/simian&gt;</pre></p>
+
+        <p>To exclude test classes if they exists in the same tree as the source:
+        <pre>    &lt;simian threshold="6"&gt;
+        &lt;fileset dir="${src.main.dir}" includes="**/*.java" excludes="**/*Test.java"/&gt;
+    &lt;/simian&gt;</pre></p>
+
+        <p>To change the minimum number of lines that is considered a match:
+        <pre>    &lt;simian threshold="6"&gt;
+        &lt;fileset dir="${src.main.dir}" includes="**/*.java"/&gt;
+    &lt;/simian&gt;</pre></p>
+
+        <p>To force the language used for processing:
+        <pre>    &lt;simian language="java"&gt;
+        &lt;fileset dir="${src.main.dir}" includes="**/*.*"/&gt;
+    &lt;/simian&gt;</pre></p>
+
+        <p>To have the build fail one or more matches are found:
+        <pre>    &lt;simian failOnDuplication="true"&gt;
+        &lt;fileset dir="${src.main.dir}" includes="**/*.java"/&gt;
+    &lt;/simian&gt;</pre></p>
+
+        <p>To set a build property if one or more matches are found:
+        <pre>    &lt;simian failureProperty="test.failure"&gt;
+        &lt;fileset dir="${src.main.dir}" includes="**/*.java"/&gt;
+    &lt;/simian&gt;</pre></p>
+
+        <p>By default, Simian outputs plain text using the default Ant logger. You can override this by using the nested
+        <tt>formatter</tt> element. The <tt>formatter</tt> takes a <tt>type</tt> (either <tt>"plain"</tt> or
+        <tt>"xml"</tt>) and an optional filename (<tt>toFile</tt>). For example, to send output to a file:
+        <pre>    &lt;simian&gt;
+        &lt;formatter type="plain" toFile="simian-log.txt"/&gt;
+    &lt;/simian&gt;</pre></p>
+
+        <p>To produce XML output:
+        <pre>    &lt;simian&gt;
+        &lt;formatter type="xml" toFile="simian-log.xml"/&gt;
+    &lt;/simian&gt;</pre></p>
+
+        <p>You may specify any number of formatter elements allowing you to produce both XML and plain text output if
+        necessary</p>
+
+        <a name="cli"/>
+        <h3>Command Line Interface</h3>
+        <p>This method allows you to execute Simian from the command line, shell scripts, batch files, etc. scanning a directory
+        for all files matching a pattern. It can optionally recurse through sub directories.</p>
+
+        <p>The general form is:</p>
+        <pre>
+    java -jar simian.jar [options] files</pre>
+
+        <p>The <tt>filespec</tt> can be any regular file mask (defaults to <tt>*.java</tt>). You can use a question mark
+        (<tt>?</tt>) to match a single character, an asterisk (<tt>*</tt>) to match any number of characters and a comma
+        (<tt>,</tt>) to separate file masks.</p>
+
+        <p>The <tt>filespec</tt> also supports regular expressions for filenames (excluding directory names and the
+        exceptions stated above).</p>
+
+        <p>Be sure to surround the <tt>filespec</tt> in quotes to prevent command line interpreters from attempting to
+        expand the filespec into a list of files which will be interpreted by Simian as a invalid parameters. The
+        command line interface performs its own recursive searching based on the <tt>filespec</tt> provided.</p>
+
+        <p>For example, to find all java files in all sub-directpories:</p>
+        <pre>    -recurse=*.java</pre></p>
+
+        <p>To find all java files in the current directory and set the threshold to 3:</p>
+        <pre>    -threshold=3 *.java</pre></p>
+
+        <p>To find all C# files:
+        <pre>    *.cs</pre></p>
+
+        <p>To find all C# and java files in all sub-directories:
+        <pre>    -recurse=*.cs,*.java</pre></p>
+
+        <p>To find all java files in two different directories:
+        <pre>    -recurse=/csharp-source/*.cs -recurse=/java-source/*.java</pre></p>
+
+        <p>To find all java files in all sub-directories, excluding Test classes:
+        <pre>    -recurse=&quot;*[^T][^e][^s][^t].java&quot;</pre></p>
+
+        <p>To find all java files in the current directory and ignore numbers:
+        <pre>    -ignoreNumbers &quot;*.java&quot;</pre></p>
+
+        <p>To find all java files and display the results in xml format:
+        <pre>    -formatter=xml &quot;*.rb&quot;</pre></p>
+
+        <p>To find all ruby files and sends the results in emacs compatible format to a file:
+        <pre>    -formatter=emacs,c:\temp\simian.log &quot;*.rb&quot;</pre></p>
+
+        <a name="intellij"/>
+        <h3>IntelliJ Integration</h3>
+        <p>This method allows you to integrate Simian with
+        <a href="http://www.intellij.com" target="_blank">IntelliJ</a> as an external tool. This will then allow you to
+        run simian from within IntelliJ and go straight to any matches by clicking on the file location.</p>
+
+        <p>This is really a short-cut way to define the tool using <tt>Options|External Tools</tt>.</p>
+
+        <p>Open the <tt>_.xml</tt> file in the <tt>config/tools</tt> directory of the your intellij settings (usually
+        under the intellij home directory or under your home directory as <tt>.IntelliJIdea</tt>).</p>
+
+        <p>Add the following block:
+        <pre>    &lt;tool name="Simian" showInMainMenu="true" showInEditor="true" showInProject="true"
+          showInSearchPopup="true" disabled="false" useConsole="true" synchronizeAfterRun="true"&gt;
+    &lt;exec&gt;
+      &lt;option name="COMMAND" value="$JDKPath$\bin\java.exe" /&gt;
+      &lt;option name="PARAMETERS" value="-jar simian.jar -recurse:$FilePath$" /&gt;
+      &lt;option name="WORKING_DIRECTORY" /&gt;
+    &lt;/exec&gt;
+    &lt;filter&gt;
+      &lt;option name="NAME" value="Duplicate Location" /&gt;
+      &lt;option name="DESCRIPTION" value="" /&gt;
+      &lt;option name="REGEXP" value=" Between lines $LINE$ and [0-9]* in $FILE_PATH$" /&gt;
+    &lt;/filter&gt;
+  &lt;/tool&gt;</pre></p>
+
+        <p>Make sure to put the full path to simian.jar in the <tt>PARAMETERS</tt> option and the appropriate java
+        runtime in the <tt>COMMAND</tt> option.</p>
+
+        <p>The <tt>PARAMETERS</tt> follows the general form of the <a href="#cli">command line interface</a> allowing
+        you to set parsing options, threshold, etc.</p>
+
+        <p>Re-start IntelliJ and you can click on <tt>Tools|Simian</tt>.</p>
+
+        <p>You should be able to click on the matching lines and go straight to the source code.</p>
+
+        <h3>Notes</h3>
+        <p>For most projects (including the nearly 400,000 LOC JDK 1.4 source base), the default VM size seems to be
+        adequate. If you encounter:
+        <pre>    Exception in thread "main" java.lang.OutOfMemoryError</pre></p>
+
+        <p>you will need to increase the VM heap size using the <tt>-mx</tt> JVM option.</p>
+
+        <hr>
+        <p align="center">Copyright &copy; 2003-04 RedHill Consulting Pty. Ltd.  All rights reserved.</p>
+    </body>
+</html>

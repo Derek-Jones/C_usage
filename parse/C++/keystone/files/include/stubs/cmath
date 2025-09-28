@@ -1,0 +1,81 @@
+
+#ifndef __STL_CMATH__
+#define __STL_CMATH__
+
+
+float abs(float);
+float acos(float);
+float asin(float);
+float atan(float);
+float atan2(float, float);
+float ceil(float);
+float cos(float);
+float cosh(float);
+float exp(float);
+float fabs(float);
+float floor(float);
+float fmod(float,float);
+float frexp(float,int*);
+float ldexp(float,int);
+float log(float);
+float log10(float);
+float modf(float, float*);
+float pow(float,float);
+float pow(float, int);
+float sin(float);
+float sinh(float);
+float sqrt(float);
+float tan(float);
+float tanh(float);
+
+long double abs(long double);
+long double acos(long double);
+long double asin(long double);
+long double atan(long double);
+long double atan2(long double, long double);
+long double ceil(long double);
+long double cos(long double);
+long double cosh(long double);
+long double exp(long double);
+long double fabs(long double);
+long double floor(long double);
+long double fmod(long double,long double);
+long double frexp(long double,int*);
+long double ldexp(long double,int);
+long double log(long double);
+long double log10(long double);
+long double modf(long double, long double*);
+long double pow(long double,long double);
+long double pow(long double, int);
+long double sin(long double);
+long double sinh(long double);
+long double sqrt(long double);
+long double tan(long double);
+long double tanh(long double);
+
+double abs(double);
+double acos(double);
+double asin(double);
+double atan(double);
+double atan2(double, double);
+double ceil(double);
+double cos(double);
+double cosh(double);
+double exp(double);
+double fabs(double);
+double floor(double);
+double fmod(double,double);
+double frexp(double,int*);
+double ldexp(double,int);
+double log(double);
+double log10(double);
+double modf(double, double*);
+double pow(double,double);
+double pow(double, int);
+double sin(double);
+double sinh(double);
+double sqrt(double);
+double tan(double);
+double tanh(double);
+
+#endif

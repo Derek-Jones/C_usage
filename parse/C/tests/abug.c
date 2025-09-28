@@ -1,0 +1,2 @@
+	
+	(MAXRANDOMNAMELEN)*sizeof(WCHAR);

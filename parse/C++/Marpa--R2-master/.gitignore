@@ -1,0 +1,12 @@
+basic_test.out
+full_test.out
+rebuild.out
+releng.out
+single_test.out
+*.swp
+[.]DS_store
+errs
+junk
+/nogit/
+nogit*
+*.exe

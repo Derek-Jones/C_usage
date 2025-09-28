@@ -1,0 +1,6 @@
+#ifndef _CCTYPE_
+#define _CCTYPE_
+namespace std {
+#include <ctype.h>
+}
+#endif

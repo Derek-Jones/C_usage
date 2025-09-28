@@ -1,0 +1,118 @@
+/*
+ *  ParserOperations.tc
+ *
+ *  Copyright (C) 2000-2004 by
+ *
+ *    Department of Computer Science, Clemson University,
+ *    Department of Computer Science, National University of Ireland, Maynooth.
+ * 
+ *  http://keystone.sourceforge.net
+ *
+ *  <keystone@cs.clemson.edu>
+ *
+ *  Keystone is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Keystone is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ */
+
+%operation %virtual NameDeclaration* getKeyDecl ( [cExpressionBase*] )
+%operation %virtual Type*            getKeyType ( [cIdentifier*]     )
+
+
+////////////////////////////////////////////////////////////////////////////////
+/// getKeyDecl
+////////////////////////////////////////////////////////////////////////////////
+
+getKeyDecl( cNameReference )       { return mNameDeclaration; }
+getKeyDecl( cNewExpression )       { return mType->mNameDeclaration; }
+getKeyDecl( cConditionDeclarator ) { return mObject->mNameDeclaration; }
+
+getKeyDecl( cUnaryOperator )
+{ /* XXX */
+  if ( cExpression* e = dynamic_cast<cExpression*>( mOperand ) )
+  {
+    return e->getKeyDecl();
+  }
+  else
+  {
+    return 0;
+  }
+}
+getKeyDecl( cBinaryOperator )
+{ /* XXX */
+  if ( mRhs )
+  {
+    return mRhs->getKeyDecl();
+  }
+
+  if ( cExpressionBase* e = dynamic_cast<cExpressionBase*>( mLhs ) )
+  {
+    return e->getKeyDecl();
+  }
+
+  return 0;
+}
+getKeyDecl( cTernaryOperator ) { /* XXX */ return mTrueExpression->getKeyDecl(); }
+
+getKeyDecl( cLiteral ),
+getKeyDecl( cFunctionArgumentList ),
+getKeyDecl( cEmptyExpression ),
+getKeyDecl( cInitializerList ),
+getKeyDecl( cDeleteExpression ),
+getKeyDecl( cThrowExpression )
+{
+  return 0;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+/// getKeyType
+////////////////////////////////////////////////////////////////////////////////
+
+getKeyType( cFunctionParameter )        { return mType->getKeyType(); }
+getKeyType( cBuiltInType )              { return mBasicType; }
+getKeyType( cAliasType )                { return mAliasedType->getKeyType(); }
+getKeyType( cEnumerationType )          { return mEnumType; }
+getKeyType( cIndirectType )             { return mIndirectType; }
+getKeyType( cNonTypeTemplateParameter ) { return mType->getKeyType(); }
+
+getKeyType( cFunctionType ),
+getKeyType( cFunctionTypeInformation )
+{
+  return mFunctionType;
+}
+
+getKeyType( cClassTypeInterface ),
+getKeyType( cForwardTypeInterface )
+{
+  return mNameDeclaration->getType();
+}
+
+getKeyType( cEnumerator ),
+getKeyType( cObject ),
+getKeyType( cObjectList ),
+getKeyType( cFunctionParameterList ),
+getKeyType( cQualifierType ),
+getKeyType( cLabel ),
+getKeyType( cFunctionInterface ),
+getKeyType( cScope ),
+getKeyType( cTypeTemplateParameter ),
+getKeyType( cTemplateTemplateParameter ),
+getKeyType( cTemplateParameterList ),
+getKeyType( cExceptionDeclaration )
+{
+  return 0;
+}
+
+

@@ -1,0 +1,4 @@
+#echo "$1" > /dev/tty
+242 "$1"
+#ps -al > /dev/tty
+cat "$1"

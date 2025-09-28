@@ -1,0 +1,139 @@
+.FILE tref.c
+.DATE Sep  1 2003
+.TIME 17:33:03
+.VERSION 1.4
+#
+.START tref.c
+.ERR     1  11 9504 6 0 "a"
+.ERR     1  11 9523 6 0 "a"
+.ERR     2   7 9500 6 0 "st"
+.ERR     3  14 9506 6 0 "m0"
+.ERR     4   7 9506 6 0 "m1"
+.ERR     6  15 9506 6 0 "m21"
+.ERR     7   5 9506 6 0 "m2"
+.ERR     8   8 9504 6 0 "so1"
+.ERR     8   8 9523 6 0 "so1"
+.ERR     9  11 9504 6 0 "so2"
+.ERR     9  11 9523 6 0 "so2"
+.ERR    11   8 4045 5 0 "glob"
+.ERR    12   9 9504 6 0 "glob1"
+.ERR    12   9 9523 6 0 "glob1"
+.ERR    13   9 9504 6 0 "glob2"
+.ERR    13   9 9523 6 0 "glob2"
+.ERR    14   9 9504 6 0 "glob3"
+.ERR    14   9 9523 6 0 "glob3"
+.ERR    15   9 9504 6 0 "glob4"
+.ERR    15   9 9523 6 0 "glob4"
+.ERR    16   9 9504 6 0 "glob5"
+.ERR    16   9 9523 6 0 "glob5"
+.ERR    17   8 9504 6 0 "bolg"
+.ERR    17   8 9523 6 0 "bolg"
+.ERR    18   9 9504 6 0 "bolg1"
+.ERR    18   9 9523 6 0 "bolg1"
+.ERR    19   9 9504 6 0 "bolg2"
+.ERR    19   9 9523 6 0 "bolg2"
+.ERR    20   9 9504 6 0 "bolg3"
+.ERR    20   9 9523 6 0 "bolg3"
+.ERR    21   9 9504 6 0 "bolg4"
+.ERR    21   9 9523 6 0 "bolg4"
+.ERR    22   9 9504 6 0 "bolg5"
+.ERR    22   9 9523 6 0 "bolg5"
+.ERR    24  14 9508 6 0 "g"
+.ERR    24  14 9525 6 0 "g"
+.ERR    27   1 9508 6 0 "f"
+.ERR    27   1 9525 6 0 "f"
+#
+.FUNC f 27
+.ERR    28   4 9505 6 0 "loc"
+.ACC EXTERN glob 28
+.ERR    29   2 454 5 0
+.ERR    29   5 454 5 0
+.ACC EXTERN a 29
+.ACC EXTERN a 30
+.ACC EXTERN glob1 30
+.ACC EXTERN glob2 30
+.MOD EXTERN so1.m0 31
+.ACC EXTERN so1.m1 32
+.ACC EXTERN glob3 32
+.ACC EXTERN glob4 33
+.ACC EXTERN so2[]->.m1 33
+.ACC EXTERN glob5 33
+.ERR    35   7 1362 4 0
+.CALL g 35 int int int int
+.MOD EXTERN so1.m0 35
+.ACC EXTERN bolg 35
+.ACC EXTERN bolg1 35
+.ACC EXTERN bolg2 35
+.ERR    36   7 1362 4 0
+.ERR    36   9 516 5 0
+.CALL g 36 int int
+.ACC EXTERN so1.m1 36
+.ACC EXTERN bolg3 36
+.ERR    37   0 1756 5 0 "loc"
+.LOCAL loc scope 2  used 0 set 1 size 4 IDENT int
+.METRICS
+STMTS 7 UNIQ_PPLITS 6 UNIQ_LITS 6 UNIQ_PPIDS 18 
+UNIQ_IDS 14 LINES 10 B_LINES 1 CHARS 149 
+B_CHARS 13 EXPR_COMPLEX 8 E_IDENT_COUNT 19 E_LIT_COUNT 8 
+E_OP_COUNT 33 UNIQ_OPS 6 EDGES 1 NODES 2 
+.PPTOKS
+OPEN_RND 2 CLOSE_RND 2 DOT 5 COMMA 2 
+SEMICOLON 8 OPEN_SQUARE 8 CLOSE_SQUARE 8 ASSIGN 8 
+IDENTIFIER 26 EOLN 10 PP_NUMBER 8 
+.TOKS
+INT 1 OPEN_RND 2 CLOSE_RND 2 DOT 5 
+COMMA 2 SEMICOLON 8 OPEN_SQUARE 8 CLOSE_SQUARE 8 
+ASSIGN 8 LITERAL 8 IDENTIFIER 25 
+.END
+.GLOBAL
+bolg5 EXTERNAL defined 0 used 0 set 0 size 4 IDENT int
+glob5 EXTERNAL defined 0 used 1 set 0 size 4 IDENT int
+so2 EXTERNAL defined 0 used 1 set 1 size 60 IDENT arraystruct
+bolg3 EXTERNAL defined 0 used 1 set 0 size 4 IDENT int
+glob3 EXTERNAL defined 0 used 1 set 0 size 4 IDENT int
+g EXTERNAL defined 0 used 1 set 0 FUNC
+glob1 EXTERNAL defined 0 used 1 set 0 size 4 IDENT int
+bolg1 EXTERNAL defined 0 used 1 set 0 size 4 IDENT int
+bolg EXTERNAL defined 0 used 1 set 0 size 4 IDENT int
+glob EXTERNAL defined 0 used 1 set 0 size 4 IDENT int
+f EXTERNAL defined 1 used 1 set 0 FUNC
+a EXTERNAL defined 0 used 1 set 2 size 32 IDENT arrayarrayint
+bolg4 EXTERNAL defined 0 used 0 set 0 size 4 IDENT int
+so1 EXTERNAL defined 0 used 1 set 2 size 20 IDENT struct
+glob4 EXTERNAL defined 0 used 1 set 0 size 4 IDENT int
+glob2 EXTERNAL defined 0 used 1 set 0 size 4 IDENT int
+bolg2 EXTERNAL defined 0 used 1 set 0 size 4 IDENT int
+st used 0 TAG
+.METRICS
+CHARS 435 B_CHARS 149 LINES 38 B_LINES 5 
+.PPTOKS
+OPEN_RND 4 CLOSE_RND 4 DOT 5 COMMA 13 
+SEMICOLON 17 OPEN_CURL 3 CLOSE_CURL 3 OPEN_SQUARE 12 
+CLOSE_SQUARE 12 ASSIGN 8 IDENTIFIER 60 EOLN 40 
+PP_NUMBER 12 
+.TOKS
+EXTERN 1 INT 8 VOID 2 STRUCT 2 
+OPEN_RND 4 CLOSE_RND 4 DOT 5 COMMA 13 
+SEMICOLON 17 OPEN_CURL 3 CLOSE_CURL 3 OPEN_SQUARE 12 
+CLOSE_SQUARE 12 ASSIGN 8 LITERAL 12 IDENTIFIER 47 
+.END tref.c
+.ERR    38   0 1762 5 0 "g"
+.ERR    38   0 1778 5 0 "bolg5"
+.ERR    38   0 1775 5 0 "bolg5"
+.ERR    38   0 1778 5 0 "glob5"
+.ERR    38   0 1778 5 0 "so2"
+.ERR    38   0 1778 5 0 "bolg3"
+.ERR    38   0 1778 5 0 "glob3"
+.ERR    38   0 1778 5 0 "g"
+.ERR    38   0 1778 5 0 "glob1"
+.ERR    38   0 1778 5 0 "bolg1"
+.ERR    38   0 1778 5 0 "bolg"
+.ERR    38   0 1778 5 0 "glob"
+.ERR    38   0 1778 5 0 "f"
+.ERR    38   0 1778 5 0 "a"
+.ERR    38   0 1778 5 0 "bolg4"
+.ERR    38   0 1775 5 0 "bolg4"
+.ERR    38   0 1778 5 0 "so1"
+.ERR    38   0 1778 5 0 "glob4"
+.ERR    38   0 1778 5 0 "glob2"
+.ERR    38   0 1778 5 0 "bolg2"

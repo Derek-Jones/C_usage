@@ -1,0 +1,7 @@
+IDENT ## IDENT ,, 70.2
+, ## IDENT ,, 24.2
+IDENT ## IDENT ## IDENT ,, 15.7
+others ,, 4.8
+INT_CONST ## IDENT ,, 1.8
+INT_CONST ## IDENT ## INT_CONST ,, 1.0
+IDENT ## INT_CONST ,, 1.0

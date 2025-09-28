@@ -1,0 +1,61 @@
+
+.ps 8
+
+.G1
+
+# fltconst.g, 11 Jul 03
+# built on: Thu Jan 24 01:48:18 GMT 2008
+
+graph Q_1
+
+frame invis ht 1.5 wid 2.2 left solid bot solid
+
+coord x -42,42 y 0.9,24654 log y
+
+label bot "characters before dp      characters after dp "
+label left "\fIfloating-constant\fRs" ""
+
+tick bot at -40 "40", -30 "30", -20 "20", -15 "", -10 "10", -5 "", 0 "dp", 5 "", 10, 15 "", 20, 30, 40
+ticks left out at 1, 10 "10", 100 "100", 1000 "1,000", 10000 "10,000"
+
+copy "fltconst.d" thru {
+   times at -$1, $6
+   times at $1, $7
+}
+copy "fltconst.dh" thru {
+   bullet at -$1, $6
+   bullet at $1, $7
+}
+
+times  at 24,24654/3
+".c files" ljust at 26,24654/3
+bullet  at 24,24654/8
+".h files" ljust at 26,24654/8
+
+graph Q_2 with .Frame.w at Q_1.e - (0.1, 0)
+
+frame invis ht 1.5 wid 2.2 left solid bot solid
+
+coord x 0,31 y 0.9,24654 log y
+
+label bot "Digits in \fIfloating-constant\fR"
+#label left "occurrences" ""
+
+ticks left out at 1 "", 10 "", 100 "", 1000 "", 10000 ""
+
+# subtract 1 for the decimal point
+
+copy "fltconst.d" thru {
+   times at $1, $5-1
+}
+copy "fltconst.dh" thru {
+   bullet at $1, $5-1
+}
+
+times  at 24,24654/3
+".c files" ljust at 26,24654/3
+bullet  at 24,24654/8
+".h files" ljust at 26,24654/8
+
+.G2
+

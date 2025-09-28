@@ -1,0 +1,53 @@
+# idcase.mkt,  3 Dec 03
+#
+# Calculate the number of identifiers containing different
+# characters.
+#
+
+BEGIN {
+	files_seen=0
+	header_str=" "
+	}
+
+NF == 1 {
+        cur_file=$1
+	files_seen++
+	first_line=1
+	bracket=0
+        row_num=0
+	header_str=header_str " ,, " $0
+	next
+	}
+
+	{
+	index_str=$1
+	for (s=2; s < NF; s++)
+	   index_str=index_str " " $s
+	row_num++
+	if (files_seen == 1)
+	   tab_line[row_num]=index_str
+	if (first_line == "1") {
+	   first_line=index_str
+	   tab_line[row_num]=tab_line[row_num] " ,, " $NF
+	} else {
+	   if (first_line == index_str) {
+	      bracket=1
+	      max_row=row_num
+	      row_num=1
+	      files_seen++
+	      }
+	   if (bracket == 0) {
+	      tab_line[row_num]=tab_line[row_num] " ,, " $NF
+	   } else {
+	      tab_line[row_num]=tab_line[row_num] " (" $NF ")"
+	   }
+	}
+	next
+	}
+
+END {
+    print header_str
+    for (row=1; row < max_row; row++) {
+       print tab_line[row]
+       }
+    }

@@ -1,0 +1,5 @@
+not an escape sequence ,, 76.1
+<c_syntax>simple-escape-sequence</c_syntax> ,, 8.8
+<c_syntax>octal-escape-sequence</c_syntax> ,, 15.1
+<c_syntax>hexadecimal-escape-sequence</c_syntax> ,, 0.0
+<c_syntax>universal-character-name</c_syntax> ,, 0.0

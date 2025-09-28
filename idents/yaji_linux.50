@@ -1,0 +1,51 @@
+device 3169		mouse, keyboard, screen, logical device
+mode 3215		aspect, option
+EFAULT 3216		problem, defect
+base_addr 3217	base_addr in the assembly code
+v 3219		no idea
+esp 3221		no idea
+inline 3272		inline code
+msg 3307		message
+r 3354		no idea
+u_char 3426		user character
+kfree 3507		no idea
+ptr 3559		pointer
+sk_buff 3609	buffer
+devc 3610		device
+t 3653		no idea
+b 3696		no idea
+SCpnt 3702		Screen print, screen point, screen pointer
+start 3712		start, begin
+regs 3713		registers
+ch 3717		character
+stats 3735		statistics, static variables
+link 3750		connection, link
+id 3758		identity number
+current 3768	current, not previous, not next
+KERN_ERR 3793	kernel error
+dentry 3909		no idea
+base 3967		base value
+value 3992		value of a variable
+out 4063		output device or file
+q 4145		queue
+hostdata 4290	no idea
+retval 4296		return value, retrieval
+KERN_INFO 4331	Kernel information
+lock 4395		no idea
+outb 4428		output buffer
+d 4430		no idea
+np 4448		no idea
+st 4464		string
+sb 4479		no idea
+drive 4507		secondary memory, partition
+x 4585		no idea
+entry 4623		entry in a table
+sprintf 4651	stream printf
+page 4657		one screen full of text
+ha 4662		no idea
+result 4711		result of a computation
+length 4731		length of a string or queue
+n 4751		no idea
+var 4906		variable
+bh 5130		no idea
+addr 5236		memory address, port address
